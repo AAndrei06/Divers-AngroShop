@@ -145,7 +145,7 @@ buttonMoved = false;
 let setbuttontimeout;
 clearTimeout(setbuttontimeout);
 unsetBackupButton();
-const {scrollTop, scrollHeight} = document.documentElement;
+const {scrollTop} = document.documentElement;
 const scrollpixels = Math.round(scrollTop);
 
 let offsetStartEndSect = endSectionStart.offsetTop;
@@ -161,7 +161,7 @@ window.addEventListener("resize", () =>
   clearTimeout(setbuttontimeout);
   unsetBackupButton();
   
-  const {scrollTop, scrollHeight} = document.documentElement;
+  const {scrollTop} = document.documentElement;
   const scrollpixels = Math.round(scrollTop);
 
   let offsetStartEndSect = endSectionStart.offsetTop;
@@ -215,7 +215,6 @@ function setBackupButton()
       let BackupBttnSectionRect = endSectionStart.offsetTop;
       let backupOffset = window.innerWidth / 15;
       BackupBttnSectionRect = BackupBttnSectionRect - backupOffset;
-      backUpButton.classList.add('positioned-backup-button');
       backupbuttontopVar = BackupBttnSectionRect + 'px';
 
       backUpButton.classList.add('postion-backup-button-div');
@@ -226,9 +225,7 @@ function setBackupButton()
 
 function unsetBackupButton()
 {
-      backUpButton.classList.remove('positioned-backup-button');
       backUpButton.classList.remove('postion-backup-button-div');
-
       buttonMoved = false;
 }
 
@@ -239,7 +236,7 @@ const backUpbuttonObserver = new IntersectionObserver((entries) =>
 	entries.forEach((entry) =>
 	{
 
-		const {scrollTop, scrollHeight} = document.documentElement;
+		const {scrollTop} = document.documentElement;
   	const scrollpixels = Math.round(scrollTop);
 
 		let offsetStartEndSect = endSectionStart.offsetTop;
