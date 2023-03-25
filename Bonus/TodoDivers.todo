@@ -1,0 +1,413 @@
+Fiecare Problema la Divers Angro Shop:
+  ☐ Top Bar sus de tot are un fel de shadow leva
+  ☐ La produse, nu este deloc varietate intre carusele
+  ☐ La Produse, La Categorii iti ia prea mult sa dai scroll
+  ☐ La About us, La Echipa Noastra tot arata prea bland, ar trebui ceva mai unic
+  ☐ La End Section iconitele si textul este diferit de top bar
+  ☐ La About us, Butoanele la caruselul principal arata leva
+  ☐ Cand selectezi textul e greu sa-l deselectezi
+  ☐ La Contacte pe telefon popup-ul nu se duce bine,deoarece nu mai exista top-bar
+  ☐ La Stiri, pozele nu sunt editate si se incarca greu
+  ☐ In General animatia aia cu struggle nu imi place, necesit ceva mai bun
+  ☐ Siteul nu are o identitate, Este greu sa faci ceva cu {Diversive} in design
+  ☐ La end section, end start are o mica linie care se vede
+  ☐ Iconitele nu apar instant cand dai reload la site
+  ☐ Cand dau hover la caret-uri(sageti la carusel) imi apare un mic popup
+  ☐ Progress bar nu are gradient la final
+  ☐ La placeholder nu se cunoaste
+  ☐ Prea multe animatii
+  ☐ La Form putem folosi un library
+  ☐ Pagina de inceput e leva
+  ☐ Codul nu este sortat
+  ☐ Font de preferat sal schimbam
+  ☐ Iconitele se incarca greu
+
+
+
+
+
+
+Lucruri Bonus de Facut:
+  ☐ De pus triunghiuri cu bordere la Products page la initiere sau ceva mai mult SVG
+  ☐ Poate sa schimb fontul ca sa aiba si diacritice? si in sine sa schimba de la Roboto la Poppins
+  ☐ Ceva animatie progresiva care sa mearga pe tot parcursul la Products page, de ex: un mic svg langa scroll bar care sa iti arate la ce categorie esti | Ceva animatie svg cu cerc verde care sa mearga dea lungul paginii si sa aiba efecte clasna | 
+  ☐ La end section la linkuri punele in ordine
+  ☐ La top bar sa arate la ce pagina suntem cu underline
+  ☐ La carusel cand apesi apare hover effect cu blue(pune si la label anti google)
+  ☐ De adaugat cand apesi pe email sau pe numarul de telefon sa suni automat
+
+
+Lucruri de facut la proiect in sine:
+  
+  ✔ De facut niste poze de background @done (22-12-27 17:55)
+  ✔ Design pentru light mode si dark mode la logo | NU VOM AVEA LIGHT MODE @done (23-02-14 21:32)
+  ✔ Modifica{padding pentru top bar} si pune end-section la tot @done (23-02-19 17:11)
+  ✔ De editat toate 100 poze sa arate de standard ok | TOATE SA FIE CROPPED @done (23-02-23 01:30)
+  ✔ logoul mic trebuie sa fie transparent (unde este si titlul la pagina) @done (23-02-21 22:51)
+  ✔ Headr mai mici background pe telefon @done (23-02-21 22:51)
+  ✔ top bar logo mai mic @done (23-02-21 22:51)
+  ✔ Fala pe Andrei sa testeze tot @done (23-02-23 22:51)
+  ✔ Pe la final de proiect sa curat tot codul ce nu este folositor @done (23-02-23 22:51)
+  ✔ De scos toate fisierile nefolositoare @done (23-02-23 21:54)
+  ✔ Pune pozele la about us @done (23-02-23 01:30)
+  ✔ Pune pozele la produse @done (23-02-23 01:30)
+  ✔ Ultimele 2 carusele nu se rendeaza correct(au 4 puncte) @done (23-02-23 01:30)
+  ✔ Baga o poza buna ca logo @done (23-02-21 22:51)
+  ✔ La top bar cand apesi pe logo sa te duca la main page @done (23-02-19 00:02)
+  
+  ✔ Textul putin mai mic la end section pe tableta @done (23-02-21 23:15)
+  ✔ Rezolva problema cu overflowul | rezolvata? | CRED @done (23-02-19 19:00)
+  ✔ Cand apesi pe telefon pe un button arata tare leva , rezolva @done (23-02-19 00:02)
+  ✔ Problema cu backup button tot nu este rezolvata complet, daca te duci mai jos la end section atunci butonul iti revine @done (23-02-19 17:10)
+  ✔ Rezolva problema cu 2 sectiuni la about us si contact us || REZOLVAT @done (22-12-28 14:49)
+  ✔ {Design pentru pagina de promotii in sine} NU VOM AVEA PAGINA DE PROMOTII @done (23-01-25 21:20)
+  ✔ De facut poze de background mai bune NU MAI ESTE NECESAR @done (22-12-28 14:49)
+  ✔ Mai multe limbi | NU @done (23-02-18 20:42)
+  ✔ {Cookies} | NU @done (23-02-14 21:32)
+  ✔ Redesign la tot ce a facut Andrei @done (23-02-14 21:32)
+  ✔ Light Mode si Dark mode sa se tina minte @done (23-01-01 14:51)
+  ✔ Fa un end section GATA @done (23-01-25 21:20)
+  ✔ Primul Headar sa fie de o culoare diferita? NU @done (23-01-25 21:20)
+  ✔ Css cu toate proprietatile | show | header | buton | variabile | .. @done (23-01-15 14:26)
+  ✔ Fa Backgroundurile @done (23-01-27 23:32)
+  ✔ Rezolva problema cu alea 2 triunghiuri de la background @done (23-01-28 18:52)
+  ✔ Rezolva problema ca backgroundul are un fel de margin in stanga @done (23-01-28 18:52)
+  ✔ {ANUNT} || la stiri @done (23-01-25 21:20)
+
+Lucruri de facut in viata reala:
+  
+  ✔ Poza cu ownerul si cu stafful @done (23-02-21 22:51)
+  ✔ Numele la owner si la Staff @done (23-02-21 22:51)
+  ✔ {Owner descriere} / {Interview} NU MAI ESTE NECESAR @done (22-12-29 18:21)
+  ✔ De intrebat de promotii | NU @done (23-02-14 21:32)
+
+Idei pentru main page:
+
+  ✔ La dropdown la categorii si asa in sine sa fie inconite @done (22-12-29 18:21)
+  ✔ {Sort items || sa poti sorta de la ieftin la scump} NU @done (23-02-02 00:39)
+  ✔ Noutati || pagina unde vor fi noutatile cu Divers @done (22-12-29 18:21)
+  ✔ Sa fie iconite la categorii @done (22-12-29 18:21)
+  ✔ Bara sa vine in jos cand dai in jos @done (23-01-01 14:51)
+  ✔ Cand sa apas pe about us sau contact us sa ma duca la pagina respectiva @done (22-12-29 18:21)
+  ✔ Font diferit la pret NU @done (23-02-02 00:39)
+  ✔ lei la pret font mai mic nustiu @done (23-02-02 00:40)
+  ✔ Cand apesi pe o casuta sa ti-o arate mare NU @done (23-02-02 00:39)
+  ✔ {Sageata ca se te duci la urmatoarea pagina} NU @done (23-02-02 00:39)
+  ✔ Sa fie la about us top bar cand dai hover sa-ti arate de ex. orar,adresa,staff,NU @done (23-02-02 00:39)
+  ✔ Andrei top-bar animatie normala la linii ignora @done (23-02-02 00:39)
+  ✔ Animatie normala la hover ignora @done (23-02-02 00:39)
+  ✔ La main page sa fie o sectiune ce cele mai bune | Cele mai populare, de preferat cu carusel si ceva edit la poza | NU AVEM RECENZII @done (23-02-14 21:33)
+  ✔ {Sa fie review-uri} NU avem posibilitatea @done (23-02-02 00:40)
+
+Lucruri de facut la Produse:
+  
+  ✔ De sters tot contentul nenecesar @done (23-02-09 20:24)
+  ✔ Fa top-barul normal @done (23-02-09 20:24)
+  ✔ Adauga animatie la top-bar pe telefon | NU INTELEG @done (23-02-14 21:27)
+  ✔ {Fa ca Dark Mode chiar sa mearga} @done (23-02-09 20:24)
+  ✔ Pune culori normale @done (23-02-09 20:24)
+  ✔ Fa ca Categoriile sa aiba culori normale @done (23-02-09 21:34)
+  ✔ Fa ca cand dai hover sa fie un effect clasna @done (23-02-14 21:27)
+  ✔ La categorii pe telefon cand dai hover sa-ti arate ce este | NU ESTE POSBIL PENTRU CA ESTE PE TELEFON LOL , nu poti sa dai hover @done (23-02-14 21:27)
+  ✔ {Adauga ceva bonus intre categorii} | NU @done (23-02-19 19:00)
+  ✔ Backup button ca esti la end section si dai in jos iti vine la tine chiar daca nu ar trebui @done (23-02-18 19:08)
+  ✔ Fa un desgin la content | ADICA CONTENT?, dar am facut design @done (23-02-14 21:28)
+  ✔ Adauga toate schimbarile de la about_us -> butonul, end section, @done (23-02-14 21:28)
+  ✔ Carusele responsive la toate categoriile | GATA hihi 3 zile doar ;) @done (23-02-14 21:28)
+  ✔ La top-bar sa fie drop-down la produse si despre | NUMAI DACA AM TIMP LIBER | NU @done (23-02-18 23:30)
+  ✔ Adauga toate produsele in carusele @done (23-02-23 01:30)
+  ✔ Animatii de alea clasna @done (23-02-18 18:00)
+  ✔ Daca widow e mai mare decat 1350px atunci backup button nu se intoarce @done (23-02-18 17:18)
+  ✔ Pune ca de ex: daca esti la products page, atunci la top bar la produse sa fie underline | NU @done (23-02-16 19:28)
+  ✔ Adauga ceva de landing @done (23-02-09 20:25)
+  ✔ Fa ca produsele sa arate bine (design bun) @done (23-02-09 20:25)
+  ✔ Modifica tot codul @done (23-02-09 20:25)
+  ✔ Fa ca backup button sa nu aparaa pe telefon @done (23-02-18 01:40)
+
+Lucururi de facut la Stiri:
+  
+  ✔ Fa ca stirile sa arate bine(design bun) | fa un design in figma si fala si responsive @done (23-02-20 20:57)
+  ✔ Adauga tot de la about_us -> end section, backup button, topbar, culori etc @done (23-02-20 20:57)
+  ✔ Adauga mai multe stiri | ANDREI @done (23-02-20 20:57)
+  ✔ Adauga ceva bonus daca apesi pe stire | NU @done (23-02-20 20:57)
+  ✔ Adauga ceva effecte foarte clasna | LOL @done (23-02-18 20:44)
+  ✔ Link-uri catre facebook post la fiecare stire | {poate pentru Chisinau} | GATA @done (23-02-20 22:16)
+
+ 
+Lucruri de facut la About Us:
+
+  ✔ Bara de sus sa arate bine @done (22-12-26 18:29)
+  ✔ Poza cu magazinul in sine @done (22-12-26 18:29)
+  ✔ Divers descriere @done (22-12-27 18:05)
+  ✔ Staff section @done (22-12-26 20:58)
+  ✔ Animatii la 3 alea @done (22-12-26 20:58)
+  ✔ Owner section @done (22-12-26 20:58)
+  ✔ De vazut problema cu logul la divers @done (22-12-27 18:36)
+  ✔ Harta @done (22-12-27 18:22)
+  ✔ Ora de inceput si sfarsit | ORAR @done (22-12-27 17:56)
+  ✔ Sa dea slide-show cu Divers => main page? | o sa fie mai multe slide-show-uri @done (23-01-03 22:38)
+  ✔ Textul sa fie = cu ecranul @done (22-12-28 19:11)
+  ✔ Sa mearga si pe telefon media margin @done (22-12-28 19:11)
+  ✔ De adaugat la background pozele care le-am facut NU MAI ESTE NECESAR @done (22-12-28 19:11)
+  ✔ Style Header -- nam idee ce aveam in minte @done (22-12-29 15:22)
+  ✔ Adauga nume la proprietar @done (22-12-29 15:21)
+  ✔ Decidete daca sa fie si familia inclusa in nume NU VA FI INCLUSA IN NUME @done (22-12-29 15:21)
+  ✔ Fa Harta sa fie normala si sa dea scale cu vh @done (22-12-29 21:45)
+  ✔ Fa Harta sa fie tot ecranul @done (22-12-28 01:21)
+  ✔ Fa textul mai mic la ecranul full @done (22-12-29 21:44)
+  ✔ Harta mai mica la full screen dar plina la small screen @done (22-12-29 21:44)
+  ✔ Schimba culoarea de background @done (22-12-30 19:18)
+  ✔ Harta bagai un filter: invert(100%); la dark mode @done (22-12-30 16:07)
+  ✔ Adauga un background clasna la ceva | de preferat cu imagine @done (22-12-31 00:18)
+  ✔ Adauga ceva cand stafful este in coloana @done (23-01-01 19:33)
+  ✔ Font diferit la header @done (22-12-30 19:17)
+  ✔ Scoate animatia la background header @done (22-12-30 16:07)
+  ✔ Adauga ceva mai jos de orar. {Buton cu contacteazane!} {Main Page} {Buton care sa te duca in sus, si butonul orginal sa vina frumos cu animatie} @done (23-01-04 20:36)
+  ✔ Buton up shadow in loc de border-width: 1; @done (23-01-15 14:40)
+  ✔ Adauga mai multe la achizitii {Fotografii | slide-show} {mai multa informatie} {Buton cu pagina principala} @done (23-01-10 23:50)
+  ✔ Adauga ceva bonus la Orar {Buton spre sus} {} @done (23-01-07 21:25)
+  ✔ Ceva animatie la Header name | STANGA SI DREAPTA SA SE LIPEASCA || scale din mijloc sa se faca mare @done (22-12-30 22:54)
+  ✔ Mai jos dai mai mult se umble bara de sus || sa-ti arate progresul cu cat dai mai in jos @done (23-01-03 22:57)
+  ✔ Poza la Boss mai mica @done (23-01-01 19:34)
+  ✔ {Restructurare cod cu clamp in loc de media} NU @done (23-01-04 22:37)
+  ✔ Animatii mai bune @done (23-01-15 14:24)
+  ✔ Slide-show cu staff cand sunt in coloana | poate si cu ceva animatie clasna ;) @done (23-01-07 21:25)
+  ✔ Fa textul la boss mai mic @done (23-01-01 20:01)
+  ✔ {Efecte foarte clasna la slide show la full screen mode}  NUUU @done (23-01-03 22:57)
+  ✔ Animatie la scroll cu ceva fuzz pentru atentie la {Green text} DADADADADADADADADA @done (23-01-05 23:24)
+  ✔ Buton care sa te duca sus de tot @done (23-01-04 20:35)
+  ✔ Cand butonul este la final sa se duca mai jos de orar @done (23-01-04 22:37)
+  ✔ Pune top-bar @done (23-02-19 13:47)
+  ✔ Refa ceea ce nuti place @done (23-02-19 18:59)
+  ✔ {Light mode} | NU @done (23-02-13 19:19)
+  ✔ Adauga ceva informatie chiar folositoare la ABOUT US @done (23-02-19 14:19)
+  ✔ Schimba textul sa aiba diacritice @done (23-02-19 13:58)
+  ✔ Imbunatateste glowul @done (23-02-19 14:24)
+  ✔ Gaseste o metoda sa integrezi progress bar si top-bar @done (23-02-19 13:47)
+
+  ✔ {Video cu tur cu magazin speedup 2x?} ... NU @done (23-01-22 19:29)
+  ✔ In loc de orar sa fie textul ala? @done (23-01-25 20:54)
+  ✔ {Animatie la alea 3 poze de la staff} @done (23-01-24 22:43)
+  ✔ Ceva bonus la piramida {linii pe langa poza cu ----Owner----} @done (23-01-21 15:32)
+  ✔ Adauga ceva clasna la END SECTION SI ADAUGA SI CEVA CULOARE CLASNA :) @done (23-01-25 20:54)
+  ✔ Ceva de adaugat la owner dektop {Linii de la staff spre owner} {Poze sau vector, svg prin parti la owner} {Background} @done (23-02-19 14:46)
+  ✔ Spatiu la home si contact button mai mare pe telefon @done (23-01-29 13:21)
+  ✔ Background la carousel pe telefon mai mic @done (23-02-02 00:40)
+  ✔ La adresa backgroundul lai mic brightness @done (23-02-18 17:18)
+  ✔ FAQ NU @done (23-01-27 22:34)
+  ✔ Pune la mijlod butoanele de la staff @done (23-01-28 22:50)
+  ✔ Pune end section la general @done (23-01-25 21:19)
+  
+  ✔ Rezolva problema ca stafful nu apare | Incepe de la hidden @done (23-01-26 01:09)
+  ✔ Staff-Carousel animatie cand o vezi @done (23-01-26 01:09)
+  ✔ Adauga Background la Carusel @done (23-01-28 18:52)
+  ✔ {Program de lucru sa fie ca un TABEL} NU @done (23-01-25 21:18)
+  ✔ Scrie ceva la a 2-a tablita la descriere @done (23-01-25 21:18)
+  ✔ Fa ca pe telefon end section sa arate mai special nu cu HEADARURI|| hehe tehnic gata @done (23-01-25 21:18)
+  ✔ {Pe la final sa fie un fel de Multumesc pentru interesul tau fata de Divers ;) || Cacat de asta.. } NU @done (23-01-26 01:09)
+  ✔ Adauga content la sectiune {contacte email nr, telefon, Adresa, facebook, insta?, Celelalte pagini, copyright, } @done (23-01-24 22:37)
+  ✔ Progress bar gradient mai albish @done (23-01-24 23:17)
+  ✔ Border la harta si la primul carusel cand au border radius 0 @done (23-01-21 15:41)
+  ✔ Restructurare la Header-uri {Divers prima , carusel 1 al doilea, achizitii, staff, adresa, orar} @done (23-01-21 15:47)
+  ✔ Sa taiem sectiunea cu proprietarul si sa facem stil piramida cu el in sus si stafful in jos | NUMA LA DESKTOP @done (23-01-19 21:38)
+  ✔ Fa primul carusel fara border radius cand e pe telefon @done (23-01-19 21:11)
+  ✔ Adauga ceva bonus la Adresa {Background} {Buton cu contacteaza-ne} @done (23-01-22 19:29)
+  ✔ Schimba culoare de la border la carusel si la harta @done (23-01-22 19:12)
+  ✔ Animatie la Backup Button @done (23-01-21 19:14)
+  ✔ Fa ca backup buttonul sa ramana acolo @done (23-01-22 18:10)
+  ✔ Fa ca curves sa arate bine pe telefon | {Scoatele} {Sa fie alt fel de wave} @done (23-01-24 22:33)
+  ✔ Pune ca pe telefon sa fie creat deja butonul backup @done (23-01-22 19:11)
+  ✔ Caruselul la staf sa nu existe daca este pe Desktop @done (23-01-16 00:14)
+  ✔ Border la owner sa fie superlightgreen @done (23-01-19 20:59)
+  ✔ Owner border sa fie responsive @done (23-01-19 21:10)
+  ✔ Pune ca backup buttonu sa nu se duca pe stanga daca e mai jos de nustiu de 2000px de ex.. @done (23-01-24 23:10)
+  ✔ Adauga End Section @done (23-01-21 19:17)
+  ✔ Nume proprietar prea mare pe telefon @done (23-01-22 18:52)
+  ✔ Fix upButton | Arata ciudat pe telefon @done (23-01-22 18:54)
+  ✔ {Nume la caruselul de Staff} @done (23-01-21 16:20)
+  ✔ Harta sa aiba border width 0 pe telefon @done (23-01-19 21:20)
+  ✔ Centralizeaza cele 3 fotogreafii @done (23-01-16 00:14)
+  ✔ Creeaza caruselul @done (23-01-16 00:14)
+  ✔ Rezolva problema ca nu merg butoanele @done (23-01-19 20:41)
+  ✔ Rezolva cand incepi websitul in desktop apar errori @done (23-01-19 20:55)
+  ✔ Caruselul la staff sa fie mai mare daca ecranul este mai mare @done (23-01-19 20:57)
+  ✔ Sa apara butonul al javascript pune in procente @done (23-01-10 23:56)
+  ✔ {Daca ajungem la final bara de progress sa faca ceva} {sa-si schimbe culoarea} {mica animatie} {Sa dispara} {} @done (23-01-11 00:03)
+  ✔ Carusel width maxim cand este pe telefon? @done (23-01-07 21:25)
+  ✔ Fa butoanele de back up responsive @done (23-01-07 21:37)
+  ✔ Shadow in loc de border la progress bar @done (23-01-15 14:33)
+  ✔ Created Back-up button sa aiba padding normal cand e pe telefon @done (23-01-15 14:37)
+  ✔ Glow la text sa fie mai smooth @done (23-01-10 23:50)
+  ✔ Harta sa aiba un border radius @done (23-01-03 22:57)
+  ✔ Adauga spacing variabila @done (23-01-01 19:38)
+  ✔ Adauga padding in loc de margin @done (23-01-01 19:38)
+  ✔ Rezolva problema ca 2 staff se misca la fel pe cand ultima se misca mai lent @done (22-12-30 22:50)
+
+Lucruri de facut la Contact Us:
+  
+  ✔ diverslv20@gmail.com gmail @done (22-12-27 16:16)
+  ✔ Mesanger NUSTIU @done (22-12-27 17:56)
+  ✔ Telefon @done (22-12-27 16:51)
+  ✔ Facebook @done (22-12-27 16:16)
+  ✔ Instagram NU AU @done (22-12-27 17:56)
+  ✔ Progress Bar nu are gradient cand este 100% @done (23-02-20 22:47)
+  ✔ {Youtube?} NU AU @done (22-12-27 17:56)
+  ✔ Fa linkurile sa fie la mijloc @done (22-12-27 17:56)
+  ✔ De adaugat la background pozele care le-am facut NU MAI ESTE NECESAR @done (22-12-28 19:11)
+  ✔ Sa mearga si pe telefon media margin @done (22-12-29 15:22)
+  ✔ Adauga {Abonează-te la rețelele noastre de socializare și fii primul care află de cele mai bune oferte!} @done (23-01-24 00:58)
+  ✔ De adaugat gmail contact us @done (22-12-28 01:43)
+  ✔ Sa apara un popup cand am dat submit @done (23-01-14 22:15)
+  ✔ Culoare normala la popup gand este erroare @done (23-01-15 13:05)
+  ✔ Pune top-bar @done (23-02-18 20:36)
+  ✔ Adauga End Section @done (23-02-18 20:29)
+  ✔ Fa bara de erroare normala | {fourth Dark cu thirdDark ca scris} @done (23-02-18 20:29)
+  ✔ Schimba border cu background color  thirdDark @done (23-02-18 20:29)
+  ✔ Sa nu poti apasa butonul cat este in Fail sau Succes @done (23-01-15 12:49)
+  ✔ Header scris mai mare pe telefon @done (23-01-15 13:21)
+  ✔ Schimba textul cu diacritice @done (23-01-15 14:17)
+  ✔ Butonul de X la popup nu are cursor pointer | Rezolvat @done (23-01-15 14:15)
+  ✔ De ce popupul nu apare pe telefon? | Tehnic apare, daca aleg o presetare de telefon, altfel nu mere lol @done (23-01-15 13:21)
+  ✔ Fa ca sa nu poti pune litere la nr de telefon @done (23-02-18 23:27)
+  ✔ {Pune background la tot contact us} NU @done (23-01-25 20:32)
+  ✔ Rezolva problema cand e pe telefon apare o bara in jos | APARE DIN CAUZA LA TOP BAR CA POZA DE LA DIVERS E PREA MARE lol | @done (23-01-15 14:18)
+  ✔ Cand iti da erroare nu arata aia de sus @done (23-02-19 16:41)
+  ✔ Animatii clasna @done (23-01-15 14:15)
+  ✔ Pune cand da refresh sa curete tot automat | NU MAI ESTE NECESAR @done (23-01-15 13:07)
+  ✔ Pune placeholder la subiect sa fie exact la mijloc @done (23-01-15 13:07)
+  ✔ Schimba culoarea de background @done (23-01-08 23:46)
+  ✔ Pune toate schimbarile de la About us @done (23-01-12 23:39)
+  ✔ Contact Us Functia cu Email sa o fac ORIGINALA. | NU ESTE POSIBIL @done (23-01-12 21:34)
+  ✔ Adauga headaruri peste tot | NU @done (23-01-12 23:39)
+  ✔ Baga multe clampuri pentru telefon | Pe lung fa ca textul sa fie mai mare pe telefon si mai mic pe PC @done (23-01-13 22:29)
+  ✔ Fa ca sectiunea de descriere sa inceapa cu '' ||{Fa asta in javascript} @done (23-01-12 23:39)
+  ✔ Margin la headaruri @done (23-01-15 00:01)
+  ✔ Informatie personala cand este 100% width sa inceapa sa se scrie din mijloc @done (23-01-13 22:29)
+
+Bonus Informatie:
+  
+  ✔ 25 iulie 2020 si deschis usile @done (22-12-27 18:04)
+  ✔ Numele Divers de la numeroase iteme @done (22-12-27 18:04)
+  ✔ La noi poți găsi produse pentru igienă personală, produse pentru bucătarie, o gamă largă de jucării @done (22-12-27 18:04)
+  ✔ Deasemenea la Divers Angro Shop poți procura diverse produse pentru școală, genți, birotică școlară, mingi de fotbal, volei etc. @done (22-12-27 18:04)
+  ✔ Doar aici poți găsi la cel mai bun preț tehnică audio pentru casă, boxe portabile, căști wirless, mouse, tastatură pentru calculatore, tehnica pentru bucătătrie și multe alte produse la un preț agro. @done (22-12-27 18:04)
+  ✔ Adresa Ștefan cel Mare 68, 6301 Leova, Moldova || In loc de Orar?? | NUUUU @done (22-12-30 19:21)
+  ✔ ORAR @done (22-12-27 17:54)
+  ✔ Monday: 08:00 - 18:00 @done (22-12-27 17:54)
+  ✔ Tuesday: 08:00 - 18:00 @done (22-12-27 17:54)
+  ✔ Wednesday: 08:00 - 18:00 @done (22-12-27 17:54)
+  ✔ Thursday: 08:00 - 18:00 @done (22-12-27 17:54)
+  ✔ Friday: 08:00 - 18:00 @done (22-12-27 17:54)
+  ✔ Saturday: 08:00 - 15:00 @done (22-12-27 17:54)
+  ✔ Sunday: 08:00 - 15:00 @done (22-12-27 17:54)
+  ✔ Strada strada Ștefan cel Mare 68 @done (22-12-27 16:18)
+  ✔ Programul de lucru în cadrul magazinului este de la 8:00- 18:00, de luni până vineri, sîmbătă și duminică de la ora 08:00 - 15:00. @done (23-02-02 00:42)
+  ✔ Abonează-te la rețelele noastre de socializare și fii primul care află de cele mai bune oferte! @done (23-01-24 21:25)
+  ✔ O listă cuprinzătoare de toate paginile prezentate pe acest website @done (23-02-19 19:23)
+
+Idei:
+  ✔ Gradient de folosit undeva? DA | ceva foarte deschis | La border la staff | progress bar cand e gata si cand e normala sa fie superlight | @done (23-01-19 21:14)
+  ✔ Progress bar cand e finalizata sa aiba gradient cu animatie infinita @done (23-01-19 21:13)
+  ✔ About us Ca Landing Page | NOPE @done (23-02-16 19:27)
+  ✔ Landing page la produse un fel de bine ai venit la Divers, si un buton cu vezi produsele ^ @done (23-02-16 19:27)
+  ✔ Slider la categorii pe telefon {Drop down} | DA @done (23-02-17 22:42)
+  ✔ Scrie toate datele de la Divers, dute pe ChatGPT si zii sati scrie diferite sectiuni cu informatia data @done (23-02-19 18:59)
+  ✔ Carusel la top la produse, sa aiba multe imagini frumoase cu prosuse de la Divers + background si niste text frumos | NU @done (23-02-16 21:02)
+  ✔ {Noutati in produse} | NU @done (23-02-16 19:27)
+  ✔ {Contact in produse} | NU @done (23-02-16 19:27)
+  ✔ Buton cu contacte sa fie la products page? | NU @done (23-02-16 19:27)
+  ✔ Mai mult firstDark prin proiect @done (23-01-28 18:52)
+  ✔ Gradient la border la harta si carosuel | NU @done (23-01-22 19:40)
+  ✔ Sa poti apasa pe textul verde si sa te duca la main page? |NU @done (23-01-22 19:40)
+  ✔ Background pentru header-uri | DA @done (23-01-12 21:20)
+  ✔ {Quote-uri de la staff} | NU @done (23-01-12 21:20)
+  ✔ Background la fotografii la about us | NU @done (23-01-12 21:20)
+  ✔ Mai multe tipuri de animatie | DA {necesar} @done (23-01-22 19:40)
+  ✔ Font diferit la heading | DA @done (23-01-12 21:19)
+  ✔ Schimba culorile de verde si negru | DA @done (23-01-12 21:19)
+  ✔ Glow undeva | DA Adauga mai mult glow pe undeva | Folosim la text si la ~ ~ @done (23-01-12 21:20)
+  ✔ {FAQ} @done (23-01-12 21:20)
+  ✔ Invata animatie in general | keyframe @done (23-01-19 21:13)
+
+  ✔ Invata keyframe-uri @done (23-01-12 21:20)
+  ✔ Foloseste CSS libraries | Nu se permite @done (23-01-12 21:20)
+  ✔ Invata before: after: | GATA @done (23-01-12 21:20)
+  ✔ Adauga ">" pe undeva {la butoane} {Contacteaza-ne >} {Categorii} @done (23-02-18 20:44)
+  ✔ Headurile sa nu fie pe tot ecranul in width, doar textul sa aiba background color | NU @done (23-01-12 21:20)
+  ✔ Animatie la progress-bar ca sa se vada cand este supusa peste verde | Poate daor sa se inchida mai tare la culoare {La final de bara sa fie un fel de glow4} @done (23-01-12 21:21)
+  ✔ Daca apas pe o poza de pe carusel sa se intample ceva {Animatie clasna} {Sa se duca la productul respectiv} {} |.. | NU NU NU @done (23-01-25 21:20)
+
+
+
+
+Lucruri necesare:
+
+  ✔ Mai multe interactiune @done (23-01-22 19:40)
+  ✔ Mai multe poze/iconite  @done (23-01-22 19:40)
+
+Decizii:
+
+  ✔ Top bar-ul sa te urmareasca cand dai in jos la About Us | NU @done (23-01-03 20:36)
+  ✔ Ceva de adaugat la Owner in About us, Daca nu va fi incorporat cu stafful GATA @done (23-01-01 20:46)
+
+Carusel:
+
+  ✔ Punel in mijloc @done (23-01-03 18:13)
+  ✔ Arata care este activa acum @done (23-01-03 20:29)
+  ✔ Adauga 2 poze bune @done (23-01-03 22:06)
+  ✔ Sa-ti arate la care esti chiar si prin Interval @done (23-01-03 20:53)
+  ✔ Ceva animatie la bare @done (23-01-03 21:14)
+  ✔ Pune butoanele normal > butonul de previous sa Nu daie next @done (23-01-02 23:56)
+  ✔ Animatie cand schimbi @done (23-01-03 18:06)
+  ✔ Sa se miste periodic | Interval @done (23-01-03 20:29)
+  ✔ Cand se misca periodic si ajunge la final sa se intoarca @done (23-01-03 20:53)
+  ✔ Editeaza fotografiile NU ESTE NECESAR @done (23-01-03 22:58)
+  ✔ Pune bari mici jos ca sa arate care este curenta si daca apesi pe vreo una sa te duca la aia respectiva @done (23-01-03 18:06)
+  ✔ Adauga un background la carusel @done (23-01-28 18:52)
+  ✔ Fa un design mai bun la bari || creca prosta o sa le pun jos || @done (23-01-03 21:14)
+  ✔ Incadreaza proiectul in sine cu Divers. @done (23-01-03 22:58)
+  ✔ Adaugat previous @done (23-01-03 00:07)
+
+Staff Carousel:
+  ✔ Introdula-l in Divers @done (23-01-07 21:09)
+  ✔ Fale sa dispara cand ecraunul este mare @done (23-01-19 21:14)
+  ✔ {Adauga nummele lor} NU @done (23-01-07 21:09)
+
+Produse Carousel:
+  ✔  De pus un block cand apesi pe sageata de cateva secunde @done (23-02-13 19:19)
+  ✔  De adaugat butoane si sagetile @done (23-02-11 21:51)
+  ✔  De fixat la mijloc @done (23-02-11 21:51)
+  ✔  De pus ca sa se poata vedea doar 4 @done (23-02-11 21:51)
+  ✔  Pe telefon nu se vede primul item @done (23-02-12 18:42)
+  ✔  Pe telefon nu da snap normal @done (23-02-12 18:42)
+  
+  ✔  Butoanele nu se updateaza normal(astai doar pe telefon cand dai cu degetul) @done (23-02-12 20:10)
+  ✔  Pe telefon cand apesi pe o sageata de da prea mult si cand ajungi la final nu arata bine(o parte dintro alt box se vede) @done (23-02-11 21:55)
+  ✔  Cand ajunge la 1280 se vad 2, dar eu as prefera 3 @done (23-02-12 19:32)
+  ✔  Butoanele nu merg pe desktop @done (23-02-12 21:31)
+  ✔  Nu merg butoanele pe telefon @done (23-02-12 21:31)
+  ✔  Cand apesi pe o sageata cadeodata se da mult intr-o directie si cateodata putin(usor de rezolvat, daca s-a fact transformarea atunci muta atat, daca nu muta atat) @done (23-02-12 19:32)
+  ✔ As putea face ca sa mearga doar butoanele adiacente la butonul activat | NU @done (23-02-12 20:10)
+  ✔ Sagetile nu se coordoneaza cu indicatoarele @done (23-02-13 19:19)
+  ✔ Daca dam resize imi arata foarte multe neededScrolls | CUMVA TOT MERGE DECI DISPARI HIHI :) @done (23-02-12 21:32)
+  ✔ {Restructureaza dupa tutorialul ala de pe youtube, sau inspirate cu ceva cod de acolo} | NU @done (23-02-12 21:31)
+  ✔ Daca ma duc de pe desktop pe telefon caruselul se duce la alti itemi dar buatonele se reseteaza la 1 @done (23-02-13 19:56)
+  ✔ Daca dau resize indicatorul se duce la 1 si currentIndex tot sa se duca la 1 @done (23-02-13 19:56)
+  ✔ Daca ajungi la final sageata nu face nimic | NU @done (23-02-13 20:27)
+  ✔ Butoanele se reseteaza pe telefon daca dau resize de fiecare data @done (23-02-12 18:49)
+  ✔ Cand este pe telefon caruselul sa fie cu width 100% @done (23-02-16 19:45)
+  ✔ Pauza cand apesi pe sageata la indicator @done (23-02-16 19:51)
+  ✔ Butoane cand este mic mai bune @done (23-02-16 19:51)
+
+Main Responsive:
+  ✔ cand top barul se duce jos, ramanem fara logo, ce facem? {punem un top bar sus, dar fara position fixed cu logoul} @done (23-02-16 19:25)
+  ✔ Categoriile {drop-down} {doar iconite} {} @done (23-02-16 19:25)
+  ✔ Butonul nu merge daca top-barul vine jos @done (23-02-17 22:35)
+  ✔ top barul vreau doar 4 iconite pe telefon @done (23-02-16 19:25)
+  ✔ Textul principal arata leva pe telefon @done (23-02-16 19:25)
+  ✔ Backup buton alta iconita vreau :) @done (23-02-17 22:34)
+  ✔ Backup Butonul cand se duce la sectiune, vreau putin mai in sus pe tableta @done (23-02-17 22:34)
+  ✔ de adaugat <br> la main text cand ajunge la 1000px @done (23-02-16 19:26)
+  ✔ Schimba majoritatea lucrurilor de la general inapoi la main @done (23-02-16 20:56)
+  ✔ Cand este text si iconita la top-bar pe telefon sa fie iconita prima si dupa textul @done (23-02-16 20:46)
+  ✔ Drop down la categorii @done (23-02-18 01:39)
