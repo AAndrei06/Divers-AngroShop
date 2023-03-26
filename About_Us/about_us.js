@@ -33,7 +33,7 @@ window.addEventListener('scroll', () => {
 
   const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100;
 
-  if(scrollPercent == 100)
+  if(scrollPercent >= 99)
   {
     progressBar.classList.add('progress-bar-anim');
   }
@@ -554,18 +554,18 @@ function create3Photos() {
   let staffPhoto01 = document.createElement('img');
   staffPhoto01.classList.add('staff-photo');
   staffPhoto01.setAttribute('id', 'staff-row-photo01');
-  staffPhoto01.src = 'Staff-Photos/staff01.png';
+  staffPhoto01.src = '../Staff-Photos/staff01.png';
   let staffPhoto02 = document.createElement('img');
   staffPhoto02.classList.add('staff-photo');
 
   staffPhoto02.setAttribute('id', 'staff-row-photo02');
-  staffPhoto02.src = 'Staff-Photos/staff02.png';
+  staffPhoto02.src = '../Staff-Photos/staff02.png';
 
   let staffPhoto03 = document.createElement('img');
   staffPhoto03.classList.add('staff-photo');
 
   staffPhoto03.setAttribute('id', 'staff-row-photo03');
-  staffPhoto03.src = 'Staff-Photos/staff03.png';
+  staffPhoto03.src = '../Staff-Photos/staff03.png';
 
   staffPhotoDiv01.appendChild(staffName01);
   staffPhotoDiv02.appendChild(staffName02);
@@ -637,15 +637,15 @@ function createStaffSlideShow()
 
 
   let staffImage01 = document.createElement('img');
-  staffImage01.src = 'Staff-Photos/staff01.png';
+  staffImage01.src = '../Staff-Photos/staff01.png';
   staffImage01.alt = 'Staff de la Divers';
 
   let staffImage02 = document.createElement('img');
-  staffImage02.src = 'Staff-Photos/staff02.png';
+  staffImage02.src = '../Staff-Photos/staff02.png';
   staffImage02.alt = 'Staff de la Divers';
 
   let staffImage03 = document.createElement('img');
-  staffImage03.src = 'Staff-Photos/staff03.png';
+  staffImage03.src = '../Staff-Photos/staff03.png';
   staffImage03.alt = 'Staff de la Divers';
  
  //

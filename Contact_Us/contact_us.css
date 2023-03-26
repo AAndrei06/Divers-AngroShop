@@ -218,7 +218,7 @@ input[type=number] {
 ::placeholder
 {
 	color: var(--white);
-	opacity: 0.85;
+	opacity: 0.15;
 	font-size: 24px;
 }
 
