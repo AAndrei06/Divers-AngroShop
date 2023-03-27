@@ -25,18 +25,42 @@ Fiecare Problema la Divers Angro Shop:
   ☐ Staff caruselul este ineficent
   ☐ Iconita nu are background 
   ☐ Shadow-ul arata leva 
+  ☐ Butoanele la slidershow cand le apesi pe telefon au un fel de background albastru
+  ☐ Unele sectiuni au la final dimensiunea cu vw, noi nu vrem asta
+  ☐ Headar-uri leva
+  ☐ Typografie leva
+  ☐ Top Bar prea mare
+  ☐ Site-ul necesita mai mult spatiu intre elemente
+  ☐ Drop-downul merge ciudat din prima
+  ☐ La Top Bar, la Despre, eu vreau sa fie Despre Noi
+  ☐ Bifa de la divers nu este folosita nicaieri
 
 
 Idei:
   ☐ Ceva Transition de la intro la categorii(5 fotografii care vin din ce in ce mai jos pana la categorii)
   ☐ FAQ la about us (care se schimba automat la cateva secunde cu O cerc)
   ☐ Categorie cu produsele noi sau ceva nou in general
-  ☐ 
+  ☐ Sa arate care tab este cel current
   ☐ SVG la inceput
   ☐ End section extraordinar
   ☐ Daca apasam pe telefon sau pe email sa poti suna tipa
   ☐ Ceva mic slidershow tipa carusel la main page, cu toate conexiunile
   ☐ Mai multe limbi(Rusa, Engleza, Romana)
+  ☐ La Staff sa daie shuffle cand dai scroll
+  ☐ In loc de ~~~ sa avem ceva linii tipa desenate 
+  ☐ Drawn Desgin hihi
+  ☐ Scroll Barul sa dispara daca nu il folosesti si sa apara doar cand dai scroll | similar si la Progress Bar
+  ☐ La Produse sa fie un dropdown cu toate categoriile
+  ☐ Popup mic mai sus de topbar cand intrii in website cu Disclaimer
+  ☐ Transforma sectiunile de la about us in ceva mai interactiv
+  ☐ La End Section, pentru a arata ca poti apasa pe butonae sa fie ceva svg
+  ☐ la placeholder sa fie ceva de ex <> pentru a intelege csa este exemplu 
+  ☐ Ceva interactiv la pagina principala
+
+Animatie Idei:
+  ☐ Sa umple butonul din dreapta spre stanga cu un linie de vreo 45deg
+  ☐ Cand dai hover peste un link sa faca un fel de underline ca un fel de desen, si sa adauge ceva special pentru fiecare link dupa cateva secunde de dat hover.
+  ☐ Daca apesi pe un link sa dispara hover animation si sa apara un fel de raze soare pe langa link-ul pe care l-ai apasat, din nou sa fie diferite
 
 Lucruri Bonus de Facut:
   ☐ De pus triunghiuri cu bordere la Products page la initiere sau ceva mai mult SVG
@@ -46,6 +70,15 @@ Lucruri Bonus de Facut:
   ☐ La top bar sa arate la ce pagina suntem cu underline
   ☐ La carusel cand apesi apare hover effect cu blue(pune si la label anti google)
   ☐ De adaugat cand apesi pe email sau pe numarul de telefon sa suni automat
+  ☐ De adaugat alt effect cand apesi pe ceva
+
+Figma Idei:
+  ☐ La Intro daca dai hover peste un buton sa arate o animatie clasna
+  ☐ La Header sa fie o clasa speciala pentru ca sa fie usor sa adaugi before si after
+  ☐ La Categorii, daca apesi pe un exemplu te va duce la exemplul respectiv
+  ☐ Animatii la Categorii la exemple cum isi schimba locurile unul cate unul cu un library
+  ☐ La Categorii, butoanele vor aparea doar daca dai hover
+
 
 
 Lucruri de facut la proiect in sine:
