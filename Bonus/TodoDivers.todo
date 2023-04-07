@@ -1,76 +1,33 @@
 Fiecare Problema la Divers Angro Shop:
   ☐ Top Bar sus de tot are un fel de shadow leva
   ☐ La produse, nu este deloc varietate intre carusele
-  ☐ La Produse, La Categorii iti ia prea mult sa dai scroll
-  ☐ La About us, La Echipa Noastra tot arata prea bland, ar trebui ceva mai unic
-  ☐ La End Section iconitele si textul este diferit de top bar
-  ☐ La About us, Butoanele la caruselul principal arata leva
   ☐ Cand selectezi textul e greu sa-l deselectezi
-  ☐ La Contacte pe telefon popup-ul nu se duce bine,deoarece nu mai exista top-bar
   ☐ La Stiri, pozele nu sunt editate si se incarca greu
-  ☐ In General animatia aia cu struggle nu imi place, necesit ceva mai bun
-  ☐ Siteul nu are o identitate, Este greu sa faci ceva cu {Diversive} in design
-  ☐ La end section, end start are o mica linie care se vede
   ☐ Iconitele nu apar instant cand dai reload la site
   ☐ Cand dau hover la caret-uri(sageti la carusel) imi apare un mic popup
-  ☐ Prea multe animatii
   ☐ La Form putem folosi un library
-  ☐ Pagina de inceput e leva
-  ☐ Font general de preferat sal schimbam
-  ☐ Iconitele se incarca greu
-  ☐ Scoate ~~~~~~~~
-  ☐ Caruselele i-au prea mult loc, scurteaza
+  ☐ Caruselele i-au prea mult loc, scurteaza(cod)
   ☐ Site-ul are lag
-  ☐ Categoriile is leva
-  ☐ Staff caruselul este ineficent
-  ☐ Iconita nu are background 
-  ☐ Shadow-ul arata leva 
-  ☐ Butoanele la slidershow cand le apesi pe telefon au un fel de background albastru
-  ☐ Unele sectiuni au la final dimensiunea cu vw, noi nu vrem asta
-  ☐ Headar-uri leva
-  ☐ Typografie leva
-  ☐ Top Bar prea mare
-  ☐ Site-ul necesita mai mult spatiu intre elemente
-  ☐ Drop-downul merge ciudat din prima
-  ☐ La Top Bar, la Despre, eu vreau sa fie Despre Noi
-  ☐ Bifa de la divers nu este folosita nicaieri
-
+  ☐ Iconita(sus de tot/bara de navigare google) nu are background 
+  ☐ Caruselul este prea static(cod) fala mai automat(crearea indicatoarelor)
+  ☐ În elementul meta NU sunt specificate: cuvintele-cheie ale site-ului
+  ☐ Uitete in spate ~~ hihi ;)
+  ☐ Butonul(backup) il poti apasa de mai multe ori
+  ☐ Nu poti trage pentru a da la urmatorul slide la carusel
 
 Idei:
-  ☐ Ceva Transition de la intro la categorii(5 fotografii care vin din ce in ce mai jos pana la categorii)
-  ☐ FAQ la about us (care se schimba automat la cateva secunde cu O cerc)
-  ☐ Categorie cu produsele noi sau ceva nou in general
-  ☐ Sa arate care tab este cel current
-  ☐ SVG la inceput
-  ☐ End section extraordinar
-  ☐ Daca apasam pe telefon sau pe email sa poti suna tipa
-  ☐ Ceva mic slidershow tipa carusel la main page, cu toate conexiunile
-  ☐ Mai multe limbi(Rusa, Engleza, Romana)
-  ☐ La Staff sa daie shuffle cand dai scroll
-  ☐ In loc de ~~~ sa avem ceva linii tipa desenate 
-  ☐ Drawn Desgin hihi
+  ☐ Categorie cu produsele noi sau ceva nou in general | ..
   ☐ Scroll Barul sa dispara daca nu il folosesti si sa apara doar cand dai scroll | similar si la Progress Bar
-  ☐ La Produse sa fie un dropdown cu toate categoriile
   ☐ Popup mic mai sus de topbar cand intrii in website cu Disclaimer
-  ☐ Transforma sectiunile de la about us in ceva mai interactiv
-  ☐ La End Section, pentru a arata ca poti apasa pe butonae sa fie ceva svg
-  ☐ la placeholder sa fie ceva de ex <> pentru a intelege csa este exemplu 
-  ☐ Ceva interactiv la pagina principala
 
 Animatie Idei:
   ☐ Sa umple butonul din dreapta spre stanga cu un linie de vreo 45deg
-  ☐ Cand dai hover peste un link sa faca un fel de underline ca un fel de desen, si sa adauge ceva special pentru fiecare link dupa cateva secunde de dat hover.
-  ☐ Daca apesi pe un link sa dispara hover animation si sa apara un fel de raze soare pe langa link-ul pe care l-ai apasat, din nou sa fie diferite
+  ☐ Cand dai hover pe butoanele de hover, sa fie o mica animatie foarte eleganta cum sageata se misca putin(foarte putina miscare)
+  ☐ Progress Product sa dispara cand apare sa fie un fel de mic mare normal, daca se schimba intre {<...>}
 
 Lucruri Bonus de Facut:
-  ☐ De pus triunghiuri cu bordere la Products page la initiere sau ceva mai mult SVG
-  ☐ Poate sa schimb fontul ca sa aiba si diacritice? si in sine sa schimba de la Roboto la Poppins
-  ☐ Ceva animatie progresiva care sa mearga pe tot parcursul la Products page, de ex: un mic svg langa scroll bar care sa iti arate la ce categorie esti | Ceva animatie svg cu cerc verde care sa mearga dea lungul paginii si sa aiba efecte clasna | 
-  ☐ La end section la linkuri punele in ordine
-  ☐ La top bar sa arate la ce pagina suntem cu underline
-  ☐ La carusel cand apesi apare hover effect cu blue(pune si la label anti google)
-  ☐ De adaugat cand apesi pe email sau pe numarul de telefon sa suni automat
-  ☐ De adaugat alt effect cand apesi pe ceva
+  ☐ La Stiri va trebui sa adaug 2 flex-uri | pentru a se vedea normal
+  ☐ Variabile pentru tot
 
 Figma Idei:
   ☐ La Intro daca dai hover peste un buton sa arate o animatie clasna
@@ -78,7 +35,47 @@ Figma Idei:
   ☐ La Categorii, daca apesi pe un exemplu te va duce la exemplul respectiv
   ☐ Animatii la Categorii la exemple cum isi schimba locurile unul cate unul cu un library
   ☐ La Categorii, butoanele vor aparea doar daca dai hover
+  ☐ Bifele sa fie fara fill, dar cand ma apropii atunci sa se umple
+  ☐ La Produse, la indicatoare, cand vei apasa pe unu, acela se va misca cu animatie
+  ☐ Daca dai hover la un item din end section atnci va deveni verde
+  ☐ La categorii exemplele sa se puna random de fiecare data
+  ☐ La Intro sa fie doar 5 iconite, dar sa se schimbe care are display none si care nu la random
+  ☐ La Program de lucru, daca dai hover peste link atunci bara va deveni verde
+  ☐ La About us, numarul de sub carusel sasi schimbe descrierea si numarul cu animatie regulat, si de fiecare daca cand intrii pe pagina
+  ☐ Tot la namarul de sub carusel, cand il vezi pentru prima oara, va creste cu cate 5 pana va ajunge unde este necesar
+  ☐ LA FAQ, care este deschisa va fi de fiecare data random
+  ☐ La FAQ, descrierea va avea voie sa aiba x1.5 la numarul total de caractere la Header
+  ☐ La End section, intotdeauna sa fie ceva random la header.
+  ☐ Locul intre categorii(iconite) sa se schimbe la random
+  ☐ Mic Popup pentru cand dai hover la telefon
+  ☐ La Contact, daca dai hover pe buton isi baga un 45deg
+  ☐ La tableta, burger button, sa fie 75% opacity
+  ☐ La FAQ sa fie o intrebare care sunt contactele noastre  
+  ☐ La About us, la statementri, se vor alege 2 random de fiecare data hihi
+  ☐ Backup Button sa aiba opacitatea mia mica
 
+Figma Todo:
+  ☐ Adauga cate un svg din cand in cand la carusele
+  ☐ Fa popup normal
+  ☐ Fa popup pentru hover la end section
+
+
+Figma Schimbari:
+  
+  La Produse:
+    ☐ Iconita la Categorii arata de parca de va lua pe alta pagina 
+    
+
+  La About Us:
+
+
+Lucruri pentru Andrei:
+  ☐ Sa se descurce cu limbile
+  ☐ Sa schimbe la email in loc de Formspree in Email.js
+  ☐ Sa schimbe toate numele la carusele
+  ☐ Barem la Web
+  ☐ Sa puna toate stirile inapoi
+  ☐ Intreaba ownerul de niste statistici
 
 
 Lucruri de facut la proiect in sine:
