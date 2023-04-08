@@ -14,10 +14,10 @@
 
 // const downElements = document.querySelectorAll('.down-up-preset');
 
-downElements.forEach((el) =>
-{
-	downAnimationObserver.observe(el);
-})
+// downElements.forEach((el) =>
+// {
+// 	downAnimationObserver.observe(el);
+// })
 
 // // BACKUP BUTTON
 
