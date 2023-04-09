@@ -3,14 +3,17 @@
 {
 
 	/*Text*/
-/*72px*/
+  /*72px*/
 	--header: 4.5rem;
+	--header-line-height: 6rem;
 	/*72px*/
 	--welcome-header: 4.5rem;
+	--welcome-header-line-height: 5.375rem;
 	/*32px*/
 	--welcome-description: 2rem;
 	/*32px*/
-	--description: 2rem;
+	--description: 1.75rem;
+	--description-line-height: 3rem;
 	/*24px*/
 	--semi-description: 1.5rem;
 	/*56px*/
@@ -311,7 +314,7 @@ a
 .welcome-header
 {
 	white-space: nowrap;
-	line-height: 5.375rem;
+	line-height: var(--welcome-header-line-height);
 	font-family: Dangrek;
 	font-size: var(--header);
 	color: var(--white);
@@ -329,7 +332,7 @@ a
 {
 	color: white;
 	font-weight: 600;
-	font-size: var(--description);
+	font-size: var(--welcome-description);
 }
 
 /*Buttons*/
@@ -448,7 +451,7 @@ a
 {
 	font-family: Dangrek;
 	font-size: var(--header);
-	line-height: 6rem;
+	line-height: var(--header-line-height);
 	color: var(--white);
 }
 .description-div
@@ -459,7 +462,7 @@ a
 {
 	font-size: var(--description);
 	font-weight: 500;
-	line-height: 3.25rem;
+	line-height: var(--description-line-height);
 	color: var(--white);
 }
 .company-name
