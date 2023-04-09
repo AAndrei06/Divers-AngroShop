@@ -4,8 +4,7 @@
 		<link rel="icon" href="../Logos/icon-divers.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Divers Angro Shop</title>
-		<script src="https://kit.fontawesome.com/8383e75d7d.js" crossorigin="anonymous"></script>
+		<title>Divers Angro Shop | Produse</title>
 		<link rel="stylesheet" href="../GeneralCode/general_css.css">
 		<script defer src="../GeneralCode//general_js.js"></script>
 		<script defer src="script.js"></script>
@@ -15,24 +14,28 @@
 	</head>
 	
 	<body>
-		<!-- <div class="backup-div">
+		<div class="backup-div">
 			<button class="backup-button">
-			<ion-icon name="caret-up-outline"></ion-icon>
+				<svg class="backup-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><g class="nc-icon-wrapper"><path d="M414 321.94L274.22 158.82a24 24 0 0 0-36.44 0L98 321.94c-13.34 15.57-2.28 39.62 18.22 39.62h279.6c20.5 0 31.56-24.05 18.18-39.62z"></path></g></svg>
 			</button>
-		</div> -->
+		</div>
 		<header>
 			<nav class="nav-bar">
 				<div class="nav-content">
 					<div class="nav-logo">
-						<img class="nav-logo-img" src="../Logos/divers.png" alt="">
+						<a href="index.html">
+							<img class="nav-logo-img" src="../Logos/divers.png" alt="Divers Logo">
+						</a>
 					</div>
 					<div class="nav-links">
 						<div class="nav-link">
-							<h2 class="nav-text">Produse</h2>
+							<h2 id="current-page" class="nav-text">Produse</h2>
 							<svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" height="512" width="512" viewBox="0 0 512 512"><g class="nc-icon-wrapper"><path d="M454.65 169.4A31.82 31.82 0 0 0 432 160h-64v-16a112 112 0 0 0-224 0v16H80a32 32 0 0 0-32 32v216c0 39 33 72 72 72h272a72.22 72.22 0 0 0 50.48-20.55 69.48 69.48 0 0 0 21.52-50.2V192a31.75 31.75 0 0 0-9.35-22.6zM332.49 274l-89.6 112a16 16 0 0 1-12.23 6h-.26a16 16 0 0 1-12.16-5.6l-38.4-44.88a16 16 0 1 1 24.32-20.8L230 350.91 307.51 254a16 16 0 0 1 25 20zM336 160H176v-16a80 80 0 0 1 160 0z"></path></g></svg>
 						</div>
 						<div class="nav-link">
 							<h2 class="nav-text">Despre Noi</h2>
+							
+							
 							<svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><g class="nc-icon-wrapper"><path d="M256 56C145.72 56 56 145.72 56 256s89.72 200 200 200 200-89.72 200-200S366.28 56 256 56zm0 82a26 26 0 1 1-26 26 26 26 0 0 1 26-26zm48 226h-88a16 16 0 0 1 0-32h28v-88h-16a16 16 0 0 1 0-32h32a16 16 0 0 1 16 16v104h28a16 16 0 0 1 0 32z"></path></g></svg>
 						</div>
 						<div class="nav-link">
@@ -85,9 +88,9 @@
 				<!-- //////// -->
 				<svg id="flag-random-icon" class="random-category-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 448 512"><title>Suvenire</title><g  class="nc-icon-wrapper"><path d="M32 0c17.7 0 32 14.3 32 32v16l69-17.2c38.1-9.5 78.3-5.1 113.5 12.5 46.3 23.2 100.8 23.2 147.1 0l9.6-4.8c20.6-10.4 44.8 4.6 44.8 27.6v279.7c0 13.3-8.3 25.3-20.8 30l-34.7 13c-46.2 17.3-97.6 14.6-141.7-7.4-37.9-19-81.3-23.7-122.5-13.4L64 384v96c0 17.7-14.3 32-32 32S0 497.7 0 480V32C0 14.3 14.3 0 32 0zm32 187.1l64-13.9v65.5l-64 13.9V318l48.8-12.2c5.1-1.3 10.1-2.4 15.2-3.3v-63.8l38.9-8.4c8.3-1.8 16.7-2.5 25.1-2.1v-64c13.6.4 27.2 2.6 40.4 6.4l23.6 6.9v66.7l-41.7-12.3c-7.3-2.1-14.8-3.4-22.3-3.8v71.4c21.8 1.9 43.3 6.7 64 14.4v-69.7l22.7 6.7c13.5 4 27.3 6.4 41.3 7.4V194c-7.8-.8-15.6-2.3-23.2-4.5l-40.8-12v-62c-13-3.8-25.8-8.8-38.2-15-8.2-4.1-16.9-7-25.8-8.8v72.4c-13-.4-26 .8-38.7 3.6l-25.3 5.5V98l-64 16v73.1zm256 148.6c16.8 1.5 33.9-.7 50-6.8l14-5.2v-71.8l-7.9 1.8c-18.4 4.3-37.3 5.7-56.1 4.5v77.4zm64-149.4v-70.9c-20.9 6.1-42.4 9.1-64 9.1V194c13.9 1.4 28 .5 41.7-2.6l22.3-5.2z"></path></g></svg>
 				<!-- //////// -->
-				<svg id="casa-random-icon" class="random-category-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 576 512"><title>Casnice</title><g  class="nc-icon-wrapper"><path d="M543.8 287.6c17 0 32-14 32-32.1 1-9-3-17-11-24L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24 0 18 14 32.1 32 32.1h32V448c0 35.3 28.7 64 64 64h320.5c35.5 0 64.2-28.8 64-64.3l-.7-160.2h32zM256 208c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v48h48c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-48v48c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-48h-48c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h48v-48z"></path></g></svg>
+				<svg id="casa-random-icon" class="random-category-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 576 512"><title>Gospodarie</title><g  class="nc-icon-wrapper"><path d="M543.8 287.6c17 0 32-14 32-32.1 1-9-3-17-11-24L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24 0 18 14 32.1 32 32.1h32V448c0 35.3 28.7 64 64 64h320.5c35.5 0 64.2-28.8 64-64.3l-.7-160.2h32zM256 208c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v48h48c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-48v48c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-48h-48c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h48v-48z"></path></g></svg>
 				<!-- //////// -->
-				<svg id="mouse-random-icon" class="random-category-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>Digitale</title><g class="nc-icon-wrapper"><path d="M3 5a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0V5zm5.5-1.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2z"></path></g></svg>
+				<svg id="mouse-random-icon" class="random-category-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>Electronice</title><g class="nc-icon-wrapper"><path d="M3 5a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0V5zm5.5-1.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2z"></path></g></svg>
 				<!-- //////// -->
 				<svg id="creion-random-icon" class="random-category-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>Rechizite</title><g class="nc-icon-wrapper"><path d="M453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-52.1 52.1-1-1-16-16-96-96-17-17 52.1-52.1c25-25 65.5-25 90.5 0zM241 114.9c-9.4-9.4-24.6-9.4-33.9 0L105 217c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L173.1 81c28.1-28.1 73.7-28.1 101.8 0L288 94.1l17 17 96 96 16 16 1 1-17 17-171.5 171.4c-48 48-109.2 80.8-175.8 94.1l-25 5c-7.9 1.6-16-.9-21.7-6.6s-8.1-13.8-6.6-21.7l5-25c13.3-66.6 46.1-127.8 94.1-175.8L254.1 128 241 114.9z"></path></g></svg>
 				<!-- //////// -->
@@ -117,13 +120,13 @@
 					
 					<div class="category-links">
 						<div class="category-link" id="first-category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Aniversare</div>
 								<div class="category-examples">
-									<button class="category-example">Lumânări</button>
-									<button class="category-example">Baloane</button>
-									<button class="category-example">Confetti</button>
+									<button class="category-example show-category-example">Lumânări</button>
+									<button class="category-example show-category-example">Baloane</button>
+									<button class="category-example show-category-example">Confetti</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -135,12 +138,12 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Jucarii</div>
 								<div class="category-examples">
-									<button class="category-example">Mingi Tennis</button>
-									<button class="category-example">Constructor</button>
+									<button class="category-example show-category-example">Mingi Tennis</button>
+									<button class="category-example show-category-example">Constructor</button>
 									<button class="category-example">Transformers</button>
 								</div>
 							</div>
@@ -154,13 +157,13 @@
 						</div>
 
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Rechizite</div>
 								<div class="category-examples">
-									<button class="category-example">Pix</button>
-									<button class="category-example">Riglă</button>
-									<button class="category-example">Caiet</button>
+									<button class="category-example show-category-example">Pix</button>
+									<button class="category-example show-category-example">Riglă</button>
+									<button class="category-example show-category-example">Caiet</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -172,13 +175,13 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Suvenire</div>
 								<div class="category-examples">
-									<button class="category-example">Drapel</button>
-									<button class="category-example">Înger</button>
-									<button class="category-example">Medalie</button>
+									<button class="category-example show-category-example">Drapel</button>
+									<button class="category-example show-category-example">Înger</button>
+									<button class="category-example show-category-example">Medalie</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -190,13 +193,13 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Accesorii</div>
 								<div class="category-examples">
-									<button class="category-example">Portofel</button>
-									<button class="category-example">Umbrelă</button>
-									<button class="category-example">Parfum</button>
+									<button class="category-example show-category-example">Portofel</button>
+									<button class="category-example show-category-example">Umbrelă</button>
+									<button class="category-example show-category-example">Parfum</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -208,13 +211,13 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Imbracaminte</div>
 								<div class="category-examples">
-									<button class="category-example">Tricou</button>
-									<button class="category-example">Papuci</button>
-									<button class="category-example">Mănuși</button>
+									<button class="category-example show-category-example">Tricou</button>
+									<button class="category-example show-category-example">Papuci</button>
+									<button class="category-example show-category-example">Mănuși</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -226,13 +229,13 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Bucatarie</div>
 								<div class="category-examples">
-									<button class="category-example">Farfurie</button>
-									<button class="category-example">Lingură</button>
-									<button class="category-example">Cuțit</button>
+									<button class="category-example show-category-example">Farfurie</button>
+									<button class="category-example show-category-example">Lingură</button>
+									<button class="category-example show-category-example">Cuțit</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -244,13 +247,13 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Electronice</div>
 								<div class="category-examples">
-									<button class="category-example">Baterii</button>
-									<button class="category-example">Șoricel</button>
-									<button class="category-example">Caști</button>
+									<button class="category-example show-category-example">Baterii</button>
+									<button class="category-example show-category-example">Șoricel</button>
+									<button class="category-example show-category-example">Caști</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -262,13 +265,13 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Gospodarie</div>
 								<div class="category-examples">
-									<button class="category-example">Caserolă</button>
-									<button class="category-example">Umerașe</button>
-									<button class="category-example">Clești</button>
+									<button class="category-example show-category-example">Caserolă</button>
+									<button class="category-example show-category-example">Umerașe</button>
+									<button class="category-example show-category-example">Clești</button>
 								</div>
 							</div>
 							<div class="category-main-icon-div">
@@ -280,12 +283,12 @@
 							
 						</div>
 						<div class="category-link">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 							<div class="category-text-flex">
 								<div class="category-text">Igiena</div>
 								<div class="category-examples">
-									<button class="category-example">Săpun Lichid</button>
-									<button class="category-example">Periuță de dinți</button>
+									<button class="category-example show-category-example">Săpun Lichid</button>
+									<button class="category-example show-category-example">Periuță de dinți</button>
 									<button class="category-example">Șervețele</button>
 								</div>
 							</div>
@@ -298,7 +301,7 @@
 							
 						</div>
 						<div class="category-empty-space-div">
-							<div class="category-stabilaser"></div>
+							<div class="category-stabiliser"></div>
 						</div>
 
 
@@ -324,7 +327,9 @@
 									<svg class="carousel-arrow carousel-arrow-inactive" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><g class="nc-icon-wrapper"><path d="M321.94 98L158.82 237.78a24 24 0 0 0 0 36.44L321.94 414c15.57 13.34 39.62 2.28 39.62-18.22v-279.6c0-20.5-24.05-31.56-39.62-18.18z"></path></g></svg>
 								</div>
 								<div class="carousel-sliders">
+
 									<div class="carousel-slide">
+										<div class="carousel-stabiliser"></div>
 										<div class="carousel-slide-content">
 											<div class="carousel-slide-product-img-div">
 												<img class="carousel-slide-product-img" src="../Product-Photos/Aniversare/Aniversare01.png">
@@ -344,6 +349,7 @@
 										</div>
 									</div>
 									<div class="carousel-slide">
+										<div class="carousel-stabiliser"></div>
 										<div class="carousel-slide-content">
 											<div class="carousel-slide-product-img-div">
 												<img class="carousel-slide-product-img" src="../Product-Photos/Aniversare/Aniversare01.png">
@@ -363,6 +369,7 @@
 										</div>
 									</div>
 									<div class="carousel-slide">
+										<div class="carousel-stabiliser"></div>
 										<div class="carousel-slide-content">
 											<div class="carousel-slide-product-img-div">
 												<img class="carousel-slide-product-img" src="../Product-Photos/Aniversare/Aniversare01.png">
@@ -411,9 +418,6 @@
 
 		</main>
 		
-		
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

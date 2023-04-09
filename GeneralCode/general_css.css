@@ -3,14 +3,17 @@
 {
 
 	/*Text*/
-/*72px*/
+  /*72px*/
 	--header: 4.5rem;
+	--header-line-height: 6rem;
 	/*72px*/
 	--welcome-header: 4.5rem;
+	--welcome-header-line-height: 5.375rem;
 	/*32px*/
 	--welcome-description: 2rem;
 	/*32px*/
-	--description: 2rem;
+	--description: 1.75rem;
+	--description-line-height: 3rem;
 	/*24px*/
 	--semi-description: 1.5rem;
 	/*56px*/
@@ -232,12 +235,47 @@ a
 	gap: 0.5rem;
 	align-items: center;
 	cursor: pointer;
+	transition: opacity 0.15s;
+}
+.nav-text::before
+{
+	content: '';
+	position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background: var(--fourthGreen);
+  visibility: hidden;
+  border-radius: 16px;
+  transform: scaleX(0);
+  transition: .15s ease-in-out;
+}
+#current-page::before
+{
+	content: '';
+	position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background: var(--fourthGreen);
+  visibility: visible;
+  border-radius: 16px;
+  transform: scaleX(1);
+}
+.nav-link:hover .nav-text:before,
+.nav-link:focus .nav-text:before {
+  visibility: visible;
+  transform: scaleX(1);
 }
 .nav-text
 {
+	position: relative;
 	color: var(--white);
 	font-size: var(--nav-text);
 	font-weight: 600;
+	transition: all 0.15s;
 }
 .nav-icon
 {
@@ -276,7 +314,7 @@ a
 .welcome-header
 {
 	white-space: nowrap;
-	line-height: 5.375rem;
+	line-height: var(--welcome-header-line-height);
 	font-family: Dangrek;
 	font-size: var(--header);
 	color: var(--white);
@@ -294,7 +332,7 @@ a
 {
 	color: white;
 	font-weight: 600;
-	font-size: var(--description);
+	font-size: var(--welcome-description);
 }
 
 /*Buttons*/
@@ -344,7 +382,7 @@ a
 }
 .outline-button
 {
-	background: none;
+	background-color: var(--secondDark);
 	border-radius: 8px;
 	border-style: solid;
 	border-width: 4px;
@@ -413,7 +451,7 @@ a
 {
 	font-family: Dangrek;
 	font-size: var(--header);
-	line-height: 6rem;
+	line-height: var(--header-line-height);
 	color: var(--white);
 }
 .description-div
@@ -424,7 +462,7 @@ a
 {
 	font-size: var(--description);
 	font-weight: 500;
-	line-height: 3.25rem;
+	line-height: var(--description-line-height);
 	color: var(--white);
 }
 .company-name
@@ -432,17 +470,55 @@ a
 	font-weight: 600;
 	color: var(--fourthGreen);
 }
+/*BACKUP BUTTON*/
 
-
-/*.display-backup-button-div
+.backup-div
 {
 	opacity: 0;
-	filter: blur(0px);
 	pointer-events: none;
-	transform: translateY(0);
-	
+	position: fixed;
+	bottom: 32px;
+	right: 32px;
+	z-index: 4;
+	border-radius: 100px;
+	transform: translateY(200%);
+	transition: all 0.15s;
 }
-.postion-backup-button-div
+.backup-button
+{
+	border-radius: 100px;
+	width: 3.5rem;
+	height: 3.5rem;
+	background-color: var(--fourthGreen);
+	padding: 1rem;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	box-shadow: 0px 0px 3px rgba(38, 47, 36, 0.04), 0px 0px 3px rgba(38, 47, 36, 0.13), 0px 0px 2px rgba(38, 47, 36, 0.21), 0px 0px 1px rgba(38, 47, 36, 0.25), 0px 0px 0px rgba(38, 47, 36, 0.25);
+}
+.backup-button:hover .backup-icon
+{
+	transform: translate(-50%, -65%);
+}
+.backup-icon
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	fill: var(--secondDark);
+	width: 1.5rem;
+	height: 1.5rem;
+	transition: all 0.15s ease-in-out;
+}
+.display-backup-button-div
+{
+	opacity: 1;
+	pointer-events: initial;
+	transform: translateY(0);
+/*	transform: translateY(0);*/
+}
+/*.postion-backup-button-div
 {
 	position: absolute;
 	--top: 0;

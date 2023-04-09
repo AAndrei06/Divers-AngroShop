@@ -21,13 +21,9 @@
 
 // // BACKUP BUTTON
 
-// const backupButtons = document.querySelectorAll('.backup-button');
-// const backUpButton = document.querySelector('.backup-div');
-// const createdBackupDiv = document.querySelector('#created-backup-div');
-// const createdBackupButton = document.querySelector('#created-backup-button');
-// const endSection =  document.querySelector('.end-section');
-// const endSectionStart = document.querySelector('.end-section-start')
-// buttonMoved = false;
+const backupButtons = document.querySelectorAll('.backup-button');
+const backUpButton = document.querySelector('.backup-div');
+buttonMoved = false;
 
 // let setbuttontimeout;
 // clearTimeout(setbuttontimeout);
@@ -61,42 +57,41 @@
   
 
 
-// window.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
     
-// 	let scrollPercent = getScrollPercent();
+	let scrollPercent = getScrollPercent();
 
+	if (scrollPercent >= 37) 
+	{
+		backUpButton.classList.add('display-backup-button-div');
+	}
+	else
+	{
+		backUpButton.classList.remove('display-backup-button-div');
+	}
+})
 
-// 	if (scrollPercent >= 23) 
-// 	{
-// 		backUpButton.classList.add('display-backup-button-div');
-// 	}
-// 	else
-// 	{
-// 		backUpButton.classList.remove('display-backup-button-div');
-// 	}
-// })
-
-// // Cand apesi te duce sus 
-// backupButtons.forEach(button =>
-// {
-// 	button.addEventListener('click', () => {
-// 	  window.scrollTo({
-// 	    top: 0,
-// 	    behavior: 'smooth'
-// 	  });
-// 	});
-// })
+// Cand apesi te duce sus 
+backupButtons.forEach(button =>
+{
+	button.addEventListener('click', () => {
+	  window.scrollTo({
+	    top: 0,
+	    behavior: 'smooth'
+	  });
+	});
+})
 
 // // Cand vede ultima sectiune sa dispara
 
-// function getScrollPercent()
-// {
-//   const {scrollTop, scrollHeight} = document.documentElement;
+function getScrollPercent()
+{
+  const {scrollTop, scrollHeight} = document.documentElement;
 
-//   const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100;
+  const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100;
 
-//   return scrollPercent;
-// }
+  return scrollPercent;
+}
 // function setBackupButton()
 // {
 //       let BackupBttnSectionRect = endSectionStart.offsetTop;
@@ -143,3 +138,4 @@
 
 
 // backUpbuttonObserver.observe(endSectionStart);
+
