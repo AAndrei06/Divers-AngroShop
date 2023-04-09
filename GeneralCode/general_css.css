@@ -233,11 +233,16 @@ a
 	align-items: center;
 	cursor: pointer;
 }
+.nav-link:hover .nav-text
+{
+	color: var(--fourthGreen);
+}
 .nav-text
 {
 	color: var(--white);
 	font-size: var(--nav-text);
 	font-weight: 600;
+	transition: color 0.15s;
 }
 .nav-icon
 {

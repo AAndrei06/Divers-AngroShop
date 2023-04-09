@@ -1,5 +1,6 @@
 .random-category-icon
 {
+	display: none;
 	position: absolute;
 	cursor: pointer;
 	width: 4rem;
@@ -11,67 +12,6 @@
 .random-category-icon:hover
 {
 	opacity: 0.50;
-}
-
-/*RANDOM ICONS*/
-
-/*PARTEA STANGA*/
-#casa-random-icon
-{
-	left: 100px;
-	top: 605px;
-	transform: rotate(-25deg);
-}
-#ballon-random-icon
-{
-	left: 242px;
-	top: 450px;
-}
-#creion-random-icon
-{
-	left: 306px;
-	top: 664px;
-}
-#tenis-random-icon
-{
-	left: 497px;
-	top: 564px;
-}
-#mouse-random-icon
-{
-	left: 652px;
-	top: 673px;
-	transform: rotate(-9.61deg);
-}
-/*PARTEA DREAPTA*/
-#flag-random-icon
-{
-	width: 4rem;
-	left: 826px;
-	top: 679px;
-}
-#sapun-random-icon
-{
-	left: 990px;
-	top: 562px;
-}
-#maica-random-icon
-{
-	left: 1141px;
-	top: 676px;
-	transform: rotate(25.03deg);
-}
-#umbrela-random-icon
-{
-	left: 1252px;
-	top: 445px;
-	transform: rotate(4.95deg);
-}
-#fire-random-icon
-{
-	left: 1347px;
-	top: 600px;
-	transform: rotate(10.87deg);
 }
 /*Category Links*/
 .category-scrollable
