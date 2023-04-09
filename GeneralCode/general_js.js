@@ -138,3 +138,4 @@ function getScrollPercent()
 
 
 // backUpbuttonObserver.observe(endSectionStart);
+
