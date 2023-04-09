@@ -349,7 +349,7 @@ a
 }
 .outline-button
 {
-	background: none;
+	background-color: var(--secondDark);
 	border-radius: 8px;
 	border-style: solid;
 	border-width: 4px;
@@ -437,17 +437,55 @@ a
 	font-weight: 600;
 	color: var(--fourthGreen);
 }
+/*BACKUP BUTTON*/
 
-
-/*.display-backup-button-div
+.backup-div
 {
 	opacity: 0;
-	filter: blur(0px);
 	pointer-events: none;
-	transform: translateY(0);
-	
+	position: fixed;
+	bottom: 32px;
+	right: 32px;
+	z-index: 4;
+	border-radius: 100px;
+	transform: translateY(200%);
+	transition: all 0.15s;
 }
-.postion-backup-button-div
+.backup-button
+{
+	border-radius: 100px;
+	width: 3.5rem;
+	height: 3.5rem;
+	background-color: var(--fourthGreen);
+	padding: 1rem;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	box-shadow: 0px 0px 3px rgba(38, 47, 36, 0.04), 0px 0px 3px rgba(38, 47, 36, 0.13), 0px 0px 2px rgba(38, 47, 36, 0.21), 0px 0px 1px rgba(38, 47, 36, 0.25), 0px 0px 0px rgba(38, 47, 36, 0.25);
+}
+.backup-button:hover .backup-icon
+{
+	transform: translate(-50%, -65%);
+}
+.backup-icon
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	fill: var(--secondDark);
+	width: 1.5rem;
+	height: 1.5rem;
+	transition: all 0.15s ease-in-out;
+}
+.display-backup-button-div
+{
+	opacity: 1;
+	pointer-events: initial;
+	transform: translateY(0);
+/*	transform: translateY(0);*/
+}
+/*.postion-backup-button-div
 {
 	position: absolute;
 	--top: 0;

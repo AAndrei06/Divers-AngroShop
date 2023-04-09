@@ -32,7 +32,6 @@ let numOfIcons = randomIcons.length;
 
 for(let i = 0; i < numOfIcons; i++)
 {
-  console.log(i);
   assignPosition();
 }
 
@@ -46,7 +45,6 @@ function assignPosition()
   randomIcons[randomIconNum].style.left = `${coordinates[randomPositionNum][0]}px`;
   randomIcons[randomIconNum].style.top = `${coordinates[randomPositionNum][1]}px`;
   randomIcons[randomIconNum].style.display = "inline";
-  console.log(randomIcons[randomIconNum].style.transform);
 
   randomIcons.splice(randomIconNum, 1);
   coordinates.splice(randomPositionNum, 1);
