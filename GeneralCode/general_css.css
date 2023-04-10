@@ -22,6 +22,15 @@
   /*Special Text*/
   --nav-text: 1.25rem;
 
+  --end-header: 4.5rem;
+  --end-header-line-height: 5.375rem;
+
+  --end-description: 2rem;
+  --end-description-line-height: auto;
+
+  --copyright: 1.5rem;
+  --end-icons: 2rem;
+
 	/*Culori*/
 
 	--fourthDark: #424D3F;
@@ -528,3 +537,110 @@ a
 	transform: translateX(50%);
 	transition: all 0.25s;
 }*/
+
+/*END SECTION*/
+
+/*START*/
+.end-section-start
+{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: var(--hugeM);
+	gap: 1.5rem;
+}
+.end-header
+{
+	font-family: Dangrek;
+	font-size: var(--end-header);
+	line-height: var(--end-header-line-height);
+	color: var(--white);
+	text-align: center;
+}
+.end-description
+{
+	width: 615px;
+	font-weight: 600;
+	font-size: var(--end-description);
+	line-height: var(--end-description-line-height);
+	color: var(--white);
+	text-align: center;
+}
+
+/*FINISH*/
+.end-section
+{
+	margin-top: var(--hugeM);
+	width: 100%;
+	height: 100%;
+	padding: 0px 8rem;
+	display: flex;
+	gap: 3rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 3rem;
+}
+.end-start-decorator
+{
+	width: 100%;
+	height: 2px;
+	background-color: var(--fourthDark);
+	border-radius: 16px;
+}
+.end-content
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+.copyright
+{
+	font-weight: 600;
+	font-size: var(--copyright);
+	color: var(--white);	
+}
+.contact-icons
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+.contact-icon
+{
+	cursor: pointer;
+	width: var(--end-icons);
+	height: var(--end-icons);
+	fill: var(--white);
+}
+.language-div
+{
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+}
+.language-div:hover .language-icon
+{
+	margin-top: 0.25rem;
+}
+.language-text
+{
+	font-weight: 600;
+	font-size: 1.25rem;
+	color: var(--white);
+}
+.language-icon
+{
+	fill: var(--white);
+	width: 12px;
+	height: 12px;
+	transition: margin 0.15s;
+}
