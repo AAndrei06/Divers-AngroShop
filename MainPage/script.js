@@ -81,7 +81,7 @@ container.addEventListener('mousemove', (event) => {
 
 // CARUSELE :(
 
-const allSliders = document.querySelector('.carousel-sliders');
+const allSlidersDiv = document.querySelector('.carousel-sliders');
 const generalSlide = document.querySelector('.carousel-slide');
 const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
 const carouselIndicators = document.querySelectorAll('.carousel-indicator');
@@ -90,7 +90,7 @@ const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
 
-const allActualSliders = allSliders.children;
+const allActualSliders = allSlidersDiv.children;
 let totalShownSlides = 3;
 let currentIndicator = 1;
 
@@ -115,10 +115,86 @@ add_eventListener_Arrows();
 
 // Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+add_eventListener_Indicators();
 
+function update_Indicator()
+{
+  remove_currentIndicator();
+  carouselIndicators[currentIndicator-1].classList.add('current-indicator');
+}
+function add_eventListener_Indicators()
+{
+    carouselIndicators.forEach(indicator =>
+    {
+      indicator.addEventListener('click', (e) =>
+      {
+        let pastCurrentIndicatorIndex = get_currentIndicator();
+        remove_currentIndicator()
+        indicator.classList.add('current-indicator');
+        let clickedCurrentIndicatorIndex = get_currentIndicator();
+        let neededScrolls = pastCurrentIndicatorIndex - clickedCurrentIndicatorIndex;
 
+        scroll(neededScrolls);
+      })
+    })
+}
 
+function scroll(neededScrolls)
+{
+  let scrollVolume;
 
+  allShowedSpace = calc_shownSliders_width();
+  allShowedSpace = parseInt(allShowedSpace);
+
+  scrollVolume = allShowedSpace * Math.abs(neededScrolls);
+  
+  console.log(scrollVolume);
+
+  if(neededScrolls < 0)
+  {
+    allSlidersDiv.scrollLeft += scrollVolume;
+  }
+  if(neededScrolls > 0)
+  {
+    allSlidersDiv.scrollLeft -= scrollVolume;
+  }
+  let currentIndicatorIndex = get_currentIndicator();
+  currentIndicatorIndex += 1;
+
+  currentIndicator = currentIndicatorIndex;
+  apply_inactive_Arrow();
+}
+
+function get_currentIndicator()
+{
+
+  let currentIndicatorIndex = 0;
+  let temp = 0;
+
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    if(!carouselIndicators[i].classList.contains('current-indicator'))
+    {
+      temp += 1;
+    }
+    else
+    {
+      currentIndicatorIndex = temp;
+    }
+  }
+
+  return currentIndicatorIndex;
+}
+function remove_currentIndicator()
+{
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    if(carouselIndicators[i].classList.contains('current-indicator'))
+    {
+      carouselIndicators[i].classList.remove('current-indicator');
+    }
+  }
+}
 function set_Indicators()
 {
   let numofIndicatorsNeeded = get_numOfIndicator_needed();
@@ -138,16 +214,18 @@ function add_eventListener_Arrows()
 {
   rightArrow.addEventListener('click', (e) =>
   {
-    allSliders.scrollLeft += allShowedSpace;
+    allSlidersDiv.scrollLeft += allShowedSpace;
     currentIndicator += 1;
     apply_inactive_Arrow();
+    update_Indicator();
   })
 
   leftArrow.addEventListener('click', (e) =>
   {
-    allSliders.scrollLeft -= allShowedSpace;
+    allSlidersDiv.scrollLeft -= allShowedSpace;
     currentIndicator -= 1;
     apply_inactive_Arrow();
+    update_Indicator();
   })
 }
 
