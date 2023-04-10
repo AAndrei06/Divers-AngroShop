@@ -51,12 +51,6 @@ function assignPosition()
 
 }
 
-
-
-
-
-
-  
 // SCROLL LA CATEGORII
 const container = document.querySelector('.category-scrollable');
 
@@ -81,3 +75,147 @@ container.addEventListener('mousemove', (event) => {
 
   container.scrollLeft = scrollLeft - dragX;
 });
+
+
+
+
+// CARUSELE :(
+
+const allSliders = document.querySelector('.carousel-sliders');
+const generalSlide = document.querySelector('.carousel-slide');
+const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
+const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+
+const leftArrow = document.querySelector("#left-arrow");
+const rightArrow = document.querySelector("#right-arrow");
+const carouselFlex = document.querySelector(".carousel-flex");
+
+const allActualSliders = allSliders.children;
+let totalShownSlides = 3;
+let currentIndicator = 1;
+
+
+// Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+// Seteaza indicatoarele
+
+set_Indicators()
+
+// Seteaza opacitatea la sageti
+
+apply_inactive_Arrow();
+
+// Seteaza widthul la carusel si la indicator
+
+set_carousel_dimensions();
+
+// Event Listener la sageti
+
+add_eventListener_Arrows();
+
+// Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+
+function set_Indicators()
+{
+  let numofIndicatorsNeeded = get_numOfIndicator_needed();
+  
+
+  for(let i = 0; i < numofIndicatorsNeeded; i++)
+  {
+    carouselIndicators[i].classList.add('show-indicator');
+  }
+  let totalActiveIndicators = calc_all_active_Indicators()
+  
+  carouselIndicators[0].classList.add('first-indicator');
+  carouselIndicators[totalActiveIndicators-1].classList.add('last-indicator');
+}
+
+function add_eventListener_Arrows()
+{
+  rightArrow.addEventListener('click', (e) =>
+  {
+    allSliders.scrollLeft += allShowedSpace;
+    currentIndicator += 1;
+    apply_inactive_Arrow();
+  })
+
+  leftArrow.addEventListener('click', (e) =>
+  {
+    allSliders.scrollLeft -= allShowedSpace;
+    currentIndicator -= 1;
+    apply_inactive_Arrow();
+  })
+}
+
+function set_carousel_dimensions()
+{
+  allShowedSpace = calc_shownSliders_width();
+  carouselFlex.style.gridTemplateColumns = `1fr ${allShowedSpace}px 1fr`;
+  carouselIndicatorsDiv.style.width = `${allShowedSpace}px`;
+}
+
+// Functii
+
+function get_numOfIndicator_needed()
+{
+  let numofSlides = allActualSliders.length + 1;
+  let numofIndicatorsNeeded = Math.ceil(numofSlides / totalShownSlides);
+  console.log(numofIndicatorsNeeded);
+  return numofIndicatorsNeeded;
+}
+
+function calc_all_active_Indicators()
+{
+  let totalActiveIndicators = 0;
+
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    if(carouselIndicators[i].classList.contains('show-indicator'))
+    {
+      totalActiveIndicators += 1;
+    }
+  }
+
+  return totalActiveIndicators;
+}
+
+function apply_inactive_Arrow()
+{
+  let totalActiveIndicators = calc_all_active_Indicators();
+
+  if(currentIndicator <= 1)
+  {
+    leftArrow.classList.add('carousel-arrow-inactive');
+  }
+  else
+  {
+    leftArrow.classList.remove('carousel-arrow-inactive');
+  }
+  if(currentIndicator >= totalActiveIndicators)
+  {
+    rightArrow.classList.add('carousel-arrow-inactive');
+  }
+  else
+  {
+    rightArrow.classList.remove('carousel-arrow-inactive');
+  }
+
+}
+
+function calc_shownSliders_width()
+{
+  let generalSlideWidth = generalSlide.offsetWidth;
+  let firstSlide = allActualSliders[0];
+  let secondSlide = allActualSliders[1];
+  let generalGap = secondSlide.offsetLeft - (firstSlide.offsetLeft + firstSlide.offsetWidth);
+  let allShowedSpace;
+
+  allShowedSpace = (generalSlideWidth * totalShownSlides) + generalGap * (totalShownSlides - 1);
+  
+  return allShowedSpace;
+}
+
