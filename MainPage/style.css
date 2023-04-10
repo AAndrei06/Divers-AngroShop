@@ -186,7 +186,7 @@
 {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 0.1fr 1fr 0.1fr;
+	grid-template-columns: 1fr 6fr 1fr;
 }
 .carousel-content
 {
@@ -198,11 +198,13 @@
 .carousel-sliders
 {
 	display: flex;
-
+	width: 100%;
 	gap: 2rem;
 	align-items: center;
 	justify-content: flex-start;
 	overflow-x: auto;
+	z-index: 3;
+	scroll-behavior: smooth;
 }
 .carousel-slide
 {
@@ -289,6 +291,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 2;
 }
 .carousel-arrow
 {
@@ -298,13 +301,12 @@
 }
 .carousel-arrow-inactive
 {
+	pointer-events: none;
 	opacity: 0.25;
 }
 /*CAROUSEL INDICATORS*/
 .carousel-indicators
 {	
-	width: 100%;
-	padding: 0px 10%;
 	height: 1rem;
 	display: flex;	
 	margin-left: auto;
@@ -312,6 +314,7 @@
 }
 .carousel-indicator
 {
+	display: none;
 	cursor: pointer;
 	flex: 1;
  	background-color: var(--thirdDark);
@@ -327,6 +330,10 @@
 .last-indicator
 {
 	border-radius: 0px 16px 16px 0px;
+}
+.show-indicator
+{
+	display: initial;
 }
 .carousel-stabiliser
 {
