@@ -70,9 +70,6 @@ function get_buttonCoordinates()
     let styles = window.getComputedStyle(endSectionStart);
     let endStartMargin = parseFloat(styles.marginTop);
 
-    console.log("HEIGHT: " + endStartHeight)
-    console.log("MARGIN TOP: " + endStartMargin)
-
     offsetStartEndSect = offsetStartEndSect + endStartHeight / 4.5 + endStartMargin;
 
     return offsetStartEndSect;
@@ -122,3 +119,65 @@ const backUpbuttonObserver = new IntersectionObserver((entries) =>
 
 backUpbuttonObserver.observe(endSection);
 
+
+// DISCLAIMER OVERLAY
+
+const overlay = document.querySelector('.overlay');
+const disclaimerDiv = document.querySelector('.disclaimer-div');
+const disclaimerButton = document.querySelector('.disclaimer-button');
+
+let userEntries = localStorage.getItem('userEntries');
+let pressedYet = localStorage.getItem('pressedYet');
+
+if(!pressedYet)
+{
+	localStorage.setItem('pressedYet', 'false');
+}
+
+if (!userEntries) {
+  localStorage.setItem('userEntries', '0');
+}
+
+if(pressedYet == 'false')
+{
+	userEntries = 0;
+}
+
+if(userEntries > 15)
+{
+	userEntries = 0;
+	pressedYet = 'false';
+}
+
+userEntries = parseInt(userEntries);
+
+if(userEntries == 0)
+{
+	overlay.style.display = 'initial';
+	disclaimerDiv.classList.remove("disclaimer-dissapear");
+}
+
+disclaimerButton.addEventListener('click', () =>
+{
+	disclaimerDiv.style.display = 'initial';
+	disclaimerDiv.classList.add('disclaimer-dissapear');
+	
+	setTimeout(() =>
+	{
+		disclaimerDiv.style.display = 'none';
+		overlay.classList.remove('overlay');
+	}, 150);
+
+	pressedYet = 'true';
+
+})
+
+userEntries += 1;
+
+localStorage.setItem('userEntries', userEntries);
+localStorage.setItem('pressedYet', pressedYet);
+
+setTimeout(() =>
+{
+	localStorage.setItem('pressedYet', pressedYet);
+}, 5000);
