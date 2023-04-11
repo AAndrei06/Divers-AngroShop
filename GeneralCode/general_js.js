@@ -24,38 +24,8 @@
 const backupButtons = document.querySelectorAll('.backup-button');
 const backUpButton = document.querySelector('.backup-div');
 buttonMoved = false;
-
-// let setbuttontimeout;
-// clearTimeout(setbuttontimeout);
-// unsetBackupButton();
-// const {scrollTop} = document.documentElement;
-// const scrollpixels = Math.round(scrollTop);
-
-// let offsetStartEndSect = endSectionStart.offsetTop;
-
-// if(scrollpixels >= offsetStartEndSect)
-// {
-// 	setBackupButton();
-// }
-// //Backup Button elimina buguri
-
-// window.addEventListener("resize", () =>
-// {
-//   clearTimeout(setbuttontimeout);
-//   unsetBackupButton();
-  
-//   const {scrollTop} = document.documentElement;
-//   const scrollpixels = Math.round(scrollTop);
-
-//   let offsetStartEndSect = endSectionStart.offsetTop;
-
-//   if(scrollpixels >= offsetStartEndSect)
-//   {
-//     setBackupButton();
-//   }
-// })
-  
-
+const endSectionStart = document.querySelector('.end-section-start');
+const endSection = document.querySelector('.end-section');
 
 window.addEventListener('scroll', () => {
     
@@ -92,50 +62,63 @@ function getScrollPercent()
 
   return scrollPercent;
 }
-// function setBackupButton()
-// {
-//       let BackupBttnSectionRect = endSectionStart.offsetTop;
-//       let backupOffset = window.innerWidth / 15;
-//       BackupBttnSectionRect = BackupBttnSectionRect - backupOffset;
-//       backupbuttontopVar = BackupBttnSectionRect + 'px';
 
-//       backUpButton.classList.add('postion-backup-button-div');
-//       backUpButton.style.setProperty('--top', backupbuttontopVar);
+function get_buttonCoordinates()
+{
+		let offsetStartEndSect = endSectionStart.offsetTop;
+	  let endStartHeight = endSectionStart.offsetHeight;
+    let styles = window.getComputedStyle(endSectionStart);
+    let endStartMargin = parseFloat(styles.marginTop);
 
-//       buttonMoved = true;
-// }
+    console.log("HEIGHT: " + endStartHeight)
+    console.log("MARGIN TOP: " + endStartMargin)
 
-// function unsetBackupButton()
-// {
-//       backUpButton.classList.remove('postion-backup-button-div');
-//       buttonMoved = false;
-// }
+    offsetStartEndSect = offsetStartEndSect + endStartHeight / 4.5 + endStartMargin;
 
+    return offsetStartEndSect;
+}
 
+function setBackupButton()
+{
+			offsetStartEndSect = get_buttonCoordinates();
+      
+      backupbuttontopVar = offsetStartEndSect + 'px';
 
-// const backUpbuttonObserver = new IntersectionObserver((entries) =>
-// {
-// 	entries.forEach((entry) =>
-// 	{
+      backUpButton.classList.add('postion-backup-button-div');
+      backUpButton.style.setProperty('--top', backupbuttontopVar);
 
-// 		const {scrollTop} = document.documentElement;
-//   	const scrollpixels = Math.round(scrollTop);
+      buttonMoved = true;
+}
 
-// 		let offsetStartEndSect = endSectionStart.offsetTop;
+function unsetBackupButton()
+{
+      backUpButton.classList.remove('postion-backup-button-div');
+      buttonMoved = false;
+}
 
-//     if(entry.isIntersecting && buttonMoved == false)
-//     {
-//       setBackupButton();
-//     }
-//     if(!entry.isIntersecting && buttonMoved == true && scrollpixels <= offsetStartEndSect)
-//     {
-//       unsetBackupButton();
-//     }
+const backUpbuttonObserver = new IntersectionObserver((entries) =>
+{
+	entries.forEach((entry) =>
+	{
+
+		const {scrollTop} = document.documentElement;
+  	const scrollpixels = Math.round(scrollTop);
+
+  	offsetStartEndSect = get_buttonCoordinates();
+
+    if(entry.isIntersecting && buttonMoved == false)
+    {
+      setBackupButton();
+    }
+    if(!entry.isIntersecting && buttonMoved == true && scrollTop <= offsetStartEndSect)
+    {
+      unsetBackupButton();
+    }
   
-//   })
-// }
-// )
+  })
+})
 
 
-// backUpbuttonObserver.observe(endSectionStart);
+
+backUpbuttonObserver.observe(endSection);
 

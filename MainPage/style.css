@@ -293,11 +293,16 @@
 	justify-content: center;
 	z-index: 2;
 }
+.carousel-arrow-div:hover .carousel-arrow
+{
+	margin-left: 0.25rem;
+}
 .carousel-arrow
 {
 	fill: var(--fourthGreen);
 	width: 4rem;
 	height: 4rem;
+	transition: all 0.15s;
 }
 .carousel-arrow-inactive
 {

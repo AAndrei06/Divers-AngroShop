@@ -527,7 +527,7 @@ a
 	transform: translateY(0);
 /*	transform: translateY(0);*/
 }
-/*.postion-backup-button-div
+.postion-backup-button-div
 {
 	position: absolute;
 	--top: 0;
@@ -536,7 +536,7 @@ a
 	right: 50%;
 	transform: translateX(50%);
 	transition: all 0.25s;
-}*/
+}
 
 /*END SECTION*/
 
