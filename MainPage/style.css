@@ -155,7 +155,7 @@
 	margin-top: 8rem;
 	display: flex;
 	flex-direction: column;
-	gap: 5rem;
+	gap: 2.5rem;
 }
 .product-header-div
 {
@@ -214,8 +214,8 @@
 	border-color: var(--fourthDark);
 	border-radius: 1.5rem;
 	border-width: 2px;
-	width: 350px;
-	height: 531px;
+	width: 325px;
+	height: 500px;
 	box-shadow: 0px 32px 13px rgba(32, 33, 36, 0.03), 0px 18px 11px rgba(32, 33, 36, 0.1), 0px 8px 8px rgba(32, 33, 36, 0.17), 0px 2px 4px rgba(32, 33, 36, 0.2), 0px 0px 0px rgba(32, 33, 36, 0.2);
 }
 .carousel-slide-product-img-div
@@ -234,7 +234,7 @@
 }
 .carousel-slide-text
 {
-	margin-top: 3rem;
+	margin-top: 2rem;
 	width: 100%;
 	padding: 0px 0.5rem;
 	display: flex;
@@ -245,8 +245,7 @@
 .carousel-slide-product-name
 {
 	font-weight: 600;
-	font-size: 1.75rem;
-	line-height: 2.75rem;
+	font-size: 1.5rem;
 	text-align: center;
 	color: var(--white);
 }
@@ -293,11 +292,24 @@
 	justify-content: center;
 	z-index: 2;
 }
+.carousel-arrow-div:hover .carousel-right-arrow
+{
+	margin-left: 0.5rem;
+}
+.carousel-arrow-div:hover .carousel-left-arrow
+{
+	margin-right: 0.5rem;
+}
 .carousel-arrow
 {
 	fill: var(--fourthGreen);
 	width: 4rem;
 	height: 4rem;
+	transition: all 0.15s;
+}
+.carousel-right-arrow
+{
+
 }
 .carousel-arrow-inactive
 {

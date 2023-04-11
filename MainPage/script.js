@@ -143,13 +143,15 @@ function scroll(neededScrolls)
 {
   let scrollVolume;
 
-  allShowedSpace = calc_shownSliders_width();
+  allShowedSpace = allSlidersDiv.offsetWidth;
+  let slidesGap = get_slidesGap()
+
   allShowedSpace = parseInt(allShowedSpace);
 
-  scrollVolume = allShowedSpace * Math.abs(neededScrolls);
-  
-  console.log(scrollVolume);
+  scrollVolume = allShowedSpace * Math.abs(neededScrolls) + slidesGap;
 
+  console.log(scrollVolume)
+  
   if(neededScrolls < 0)
   {
     allSlidersDiv.scrollLeft += scrollVolume;
@@ -214,7 +216,7 @@ function add_eventListener_Arrows()
 {
   rightArrow.addEventListener('click', (e) =>
   {
-    allSlidersDiv.scrollLeft += allShowedSpace;
+    scroll(-1);
     currentIndicator += 1;
     apply_inactive_Arrow();
     update_Indicator();
@@ -222,7 +224,7 @@ function add_eventListener_Arrows()
 
   leftArrow.addEventListener('click', (e) =>
   {
-    allSlidersDiv.scrollLeft -= allShowedSpace;
+    scroll(1);
     currentIndicator -= 1;
     apply_inactive_Arrow();
     update_Indicator();
@@ -287,13 +289,21 @@ function apply_inactive_Arrow()
 function calc_shownSliders_width()
 {
   let generalSlideWidth = generalSlide.offsetWidth;
-  let firstSlide = allActualSliders[0];
-  let secondSlide = allActualSliders[1];
-  let generalGap = secondSlide.offsetLeft - (firstSlide.offsetLeft + firstSlide.offsetWidth);
   let allShowedSpace;
+  let generalGap = get_slidesGap();
 
   allShowedSpace = (generalSlideWidth * totalShownSlides) + generalGap * (totalShownSlides - 1);
   
   return allShowedSpace;
 }
+
+function get_slidesGap()
+{
+  let firstSlide = allActualSliders[0];
+  let secondSlide = allActualSliders[1];
+  let generalGap = secondSlide.offsetLeft - (firstSlide.offsetLeft + firstSlide.offsetWidth);
+
+  return generalGap;
+}
+
 

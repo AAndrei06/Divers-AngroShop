@@ -24,38 +24,8 @@
 const backupButtons = document.querySelectorAll('.backup-button');
 const backUpButton = document.querySelector('.backup-div');
 buttonMoved = false;
-
-// let setbuttontimeout;
-// clearTimeout(setbuttontimeout);
-// unsetBackupButton();
-// const {scrollTop} = document.documentElement;
-// const scrollpixels = Math.round(scrollTop);
-
-// let offsetStartEndSect = endSectionStart.offsetTop;
-
-// if(scrollpixels >= offsetStartEndSect)
-// {
-// 	setBackupButton();
-// }
-// //Backup Button elimina buguri
-
-// window.addEventListener("resize", () =>
-// {
-//   clearTimeout(setbuttontimeout);
-//   unsetBackupButton();
-  
-//   const {scrollTop} = document.documentElement;
-//   const scrollpixels = Math.round(scrollTop);
-
-//   let offsetStartEndSect = endSectionStart.offsetTop;
-
-//   if(scrollpixels >= offsetStartEndSect)
-//   {
-//     setBackupButton();
-//   }
-// })
-  
-
+const endSectionStart = document.querySelector('.end-section-start');
+const endSection = document.querySelector('.end-section');
 
 window.addEventListener('scroll', () => {
     
@@ -92,50 +62,122 @@ function getScrollPercent()
 
   return scrollPercent;
 }
-// function setBackupButton()
-// {
-//       let BackupBttnSectionRect = endSectionStart.offsetTop;
-//       let backupOffset = window.innerWidth / 15;
-//       BackupBttnSectionRect = BackupBttnSectionRect - backupOffset;
-//       backupbuttontopVar = BackupBttnSectionRect + 'px';
 
-//       backUpButton.classList.add('postion-backup-button-div');
-//       backUpButton.style.setProperty('--top', backupbuttontopVar);
+function get_buttonCoordinates()
+{
+		let offsetStartEndSect = endSectionStart.offsetTop;
+	  let endStartHeight = endSectionStart.offsetHeight;
+    let styles = window.getComputedStyle(endSectionStart);
+    let endStartMargin = parseFloat(styles.marginTop);
 
-//       buttonMoved = true;
-// }
+    offsetStartEndSect = offsetStartEndSect + endStartHeight / 4.5 + endStartMargin;
 
-// function unsetBackupButton()
-// {
-//       backUpButton.classList.remove('postion-backup-button-div');
-//       buttonMoved = false;
-// }
+    return offsetStartEndSect;
+}
 
+function setBackupButton()
+{
+			offsetStartEndSect = get_buttonCoordinates();
+      
+      backupbuttontopVar = offsetStartEndSect + 'px';
 
+      backUpButton.classList.add('postion-backup-button-div');
+      backUpButton.style.setProperty('--top', backupbuttontopVar);
 
-// const backUpbuttonObserver = new IntersectionObserver((entries) =>
-// {
-// 	entries.forEach((entry) =>
-// 	{
+      buttonMoved = true;
+}
 
-// 		const {scrollTop} = document.documentElement;
-//   	const scrollpixels = Math.round(scrollTop);
+function unsetBackupButton()
+{
+      backUpButton.classList.remove('postion-backup-button-div');
+      buttonMoved = false;
+}
 
-// 		let offsetStartEndSect = endSectionStart.offsetTop;
+const backUpbuttonObserver = new IntersectionObserver((entries) =>
+{
+	entries.forEach((entry) =>
+	{
 
-//     if(entry.isIntersecting && buttonMoved == false)
-//     {
-//       setBackupButton();
-//     }
-//     if(!entry.isIntersecting && buttonMoved == true && scrollpixels <= offsetStartEndSect)
-//     {
-//       unsetBackupButton();
-//     }
+		const {scrollTop} = document.documentElement;
+  	const scrollpixels = Math.round(scrollTop);
+
+  	offsetStartEndSect = get_buttonCoordinates();
+
+    if(entry.isIntersecting && buttonMoved == false)
+    {
+      setBackupButton();
+    }
+    if(!entry.isIntersecting && buttonMoved == true && scrollTop <= offsetStartEndSect)
+    {
+      unsetBackupButton();
+    }
   
-//   })
-// }
-// )
+  })
+})
 
 
-// backUpbuttonObserver.observe(endSectionStart);
 
+backUpbuttonObserver.observe(endSection);
+
+
+// DISCLAIMER OVERLAY
+
+const overlay = document.querySelector('.overlay');
+const disclaimerDiv = document.querySelector('.disclaimer-div');
+const disclaimerButton = document.querySelector('.disclaimer-button');
+
+let userEntries = localStorage.getItem('userEntries');
+let pressedYet = localStorage.getItem('pressedYet');
+
+if(!pressedYet)
+{
+	localStorage.setItem('pressedYet', 'false');
+}
+
+if (!userEntries) {
+  localStorage.setItem('userEntries', '0');
+}
+
+if(pressedYet == 'false')
+{
+	userEntries = 0;
+}
+
+if(userEntries > 15)
+{
+	userEntries = 0;
+	pressedYet = 'false';
+}
+
+userEntries = parseInt(userEntries);
+
+if(userEntries == 0)
+{
+	overlay.style.display = 'initial';
+	disclaimerDiv.classList.remove("disclaimer-dissapear");
+}
+
+disclaimerButton.addEventListener('click', () =>
+{
+	disclaimerDiv.style.display = 'initial';
+	disclaimerDiv.classList.add('disclaimer-dissapear');
+	
+	setTimeout(() =>
+	{
+		disclaimerDiv.style.display = 'none';
+		overlay.classList.remove('overlay');
+	}, 150);
+
+	pressedYet = 'true';
+
+})
+
+userEntries += 1;
+
+localStorage.setItem('userEntries', userEntries);
+localStorage.setItem('pressedYet', pressedYet);
+
+setTimeout(() =>
+{
+	localStorage.setItem('pressedYet', pressedYet);
+}, 5000);
