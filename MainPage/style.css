@@ -307,14 +307,14 @@
 	height: 4rem;
 	transition: all 0.15s;
 }
-.carousel-right-arrow
-{
-
-}
 .carousel-arrow-inactive
 {
 	pointer-events: none;
 	opacity: 0.25;
+}
+.carousel-inactive
+{
+	pointer-events: none;
 }
 /*CAROUSEL INDICATORS*/
 .carousel-indicators

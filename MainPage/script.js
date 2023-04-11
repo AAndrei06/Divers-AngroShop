@@ -86,6 +86,7 @@ const generalSlide = document.querySelector('.carousel-slide');
 const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
 const carouselIndicators = document.querySelectorAll('.carousel-indicator');
 
+const carouselArrows = document.querySelectorAll('.carousel-arrow-div');
 const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
@@ -93,6 +94,8 @@ const carouselFlex = document.querySelector(".carousel-flex");
 const allActualSliders = allSlidersDiv.children;
 let totalShownSlides = 3;
 let currentIndicator = 1;
+
+let disableAllTimeout;
 
 
 // Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -116,6 +119,54 @@ add_eventListener_Arrows();
 // Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 add_eventListener_Indicators();
+
+fix_bugs();
+
+// check_Scrolling();
+
+// carousel-inactive
+function fix_bugs()
+{
+  allSlidersDiv.addEventListener('scroll', check_Scrolling);
+}
+
+function check_Scrolling()
+{
+  let isScrolling = false;
+
+  disable_All();
+
+  clearTimeout(disableAllTimeout);
+
+  disableAllTimeout = setTimeout(() => {
+    isScrolling = false;
+    enable_All();
+  }, 20);
+  
+}
+function disable_All()
+{
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    carouselIndicators[i].classList.add('carousel-inactive');
+  }
+  for(let i = 0; i < carouselArrows.length; i++)
+  {
+    carouselArrows[i].classList.add('carousel-inactive');
+  }
+}
+
+function enable_All()
+{
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    carouselIndicators[i].classList.remove('carousel-inactive');
+  }
+  for(let i = 0; i < carouselArrows.length; i++)
+  {
+    carouselArrows[i].classList.remove('carousel-inactive');
+  }
+}
 
 function update_Indicator()
 {
@@ -306,4 +357,64 @@ function get_slidesGap()
   return generalGap;
 }
 
+// DISCLAIMER OVERLAY
 
+const overlay = document.querySelector('.overlay');
+const disclaimerDiv = document.querySelector('.disclaimer-div');
+const disclaimerButton = document.querySelector('.disclaimer-button');
+
+let userEntries = localStorage.getItem('userEntries');
+let pressedYet = localStorage.getItem('pressedYet');
+
+if(!pressedYet)
+{
+  localStorage.setItem('pressedYet', 'false');
+}
+
+if (!userEntries) {
+  localStorage.setItem('userEntries', '0');
+}
+
+if(pressedYet == 'false')
+{
+  userEntries = 0;
+}
+
+if(userEntries > 15)
+{
+  userEntries = 0;
+  pressedYet = 'false';
+}
+
+userEntries = parseInt(userEntries);
+
+if(userEntries == 0)
+{
+  overlay.style.display = 'initial';
+  disclaimerDiv.classList.remove("disclaimer-dissapear");
+}
+
+disclaimerButton.addEventListener('click', () =>
+{
+  disclaimerDiv.style.display = 'initial';
+  disclaimerDiv.classList.add('disclaimer-dissapear');
+  
+  setTimeout(() =>
+  {
+    disclaimerDiv.style.display = 'none';
+    overlay.classList.remove('overlay');
+  }, 150);
+
+  pressedYet = 'true';
+
+})
+
+userEntries += 1;
+
+localStorage.setItem('userEntries', userEntries);
+localStorage.setItem('pressedYet', pressedYet);
+
+setTimeout(() =>
+{
+  localStorage.setItem('pressedYet', pressedYet);
+}, 5000);
