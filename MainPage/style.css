@@ -293,9 +293,13 @@
 	justify-content: center;
 	z-index: 2;
 }
-.carousel-arrow-div:hover .carousel-arrow
+.carousel-arrow-div:hover .carousel-right-arrow
 {
-	margin-left: 0.25rem;
+	margin-left: 0.5rem;
+}
+.carousel-arrow-div:hover .carousel-left-arrow
+{
+	margin-right: 0.5rem;
 }
 .carousel-arrow
 {
@@ -303,6 +307,10 @@
 	width: 4rem;
 	height: 4rem;
 	transition: all 0.15s;
+}
+.carousel-right-arrow
+{
+
 }
 .carousel-arrow-inactive
 {
