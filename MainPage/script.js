@@ -148,9 +148,9 @@ function scroll(neededScrolls)
 
   allShowedSpace = parseInt(allShowedSpace);
 
-  allShowedSpace += slidesGap;
+  scrollVolume = allShowedSpace * Math.abs(neededScrolls) + slidesGap;
 
-  scrollVolume = allShowedSpace * Math.abs(neededScrolls);
+  console.log(scrollVolume)
   
   if(neededScrolls < 0)
   {
@@ -216,7 +216,7 @@ function add_eventListener_Arrows()
 {
   rightArrow.addEventListener('click', (e) =>
   {
-    allSlidersDiv.scrollLeft += allShowedSpace;
+    scroll(-1);
     currentIndicator += 1;
     apply_inactive_Arrow();
     update_Indicator();
@@ -224,7 +224,7 @@ function add_eventListener_Arrows()
 
   leftArrow.addEventListener('click', (e) =>
   {
-    allSlidersDiv.scrollLeft -= allShowedSpace;
+    scroll(1);
     currentIndicator -= 1;
     apply_inactive_Arrow();
     update_Indicator();
