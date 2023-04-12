@@ -92,39 +92,110 @@ const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
 
 const allActualSliders = allSlidersDiv.children;
-let totalShownSlides = 3;
 let currentIndicator = 1;
-
 let disableAllTimeout;
 
 
-// Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-// Seteaza indicatoarele
 
-set_Indicators()
 
-// Seteaza opacitatea la sageti
-
-apply_inactive_Arrow();
-
-// Seteaza widthul la carusel si la indicator
-
+// MULTIPLE
+totalShownSlides = get_shownSlides();
+set_Indicators();
 set_carousel_dimensions();
 
-// Event Listener la sageti
+// ONE TIME
 
 add_eventListener_Arrows();
-
-// Instant Responsive ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 add_eventListener_Indicators();
-
+apply_inactive_Arrow(); 
 fix_bugs();
 
-// check_Scrolling();
 
-// carousel-inactive
+
+
+
+// MULTIPLE
+
+
+
+
+window.addEventListener('resize', responsive_fix);
+
+get_fixedValues();
+
+function responsive_fix()
+{
+  set_Indicators();
+  set_carousel_dimensions();
+  totalShownSlides = get_shownSlides();
+  apply_inactive_Arrow(); 
+
+  console.log(totalShownSlides);
+}
+
+function get_slideDimension()
+{
+  let generalSlideWidth = generalSlide.offsetWidth;
+  let generalGap = get_slidesGap();
+
+  let slideWidth = generalSlideWidth + generalGap;
+
+  return slideWidth;
+}
+
+function get_shownSlides()
+{
+  let numShownSlides;
+
+  if(window.innerWidth > 1172)
+  {
+    numShownSlides = 3;
+  }
+  else
+  {
+    numShownSlides = 2;
+  }
+
+  return numShownSlides;
+
+}
+
+function get_fixedValues(totalShownSlides)
+{
+  let slideWidth = get_slideDimension();
+  let generalGap = get_slidesGap();
+
+  let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
+  let shownWidth = calc_shownSliders_width();
+  let fixedValues = [0];
+  let totalSpace = 0;
+
+  
+
+  // if(totalShownSlides == 3)
+  // {
+  //   let firstSlides = 0;
+  //   let secondSlides = shownWidth + generalGap;
+  //   let endSlides = totalSlidesWidth - secondSlides - firstSlides;
+
+  //   // for(let i = 0; i <)
+
+
+    
+  // }
+  // if(totalShownSlides == 2)
+  // {
+  //   let firstSlides = 0;
+  //   let secondSlides = shownWidth + generalGap;
+  //   let thirdSlides = totalSlidesWidth - secondSlides - firstSlides;
+  //   let fourth
+
+    
+  // }
+
+}
+
 function fix_bugs()
 {
   allSlidersDiv.addEventListener('scroll', check_Scrolling);
@@ -200,8 +271,6 @@ function scroll(neededScrolls)
   allShowedSpace = parseInt(allShowedSpace);
 
   scrollVolume = allShowedSpace * Math.abs(neededScrolls) + slidesGap;
-
-  console.log(scrollVolume)
   
   if(neededScrolls < 0)
   {
@@ -211,10 +280,6 @@ function scroll(neededScrolls)
   {
     allSlidersDiv.scrollLeft -= scrollVolume;
   }
-  let currentIndicatorIndex = get_currentIndicator();
-  currentIndicatorIndex += 1;
-
-  currentIndicator = currentIndicatorIndex;
   apply_inactive_Arrow();
 }
 
@@ -248,18 +313,30 @@ function remove_currentIndicator()
     }
   }
 }
+function remove_lastIndicator()
+{
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    if(carouselIndicators[i].classList.contains('last-indicator'))
+    {
+      carouselIndicators[i].classList.remove('last-indicator');
+    }
+  }
+}
 function set_Indicators()
 {
+  remove_currentIndicator();
+  remove_lastIndicator()
   let numofIndicatorsNeeded = get_numOfIndicator_needed();
-  
 
   for(let i = 0; i < numofIndicatorsNeeded; i++)
   {
     carouselIndicators[i].classList.add('show-indicator');
   }
-  let totalActiveIndicators = calc_all_active_Indicators()
-  
+  let totalActiveIndicators = calc_all_active_Indicators();
+
   carouselIndicators[0].classList.add('first-indicator');
+  carouselIndicators[0].classList.add('current-indicator');
   carouselIndicators[totalActiveIndicators-1].classList.add('last-indicator');
 }
 
@@ -284,18 +361,24 @@ function add_eventListener_Arrows()
 
 function set_carousel_dimensions()
 {
-  allShowedSpace = calc_shownSliders_width();
+  let sliderDimension = get_slideDimension();
+  let generalGap = get_slidesGap();
+
+  let allShowedSpace = sliderDimension * totalShownSlides - generalGap;
+
   carouselFlex.style.gridTemplateColumns = `1fr ${allShowedSpace}px 1fr`;
   carouselIndicatorsDiv.style.width = `${allShowedSpace}px`;
+
+  allSlidersDiv.scrollLeft = 0;
 }
 
 // Functii
 
 function get_numOfIndicator_needed()
 {
-  let numofSlides = allActualSliders.length + 1;
+  let numofSlides = allActualSliders.length;
   let numofIndicatorsNeeded = Math.ceil(numofSlides / totalShownSlides);
-  console.log(numofIndicatorsNeeded);
+
   return numofIndicatorsNeeded;
 }
 
@@ -317,8 +400,12 @@ function calc_all_active_Indicators()
 function apply_inactive_Arrow()
 {
   let totalActiveIndicators = calc_all_active_Indicators();
+  let currentIndicator = get_currentIndicator();
 
-  if(currentIndicator <= 1)
+  console.log("CURRENT INDICATOR: "+currentIndicator)
+  console.log("TOTAL ACTIVE INDICATORS: "+ totalActiveIndicators)
+
+  if(currentIndicator <= 0)
   {
     leftArrow.classList.add('carousel-arrow-inactive');
   }
@@ -326,7 +413,7 @@ function apply_inactive_Arrow()
   {
     leftArrow.classList.remove('carousel-arrow-inactive');
   }
-  if(currentIndicator >= totalActiveIndicators)
+  if(currentIndicator >= totalActiveIndicators-1)
   {
     rightArrow.classList.add('carousel-arrow-inactive');
   }
@@ -339,12 +426,10 @@ function apply_inactive_Arrow()
 
 function calc_shownSliders_width()
 {
-  let generalSlideWidth = generalSlide.offsetWidth;
-  let allShowedSpace;
-  let generalGap = get_slidesGap();
+  let slideGap = get_slidesGap();
+  let slideWidth = get_slideDimension();
+  let allShowedSpace = totalShownSlides * slideWidth - slideGap;
 
-  allShowedSpace = (generalSlideWidth * totalShownSlides) + generalGap * (totalShownSlides - 1);
-  
   return allShowedSpace;
 }
 
@@ -356,6 +441,16 @@ function get_slidesGap()
 
   return generalGap;
 }
+
+
+
+
+
+
+
+
+
+
 
 // DISCLAIMER OVERLAY
 
