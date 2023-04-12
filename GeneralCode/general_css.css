@@ -524,7 +524,6 @@ a
 	opacity: 1;
 	pointer-events: initial;
 	transform: translateY(0);
-/*	transform: translateY(0);*/
 }
 .postion-backup-button-div
 {
@@ -535,6 +534,10 @@ a
 	right: 50%;
 	transform: translateX(50%);
 	transition: all 0.25s;
+}
+.backup-button-inactive
+{
+	pointer-events: none;
 }
 
 /*END SECTION*/
