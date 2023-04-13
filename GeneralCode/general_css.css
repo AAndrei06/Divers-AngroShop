@@ -11,7 +11,7 @@
 	--welcome-header-line-height: 5.375rem;
 	/*32px*/
 	--welcome-description: 2rem;
-	/*32px*/
+	/*28px*/
 	--description: 1.75rem;
 	--description-line-height: 3rem;
 	/*24px*/
@@ -494,6 +494,7 @@ a
 }
 .backup-button
 {
+	position: relative;
 	border-radius: 100px;
 	width: 3.5rem;
 	height: 3.5rem;
@@ -524,7 +525,6 @@ a
 	opacity: 1;
 	pointer-events: initial;
 	transform: translateY(0);
-/*	transform: translateY(0);*/
 }
 .postion-backup-button-div
 {
@@ -536,6 +536,12 @@ a
 	transform: translateX(50%);
 	transition: all 0.25s;
 }
+.backup-button-inactive
+{
+	position: relative;
+	pointer-events: none;
+}
+
 
 /*END SECTION*/
 

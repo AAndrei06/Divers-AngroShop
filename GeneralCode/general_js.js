@@ -49,8 +49,18 @@ backupButtons.forEach(button =>
 	    top: 0,
 	    behavior: 'smooth'
 	  });
+	  dezactivate_backupButton(button);
 	});
 })
+
+function dezactivate_backupButton(button)
+{
+	button.classList.add('backup-button-inactive');
+	setTimeout(() =>
+	{
+		button.classList.remove('backup-button-inactive');
+	}, 2500);
+}
 
 // // Cand vede ultima sectiune sa dispara
 

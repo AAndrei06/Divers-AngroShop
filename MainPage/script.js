@@ -85,53 +85,59 @@ const allSlidersDiv = document.querySelector('.carousel-sliders');
 const generalSlide = document.querySelector('.carousel-slide');
 const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
 const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+const indicatorAnimator = document.querySelector('.carousel-indicator-anim');
 
-const carouselArrows = document.querySelectorAll('.carousel-arrow-div');
 const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
 
+let scrolled;
+
+let fixedValues = [];
+
 const allActualSliders = allSlidersDiv.children;
-let currentIndicator = 1;
-let disableAllTimeout;
-
-
-
 
 
 // MULTIPLE
+let currentIndicator = 0;
 totalShownSlides = get_shownSlides();
-set_Indicators();
 set_carousel_dimensions();
+set_Indicators();
+apply_inactive_Arrow(); 
+get_fixedValues();
 
 // ONE TIME
 
 add_eventListener_Arrows();
 add_eventListener_Indicators();
-apply_inactive_Arrow(); 
-fix_bugs();
 
 
+responsive_fix();
+
+set_indicatorAnim();
+
+function set_indicatorAnim()
+{
+  let generalIndicatorWidth = carouselIndicators[0].offsetWidth;
+  indicatorAnimator.style.width = `${generalIndicatorWidth}px`;
+  let currentLeft = carouselIndicators[currentIndicator].offsetLeft;
+  indicatorAnimator.style.left = `${currentLeft}px`;
+}
 
 
-
-// MULTIPLE
-
-
-
-
-window.addEventListener('resize', responsive_fix);
-
-get_fixedValues();
 
 function responsive_fix()
 {
-  set_Indicators();
-  set_carousel_dimensions();
-  totalShownSlides = get_shownSlides();
-  apply_inactive_Arrow(); 
-
-  console.log(totalShownSlides);
+  window.addEventListener('resize', () =>
+    {
+      currentIndicator = 0;
+      totalShownSlides = get_shownSlides();
+      set_carousel_dimensions();
+      set_Indicators();
+      apply_inactive_Arrow();
+      get_fixedValues();
+    });
+  
 }
 
 function get_slideDimension()
@@ -148,11 +154,13 @@ function get_shownSlides()
 {
   let numShownSlides;
 
-  if(window.innerWidth > 1172)
+  let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  if(windowWidth > 1200)
   {
     numShownSlides = 3;
   }
-  else
+  if(windowWidth < 1200)
   {
     numShownSlides = 2;
   }
@@ -161,125 +169,93 @@ function get_shownSlides()
 
 }
 
-function get_fixedValues(totalShownSlides)
+function get_fixedValues()
 {
+  fixedValues = [0];
   let slideWidth = get_slideDimension();
   let generalGap = get_slidesGap();
-
+  let numOfIndicators = calc_all_active_Indicators();
   let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
   let shownWidth = calc_shownSliders_width();
-  let fixedValues = [0];
-  let totalSpace = 0;
+  
+  let totalSlidesValues = 0;
+
+  for(let i = 0; i < numOfIndicators-1; i++)
+  {
+    totalSlidesValues += shownWidth + generalGap;
+    fixedValues.push(totalSlidesValues);
+  }
+
+  // let end = totalSlidesWidth - totalSlidesValues;
+
+  // fixedValues.push(end);
 
   
-
-  // if(totalShownSlides == 3)
-  // {
-  //   let firstSlides = 0;
-  //   let secondSlides = shownWidth + generalGap;
-  //   let endSlides = totalSlidesWidth - secondSlides - firstSlides;
-
-  //   // for(let i = 0; i <)
-
-
-    
-  // }
-  // if(totalShownSlides == 2)
-  // {
-  //   let firstSlides = 0;
-  //   let secondSlides = shownWidth + generalGap;
-  //   let thirdSlides = totalSlidesWidth - secondSlides - firstSlides;
-  //   let fourth
-
-    
-  // }
-
-}
-
-function fix_bugs()
-{
-  allSlidersDiv.addEventListener('scroll', check_Scrolling);
-}
-
-function check_Scrolling()
-{
-  let isScrolling = false;
-
-  disable_All();
-
-  clearTimeout(disableAllTimeout);
-
-  disableAllTimeout = setTimeout(() => {
-    isScrolling = false;
-    enable_All();
-  }, 20);
-  
-}
-function disable_All()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    carouselIndicators[i].classList.add('carousel-inactive');
-  }
-  for(let i = 0; i < carouselArrows.length; i++)
-  {
-    carouselArrows[i].classList.add('carousel-inactive');
-  }
-}
-
-function enable_All()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    carouselIndicators[i].classList.remove('carousel-inactive');
-  }
-  for(let i = 0; i < carouselArrows.length; i++)
-  {
-    carouselArrows[i].classList.remove('carousel-inactive');
-  }
 }
 
 function update_Indicator()
 {
   remove_currentIndicator();
-  carouselIndicators[currentIndicator-1].classList.add('current-indicator');
+  carouselIndicators[currentIndicator].classList.add('current-indicator')
 }
+function update_Indicator_Dynamic()
+{
+  
+  allSlidersDiv.addEventListener('scroll', () => 
+  {
+    let generalGap = get_slidesGap();
+    remove_currentIndicator();
+    scrolled = allSlidersDiv.scrollLeft;
+    scrolled = Math.round(scrolled);
+    let areas = fixedValues.length;
+
+    if(areas == 3)
+    {
+      if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
+      {
+        carouselIndicators[0].classList.add('current-indicator');
+        currentIndicator = 0;
+      }
+      if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2])
+      {
+        carouselIndicators[1].classList.add('current-indicator');
+        currentIndicator = 1;
+      }
+      if(scrolled >= fixedValues[2])
+      {
+        carouselIndicators[2].classList.add('current-indicator');
+        currentIndicator = 3;
+      }
+    }
+
+
+  })
+
+}
+
+
 function add_eventListener_Indicators()
 {
     carouselIndicators.forEach(indicator =>
     {
       indicator.addEventListener('click', (e) =>
       {
-        let pastCurrentIndicatorIndex = get_currentIndicator();
+
         remove_currentIndicator()
         indicator.classList.add('current-indicator');
         let clickedCurrentIndicatorIndex = get_currentIndicator();
-        let neededScrolls = pastCurrentIndicatorIndex - clickedCurrentIndicatorIndex;
+        currentIndicator = clickedCurrentIndicatorIndex;
 
-        scroll(neededScrolls);
+        scroll(currentIndicator);
+        set_indicatorAnim();
       })
     })
 }
 
-function scroll(neededScrolls)
+
+function scroll(currentIndicator)
 {
-  let scrollVolume;
-
-  allShowedSpace = allSlidersDiv.offsetWidth;
-  let slidesGap = get_slidesGap()
-
-  allShowedSpace = parseInt(allShowedSpace);
-
-  scrollVolume = allShowedSpace * Math.abs(neededScrolls) + slidesGap;
-  
-  if(neededScrolls < 0)
-  {
-    allSlidersDiv.scrollLeft += scrollVolume;
-  }
-  if(neededScrolls > 0)
-  {
-    allSlidersDiv.scrollLeft -= scrollVolume;
-  }
+  allSlidersDiv.scrollLeft = fixedValues[currentIndicator];
   apply_inactive_Arrow();
 }
 
@@ -303,6 +279,17 @@ function get_currentIndicator()
 
   return currentIndicatorIndex;
 }
+function remove_activeIndicator()
+{
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    if(carouselIndicators[i].classList.contains('show-indicator'))
+    {
+      carouselIndicators[i].classList.remove('show-indicator');
+    }
+  }
+  
+}
 function remove_currentIndicator()
 {
   for(let i = 0; i < carouselIndicators.length; i++)
@@ -325,6 +312,7 @@ function remove_lastIndicator()
 }
 function set_Indicators()
 {
+  remove_activeIndicator()
   remove_currentIndicator();
   remove_lastIndicator()
   let numofIndicatorsNeeded = get_numOfIndicator_needed();
@@ -344,18 +332,19 @@ function add_eventListener_Arrows()
 {
   rightArrow.addEventListener('click', (e) =>
   {
-    scroll(-1);
     currentIndicator += 1;
-    apply_inactive_Arrow();
+    scroll(currentIndicator);
     update_Indicator();
+    set_indicatorAnim();
   })
 
   leftArrow.addEventListener('click', (e) =>
   {
-    scroll(1);
     currentIndicator -= 1;
-    apply_inactive_Arrow();
+    scroll(currentIndicator);
     update_Indicator();
+    set_indicatorAnim();
+    
   })
 }
 
@@ -371,8 +360,6 @@ function set_carousel_dimensions()
 
   allSlidersDiv.scrollLeft = 0;
 }
-
-// Functii
 
 function get_numOfIndicator_needed()
 {
@@ -400,10 +387,6 @@ function calc_all_active_Indicators()
 function apply_inactive_Arrow()
 {
   let totalActiveIndicators = calc_all_active_Indicators();
-  let currentIndicator = get_currentIndicator();
-
-  console.log("CURRENT INDICATOR: "+currentIndicator)
-  console.log("TOTAL ACTIVE INDICATORS: "+ totalActiveIndicators)
 
   if(currentIndicator <= 0)
   {
