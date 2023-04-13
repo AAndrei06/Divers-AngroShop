@@ -52,29 +52,62 @@ function assignPosition()
 }
 
 // SCROLL LA CATEGORII
-const container = document.querySelector('.category-scrollable');
+const allCategoryDivs = document.querySelector('.category-scrollable-space');
+let isDragging = false;
+let categoryStartX = 0;
+let categoryScrollLeft = 0;
+let categoryIsScrolling = false; 
 
-let isMouseDown = false; 
-let startX; 
-let scrollLeft; 
-
-container.addEventListener('mousedown', (event) => {
-  isMouseDown = true; 
-  startX = event.clientX; 
-  scrollLeft = container.scrollLeft; 
+allCategoryDivs.addEventListener('mousedown', (event) => {
+  isDragging = true;
+  categoryStartX = event.pageX - allCategoryDivs.offsetLeft;
+  categoryScrollLeft = allCategoryDivs.scrollLeft;
 });
 
-container.addEventListener('mouseup', () => {
-  isMouseDown = false;
+allCategoryDivs.addEventListener('mousemove', (event) => {
+  if (!isDragging) return;
+  event.preventDefault();
+  const x = event.pageX - allCategoryDivs.offsetLeft;
+  const walk = (x - categoryStartX) * 2;
+  allCategoryDivs.scrollLeft = categoryScrollLeft - walk;
 });
 
-container.addEventListener('mousemove', (event) => {
-  if (!isMouseDown) return;
-
-  const dragX = event.clientX - startX;
-
-  container.scrollLeft = scrollLeft - dragX;
+document.addEventListener('mouseup', () => {
+  isDragging = false;
 });
+
+allCategoryDivs.addEventListener('mouseleave', () => {
+  isDragging = false;
+});
+
+function updateScroll() {
+  if (isDragging && categoryIsScrolling) { 
+    const x = event.pageX - allCategoryDivs.offsetLeft;
+    const walk = (x - categoryStartX) * 2;
+    allCategoryDivs.scrollLeft = categoryScrollLeft - walk;
+  }
+}
+
+allCategoryDivs.addEventListener('mousemove', (event) => {
+  if (!isDragging) return;
+  event.preventDefault();
+  if (!categoryIsScrolling) {
+    categoryIsScrolling = true;
+    requestAnimationFrame(updateScroll);
+  }
+});
+
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, wait);
+  }
+}
+
+allCategoryDivs.addEventListener('scroll', debounce(() => {
+  categoryIsScrolling = false; 
+}, 100));
 
 
 

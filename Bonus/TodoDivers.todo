@@ -63,32 +63,25 @@ Lucruri de Facut:
 
   La General:
 
-    ☐ Fa un effect clasna la hover effect la top bar ||
     ☐ ceva mult mai complicat la backup button anti scroll
     ☐ Scoate scrolurile de la firefox
     ☐ Fa Alegerea legata de text (general sau specific)
     ☐ Fa Top-barul pentru tableta responsive
     ☐ Adauga si bottom-barul pentru telefon
     ☐ Rezolva problema cu staggeruul cand apesi pe un link
-    ✔ !Poti apasa backup buttonul de mai multe ori @done (23-04-13 13:39)
     ☐ Animatii personalizate la end icons
-    ☐ Fa design la limbi
 
   La Produse:
 
-    ☐ Fixed scrolling la carusel
-    ✔ Scoate Bugurile de la carusele @done (23-04-12 23:54)
     ☐ Fa ca backup buttonul sa se porneasca din acelasi loc(de preferat dupa prima intersectie)
     ☐ Fa caruselul responsive
     ☐ Fa caruselul cu clase
-    ☐ Adauga animatii la indicatoare
     ☐ Adauga sa poti trage caruselul
-    ☐ Fa caruselele
     ☐ Vezi cum sa nu te mute de fiecare data cand dai refresh
     ☐ Ficare iconita random sa aiba link
     ☐ La categorii is tare laggy scrollu
     ☐ Fa exemplele random + functionalitate + sa incapa
-    ☐ Popup la random icons
+    ☐ Popup clasna in general la random icons
     ☐ Efect la exemple cand dai hover
     ☐ Fa sa-ti arate sectiunea curenta de produse progress
     ☐ Fa ca iconita la produsele actuale sa aiba fill
@@ -106,6 +99,7 @@ Lucruri de Facut:
     ☐ Adauga Harta + Design negru cu verde
     ☐ Adauga tot designul nou
    
+
   La Contact Us:
 
     ☐ Fa Formularul
@@ -120,9 +114,8 @@ Lucruri de Facut:
     ☐ Editeaza pozele
     ☐ Adauga tot designul nou
 
+
 CARUSEL STUFF:
   ☐ Sa poti da grab
   ☐ Responsive
   ☐ Clase
-  ☐ !!Infinit
-  ✔ Animatie @done (23-04-13 19:07)

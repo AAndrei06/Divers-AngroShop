@@ -59,7 +59,7 @@ function dezactivate_backupButton(button)
 	setTimeout(() =>
 	{
 		button.classList.remove('backup-button-inactive');
-	}, 2500);
+	}, 1000);
 }
 
 // // Cand vede ultima sectiune sa dispara
@@ -140,11 +140,7 @@ languageDiv.addEventListener('mouseenter', () =>
 })
 languageDiv.addEventListener('mouseleave', () =>
 {
-	change_languageBack();
+	languageText.innerHTML = 'Română';
 	
 })
 
-function change_languageBack()
-{
-	setTimeout(languageText.innerHTML = 'Română', 2050);
-}
