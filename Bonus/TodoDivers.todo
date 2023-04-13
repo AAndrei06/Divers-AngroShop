@@ -1,19 +1,10 @@
 Fiecare Problema la Divers Angro Shop:
-  ☐ Top Bar sus de tot are un fel de shadow leva
   ☐ La produse, nu este deloc varietate intre carusele
   ☐ Cand selectezi textul e greu sa-l deselectezi
-  ☐ La Stiri, pozele nu sunt editate si se incarca greu
-  ☐ Iconitele nu apar instant cand dai reload la site
-  ☐ Cand dau hover la caret-uri(sageti la carusel) imi apare un mic popup
-  ☐ La Form putem folosi un library
-  ☐ Caruselele i-au prea mult loc, scurteaza(cod)
-  ☐ Site-ul are lag
   ☐ Iconita(sus de tot/bara de navigare google) nu are background 
-  ☐ Caruselul este prea static(cod) fala mai automat(crearea indicatoarelor)
   ☐ În elementul meta NU sunt specificate: cuvintele-cheie ale site-ului
   ☐ Uitete in spate ~~ hihi ;)
-  ☐ Butonul(backup) il poti apasa de mai multe ori
-  ☐ Nu poti trage pentru a da la urmatorul slide la carusel
+  ☐ La butoanele pe care nu le poti apasa iti as vrea sa se vada cursorul
 
 Idei:
   ☐ Categorie cu produsele noi sau ceva nou in general | ..
@@ -30,34 +21,22 @@ Lucruri Bonus de Facut:
   ☐ Variabile pentru tot
 
 Figma Idei:
-  ☐ La Intro daca dai hover peste un buton sa arate o animatie clasna
-  ☐ La Header sa fie o clasa speciala pentru ca sa fie usor sa adaugi before si after
-  ☐ La Categorii, daca apesi pe un exemplu te va duce la exemplul respectiv
   ☐ Animatii la Categorii la exemple cum isi schimba locurile unul cate unul cu un library
-  ☐ La Categorii, butoanele vor aparea doar daca dai hover
   ☐ Bifele sa fie fara fill, dar cand ma apropii atunci sa se umple
   ☐ La Produse, la indicatoare, cand vei apasa pe unu, acela se va misca cu animatie
-  ☐ Daca dai hover la un item din end section atnci va deveni verde
-  ☐ La categorii exemplele sa se puna random de fiecare data
-  ☐ La Intro sa fie doar 5 iconite, dar sa se schimbe care are display none si care nu la random
-  ☐ La Program de lucru, daca dai hover peste link atunci bara va deveni verde
+  ☐ La Program de lucru, daca dai hover peste link atunci bara va disparea
   ☐ La About us, numarul de sub carusel sasi schimbe descrierea si numarul cu animatie regulat, si de fiecare daca cand intrii pe pagina
   ☐ Tot la namarul de sub carusel, cand il vezi pentru prima oara, va creste cu cate 5 pana va ajunge unde este necesar
   ☐ LA FAQ, care este deschisa va fi de fiecare data random
+  ☐ La FAQ sati tina minte care a fost ultima deschisa
   ☐ La FAQ, descrierea va avea voie sa aiba x1.5 la numarul total de caractere la Header
-  ☐ La End section, intotdeauna sa fie ceva random la header.
-  ☐ Locul intre categorii(iconite) sa se schimbe la random
   ☐ Mic Popup pentru cand dai hover la telefon
   ☐ La Contact, daca dai hover pe buton isi baga un 45deg
-  ☐ La tableta, burger button, sa fie 75% opacity
   ☐ La FAQ sa fie o intrebare care sunt contactele noastre  
-  ☐ La About us, la statementri, se vor alege 2 random de fiecare data hihi
-  ☐ Backup Button sa aiba opacitatea mia mica
+  ☐ La About us, la statementri, se vor alege 2 random de fiecare data cand este pe telefon
 
 Figma Todo:
   ☐ Adauga cate un svg din cand in cand la carusele
-  ☐ Fa popup normal
-  ☐ Fa popup pentru hover la end section
 
 
 Figma Schimbari:
@@ -65,7 +44,6 @@ Figma Schimbari:
   La Produse:
     ☐ Iconita la Categorii arata de parca de va lua pe alta pagina 
     
-
   La About Us:
 
 
@@ -75,7 +53,9 @@ Lucruri pentru Andrei:
   ☐ Sa schimbe toate numele la carusele
   ☐ Barem la Web
   ☐ Sa puna toate stirile inapoi
+  ☐ Testeze caruselele
   ☐ Intreaba ownerul de niste statistici
+  ☐ Backup button bug
 
 
 Lucruri de Facut:
@@ -83,25 +63,42 @@ Lucruri de Facut:
 
   La General:
 
-    ☐ Fa un Design pentru backup button
-    ☐ Fa un effect clasna la hover effect la top bar
-    ☐ Fa End Section-ul
+    ☐ Fa un effect clasna la hover effect la top bar ||
+    ☐ ceva mult mai complicat la backup button anti scroll
+    ☐ Scoate scrolurile de la firefox
     ☐ Fa Alegerea legata de text (general sau specific)
     ☐ Fa Top-barul pentru tableta responsive
     ☐ Adauga si bottom-barul pentru telefon
-    ☐ Animatie pentru butoane cand dai hover
+    ☐ Rezolva problema cu staggeruul cand apesi pe un link
+    ✔ !Poti apasa backup buttonul de mai multe ori @done (23-04-13 13:39)
+    ☐ Animatii personalizate la end icons
+    ☐ Fa design la limbi
 
   La Produse:
 
+    ☐ Fixed scrolling la carusel
+    ✔ Scoate Bugurile de la carusele @done (23-04-12 23:54)
+    ☐ Fa ca backup buttonul sa se porneasca din acelasi loc(de preferat dupa prima intersectie)
+    ☐ Fa caruselul responsive
+    ☐ Fa caruselul cu clase
+    ☐ Adauga animatii la indicatoare
+    ☐ Adauga sa poti trage caruselul
     ☐ Fa caruselele
+    ☐ Vezi cum sa nu te mute de fiecare data cand dai refresh
+    ☐ Ficare iconita random sa aiba link
+    ☐ La categorii is tare laggy scrollu
+    ☐ Fa exemplele random + functionalitate + sa incapa
+    ☐ Popup la random icons
     ☐ Efect la exemple cand dai hover
-    ☐ Fa random-nessul la iconite si pozitioneaza-le(library)
-    ☐ Fa sa-ti arate sectiunea curenta de produse curenta de produse
+    ☐ Fa sa-ti arate sectiunea curenta de produse progress
+    ☐ Fa ca iconita la produsele actuale sa aiba fill
     ☐ Adauga tot designul nou
+    ☐ Fa tot responsive
 
   
   La About Us:
 
+    ☐ Carsel infinit
     ☐ Fa Caruselul(sa fie similar cu caruselele)
     ☐ Fa tranzitia la Carusel
     ☐ Fa animatia la statistici
@@ -112,6 +109,7 @@ Lucruri de Facut:
   La Contact Us:
 
     ☐ Fa Formularul
+    ☐ Animatie wow la butonul cu trimite
     ☐ Fa FAQ-ul
     ☐ Adauga tot designul nou
 
@@ -121,3 +119,10 @@ Lucruri de Facut:
     ☐ Schimba in loc de grid sa fie 2 flexuri
     ☐ Editeaza pozele
     ☐ Adauga tot designul nou
+
+CARUSEL STUFF:
+  ☐ Sa poti da grab
+  ☐ Responsive
+  ☐ Clase
+  ☐ !!Infinit
+  ✔ Animatie @done (23-04-13 19:07)

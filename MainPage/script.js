@@ -124,8 +124,6 @@ function set_indicatorAnim()
   indicatorAnimator.style.left = `${currentLeft}px`;
 }
 
-
-
 function responsive_fix()
 {
   window.addEventListener('resize', () =>
@@ -227,6 +225,29 @@ function update_Indicator_Dynamic()
         currentIndicator = 3;
       }
     }
+    if(areas == 4)
+    {
+      if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
+      {
+        carouselIndicators[0].classList.add('current-indicator');
+        currentIndicator = 0;
+      }
+      if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2] - generalGap)
+      {
+        carouselIndicators[1].classList.add('current-indicator');
+        currentIndicator = 1;
+      }
+      if(scrolled >= fixedValues[2] - generalGap && scrolled < fixedValues[3])
+      {
+        carouselIndicators[2].classList.add('current-indicator');
+        currentIndicator = 3;
+      }
+      if(scrolled >= fixedValues[3])
+      {
+        carouselIndicators[2].classList.add('current-indicator');
+        currentIndicator = 4;
+      }
+    }
 
 
   })
@@ -312,6 +333,7 @@ function remove_lastIndicator()
 }
 function set_Indicators()
 {
+  indicatorAnimator.style.left = `0px`;
   remove_activeIndicator()
   remove_currentIndicator();
   remove_lastIndicator()
@@ -481,7 +503,7 @@ disclaimerButton.addEventListener('click', () =>
   {
     disclaimerDiv.style.display = 'none';
     overlay.classList.remove('overlay');
-  }, 150);
+  }, 100);
 
   pressedYet = 'true';
 

@@ -626,6 +626,7 @@ a
 }
 .language-div
 {
+	position: relative;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -634,10 +635,11 @@ a
 }
 .language-div:hover .language-icon
 {
-	margin-top: 0.25rem;
+	transform: rotate(-90deg);
 }
 .language-text
 {
+	cursor: pointer;
 	font-weight: 600;
 	font-size: 1.25rem;
 	color: var(--white);
@@ -647,7 +649,7 @@ a
 	fill: var(--white);
 	width: 12px;
 	height: 12px;
-	transition: margin 0.15s;
+	transition: transform 0.15s;
 }
 
 /*POPUP DISCLAIMER*/
