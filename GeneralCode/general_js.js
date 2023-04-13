@@ -127,3 +127,24 @@ const backUpbuttonObserver = new IntersectionObserver((entries) =>
 
 backUpbuttonObserver.observe(endSection);
 
+// Language Switch
+
+let languageText = document.querySelector('.language-text');
+let languageDiv = document.querySelector('.language-div');
+
+console.log(languageDiv)
+
+languageDiv.addEventListener('mouseenter', () =>
+{
+	languageText.innerHTML = 'Русский';
+})
+languageDiv.addEventListener('mouseleave', () =>
+{
+	change_languageBack();
+	
+})
+
+function change_languageBack()
+{
+	setTimeout(languageText.innerHTML = 'Română', 2050);
+}
