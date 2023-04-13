@@ -14,26 +14,31 @@
 	opacity: 0.50;
 }
 /*Category Links*/
-.category-scrollable
+.category-scrollable-space
 {
-	width: 100%;
+	margin-top: var(--bigM);
 	overflow: scroll;
 	cursor: grab;
+}
+
+.category-scrollable-space::-webkit-scrollbar
+{
+	display: none;
 }
 .category-links
 {
 	position: relative;
 	white-space: nowrap;
 	height: auto;
-	margin-top: var(--bigM);
 	display: flex;
-	scroll-snap-type: x proximity;
+	scroll-padding-left: 128px;
+	scroll-snap-type: x mandatory;
 	gap: 24px;
 }
 .category-link
 {
 	position: relative;
-	scroll-snap-align: start;
+	scroll-snap-align: center;
 	cursor: pointer;
 	width: 25.5rem;
 	height: 15rem;
