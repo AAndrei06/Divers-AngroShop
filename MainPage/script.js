@@ -91,8 +91,13 @@ const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
 
+let scrolled;
+
+let fixedValues = [];
+let fixedAreas = [];
+
 const allActualSliders = allSlidersDiv.children;
-let currentIndicator = 1;
+let currentIndicator = 0;
 let disableAllTimeout;
 
 
@@ -101,37 +106,38 @@ let disableAllTimeout;
 
 // MULTIPLE
 totalShownSlides = get_shownSlides();
-set_Indicators();
+
 set_carousel_dimensions();
+set_Indicators();
 
 // ONE TIME
 
 add_eventListener_Arrows();
 add_eventListener_Indicators();
 apply_inactive_Arrow(); 
-fix_bugs();
 
-
-
-
-
-// MULTIPLE
-
-
-
-
-window.addEventListener('resize', responsive_fix);
+responsive_fix();
 
 get_fixedValues();
 
+
+
+
+
+
+
 function responsive_fix()
 {
-  set_Indicators();
-  set_carousel_dimensions();
-  totalShownSlides = get_shownSlides();
-  apply_inactive_Arrow(); 
-
-  console.log(totalShownSlides);
+  window.addEventListener('resize', () =>
+    {
+      totalShownSlides = get_shownSlides();
+      set_carousel_dimensions();
+      set_Indicators();
+      apply_inactive_Arrow();
+      currentIndicator = 0;
+      get_fixedValues();
+    });
+  
 }
 
 function get_slideDimension()
@@ -161,60 +167,29 @@ function get_shownSlides()
 
 }
 
-function get_fixedValues(totalShownSlides)
+function get_fixedValues()
 {
+  
   let slideWidth = get_slideDimension();
+  fixedValues = [0];
   let generalGap = get_slidesGap();
-
+  let numOfIndicators = calc_all_active_Indicators();
   let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
   let shownWidth = calc_shownSliders_width();
-  let fixedValues = [0];
-  let totalSpace = 0;
-
   
+  let totalSlidesValues = 0;
 
-  // if(totalShownSlides == 3)
-  // {
-  //   let firstSlides = 0;
-  //   let secondSlides = shownWidth + generalGap;
-  //   let endSlides = totalSlidesWidth - secondSlides - firstSlides;
+  for(let i = 0; i < numOfIndicators-2; i++)
+  {
+    totalSlidesValues += shownWidth + generalGap;
+    fixedValues.push(totalSlidesValues);
+  }
 
-  //   // for(let i = 0; i <)
+  let end = totalSlidesWidth - totalSlidesValues + generalGap;
 
-
-    
-  // }
-  // if(totalShownSlides == 2)
-  // {
-  //   let firstSlides = 0;
-  //   let secondSlides = shownWidth + generalGap;
-  //   let thirdSlides = totalSlidesWidth - secondSlides - firstSlides;
-  //   let fourth
-
-    
-  // }
-
+  fixedValues.push(end);
 }
 
-function fix_bugs()
-{
-  allSlidersDiv.addEventListener('scroll', check_Scrolling);
-}
-
-function check_Scrolling()
-{
-  let isScrolling = false;
-
-  disable_All();
-
-  clearTimeout(disableAllTimeout);
-
-  disableAllTimeout = setTimeout(() => {
-    isScrolling = false;
-    enable_All();
-  }, 20);
-  
-}
 function disable_All()
 {
   for(let i = 0; i < carouselIndicators.length; i++)
@@ -238,48 +213,68 @@ function enable_All()
     carouselArrows[i].classList.remove('carousel-inactive');
   }
 }
-
 function update_Indicator()
 {
   remove_currentIndicator();
-  carouselIndicators[currentIndicator-1].classList.add('current-indicator');
+  carouselIndicators[currentIndicator].classList.add('current-indicator')
 }
+function update_Indicator_Dynamic()
+{
+  
+  allSlidersDiv.addEventListener('scroll', () => 
+  {
+    let generalGap = get_slidesGap();
+    remove_currentIndicator();
+    scrolled = allSlidersDiv.scrollLeft;
+    scrolled = Math.round(scrolled);
+    let areas = fixedValues.length;
+
+    if(areas == 3)
+    {
+      if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
+      {
+        carouselIndicators[0].classList.add('current-indicator');
+        currentIndicator = 0;
+      }
+      if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2])
+      {
+        carouselIndicators[1].classList.add('current-indicator');
+        currentIndicator = 1;
+      }
+      if(scrolled >= fixedValues[2])
+      {
+        carouselIndicators[2].classList.add('current-indicator');
+        currentIndicator = 3;
+      }
+    }
+
+
+  })
+
+}
+
+
 function add_eventListener_Indicators()
 {
     carouselIndicators.forEach(indicator =>
     {
       indicator.addEventListener('click', (e) =>
       {
-        let pastCurrentIndicatorIndex = get_currentIndicator();
+
         remove_currentIndicator()
         indicator.classList.add('current-indicator');
         let clickedCurrentIndicatorIndex = get_currentIndicator();
-        let neededScrolls = pastCurrentIndicatorIndex - clickedCurrentIndicatorIndex;
+        currentIndicator = clickedCurrentIndicatorIndex;
 
-        scroll(neededScrolls);
+        scroll(currentIndicator);
       })
     })
 }
 
-function scroll(neededScrolls)
+
+function scroll(currentIndicator)
 {
-  let scrollVolume;
-
-  allShowedSpace = allSlidersDiv.offsetWidth;
-  let slidesGap = get_slidesGap()
-
-  allShowedSpace = parseInt(allShowedSpace);
-
-  scrollVolume = allShowedSpace * Math.abs(neededScrolls) + slidesGap;
-  
-  if(neededScrolls < 0)
-  {
-    allSlidersDiv.scrollLeft += scrollVolume;
-  }
-  if(neededScrolls > 0)
-  {
-    allSlidersDiv.scrollLeft -= scrollVolume;
-  }
+  allSlidersDiv.scrollLeft = fixedValues[currentIndicator];
   apply_inactive_Arrow();
 }
 
@@ -344,18 +339,17 @@ function add_eventListener_Arrows()
 {
   rightArrow.addEventListener('click', (e) =>
   {
-    scroll(-1);
     currentIndicator += 1;
-    apply_inactive_Arrow();
+    scroll(currentIndicator);
     update_Indicator();
   })
 
   leftArrow.addEventListener('click', (e) =>
   {
-    scroll(1);
     currentIndicator -= 1;
-    apply_inactive_Arrow();
+    scroll(currentIndicator);
     update_Indicator();
+    
   })
 }
 
@@ -400,10 +394,6 @@ function calc_all_active_Indicators()
 function apply_inactive_Arrow()
 {
   let totalActiveIndicators = calc_all_active_Indicators();
-  let currentIndicator = get_currentIndicator();
-
-  console.log("CURRENT INDICATOR: "+currentIndicator)
-  console.log("TOTAL ACTIVE INDICATORS: "+ totalActiveIndicators)
 
   if(currentIndicator <= 0)
   {

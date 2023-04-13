@@ -538,6 +538,7 @@ a
 .backup-button-inactive
 {
 	pointer-events: none;
+	cursor: pointer;
 }
 
 /*END SECTION*/
