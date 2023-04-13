@@ -319,6 +319,7 @@
 /*CAROUSEL INDICATORS*/
 .carousel-indicators
 {	
+	position: relative;
 	height: 1rem;
 	display: flex;	
 	margin-left: auto;
@@ -331,9 +332,19 @@
 	flex: 1;
  	background-color: var(--thirdDark);
 }
+.carousel-indicator-anim
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 10px;
+	height: 1rem;
+	transition: all 0.15s;
+	border-radius: 16px;
+	background-color: var(--fourthGreen);
+}
 .current-indicator
 {
-	background-color: var(--fourthGreen);
 	pointer-events: none;
 }
 .first-indicator

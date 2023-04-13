@@ -85,6 +85,7 @@ const allSlidersDiv = document.querySelector('.carousel-sliders');
 const generalSlide = document.querySelector('.carousel-slide');
 const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
 const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+const indicatorAnimator = document.querySelector('.carousel-indicator-anim');
 
 const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
@@ -100,12 +101,10 @@ const allActualSliders = allSlidersDiv.children;
 // MULTIPLE
 let currentIndicator = 0;
 totalShownSlides = get_shownSlides();
-console.log(totalShownSlides)
 set_carousel_dimensions();
 set_Indicators();
 apply_inactive_Arrow(); 
 get_fixedValues();
-console.log(fixedValues);
 
 // ONE TIME
 
@@ -114,6 +113,18 @@ add_eventListener_Indicators();
 
 
 responsive_fix();
+
+set_indicatorAnim();
+
+function set_indicatorAnim()
+{
+  let generalIndicatorWidth = carouselIndicators[0].offsetWidth;
+  indicatorAnimator.style.width = `${generalIndicatorWidth}px`;
+  let currentLeft = carouselIndicators[currentIndicator].offsetLeft;
+  indicatorAnimator.style.left = `${currentLeft}px`;
+}
+
+
 
 function responsive_fix()
 {
@@ -125,7 +136,6 @@ function responsive_fix()
       set_Indicators();
       apply_inactive_Arrow();
       get_fixedValues();
-      console.log(fixedValues);
     });
   
 }
@@ -237,6 +247,7 @@ function add_eventListener_Indicators()
         currentIndicator = clickedCurrentIndicatorIndex;
 
         scroll(currentIndicator);
+        set_indicatorAnim();
       })
     })
 }
@@ -324,6 +335,7 @@ function add_eventListener_Arrows()
     currentIndicator += 1;
     scroll(currentIndicator);
     update_Indicator();
+    set_indicatorAnim();
   })
 
   leftArrow.addEventListener('click', (e) =>
@@ -331,6 +343,7 @@ function add_eventListener_Arrows()
     currentIndicator -= 1;
     scroll(currentIndicator);
     update_Indicator();
+    set_indicatorAnim();
     
   })
 }
