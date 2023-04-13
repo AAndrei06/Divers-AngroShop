@@ -334,6 +334,7 @@
 .current-indicator
 {
 	background-color: var(--fourthGreen);
+	pointer-events: none;
 }
 .first-indicator
 {

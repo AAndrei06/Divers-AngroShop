@@ -86,7 +86,6 @@ const generalSlide = document.querySelector('.carousel-slide');
 const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
 const carouselIndicators = document.querySelectorAll('.carousel-indicator');
 
-const carouselArrows = document.querySelectorAll('.carousel-arrow-div');
 const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
@@ -94,48 +93,39 @@ const carouselFlex = document.querySelector(".carousel-flex");
 let scrolled;
 
 let fixedValues = [];
-let fixedAreas = [];
 
 const allActualSliders = allSlidersDiv.children;
-let currentIndicator = 0;
-let disableAllTimeout;
-
-
-
 
 
 // MULTIPLE
+let currentIndicator = 0;
 totalShownSlides = get_shownSlides();
-
+console.log(totalShownSlides)
 set_carousel_dimensions();
 set_Indicators();
+apply_inactive_Arrow(); 
+get_fixedValues();
+console.log(fixedValues);
 
 // ONE TIME
 
 add_eventListener_Arrows();
 add_eventListener_Indicators();
-apply_inactive_Arrow(); 
+
 
 responsive_fix();
-
-get_fixedValues();
-
-
-
-
-
-
 
 function responsive_fix()
 {
   window.addEventListener('resize', () =>
     {
+      currentIndicator = 0;
       totalShownSlides = get_shownSlides();
       set_carousel_dimensions();
       set_Indicators();
       apply_inactive_Arrow();
-      currentIndicator = 0;
       get_fixedValues();
+      console.log(fixedValues);
     });
   
 }
@@ -154,11 +144,13 @@ function get_shownSlides()
 {
   let numShownSlides;
 
-  if(window.innerWidth > 1172)
+  let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  if(windowWidth > 1200)
   {
     numShownSlides = 3;
   }
-  else
+  if(windowWidth < 1200)
   {
     numShownSlides = 2;
   }
@@ -169,9 +161,8 @@ function get_shownSlides()
 
 function get_fixedValues()
 {
-  
-  let slideWidth = get_slideDimension();
   fixedValues = [0];
+  let slideWidth = get_slideDimension();
   let generalGap = get_slidesGap();
   let numOfIndicators = calc_all_active_Indicators();
   let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
@@ -179,40 +170,19 @@ function get_fixedValues()
   
   let totalSlidesValues = 0;
 
-  for(let i = 0; i < numOfIndicators-2; i++)
+  for(let i = 0; i < numOfIndicators-1; i++)
   {
     totalSlidesValues += shownWidth + generalGap;
     fixedValues.push(totalSlidesValues);
   }
 
-  let end = totalSlidesWidth - totalSlidesValues + generalGap;
+  // let end = totalSlidesWidth - totalSlidesValues;
 
-  fixedValues.push(end);
+  // fixedValues.push(end);
+
+  
 }
 
-function disable_All()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    carouselIndicators[i].classList.add('carousel-inactive');
-  }
-  for(let i = 0; i < carouselArrows.length; i++)
-  {
-    carouselArrows[i].classList.add('carousel-inactive');
-  }
-}
-
-function enable_All()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    carouselIndicators[i].classList.remove('carousel-inactive');
-  }
-  for(let i = 0; i < carouselArrows.length; i++)
-  {
-    carouselArrows[i].classList.remove('carousel-inactive');
-  }
-}
 function update_Indicator()
 {
   remove_currentIndicator();
@@ -298,6 +268,17 @@ function get_currentIndicator()
 
   return currentIndicatorIndex;
 }
+function remove_activeIndicator()
+{
+  for(let i = 0; i < carouselIndicators.length; i++)
+  {
+    if(carouselIndicators[i].classList.contains('show-indicator'))
+    {
+      carouselIndicators[i].classList.remove('show-indicator');
+    }
+  }
+  
+}
 function remove_currentIndicator()
 {
   for(let i = 0; i < carouselIndicators.length; i++)
@@ -320,6 +301,7 @@ function remove_lastIndicator()
 }
 function set_Indicators()
 {
+  remove_activeIndicator()
   remove_currentIndicator();
   remove_lastIndicator()
   let numofIndicatorsNeeded = get_numOfIndicator_needed();
@@ -365,8 +347,6 @@ function set_carousel_dimensions()
 
   allSlidersDiv.scrollLeft = 0;
 }
-
-// Functii
 
 function get_numOfIndicator_needed()
 {
