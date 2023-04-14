@@ -119,7 +119,7 @@ const generalSlide = document.querySelector('.carousel-slide');
 const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
 const carouselIndicators = document.querySelectorAll('.carousel-indicator');
 const indicatorAnimator = document.querySelector('.carousel-indicator-anim');
-
+let switchToPhone = 1200;
 const leftArrow = document.querySelector("#left-arrow");
 const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
@@ -192,11 +192,11 @@ function get_shownSlides()
 
   let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-  if(windowWidth > 1200)
+  if(windowWidth > switchToPhone)
   {
     numShownSlides = 3;
   }
-  if(windowWidth < 1200)
+  if(windowWidth < switchToPhone)
   {
     numShownSlides = 2;
   }
