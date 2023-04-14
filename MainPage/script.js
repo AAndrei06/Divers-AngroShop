@@ -125,6 +125,7 @@ const rightArrow = document.querySelector("#right-arrow");
 const carouselFlex = document.querySelector(".carousel-flex");
 
 let scrolled;
+let grabTimeout;
 
 let fixedValues = [];
 
@@ -132,11 +133,6 @@ const allActualSliders = allSlidersDiv.children;
 
 
 // GRAB
-let slidesIsDragging = false;
-let slidesStartX = 0;
-let slidesScrollLeft = 0;
-let slidesIsScrolling = false; 
-
 
 // MULTIPLE
 let currentIndicator = 0;
@@ -152,6 +148,7 @@ add_eventListener_Arrows();
 add_eventListener_Indicators();
 
 add_grab();
+add_grabMobile()
 responsive_fix();
 
 set_indicatorAnim();
@@ -174,6 +171,7 @@ function responsive_fix()
       set_Indicators();
       apply_inactive_Arrow();
       get_fixedValues();
+      set_indicatorAnim();
     });
   
 }
@@ -210,10 +208,8 @@ function get_shownSlides()
 function get_fixedValues()
 {
   fixedValues = [0];
-  let slideWidth = get_slideDimension();
   let generalGap = get_slidesGap();
   let numOfIndicators = calc_all_active_Indicators();
-  let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
   let shownWidth = calc_shownSliders_width();
   
   let totalSlidesValues = 0;
@@ -223,11 +219,6 @@ function get_fixedValues()
     totalSlidesValues += shownWidth + generalGap;
     fixedValues.push(totalSlidesValues);
   }
-
-  // let end = totalSlidesWidth - totalSlidesValues;
-
-  // fixedValues.push(end);
-
   
 }
 
@@ -236,62 +227,61 @@ function update_Indicator()
   remove_currentIndicator();
   carouselIndicators[currentIndicator].classList.add('current-indicator')
 }
-function update_Indicator_Dynamic()
+function update_Indicator_Dynamic(scrolled)
 {
+  let end;
+  let slideWidth = get_slideDimension();
+  let generalGap = get_slidesGap();
+  remove_currentIndicator();
+  let areas = fixedValues.length;
+  let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
   
-  allSlidersDiv.addEventListener('scroll', () => 
+  
+
+  if(areas == 3)
   {
-    let generalGap = get_slidesGap();
-    remove_currentIndicator();
-    scrolled = allSlidersDiv.scrollLeft;
-    scrolled = Math.round(scrolled);
-    let areas = fixedValues.length;
-
-    if(areas == 3)
+    end = totalSlidesWidth - fixedValues[1];
+    if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
     {
-      if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
-      {
-        carouselIndicators[0].classList.add('current-indicator');
-        currentIndicator = 0;
-      }
-      if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2])
-      {
-        carouselIndicators[1].classList.add('current-indicator');
-        currentIndicator = 1;
-      }
-      if(scrolled >= fixedValues[2])
-      {
-        carouselIndicators[2].classList.add('current-indicator');
-        currentIndicator = 3;
-      }
+      carouselIndicators[0].classList.add('current-indicator');
+      currentIndicator = 0;
     }
-    if(areas == 4)
+    if(scrolled >= fixedValues[1] - generalGap && scrolled < end)
     {
-      if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
-      {
-        carouselIndicators[0].classList.add('current-indicator');
-        currentIndicator = 0;
-      }
-      if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2] - generalGap)
-      {
-        carouselIndicators[1].classList.add('current-indicator');
-        currentIndicator = 1;
-      }
-      if(scrolled >= fixedValues[2] - generalGap && scrolled < fixedValues[3])
-      {
-        carouselIndicators[2].classList.add('current-indicator');
-        currentIndicator = 3;
-      }
-      if(scrolled >= fixedValues[3])
-      {
-        carouselIndicators[2].classList.add('current-indicator');
-        currentIndicator = 4;
-      }
+      carouselIndicators[1].classList.add('current-indicator');
+      currentIndicator = 1;
     }
+    if(scrolled >= end)
+    {
+      carouselIndicators[2].classList.add('current-indicator');
+      currentIndicator = 2;
+    }
+  }
+  if(areas == 4)
+  {
 
-
-  })
-
+    if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
+    {
+      carouselIndicators[0].classList.add('current-indicator');
+      currentIndicator = 0;
+    }
+    if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2] - generalGap)
+    {
+      carouselIndicators[1].classList.add('current-indicator');
+      currentIndicator = 1;
+    }
+    if(scrolled >= fixedValues[2] - generalGap && scrolled < fixedValues[3] - generalGap)
+    {
+      carouselIndicators[2].classList.add('current-indicator');
+      currentIndicator = 2;
+    }
+    if(scrolled >= fixedValues[3] - generalGap)
+    {
+      carouselIndicators[3].classList.add('current-indicator');
+      currentIndicator = 3;
+    }
+  }
+  set_indicatorAnim();
 }
 
 
@@ -486,9 +476,29 @@ function get_slidesGap()
 
   return generalGap;
 }
+function add_grabMobile()
+{
+  allSlidersDiv.addEventListener('scroll', () =>
+  {
+
+    clearTimeout(grabTimeout);
+
+    grabTimeout = setTimeout(() =>
+    {
+      let scroll = allSlidersDiv.scrollLeft;
+      update_Indicator_Dynamic(scroll);
+    }, 100)
+    
+  })
+}
 
 function add_grab()
 {
+
+  let slidesIsDragging = false;
+  let slidesStartX = 0;
+  let slidesScrollLeft = 0;
+  let slidesIsScrolling = false; 
 
   let firstMouse = 0;
   let secondMouse = 0;
@@ -516,16 +526,27 @@ function add_grab()
       firstMouse = 0;
       secondMouse = 0;
 
+      let totalIndicators = calc_all_active_Indicators()
+
       if(direction < 0)
       {
-        currentIndicator -= 1;
+        if(currentIndicator >= 0)
+        {
+          currentIndicator -= 1;
+        }
+        
         scroll(currentIndicator);
         update_Indicator();
         set_indicatorAnim();
       }
       if(direction > 0)
       {
-        currentIndicator += 1;
+
+        if(currentIndicator < totalIndicators-1)
+        {
+          currentIndicator += 1;
+        }
+
         scroll(currentIndicator);
         update_Indicator();
         set_indicatorAnim();

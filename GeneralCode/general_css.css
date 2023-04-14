@@ -142,7 +142,7 @@ html
 	user-select: none;
 }
 ::-webkit-scrollbar{
-	width: 12px;
+	width: 4px;
   	background-color: var(--thirdDark);
 }
 ::-webkit-scrollbar-thumb{

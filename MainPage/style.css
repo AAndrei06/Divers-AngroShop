@@ -16,7 +16,7 @@
 /*Category Links*/
 .category-scrollable-space
 {
-	margin-top: var(--bigM);
+	margin-top: var(--mediumM);
 	overflow: scroll;
 	cursor: grab;
 }
