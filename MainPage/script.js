@@ -53,19 +53,19 @@ function assignPosition()
 
 // SCROLL LA CATEGORII
 const allCategoryDivs = document.querySelector('.category-scrollable-space');
-let isDragging = false;
+let categoryIsDragging = false;
 let categoryStartX = 0;
 let categoryScrollLeft = 0;
 let categoryIsScrolling = false; 
 
 allCategoryDivs.addEventListener('mousedown', (event) => {
-  isDragging = true;
+  categoryIsDragging = true;
   categoryStartX = event.pageX - allCategoryDivs.offsetLeft;
   categoryScrollLeft = allCategoryDivs.scrollLeft;
 });
 
 allCategoryDivs.addEventListener('mousemove', (event) => {
-  if (!isDragging) return;
+  if (!categoryIsDragging) return;
   event.preventDefault();
   const x = event.pageX - allCategoryDivs.offsetLeft;
   const walk = (x - categoryStartX) * 2;
@@ -73,15 +73,15 @@ allCategoryDivs.addEventListener('mousemove', (event) => {
 });
 
 document.addEventListener('mouseup', () => {
-  isDragging = false;
+  categoryIsDragging = false;
 });
 
 allCategoryDivs.addEventListener('mouseleave', () => {
-  isDragging = false;
+  categoryIsDragging = false;
 });
 
 function updateScroll() {
-  if (isDragging && categoryIsScrolling) { 
+  if (categoryIsDragging && categoryIsScrolling) { 
     const x = event.pageX - allCategoryDivs.offsetLeft;
     const walk = (x - categoryStartX) * 2;
     allCategoryDivs.scrollLeft = categoryScrollLeft - walk;
@@ -89,7 +89,7 @@ function updateScroll() {
 }
 
 allCategoryDivs.addEventListener('mousemove', (event) => {
-  if (!isDragging) return;
+  if (!categoryIsDragging) return;
   event.preventDefault();
   if (!categoryIsScrolling) {
     categoryIsScrolling = true;
@@ -107,7 +107,7 @@ function debounce(func, wait) {
 
 allCategoryDivs.addEventListener('scroll', debounce(() => {
   categoryIsScrolling = false; 
-}, 100));
+}, 10));
 
 
 
@@ -131,6 +131,13 @@ let fixedValues = [];
 const allActualSliders = allSlidersDiv.children;
 
 
+// GRAB
+let slidesIsDragging = false;
+let slidesStartX = 0;
+let slidesScrollLeft = 0;
+let slidesIsScrolling = false; 
+
+
 // MULTIPLE
 let currentIndicator = 0;
 totalShownSlides = get_shownSlides();
@@ -144,7 +151,7 @@ get_fixedValues();
 add_eventListener_Arrows();
 add_eventListener_Indicators();
 
-
+add_grab();
 responsive_fix();
 
 set_indicatorAnim();
@@ -480,13 +487,57 @@ function get_slidesGap()
   return generalGap;
 }
 
+function add_grab()
+{
+
+  let firstMouse = 0;
+  let secondMouse = 0;
+
+  let mouseDowned = false;
+  let mouseUpped = false;
+
+  allSlidersDiv.addEventListener('mousedown', (event) => {
+    slidesStartX = event.pageX - allSlidersDiv.offsetLeft;
+    slidesScrollLeft = allSlidersDiv.scrollLeft;
+    mouseDowned = true;
+    firstMouse = slidesStartX;
+  });
+
+  document.addEventListener('mouseup', () => {
+    slidesStartX = event.pageX - allSlidersDiv.offsetLeft;
+    secondMouse = slidesStartX;
+    mouseUpped = true;
+
+    if(mouseDowned == true && mouseUpped == true)
+    {
+      let direction = firstMouse - secondMouse;
+      mouseDowned = false;
+      mouseUpped = false;
+      firstMouse = 0;
+      secondMouse = 0;
+
+      if(direction < 0)
+      {
+        currentIndicator -= 1;
+        scroll(currentIndicator);
+        update_Indicator();
+        set_indicatorAnim();
+      }
+      if(direction > 0)
+      {
+        currentIndicator += 1;
+        scroll(currentIndicator);
+        update_Indicator();
+        set_indicatorAnim();
+      }
+    }
+    
+
+  });
 
 
 
-
-
-
-
+}
 
 
 
