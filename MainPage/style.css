@@ -351,6 +351,7 @@
 	transition: all 0.15s;
 	border-radius: 16px;
 	background-color: var(--fourthGreen);
+	pointer-events: none;
 }
 .current-indicator
 {

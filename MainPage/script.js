@@ -200,477 +200,463 @@ function shuffle_examples(arrayIndex)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // CARUSELE :(
-
-const allSlidersDiv = document.querySelector('.carousel-sliders');
-const generalSlide = document.querySelector('.carousel-slide');
-const carouselIndicatorsDiv = document.querySelector('.carousel-indicators');
-const carouselIndicators = document.querySelectorAll('.carousel-indicator');
-const indicatorAnimator = document.querySelector('.carousel-indicator-anim');
-let switchToPhone = 1200;
-const leftArrow = document.querySelector("#left-arrow");
-const rightArrow = document.querySelector("#right-arrow");
-const carouselFlex = document.querySelector(".carousel-flex");
-
-let scrolled;
-let grabTimeout;
-
-let fixedValues = [];
-
-const allActualSliders = allSlidersDiv.children;
-
-
-// GRAB
-
-// MULTIPLE
-let currentIndicator = 0;
-totalShownSlides = get_shownSlides();
-set_carousel_dimensions();
-set_Indicators();
-apply_inactive_Arrow(); 
-get_fixedValues();
-
-// ONE TIME
-
-add_eventListener_Arrows();
-add_eventListener_Indicators();
-
-add_grab();
-add_grabMobile()
-responsive_fix();
-
-set_indicatorAnim();
-
-function set_indicatorAnim()
+class Carousel
 {
-  let generalIndicatorWidth = carouselIndicators[0].offsetWidth;
-  indicatorAnimator.style.width = `${generalIndicatorWidth}px`;
-  let currentLeft = carouselIndicators[currentIndicator].offsetLeft;
-  indicatorAnimator.style.left = `${currentLeft}px`;
-}
+  constructor(allSlidersDiv, generalSlide, carouselIndicatorsDiv, carouselIndicators, indicatorAnimator,
+   leftArrow, rightArrow, carouselFlex, allActualSliders)
+  {
 
-function responsive_fix()
-{
-  window.addEventListener('resize', () =>
+    this.allSlidersDiv = allSlidersDiv;
+    this.generalSlide = generalSlide;
+    this.carouselIndicatorsDiv = carouselIndicatorsDiv;
+    this.carouselIndicators = carouselIndicators;
+    this.indicatorAnimator = indicatorAnimator;
+    this.leftArrow = leftArrow;
+    this.rightArrow = rightArrow;
+    this.carouselFlex = carouselFlex;
+    this.allActualSliders = allActualSliders;
+
+    this.fixedValues = [];
+    this.grabTimeout;
+    this.scrolled;
+    this.currentIndicator = 0;
+    this.switchToPhone = 1200;
+    this.totalShownSlides = 3;
+    this.totalActiveIndicators = 0;
+
+  }
+
+  // MULTIPLE
+  responsive_fix()
+  {
+    window.addEventListener('resize', () =>
     {
-      currentIndicator = 0;
-      totalShownSlides = get_shownSlides();
-      set_carousel_dimensions();
-      set_Indicators();
-      apply_inactive_Arrow();
-      get_fixedValues();
-      set_indicatorAnim();
+      this.currentIndicator = 0;
+      this.get_shownSlides();
+      this.set_carousel_dimensions();
+      this.set_Indicators();
+      this.apply_inactive_Arrow();
+      this.get_fixedValues();
+      this.set_indicatorAnim();
     });
-  
-}
-
-function get_slideDimension()
-{
-  let generalSlideWidth = generalSlide.offsetWidth;
-  let generalGap = get_slidesGap();
-
-  let slideWidth = generalSlideWidth + generalGap;
-
-  return slideWidth;
-}
-
-function get_shownSlides()
-{
-  let numShownSlides;
-
-  let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-  if(windowWidth > switchToPhone)
-  {
-    numShownSlides = 3;
-  }
-  if(windowWidth < switchToPhone)
-  {
-    numShownSlides = 2;
   }
 
-  return numShownSlides;
-
-}
-
-function get_fixedValues()
-{
-  fixedValues = [0];
-  let generalGap = get_slidesGap();
-  let numOfIndicators = calc_all_active_Indicators();
-  let shownWidth = calc_shownSliders_width();
-  
-  let totalSlidesValues = 0;
-
-  for(let i = 0; i < numOfIndicators-1; i++)
+  get_shownSlides()
   {
-    totalSlidesValues += shownWidth + generalGap;
-    fixedValues.push(totalSlidesValues);
+    let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+    if(windowWidth > this.switchToPhone)
+    {
+      this.totalShownSlides = 3;
+    }
+    if(windowWidth <= this.switchToPhone)
+    {
+      this.totalShownSlides = 2;
+    }
+
   }
-  
-}
-
-function update_Indicator()
-{
-  remove_currentIndicator();
-  carouselIndicators[currentIndicator].classList.add('current-indicator')
-}
-function update_Indicator_Dynamic(scrolled)
-{
-  let end;
-  let slideWidth = get_slideDimension();
-  let generalGap = get_slidesGap();
-  remove_currentIndicator();
-  let areas = fixedValues.length;
-  let totalSlidesWidth = slideWidth * allActualSliders.length - generalGap;
-  
-  
-
-  if(areas == 3)
+  set_carousel_dimensions()
   {
-    end = totalSlidesWidth - fixedValues[1];
-    if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
-    {
-      carouselIndicators[0].classList.add('current-indicator');
-      currentIndicator = 0;
-    }
-    if(scrolled >= fixedValues[1] - generalGap && scrolled < end)
-    {
-      carouselIndicators[1].classList.add('current-indicator');
-      currentIndicator = 1;
-    }
-    if(scrolled >= end)
-    {
-      carouselIndicators[2].classList.add('current-indicator');
-      currentIndicator = 2;
-    }
+    let sliderDimension = this.get_slideDimension();
+    let generalGap = this.get_slidesGap();
+
+    let allShowedSpace = sliderDimension * this.totalShownSlides - generalGap;
+    console.log('allShowedSpace: '+allShowedSpace)
+    this.carouselFlex.style.gridTemplateColumns = `1fr ${allShowedSpace}px 1fr`;
+    this.carouselIndicatorsDiv.style.width = `${allShowedSpace}px`;
+
+    this.allSlidersDiv.scrollLeft = 0;
   }
-  if(areas == 4)
-  {
 
-    if(scrolled >= fixedValues[0] && scrolled < fixedValues[1] - generalGap)
+  set_Indicators()
+  {
+    this.indicatorAnimator.style.left = `0px`;
+    this.remove_activeIndicator()
+    this.remove_currentIndicator();
+    this.remove_lastIndicator()
+    let numofIndicatorsNeeded = this.get_numOfIndicator_needed();
+
+    for(let i = 0; i < numofIndicatorsNeeded; i++)
     {
-      carouselIndicators[0].classList.add('current-indicator');
-      currentIndicator = 0;
+      this.carouselIndicators[i].classList.add('show-indicator');
     }
-    if(scrolled >= fixedValues[1] - generalGap && scrolled < fixedValues[2] - generalGap)
-    {
-      carouselIndicators[1].classList.add('current-indicator');
-      currentIndicator = 1;
-    }
-    if(scrolled >= fixedValues[2] - generalGap && scrolled < fixedValues[3] - generalGap)
-    {
-      carouselIndicators[2].classList.add('current-indicator');
-      currentIndicator = 2;
-    }
-    if(scrolled >= fixedValues[3] - generalGap)
-    {
-      carouselIndicators[3].classList.add('current-indicator');
-      currentIndicator = 3;
-    }
+    this.calc_all_active_Indicators();
+    this.carouselIndicators[0].classList.add('first-indicator');
+    this.carouselIndicators[0].classList.add('current-indicator');
+    this.carouselIndicators[this.totalActiveIndicators-1].classList.add('last-indicator');
   }
-  set_indicatorAnim();
-}
 
-
-function add_eventListener_Indicators()
-{
-    carouselIndicators.forEach(indicator =>
-    {
-      indicator.addEventListener('click', (e) =>
-      {
-
-        remove_currentIndicator()
-        indicator.classList.add('current-indicator');
-        let clickedCurrentIndicatorIndex = get_currentIndicator();
-        currentIndicator = clickedCurrentIndicatorIndex;
-
-        scroll(currentIndicator);
-        set_indicatorAnim();
-      })
-    })
-}
-
-
-function scroll(currentIndicator)
-{
-  allSlidersDiv.scrollLeft = fixedValues[currentIndicator];
-  apply_inactive_Arrow();
-}
-
-function get_currentIndicator()
-{
-
-  let currentIndicatorIndex = 0;
-  let temp = 0;
-
-  for(let i = 0; i < carouselIndicators.length; i++)
+  apply_inactive_Arrow()
   {
-    if(!carouselIndicators[i].classList.contains('current-indicator'))
+    this.calc_all_active_Indicators();
+
+    if(this.currentIndicator <= 0)
     {
-      temp += 1;
+      this.leftArrow.classList.add('carousel-arrow-inactive');
     }
     else
     {
-      currentIndicatorIndex = temp;
+      this.leftArrow.classList.remove('carousel-arrow-inactive');
     }
+    if(this.currentIndicator >= this.totalActiveIndicators-1)
+    {
+      this.rightArrow.classList.add('carousel-arrow-inactive');
+    }
+    else
+    {
+      this.rightArrow.classList.remove('carousel-arrow-inactive');
+    }
+
   }
 
-  return currentIndicatorIndex;
-}
-function remove_activeIndicator()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
+  get_fixedValues()
   {
-    if(carouselIndicators[i].classList.contains('show-indicator'))
+    this.fixedValues = [0];
+    let generalGap = this.get_slidesGap();
+    this.calc_all_active_Indicators();
+    let shownWidth = this.calc_shownSliders_width();
+    
+    let totalSlidesValues = 0;
+
+    for(let i = 0; i < this.totalActiveIndicators-1; i++)
     {
-      carouselIndicators[i].classList.remove('show-indicator');
+      totalSlidesValues += shownWidth + generalGap;
+      this.fixedValues.push(totalSlidesValues);
+    }
+    
+  }
+
+  set_indicatorAnim()
+  {
+    let generalIndicatorWidth = this.carouselIndicators[0].offsetWidth;
+    this.indicatorAnimator.style.width = `${generalIndicatorWidth}px`;
+    let currentLeft = this.carouselIndicators[this.currentIndicator].offsetLeft;
+    this.indicatorAnimator.style.left = `${currentLeft}px`;
+  }
+
+  //INITIAL
+  add_grab()
+  {
+    let slidesIsDragging = false;
+    let slidesStartX = 0;
+    let slidesScrollLeft = 0;
+    let slidesIsScrolling = false; 
+
+    let firstMouse = 0;
+    let secondMouse = 0;
+
+    let mouseDowned = false;
+    let mouseUpped = false;
+
+    this.allSlidersDiv.addEventListener('mousedown', (event) => {
+      slidesStartX = event.pageX - this.allSlidersDiv.offsetLeft;
+      slidesScrollLeft = this.allSlidersDiv.scrollLeft;
+      mouseDowned = true;
+      firstMouse = slidesStartX;
+    });
+
+    document.addEventListener('mouseup', () => {
+      slidesStartX = event.pageX - this.allSlidersDiv.offsetLeft;
+      secondMouse = slidesStartX;
+      mouseUpped = true;
+
+      if(mouseDowned == true && mouseUpped == true)
+      {
+        let direction = firstMouse - secondMouse;
+        mouseDowned = false;
+        mouseUpped = false;
+        firstMouse = 0;
+        secondMouse = 0;
+
+        this.calc_all_active_Indicators()
+
+        if(direction < 0)
+        {
+          if(this.currentIndicator >= 0)
+          {
+            this.currentIndicator -= 1;
+          }
+          
+          this.scroll();
+          this.update_Indicator();
+          this.set_indicatorAnim();
+        }
+        if(direction > 0)
+        {
+
+          if(this.currentIndicator < this.totalActiveIndicators-1)
+          {
+            this.currentIndicator += 1;
+          }
+
+          this.scroll();
+          this.update_Indicator();
+          this.set_indicatorAnim();
+        }
+      }
+      
+
+    });
+  }
+  add_eventListener_Arrows()
+  {
+    this.rightArrow.addEventListener('click', (e) =>
+    {
+      this.currentIndicator += 1;
+      this.scroll();
+      this.update_Indicator();
+      this.set_indicatorAnim();
+    })
+
+    this.leftArrow.addEventListener('click', (e) =>
+    {
+      this.currentIndicator -= 1;
+      this.scroll();
+      this.update_Indicator();
+      this.set_indicatorAnim();
+      
+    })
+  }
+
+  add_eventListener_Indicators()
+  {
+      this.carouselIndicators.forEach(indicator =>
+      {
+        indicator.addEventListener('click', (e) =>
+        {
+
+          this.remove_currentIndicator();
+          indicator.classList.add('current-indicator');
+          let clickedCurrentIndicatorIndex = this.get_currentIndicator();
+          this.currentIndicator = clickedCurrentIndicatorIndex;
+
+          this.scroll();
+          this.set_indicatorAnim();
+        })
+      })
+  }
+  add_grabMobile()
+  {
+    this.allSlidersDiv.addEventListener('scroll', () =>
+    {
+
+      clearTimeout(this.grabTimeout);
+
+      this.grabTimeout = setTimeout(() =>
+      {
+        this.scrolled = this.allSlidersDiv.scrollLeft;
+        this.update_Indicator_Dynamic(this.scrolled);
+      }, 100)
+      
+    })
+  }
+
+  update_Indicator_Dynamic(scrolled)
+  {
+    let end;
+    let slideWidth = this.get_slideDimension();
+    let generalGap = this.get_slidesGap();
+    this.remove_currentIndicator();
+    let areas = this.fixedValues.length;
+    let totalSlidesWidth = slideWidth * this.allActualSliders.length - generalGap;
+    
+    
+
+    if(areas == 3)
+    {
+      end = totalSlidesWidth - this.fixedValues[1];
+      if(this.scrolled >= this.fixedValues[0] && this.scrolled < this.fixedValues[1] - generalGap)
+      {
+        this.carouselIndicators[0].classList.add('current-indicator');
+        this.currentIndicator = 0;
+      }
+      if(this.scrolled >= this.fixedValues[1] - generalGap && this.scrolled < end)
+      {
+        this.carouselIndicators[1].classList.add('current-indicator');
+        this.currentIndicator = 1;
+      }
+      if(this.scrolled >= end)
+      {
+        this.carouselIndicators[2].classList.add('current-indicator');
+        this.currentIndicator = 2;
+      }
+    }
+    if(areas == 4)
+    {
+
+      if(this.scrolled >= this.fixedValues[0] && this.scrolled < this.fixedValues[1] - generalGap)
+      {
+        this.carouselIndicators[0].classList.add('current-indicator');
+        this.currentIndicator = 0;
+      }
+      if(this.scrolled >= this.fixedValues[1] - generalGap && this.scrolled < this.fixedValues[2] - generalGap)
+      {
+        this.carouselIndicators[1].classList.add('current-indicator');
+        this.currentIndicator = 1;
+      }
+      if(this.scrolled >= this.fixedValues[2] - generalGap && this.scrolled < this.fixedValues[3] - generalGap)
+      {
+        this.carouselIndicators[2].classList.add('current-indicator');
+        this.currentIndicator = 2;
+      }
+      if(this.scrolled >= this.fixedValues[3] - generalGap)
+      {
+        this.carouselIndicators[3].classList.add('current-indicator');
+        this.currentIndicator = 3;
+      }
+    }
+    this.set_indicatorAnim();
+  }
+
+  update_Indicator()
+  {
+    this.remove_currentIndicator();
+    this.carouselIndicators[this.currentIndicator].classList.add('current-indicator')
+  }
+  get_currentIndicator()
+  {
+
+    let currentIndicatorIndex = 0;
+    let temp = 0;
+
+    for(let i = 0; i < this.carouselIndicators.length; i++)
+    {
+      if(!this.carouselIndicators[i].classList.contains('current-indicator'))
+      {
+        temp += 1;
+      }
+      else
+      {
+        currentIndicatorIndex = temp;
+      }
+    }
+
+    return currentIndicatorIndex;
+  }
+  remove_currentIndicator()
+  {
+    for(let i = 0; i < this.carouselIndicators.length; i++)
+    {
+      if(this.carouselIndicators[i].classList.contains('current-indicator'))
+      {
+        this.carouselIndicators[i].classList.remove('current-indicator');
+      }
     }
   }
+  remove_activeIndicator()
+  {
+    for(let i = 0; i < this.carouselIndicators.length; i++)
+    {
+      if(this.carouselIndicators[i].classList.contains('show-indicator'))
+      {
+        this.carouselIndicators[i].classList.remove('show-indicator');
+      }
+    }
+    
+  }
+  remove_lastIndicator()
+  {
+    for(let i = 0; i < this.carouselIndicators.length; i++)
+    {
+      if(this.carouselIndicators[i].classList.contains('last-indicator'))
+      {
+        this.carouselIndicators[i].classList.remove('last-indicator');
+      }
+    }
+  }
+  get_slideDimension()
+  {
+    let generalSlideWidth = this.generalSlide.offsetWidth;
+    let generalGap = this.get_slidesGap();
+
+    let slideWidth = generalSlideWidth + generalGap;
+
+    return slideWidth;
+  }
+  get_numOfIndicator_needed()
+  {
+    let numofSlides = this.allActualSliders.length;
+    let numofIndicatorsNeeded = Math.ceil(numofSlides / this.totalShownSlides);
+
+    return numofIndicatorsNeeded;
+  }
+  scroll()
+  {
+    this.allSlidersDiv.scrollLeft = this.fixedValues[this.currentIndicator];
+    this.apply_inactive_Arrow();
+  }
+  calc_all_active_Indicators()
+  {
+    this.totalActiveIndicators = 0;
+    for(let i = 0; i < this.carouselIndicators.length; i++)
+    {
+      if(this.carouselIndicators[i].classList.contains('show-indicator'))
+      {
+        this.totalActiveIndicators += 1;
+      }
+    }
+  }
+  calc_shownSliders_width()
+  {
+    let slideGap = this.get_slidesGap();
+    let slideWidth = this.get_slideDimension();
+    let allShowedSpace = this.totalShownSlides * slideWidth - slideGap;
+
+    return allShowedSpace;
+  }
+  get_slidesGap()
+  {
+    let firstSlide = this.allActualSliders[0];
+    let secondSlide = this.allActualSliders[1];
+    let generalGap = secondSlide.offsetLeft - (firstSlide.offsetLeft + firstSlide.offsetWidth);
+
+    return generalGap;
+  }
+
   
 }
-function remove_currentIndicator()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    if(carouselIndicators[i].classList.contains('current-indicator'))
-    {
-      carouselIndicators[i].classList.remove('current-indicator');
-    }
-  }
-}
-function remove_lastIndicator()
-{
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    if(carouselIndicators[i].classList.contains('last-indicator'))
-    {
-      carouselIndicators[i].classList.remove('last-indicator');
-    }
-  }
-}
-function set_Indicators()
-{
-  indicatorAnimator.style.left = `0px`;
-  remove_activeIndicator()
-  remove_currentIndicator();
-  remove_lastIndicator()
-  let numofIndicatorsNeeded = get_numOfIndicator_needed();
 
-  for(let i = 0; i < numofIndicatorsNeeded; i++)
-  {
-    carouselIndicators[i].classList.add('show-indicator');
-  }
-  let totalActiveIndicators = calc_all_active_Indicators();
+// Universal
+const generalSlide = document.querySelector('.carousel-slide');
 
-  carouselIndicators[0].classList.add('first-indicator');
-  carouselIndicators[0].classList.add('current-indicator');
-  carouselIndicators[totalActiveIndicators-1].classList.add('last-indicator');
-}
+// Carousel 01
 
-function add_eventListener_Arrows()
-{
-  rightArrow.addEventListener('click', (e) =>
-  {
-    currentIndicator += 1;
-    scroll(currentIndicator);
-    update_Indicator();
-    set_indicatorAnim();
-  })
+const allSlidersDiv01 = document.querySelector('#carousel-sliders01');
+const carouselIndicatorsDiv01 = document.querySelector('#carousel-indicators01');
 
-  leftArrow.addEventListener('click', (e) =>
-  {
-    currentIndicator -= 1;
-    scroll(currentIndicator);
-    update_Indicator();
-    set_indicatorAnim();
-    
-  })
-}
+const carouselIndicators01 = Array.from(carouselIndicatorsDiv01.children);
+carouselIndicators01.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator01 = document.querySelector('#carousel-indicator-anim01');
 
-function set_carousel_dimensions()
-{
-  let sliderDimension = get_slideDimension();
-  let generalGap = get_slidesGap();
+const leftArrow01 = document.querySelector("#left-arrow01");
+const rightArrow01 = document.querySelector("#right-arrow01");
+const carouselFlex01 = document.querySelector("#carousel-flex01");
 
-  let allShowedSpace = sliderDimension * totalShownSlides - generalGap;
+const allActualSliders01 = allSlidersDiv01.children;
 
-  carouselFlex.style.gridTemplateColumns = `1fr ${allShowedSpace}px 1fr`;
-  carouselIndicatorsDiv.style.width = `${allShowedSpace}px`;
-
-  allSlidersDiv.scrollLeft = 0;
-}
-
-function get_numOfIndicator_needed()
-{
-  let numofSlides = allActualSliders.length;
-  let numofIndicatorsNeeded = Math.ceil(numofSlides / totalShownSlides);
-
-  return numofIndicatorsNeeded;
-}
-
-function calc_all_active_Indicators()
-{
-  let totalActiveIndicators = 0;
-
-  for(let i = 0; i < carouselIndicators.length; i++)
-  {
-    if(carouselIndicators[i].classList.contains('show-indicator'))
-    {
-      totalActiveIndicators += 1;
-    }
-  }
-
-  return totalActiveIndicators;
-}
-
-function apply_inactive_Arrow()
-{
-  let totalActiveIndicators = calc_all_active_Indicators();
-
-  if(currentIndicator <= 0)
-  {
-    leftArrow.classList.add('carousel-arrow-inactive');
-  }
-  else
-  {
-    leftArrow.classList.remove('carousel-arrow-inactive');
-  }
-  if(currentIndicator >= totalActiveIndicators-1)
-  {
-    rightArrow.classList.add('carousel-arrow-inactive');
-  }
-  else
-  {
-    rightArrow.classList.remove('carousel-arrow-inactive');
-  }
-
-}
-
-function calc_shownSliders_width()
-{
-  let slideGap = get_slidesGap();
-  let slideWidth = get_slideDimension();
-  let allShowedSpace = totalShownSlides * slideWidth - slideGap;
-
-  return allShowedSpace;
-}
-
-function get_slidesGap()
-{
-  let firstSlide = allActualSliders[0];
-  let secondSlide = allActualSliders[1];
-  let generalGap = secondSlide.offsetLeft - (firstSlide.offsetLeft + firstSlide.offsetWidth);
-
-  return generalGap;
-}
-function add_grabMobile()
-{
-  allSlidersDiv.addEventListener('scroll', () =>
-  {
-
-    clearTimeout(grabTimeout);
-
-    grabTimeout = setTimeout(() =>
-    {
-      let scroll = allSlidersDiv.scrollLeft;
-      update_Indicator_Dynamic(scroll);
-    }, 100)
-    
-  })
-}
-
-function add_grab()
-{
-
-  let slidesIsDragging = false;
-  let slidesStartX = 0;
-  let slidesScrollLeft = 0;
-  let slidesIsScrolling = false; 
-
-  let firstMouse = 0;
-  let secondMouse = 0;
-
-  let mouseDowned = false;
-  let mouseUpped = false;
-
-  allSlidersDiv.addEventListener('mousedown', (event) => {
-    slidesStartX = event.pageX - allSlidersDiv.offsetLeft;
-    slidesScrollLeft = allSlidersDiv.scrollLeft;
-    mouseDowned = true;
-    firstMouse = slidesStartX;
-  });
-
-  document.addEventListener('mouseup', () => {
-    slidesStartX = event.pageX - allSlidersDiv.offsetLeft;
-    secondMouse = slidesStartX;
-    mouseUpped = true;
-
-    if(mouseDowned == true && mouseUpped == true)
-    {
-      let direction = firstMouse - secondMouse;
-      mouseDowned = false;
-      mouseUpped = false;
-      firstMouse = 0;
-      secondMouse = 0;
-
-      let totalIndicators = calc_all_active_Indicators()
-
-      if(direction < 0)
-      {
-        if(currentIndicator >= 0)
-        {
-          currentIndicator -= 1;
-        }
-        
-        scroll(currentIndicator);
-        update_Indicator();
-        set_indicatorAnim();
-      }
-      if(direction > 0)
-      {
-
-        if(currentIndicator < totalIndicators-1)
-        {
-          currentIndicator += 1;
-        }
-
-        scroll(currentIndicator);
-        update_Indicator();
-        set_indicatorAnim();
-      }
-    }
-    
-
-  });
+const carousel01 = new Carousel(allSlidersDiv01, generalSlide, carouselIndicatorsDiv01, carouselIndicators01, indicatorAnimator01,
+  leftArrow01, rightArrow01, carouselFlex01, allActualSliders01);
 
 
+// MULTIPLE
 
-}
+carousel01.get_shownSlides();
+carousel01.set_carousel_dimensions();
+carousel01.set_Indicators();
+carousel01.apply_inactive_Arrow(); 
+carousel01.get_fixedValues();
 
+// ONE TIME
+
+carousel01.add_eventListener_Arrows();
+carousel01.add_eventListener_Indicators();
+
+carousel01.add_grab();
+carousel01.add_grabMobile()
+carousel01.responsive_fix();
+
+carousel01.set_indicatorAnim();
 
 
 // DISCLAIMER OVERLAY
