@@ -13,6 +13,10 @@
 {
 	opacity: 0.50;
 }
+.random-category-icon:active
+{
+	opacity: 0.75;
+}
 /*Category Links*/
 .category-scrollable-space
 {
@@ -92,18 +96,21 @@
 	padding: 0.5rem 1rem;
 	background: none;
 	color: var(--white);
+	opacity: 0.75;
 	font-weight: 500;
 	font-size: 0.875rem;
 	display: none;
+	transition: opacity 0.15s;
+}
+.category-example:hover
+{
+	opacity: 1;
 }
 .show-category-example
 {
 	display: initial;
 }
-.category-example:hover .category-example-icon-disabled
-{
-	display: initial;
-}
+
 .category-redirect-icon-div
 {
 	position: absolute;
