@@ -77,7 +77,6 @@
 	display: flex;
 	gap: 16px;
 	width: 100%;
-	padding: 0px 1.5rem 0px 0px;
 }
 .category-example
 {
@@ -95,13 +94,11 @@
 	color: var(--white);
 	font-weight: 500;
 	font-size: 0.875rem;
-	opacity: 0;
-	pointer-events: none;
+	display: none;
 }
 .show-category-example
 {
-	opacity: 1;
-	pointer-events: initial;
+	display: initial;
 }
 .category-example:hover .category-example-icon-disabled
 {

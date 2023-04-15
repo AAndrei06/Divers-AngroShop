@@ -56,7 +56,6 @@ const allCategoryDivs = document.querySelector('.category-scrollable-space');
 let categoryIsDragging = false;
 let categoryStartX = 0;
 let categoryScrollLeft = 0;
-let categoryIsScrolling = false; 
 
 allCategoryDivs.addEventListener('mousedown', (event) => {
   categoryIsDragging = true;
@@ -80,34 +79,146 @@ allCategoryDivs.addEventListener('mouseleave', () => {
   categoryIsDragging = false;
 });
 
-function updateScroll() {
-  if (categoryIsDragging && categoryIsScrolling) { 
-    const x = event.pageX - allCategoryDivs.offsetLeft;
-    const walk = (x - categoryStartX) * 2;
-    allCategoryDivs.scrollLeft = categoryScrollLeft - walk;
+// Use passive event listener for smoother scrolling
+allCategoryDivs.addEventListener('scroll', (event) => {
+  if (categoryIsDragging) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+}, { passive: false });
+
+//RANDOM EXEMPLE
+let categoryLinks = Array.from(document.querySelector('.category-links').children);
+
+let generalCategoryLink = document.querySelector('.category-link');
+let generalCategoryFlex = document.querySelector('.category-text-flex');
+let generalExamplesDiv = document.querySelector('#aniversare-examples');
+
+let categoryExamplesAniversare = Array.from(document.querySelector('#aniversare-examples').children);
+let categoryExamplesJucarii = Array.from(document.querySelector('#jucarii-examples').children);
+let categoryExamplesRechizite = Array.from(document.querySelector('#rechizite-examples').children);
+let categoryExamplesSuvenire = Array.from(document.querySelector('#suvenire-examples').children);
+let categoryExamplesAccesorii = Array.from(document.querySelector('#accesorii-examples').children);
+let categoryExamplesImbracaminte = Array.from(document.querySelector('#imbracaminte-examples').children);
+let categoryExamplesBucatarie = Array.from(document.querySelector('#bucatarie-examples').children);
+let categoryExamplesElectronice = Array.from(document.querySelector('#electronice-examples').children);
+let categoryExamplesGospodarie = Array.from(document.querySelector('#gospodarie-examples').children);
+let categoryExamplesIgiena = Array.from(document.querySelector('#igiena-examples').children);
+
+
+let allExamples = [categoryExamplesAniversare, categoryExamplesJucarii, categoryExamplesRechizite, 
+  categoryExamplesSuvenire, categoryExamplesAccesorii, categoryExamplesImbracaminte, categoryExamplesBucatarie, 
+  categoryExamplesElectronice, categoryExamplesGospodarie, categoryExamplesIgiena];
+
+
+for(let i = 0; i < allExamples.length; i++)
+{
+  shuffle_examples(i);
+}
+
+unShowAllExamples()
+assign_showExample()
+get_examplesGap()
+
+function get_exampleDivWidth()
+{
+  let left = generalCategoryFlex.offsetLeft;
+  let examplesWidth = generalCategoryLink.offsetWidth;
+
+  let containerStyle = window.getComputedStyle(generalExamplesDiv);
+  let rightPadding = parseFloat(containerStyle.paddingRight);
+  let exampleDivWidth = examplesWidth - rightPadding - left;
+
+  return exampleDivWidth;
+
+}
+function get_examplesGap()
+{
+  let computedStyle = window.getComputedStyle(generalExamplesDiv);
+  let generalGap = computedStyle.getPropertyValue('gap');
+  generalGap = parseInt(generalGap);
+
+  return generalGap;
+}
+
+function assign_showExample()
+{
+
+  let generalGap = get_examplesGap();
+
+  for(let i = 0; i < allExamples.length; i++)
+  {
+    let totalWidth = 0;
+    let examplesWidth = get_exampleDivWidth();
+    examplesWidth = examplesWidth -60;
+    for(let j = 0; j < allExamples[i].length; j++)
+    {
+      if(totalWidth < examplesWidth)
+      {
+        let example = allExamples[i][j];
+        example.classList.add('show-category-example');
+        let exampleWidth = example.offsetWidth;
+        let exampleSpace = exampleWidth + generalGap;
+        totalWidth = totalWidth + exampleSpace;
+      }
+      if(totalWidth > examplesWidth)
+      {
+        allExamples[i][j].classList.remove('show-category-example');
+      }
+    }
+    
+  }
+
+}
+
+function unShowAllExamples()
+{
+  for(let i = 0; i < allExamples.length; i++)
+  {
+    for(let j = 0; j < allExamples[i].length; j++)
+    {
+      if(allExamples[i][j].classList.contains("show-category-example"))
+      {
+        allExamples[i][j].classList.remove("show-category-example");
+      }
+      
+    }
   }
 }
 
-allCategoryDivs.addEventListener('mousemove', (event) => {
-  if (!categoryIsDragging) return;
-  event.preventDefault();
-  if (!categoryIsScrolling) {
-    categoryIsScrolling = true;
-    requestAnimationFrame(updateScroll);
-  }
-});
-
-function debounce(func, wait) {
-  let timeout;
-  return function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, wait);
-  }
+function shuffle_examples(arrayIndex)
+{
+  let temp;
+ 
+   for (let i = 0; i < allExamples.length-2; i++) 
+   {
+    let randomItemIndex = Math.floor(Math.random() * (i));
+    let temp = allExamples[arrayIndex][i];
+    allExamples[arrayIndex][i] = allExamples[arrayIndex][randomItemIndex];
+    allExamples[arrayIndex][randomItemIndex] = temp;
+    }
 }
 
-allCategoryDivs.addEventListener('scroll', debounce(() => {
-  categoryIsScrolling = false; 
-}, 10));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
