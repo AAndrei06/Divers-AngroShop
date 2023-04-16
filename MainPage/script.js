@@ -53,11 +53,28 @@ function assignPosition()
 
 // SCROLL LA CATEGORII
 const allCategoryDivs = document.querySelector('.category-scrollable-space');
+const allCategorys = document.querySelectorAll('.category-link');
+const allCategoryAchors = document.querySelectorAll('.category-anchor');
 let categoryIsDragging = false;
+let anchorTimeout;
+let categoryCickTimeout;
 let categoryStartX = 0;
 let categoryScrollLeft = 0;
 
+function add_clickTimeout(category)
+{
+  clearTimeout(categoryCickTimeout);
+  categoryCickTimeout = setTimeout(() => 
+    {
+      category.style.cursor = 'grab'
+    }, 5000);
+}
+
 allCategoryDivs.addEventListener('mousedown', (event) => {
+  allCategorys.forEach((category) =>
+  {
+    add_clickTimeout(category);
+  })
   categoryIsDragging = true;
   categoryStartX = event.pageX - allCategoryDivs.offsetLeft;
   categoryScrollLeft = allCategoryDivs.scrollLeft;
@@ -72,6 +89,10 @@ allCategoryDivs.addEventListener('mousemove', (event) => {
 });
 
 document.addEventListener('mouseup', () => {
+  allCategorys.forEach((category) =>
+  {
+    category.style.cursor = 'pointer';
+  })
   categoryIsDragging = false;
 });
 
@@ -81,6 +102,23 @@ allCategoryDivs.addEventListener('mouseleave', () => {
 
 // Use passive event listener for smoother scrolling
 allCategoryDivs.addEventListener('scroll', (event) => {
+  
+  clearTimeout(anchorTimeout);
+
+  allCategoryAchors.forEach((achor) =>
+  {
+    achor.style.pointerEvents = 'none';
+  })
+
+  anchorTimeout = setTimeout(() =>
+  {
+    allCategoryAchors.forEach((achor) =>
+    {
+      achor.style.pointerEvents = 'initial';
+      achor.style.cursor = 'pointer';
+    })
+  }, 150)
+
   if (categoryIsDragging) {
     event.preventDefault();
     event.stopPropagation();
@@ -349,14 +387,18 @@ class Carousel
     let mouseDowned = false;
     let mouseUpped = false;
 
-    this.allSlidersDiv.addEventListener('mousedown', (event) => {
+    this.allSlidersDiv.addEventListener('mousedown', (event) => 
+    {
+      this.allSlidersDiv.style.cursor = 'grab';
       slidesStartX = event.pageX - this.allSlidersDiv.offsetLeft;
       slidesScrollLeft = this.allSlidersDiv.scrollLeft;
       mouseDowned = true;
       firstMouse = slidesStartX;
     });
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('mouseup', () => 
+    {
+      this.allSlidersDiv.style.cursor = 'initial';
       slidesStartX = event.pageX - this.allSlidersDiv.offsetLeft;
       secondMouse = slidesStartX;
       mouseUpped = true;
@@ -620,7 +662,7 @@ class Carousel
 // Universal
 const generalSlide = document.querySelector('.carousel-slide');
 
-// Carousel 01
+// CAROUSEL01
 
 const allSlidersDiv01 = document.querySelector('#carousel-sliders01');
 const carouselIndicatorsDiv01 = document.querySelector('#carousel-indicators01');
@@ -639,24 +681,373 @@ const carousel01 = new Carousel(allSlidersDiv01, generalSlide, carouselIndicator
   leftArrow01, rightArrow01, carouselFlex01, allActualSliders01);
 
 
-// MULTIPLE
-
 carousel01.get_shownSlides();
 carousel01.set_carousel_dimensions();
 carousel01.set_Indicators();
 carousel01.apply_inactive_Arrow(); 
 carousel01.get_fixedValues();
 
-// ONE TIME
 
 carousel01.add_eventListener_Arrows();
 carousel01.add_eventListener_Indicators();
 
 carousel01.add_grab();
 carousel01.add_grabMobile()
+
 carousel01.responsive_fix();
 
 carousel01.set_indicatorAnim();
+
+
+// CAROUSEL02
+
+const allSlidersDiv02 = document.querySelector('#carousel-sliders02');
+const carouselIndicatorsDiv02 = document.querySelector('#carousel-indicators02');
+
+const carouselIndicators02 = Array.from(carouselIndicatorsDiv02.children);
+carouselIndicators02.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator02 = document.querySelector('#carousel-indicator-anim02');
+
+const leftArrow02 = document.querySelector("#left-arrow02");
+const rightArrow02 = document.querySelector("#right-arrow02");
+const carouselFlex02 = document.querySelector("#carousel-flex02");
+
+const allActualSliders02 = allSlidersDiv02.children;
+
+const carousel02 = new Carousel(allSlidersDiv02, generalSlide, carouselIndicatorsDiv02, carouselIndicators02, indicatorAnimator02,
+  leftArrow02, rightArrow02, carouselFlex02, allActualSliders02);
+
+
+carousel02.get_shownSlides();
+carousel02.set_carousel_dimensions();
+carousel02.set_Indicators();
+carousel02.apply_inactive_Arrow(); 
+carousel02.get_fixedValues();
+
+
+carousel02.add_eventListener_Arrows();
+carousel02.add_eventListener_Indicators();
+
+carousel02.add_grab();
+carousel02.add_grabMobile()
+
+carousel02.responsive_fix();
+
+carousel02.set_indicatorAnim();
+
+
+
+// CAROUSEL03
+
+const allSlidersDiv03 = document.querySelector('#carousel-sliders03');
+const carouselIndicatorsDiv03 = document.querySelector('#carousel-indicators03');
+
+const carouselIndicators03 = Array.from(carouselIndicatorsDiv03.children);
+carouselIndicators03.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator03 = document.querySelector('#carousel-indicator-anim03');
+
+const leftArrow03 = document.querySelector("#left-arrow03");
+const rightArrow03 = document.querySelector("#right-arrow03");
+const carouselFlex03 = document.querySelector("#carousel-flex03");
+
+const allActualSliders03 = allSlidersDiv03.children;
+
+const carousel03 = new Carousel(allSlidersDiv03, generalSlide, carouselIndicatorsDiv03, carouselIndicators03, indicatorAnimator03,
+  leftArrow03, rightArrow03, carouselFlex03, allActualSliders03);
+
+
+carousel03.get_shownSlides();
+carousel03.set_carousel_dimensions();
+carousel03.set_Indicators();
+carousel03.apply_inactive_Arrow(); 
+carousel03.get_fixedValues();
+
+
+carousel03.add_eventListener_Arrows();
+carousel03.add_eventListener_Indicators();
+
+carousel03.add_grab();
+carousel03.add_grabMobile()
+
+carousel03.responsive_fix();
+
+carousel03.set_indicatorAnim();
+
+// CAROUSEL04
+
+const allSlidersDiv04 = document.querySelector('#carousel-sliders04');
+const carouselIndicatorsDiv04 = document.querySelector('#carousel-indicators04');
+
+const carouselIndicators04 = Array.from(carouselIndicatorsDiv04.children);
+carouselIndicators04.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator04 = document.querySelector('#carousel-indicator-anim04');
+
+const leftArrow04 = document.querySelector("#left-arrow04");
+const rightArrow04 = document.querySelector("#right-arrow04");
+const carouselFlex04 = document.querySelector("#carousel-flex04");
+
+const allActualSliders04 = allSlidersDiv04.children;
+
+const carousel04 = new Carousel(allSlidersDiv04, generalSlide, carouselIndicatorsDiv04, carouselIndicators04, indicatorAnimator04,
+  leftArrow04, rightArrow04, carouselFlex04, allActualSliders04);
+
+
+carousel04.get_shownSlides();
+carousel04.set_carousel_dimensions();
+carousel04.set_Indicators();
+carousel04.apply_inactive_Arrow(); 
+carousel04.get_fixedValues();
+
+
+carousel04.add_eventListener_Arrows();
+carousel04.add_eventListener_Indicators();
+
+carousel04.add_grab();
+carousel04.add_grabMobile()
+
+carousel04.responsive_fix();
+
+carousel04.set_indicatorAnim();
+
+
+// CAROUSEL05
+
+const allSlidersDiv05 = document.querySelector('#carousel-sliders05');
+const carouselIndicatorsDiv05 = document.querySelector('#carousel-indicators05');
+
+const carouselIndicators05 = Array.from(carouselIndicatorsDiv05.children);
+carouselIndicators05.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator05 = document.querySelector('#carousel-indicator-anim05');
+
+const leftArrow05 = document.querySelector("#left-arrow05");
+const rightArrow05 = document.querySelector("#right-arrow05");
+const carouselFlex05 = document.querySelector("#carousel-flex05");
+
+const allActualSliders05 = allSlidersDiv05.children;
+
+const carousel05 = new Carousel(allSlidersDiv05, generalSlide, carouselIndicatorsDiv05, carouselIndicators05, indicatorAnimator05,
+  leftArrow05, rightArrow05, carouselFlex05, allActualSliders05);
+
+
+carousel05.get_shownSlides();
+carousel05.set_carousel_dimensions();
+carousel05.set_Indicators();
+carousel05.apply_inactive_Arrow(); 
+carousel05.get_fixedValues();
+
+
+carousel05.add_eventListener_Arrows();
+carousel05.add_eventListener_Indicators();
+
+carousel05.add_grab();
+carousel05.add_grabMobile()
+
+carousel05.responsive_fix();
+
+carousel05.set_indicatorAnim();
+
+
+// CAROUSEL06
+
+const allSlidersDiv06 = document.querySelector('#carousel-sliders06');
+const carouselIndicatorsDiv06 = document.querySelector('#carousel-indicators06');
+
+const carouselIndicators06 = Array.from(carouselIndicatorsDiv06.children);
+carouselIndicators06.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator06 = document.querySelector('#carousel-indicator-anim06');
+
+const leftArrow06 = document.querySelector("#left-arrow06");
+const rightArrow06 = document.querySelector("#right-arrow06");
+const carouselFlex06 = document.querySelector("#carousel-flex06");
+
+const allActualSliders06 = allSlidersDiv06.children;
+
+const carousel06 = new Carousel(allSlidersDiv06, generalSlide, carouselIndicatorsDiv06, carouselIndicators06, indicatorAnimator06,
+  leftArrow06, rightArrow06, carouselFlex06, allActualSliders06);
+
+
+carousel06.get_shownSlides();
+carousel06.set_carousel_dimensions();
+carousel06.set_Indicators();
+carousel06.apply_inactive_Arrow(); 
+carousel06.get_fixedValues();
+
+
+carousel06.add_eventListener_Arrows();
+carousel06.add_eventListener_Indicators();
+
+carousel06.add_grab();
+carousel06.add_grabMobile()
+
+carousel06.responsive_fix();
+
+carousel06.set_indicatorAnim();
+
+
+// CAROUSEL07
+
+const allSlidersDiv07 = document.querySelector('#carousel-sliders07');
+const carouselIndicatorsDiv07 = document.querySelector('#carousel-indicators07');
+
+const carouselIndicators07 = Array.from(carouselIndicatorsDiv07.children);
+carouselIndicators07.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator07 = document.querySelector('#carousel-indicator-anim07');
+
+const leftArrow07 = document.querySelector("#left-arrow07");
+const rightArrow07 = document.querySelector("#right-arrow07");
+const carouselFlex07 = document.querySelector("#carousel-flex07");
+
+const allActualSliders07 = allSlidersDiv07.children;
+
+const carousel07 = new Carousel(allSlidersDiv07, generalSlide, carouselIndicatorsDiv07, carouselIndicators07, indicatorAnimator07,
+  leftArrow07, rightArrow07, carouselFlex07, allActualSliders07);
+
+
+carousel07.get_shownSlides();
+carousel07.set_carousel_dimensions();
+carousel07.set_Indicators();
+carousel07.apply_inactive_Arrow(); 
+carousel07.get_fixedValues();
+
+
+carousel07.add_eventListener_Arrows();
+carousel07.add_eventListener_Indicators();
+
+carousel07.add_grab();
+carousel07.add_grabMobile()
+
+carousel07.responsive_fix();
+
+carousel07.set_indicatorAnim();
+
+
+
+// CAROUSEL08
+
+const allSlidersDiv08 = document.querySelector('#carousel-sliders08');
+const carouselIndicatorsDiv08 = document.querySelector('#carousel-indicators08');
+
+const carouselIndicators08 = Array.from(carouselIndicatorsDiv08.children);
+carouselIndicators08.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator08 = document.querySelector('#carousel-indicator-anim08');
+
+const leftArrow08 = document.querySelector("#left-arrow08");
+const rightArrow08 = document.querySelector("#right-arrow08");
+const carouselFlex08 = document.querySelector("#carousel-flex08");
+
+const allActualSliders08 = allSlidersDiv08.children;
+
+const carousel08 = new Carousel(allSlidersDiv08, generalSlide, carouselIndicatorsDiv08, carouselIndicators08, indicatorAnimator08,
+  leftArrow08, rightArrow08, carouselFlex08, allActualSliders08);
+
+
+carousel08.get_shownSlides();
+carousel08.set_carousel_dimensions();
+carousel08.set_Indicators();
+carousel08.apply_inactive_Arrow(); 
+carousel08.get_fixedValues();
+
+
+carousel08.add_eventListener_Arrows();
+carousel08.add_eventListener_Indicators();
+
+carousel08.add_grab();
+carousel08.add_grabMobile()
+
+carousel08.responsive_fix();
+
+carousel08.set_indicatorAnim();
+
+
+// CAROUSEL09
+
+const allSlidersDiv09 = document.querySelector('#carousel-sliders09');
+const carouselIndicatorsDiv09 = document.querySelector('#carousel-indicators09');
+
+const carouselIndicators09 = Array.from(carouselIndicatorsDiv09.children);
+carouselIndicators09.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator09 = document.querySelector('#carousel-indicator-anim09');
+
+const leftArrow09 = document.querySelector("#left-arrow09");
+const rightArrow09 = document.querySelector("#right-arrow09");
+const carouselFlex09 = document.querySelector("#carousel-flex09");
+
+const allActualSliders09 = allSlidersDiv09.children;
+
+const carousel09 = new Carousel(allSlidersDiv09, generalSlide, carouselIndicatorsDiv09, carouselIndicators09, indicatorAnimator09,
+  leftArrow09, rightArrow09, carouselFlex09, allActualSliders09);
+
+
+carousel09.get_shownSlides();
+carousel09.set_carousel_dimensions();
+carousel09.set_Indicators();
+carousel09.apply_inactive_Arrow(); 
+carousel09.get_fixedValues();
+
+
+carousel09.add_eventListener_Arrows();
+carousel09.add_eventListener_Indicators();
+
+carousel09.add_grab();
+carousel09.add_grabMobile()
+
+carousel09.responsive_fix();
+
+carousel09.set_indicatorAnim();
+
+
+
+// CAROUSEL10
+
+const allSlidersDiv10 = document.querySelector('#carousel-sliders10');
+const carouselIndicatorsDiv10 = document.querySelector('#carousel-indicators10');
+
+const carouselIndicators10 = Array.from(carouselIndicatorsDiv10.children);
+carouselIndicators10.filter(child => child.classList.contains('carousel-indicator'));
+const indicatorAnimator10 = document.querySelector('#carousel-indicator-anim10');
+
+const leftArrow10 = document.querySelector("#left-arrow10");
+const rightArrow10 = document.querySelector("#right-arrow10");
+const carouselFlex10 = document.querySelector("#carousel-flex10");
+
+const allActualSliders10 = allSlidersDiv10.children;
+
+const carousel10 = new Carousel(allSlidersDiv10, generalSlide, carouselIndicatorsDiv10, carouselIndicators10, indicatorAnimator10,
+  leftArrow10, rightArrow10, carouselFlex10, allActualSliders10);
+
+
+carousel10.get_shownSlides();
+carousel10.set_carousel_dimensions();
+carousel10.set_Indicators();
+carousel10.apply_inactive_Arrow(); 
+carousel10.get_fixedValues();
+
+
+carousel10.add_eventListener_Arrows();
+carousel10.add_eventListener_Indicators();
+
+carousel10.add_grab();
+carousel10.add_grabMobile()
+
+carousel10.responsive_fix();
+
+carousel10.set_indicatorAnim();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // DISCLAIMER OVERLAY
