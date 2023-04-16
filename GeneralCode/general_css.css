@@ -541,7 +541,11 @@ a
 	position: relative;
 	pointer-events: none;
 }
-
+.backup-start
+{
+	opacity: 0;
+	pointer-events: none;
+}
 
 /*END SECTION*/
 

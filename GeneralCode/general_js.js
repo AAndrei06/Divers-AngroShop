@@ -26,12 +26,14 @@ const backUpButton = document.querySelector('.backup-div');
 buttonMoved = false;
 const endSectionStart = document.querySelector('.end-section-start');
 const endSection = document.querySelector('.end-section');
+const backupButtonStart = document.querySelector('.backup-start');
 
 window.addEventListener('scroll', () => {
     
-	let scrollPercent = getScrollPercent();
+	let {scrollTop} = document.documentElement;
+	let top = backupButtonStart.offsetTop;
 
-	if (scrollPercent >= 37) 
+	if (scrollTop >= top) 
 	{
 		backUpButton.classList.add('display-backup-button-div');
 	}
