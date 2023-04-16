@@ -364,7 +364,6 @@ a
 	border-radius: 8px;
 	padding: 10px 4rem 10px 2rem;
 	border: none;
-	z-index: 2;
 }
 .button:hover .button-icon-dark
 {
@@ -639,6 +638,7 @@ a
 }
 .language-div:hover .language-icon
 {
+	fill: var(--fourthGreen);
 	transform: rotate(-90deg);
 }
 .language-text
