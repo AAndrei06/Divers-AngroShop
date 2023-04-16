@@ -51,6 +51,10 @@ function assignPosition()
 
 }
 
+let allRandomIcons = document.querySelectorAll('.random-category-anchor');
+
+
+
 // SCROLL LA CATEGORII
 const allCategoryDivs = document.querySelector('.category-scrollable-space');
 const allCategorys = document.querySelectorAll('.category-link');
@@ -300,7 +304,7 @@ class Carousel
     let generalGap = this.get_slidesGap();
 
     let allShowedSpace = sliderDimension * this.totalShownSlides - generalGap;
-    console.log('allShowedSpace: '+allShowedSpace)
+
     this.carouselFlex.style.gridTemplateColumns = `1fr ${allShowedSpace}px 1fr`;
     this.carouselIndicatorsDiv.style.width = `${allShowedSpace}px`;
 
@@ -1034,9 +1038,187 @@ carousel10.responsive_fix();
 carousel10.set_indicatorAnim();
 
 
+// PRODUCT SECTION PROGRESS
+
+const allSections = document.querySelector('#product-section')
+
+// SECTION01
+
+const aniversare = document.querySelector('#aniversare');
+
+let productSectionProgressDiv01 = document.querySelector('#product-section-progress-div01');
+let circularProgress01 = document.querySelector('#product-section-progress01');
+let productSectionIcon01 = document.querySelector('#product-section-icon01');
+
+add_Progress(aniversare, circularProgress01);
+let section01Parameters = get_sectionParameters(aniversare);
+add_remove_Progress(productSectionProgressDiv01, section01Parameters[0], section01Parameters[1]);
+
+// SECTION02
+
+const jucarii = document.querySelector('#jucarii');
+
+let productSectionProgressDiv02 = document.querySelector('#product-section-progress-div02');
+let circularProgress02 = document.querySelector('#product-section-progress02');
+let productSectionIcon02 = document.querySelector('#product-section-icon02');
+
+add_Progress(jucarii, circularProgress02);
+let section02Parameters = get_sectionParameters(jucarii);
+add_remove_Progress(productSectionProgressDiv02, section02Parameters[0], section02Parameters[1]);
+
+// SECTION03
+
+const rechizite = document.querySelector('#rechizite');
+
+let productSectionProgressDiv03 = document.querySelector('#product-section-progress-div03');
+let circularProgress03 = document.querySelector('#product-section-progress03');
+let productSectionIcon03 = document.querySelector('#product-section-icon03');
+
+add_Progress(rechizite, circularProgress03);
+let section03Parameters = get_sectionParameters(rechizite);
+add_remove_Progress(productSectionProgressDiv03, section03Parameters[0], section03Parameters[1]);
+
+
+// SECTION04
+
+const suvenire = document.querySelector('#suvenire');
+
+let productSectionProgressDiv04 = document.querySelector('#product-section-progress-div04');
+let circularProgress04 = document.querySelector('#product-section-progress04');
+let productSectionIcon04 = document.querySelector('#product-section-icon04');
+
+add_Progress(suvenire, circularProgress04);
+let section04Parameters = get_sectionParameters(suvenire);
+add_remove_Progress(productSectionProgressDiv04, section04Parameters[0], section04Parameters[1]);
+
+// SECTION05
+
+const accesorii = document.querySelector('#accesorii');
+
+let productSectionProgressDiv05 = document.querySelector('#product-section-progress-div05');
+let circularProgress05 = document.querySelector('#product-section-progress05');
+let productSectionIcon05 = document.querySelector('#product-section-icon05');
+
+add_Progress(accesorii, circularProgress05);
+let section05Parameters = get_sectionParameters(accesorii);
+add_remove_Progress(productSectionProgressDiv05, section05Parameters[0], section05Parameters[1]);
+
+// SECTION06
+
+const imbracaminte = document.querySelector('#imbracaminte');
+
+let productSectionProgressDiv06 = document.querySelector('#product-section-progress-div06');
+let circularProgress06 = document.querySelector('#product-section-progress06');
+let productSectionIcon06 = document.querySelector('#product-section-icon06');
+
+add_Progress(imbracaminte, circularProgress06);
+let section06Parameters = get_sectionParameters(imbracaminte);
+add_remove_Progress(productSectionProgressDiv06, section06Parameters[0], section06Parameters[1]);
+
+// SECTION07
+
+const bucatarie = document.querySelector('#bucatarie');
+
+let productSectionProgressDiv07 = document.querySelector('#product-section-progress-div07');
+let circularProgress07 = document.querySelector('#product-section-progress07');
+let productSectionIcon07 = document.querySelector('#product-section-icon07');
+
+add_Progress(bucatarie, circularProgress07);
+let section07Parameters = get_sectionParameters(bucatarie);
+add_remove_Progress(productSectionProgressDiv07, section07Parameters[0], section07Parameters[1]);
+
+// SECTION08
+
+const electronice = document.querySelector('#electronice');
+
+let productSectionProgressDiv08 = document.querySelector('#product-section-progress-div08');
+let circularProgress08 = document.querySelector('#product-section-progress08');
+let productSectionIcon08 = document.querySelector('#product-section-icon08');
+
+add_Progress(electronice, circularProgress08);
+let section08Parameters = get_sectionParameters(electronice);
+add_remove_Progress(productSectionProgressDiv08, section08Parameters[0], section08Parameters[1]);
+
+// SECTION09
+
+const gospodarie = document.querySelector('#gospodarie');
+
+let productSectionProgressDiv09 = document.querySelector('#product-section-progress-div09');
+let circularProgress09 = document.querySelector('#product-section-progress09');
+let productSectionIcon09 = document.querySelector('#product-section-icon09');
+
+add_Progress(gospodarie, circularProgress09);
+let section09Parameters = get_sectionParameters(gospodarie);
+add_remove_Progress(productSectionProgressDiv09, section09Parameters[0], section09Parameters[1]);
+
+
+// SECTION10
+
+const igiena = document.querySelector('#igiena');
+
+let productSectionProgressDiv10 = document.querySelector('#product-section-progress-div10');
+let circularProgress10 = document.querySelector('#product-section-progress10');
+let productSectionIcon10 = document.querySelector('#product-section-icon10');
+
+add_Progress(igiena, circularProgress10);
+let section10Parameters = get_sectionParameters(igiena);
+add_remove_Progress(productSectionProgressDiv10, section10Parameters[0], section10Parameters[1]);
 
 
 
+// PROGRESS FUNCTIONS
+
+function add_Progress(section, progress)
+{
+  window.addEventListener('scroll', () =>
+  {
+    let scrollPercent = get_scrollPercent(section);
+    console.log(scrollPercent)
+
+    progress.style.background = `conic-gradient(var(--fourthGreen) ${scrollPercent * 3.9}deg, var(--secondDark) ${scrollPercent * 3.9}deg)`;
+  })
+}
+
+function get_sectionParameters(section)
+{
+  let start = section.offsetTop
+  let end = section.offsetTop + section.offsetHeight + 128;
+
+  return [start, end];
+}
+
+function add_remove_Progress(progressDiv, start, end)
+{
+  window.addEventListener('scroll', () =>
+  {
+    let {scrollTop} = document.documentElement;
+
+    if(scrollTop >= start && scrollTop <= end)
+    {
+      if(!progressDiv.classList.contains('progress-div-show'))
+      {
+        progressDiv.classList.add('progress-div-show');
+      }
+    }
+    if(scrollTop >= end || scrollTop <= start)
+    {
+      if(progressDiv.classList.contains('progress-div-show'))
+      {
+        progressDiv.classList.remove('progress-div-show');
+      }
+    }
+
+  })
+}
+
+function get_scrollPercent(section)
+{
+  let {scrollTop, scrollHeight} = document.documentElement
+
+  let scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100;
+
+  return scrollPercent;
+}
 
 
 

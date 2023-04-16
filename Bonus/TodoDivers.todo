@@ -4,7 +4,7 @@ Fiecare Problema la Divers Angro Shop:
   ☐ Iconita(sus de tot/bara de navigare google) nu are background 
   ☐ În elementul meta NU sunt specificate: cuvintele-cheie ale site-ului
   ☐ Uitete in spate ~~ hihi ;)
-  ☐ La butoanele pe care nu le poti apasa iti as vrea sa se vada cursorul
+  ☐ La butoanele pe care nu le poti apasa as vrea sa se vada cursorul ca pointer
 
 Idei:
   ☐ Categorie cu produsele noi sau ceva nou in general | ..
@@ -36,7 +36,7 @@ Figma Idei:
   ☐ La About us, la statementri, se vor alege 2 random de fiecare data cand este pe telefon
 
 Figma Todo:
-  ☐ Adauga cate un svg din cand in cand la carusele
+  ☐ Adauga cate un svg din cand in cand la carusele ||
 
 
 Figma Schimbari:
@@ -48,7 +48,6 @@ Figma Schimbari:
 
 
 Lucruri pentru Andrei:
-  ☐ Sa se descurce cu limbile
   ☐ Sa schimbe la email in loc de Formspree in Email.js
   ☐ Sa schimbe toate numele la carusele
   ☐ Barem la Web
@@ -64,34 +63,29 @@ Lucruri de Facut:
   La General:
 
     ☐ ceva mult mai complicat la backup button anti scroll
-    ☐ Scoate scrolurile de la firefox
+    ☐ Scoate scrolurile de la firefox si alte site-uri
     ☐ Fa Alegerea legata de text (general sau specific)
     ☐ Fa Top-barul pentru tableta responsive
     ☐ Adauga si bottom-barul pentru telefon
     ☐ Rezolva problema cu staggeruul cand apesi pe un link
     ☐ Animatii personalizate la end icons
+    ☐ Limbi(schimb de limbi, font la limba rusa)
 
   La Produse:
 
-    ☐ Fa ca backup buttonul sa se porneasca din acelasi loc(de preferat dupa prima intersectie)
+    ☐ Fa Random Icons Responsive
     ☐ Fa caruselul responsive
-    ☐ Fa caruselul cu clase
-    ☐ Adauga sa poti trage caruselul
     ☐ Vezi cum sa nu te mute de fiecare data cand dai refresh
-    ☐ Ficare iconita random sa aiba link
-    ☐ La categorii is tare laggy scrollu
-    ☐ Fa exemplele random + functionalitate + sa incapa
-    ☐ Popup clasna in general la random icons
-    ☐ Efect la exemple cand dai hover
+    ☐ ||| Fa exemplele functionale
+    ☐ ||| Popup clasna in general la random icons
     ☐ Fa sa-ti arate sectiunea curenta de produse progress
     ☐ Fa ca iconita la produsele actuale sa aiba fill
-    ☐ Adauga tot designul nou
     ☐ Fa tot responsive
 
   
   La About Us:
 
-    ☐ Carsel infinit
+    ☐ Carusel infinit
     ☐ Fa Caruselul(sa fie similar cu caruselele)
     ☐ Fa tranzitia la Carusel
     ☐ Fa animatia la statistici
@@ -113,9 +107,3 @@ Lucruri de Facut:
     ☐ Schimba in loc de grid sa fie 2 flexuri
     ☐ Editeaza pozele
     ☐ Adauga tot designul nou
-
-
-CARUSEL STUFF:
-  ☐ Sa poti da grab
-  ☐ Responsive
-  ☐ Clase
