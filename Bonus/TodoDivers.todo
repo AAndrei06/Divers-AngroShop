@@ -50,11 +50,10 @@ Figma Schimbari:
 Lucruri pentru Andrei:
   ☐ Sa schimbe la email in loc de Formspree in Email.js
   ☐ Sa schimbe toate numele la carusele
-  ☐ Barem la Web
   ☐ Sa puna toate stirile inapoi
   ☐ Testeze caruselele
   ☐ Intreaba ownerul de niste statistici
-  ☐ Backup button bug
+  ☐ Progress section
 
 
 Lucruri de Facut:
@@ -62,7 +61,7 @@ Lucruri de Facut:
 
   La General:
 
-    ☐ ceva mult mai complicat la backup button anti scroll
+    ☐ ||| ceva mult mai complicat la backup button anti scroll
     ☐ Scoate scrolurile de la firefox si alte site-uri
     ☐ Fa Alegerea legata de text (general sau specific)
     ☐ Fa Top-barul pentru tableta responsive
@@ -74,12 +73,10 @@ Lucruri de Facut:
   La Produse:
 
     ☐ Fa Random Icons Responsive
-    ☐ Fa caruselul responsive
     ☐ Vezi cum sa nu te mute de fiecare data cand dai refresh
     ☐ ||| Fa exemplele functionale
     ☐ ||| Popup clasna in general la random icons
     ☐ Fa sa-ti arate sectiunea curenta de produse progress
-    ☐ Fa ca iconita la produsele actuale sa aiba fill
     ☐ Fa tot responsive
 
   

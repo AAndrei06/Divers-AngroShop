@@ -1222,12 +1222,6 @@ function get_scrollPercent(section)
 
 
 
-
-
-
-
-
-
 // CURRENT PRODUCT ICON
 
 const productIcons = document.querySelectorAll('.product-icon');
@@ -1254,10 +1248,8 @@ function apply_afterIcon(icon)
     let iconGroups = icon.getElementsByTagName("g");
 
     let childOutline = iconGroups[0];
-    console.log('childOutline: '+childOutline)
     let childFill = iconGroups[1];
-    console.log('childFill: '+childFill)
-    
+
     childOutline.classList.remove('product-icon-show');
     childFill.classList.add('product-icon-show');
     icon.classList.add('shake-icon')
