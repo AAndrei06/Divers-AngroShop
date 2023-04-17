@@ -653,7 +653,6 @@ a
 }
 .language-div:hover .language-icon
 {
-	fill: var(--fourthGreen);
 	transform: rotate(-90deg);
 }
 .language-text

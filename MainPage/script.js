@@ -1254,6 +1254,17 @@ function apply_afterIcon(icon)
     childFill.classList.add('product-icon-show');
     icon.classList.add('shake-icon')
   }
+  else
+  {
+    let iconGroups = icon.getElementsByTagName("g");
+
+    let childOutline = iconGroups[0];
+    let childFill = iconGroups[1];
+
+    childOutline.classList.add('product-icon-show');
+    childFill.classList.remove('product-icon-show');
+    icon.classList.remove('shake-icon')
+  }
 
 }
 
