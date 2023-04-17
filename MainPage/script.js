@@ -13,49 +13,136 @@ const umbrelaIcon = document.querySelector("#umbrela-random-icon");
 
 let randomIcons = [balonIcon, focIcon, flagIcon, casaIcon, mouseIcon, creionIcon, maicaIcon, sapunIcon, tenisIcon, umbrelaIcon];
 
-// Pozitii | left | top | rotate |
+// Pozitii | left | top | display |
 
-const position01 = [100, 605];
-const position02 = [242, 450];
-const position03 = [306, 664];
-const position04 = [497, 564];
-const position05 = [652, 673];
-const position06 = [826, 679];
-const position07 = [990, 562];
-const position08 = [1141, 676];
-const position09 = [1252, 445];
-const position10 = [1347, 600];
+let position01 = [100, 605, 'initial'];
+let position02 = [242, 450, 'initial'];
+let position03 = [306, 664, 'initial'];
+let position04 = [497, 564, 'initial'];
+let position05 = [652, 673, 'initial'];
+let position06 = [826, 679, 'initial'];
+let position07 = [990, 562, 'initial'];
+let position08 = [1141, 676, 'initial'];
+let position09 = [1252, 445, 'initial'];
+let position10 = [1347, 600, 'initial'];
 
 let coordinates = [position01, position02, position03, position04, position05, position06, position07, position08, position09, position10];
 
 let numOfIcons = randomIcons.length;
 
-for(let i = 0; i < numOfIcons; i++)
+let assignPositionTimeout;
+
+assignPosition();
+
+
+window.addEventListener('resize', resize_assignPosition)
+
+
+function resize_assignPosition()
 {
-  assignPosition();
+  clearTimeout(assignPositionTimeout);
+
+  assignPositionTimeout = setTimeout(assignPosition, 200); 
+}
+
+function randomIcons_responsive()
+{
+  if(window.innerWidth <= 1320)
+  {
+    position01[2] = 'none';
+    position02[2] = 'none';
+    position09[2] = 'none';
+    position10[2] = 'none';
+
+    // coordinates = [position01, position02, position03, position04, position05, position06, position07, position08, position09, position10];
+  }
+  else
+  {
+    position01[2] = 'initial';
+    position02[2] = 'initial';
+    position09[2] = 'initial';
+    position10[2] = 'initial';
+  }
 }
 
 function assignPosition()
 {
-  let numOfIcons = randomIcons.length;
-  let numOfPositions = coordinates.length;
-  let randomIconNum = Math.floor(Math.random() * numOfIcons);
-  let randomPositionNum = Math.floor(Math.random() * numOfPositions);
 
-  randomIcons[randomIconNum].style.left = `${coordinates[randomPositionNum][0]}px`;
-  randomIcons[randomIconNum].style.top = `${coordinates[randomPositionNum][1]}px`;
-  randomIcons[randomIconNum].style.display = "inline";
+  randomIcons_responsive();
 
-  randomIcons.splice(randomIconNum, 1);
-  coordinates.splice(randomPositionNum, 1);
+  let randIconNumArray = [];
+  let randCoordNumArray = []
+
+  for(let i = 0; i < numOfIcons; i++)
+  {
+
+    let numOfIcons = randomIcons.length;
+    let numOfPositions = coordinates.length;
+    
+    let numIconFound = false;
+    let numPositionFound = false;
+    
+
+    let randomIconNum = Math.floor(Math.random() * numOfIcons);
+  
+    while(!numIconFound)
+    {
+      let result = randIconNumArray.every(icon => icon !== randomIconNum);
+
+      if(result)
+      {
+        randIconNumArray.push(randomIconNum);
+        numIconFound = true;
+      }
+      else
+      {
+        randomIconNum = Math.floor(Math.random() * numOfIcons);
+      }
+    }
+
+    
+    // console.log('===============================');
+    // console.log('randomIconNum: '+randomIconNum);
+    // console.log('randIconNumArray: '+randIconNumArray);
+    
+
+    let randomPositionNum = Math.floor(Math.random() * numOfPositions);
+
+    while(!numPositionFound)
+    {
+      let result = randCoordNumArray.every(coord => coord !== randomPositionNum);
+
+      if(result)
+      {
+        randCoordNumArray.push(randomPositionNum);
+        numPositionFound = true;
+      }
+      else
+      {
+        randomPositionNum = Math.floor(Math.random() * numOfPositions);
+      }
+    }
+
+    // console.log('randomPositionNum: '+randomPositionNum)
+    // console.log('randCoordNumArray: '+randCoordNumArray);
+    // console.log('===============================')
+    
+
+    randomIcons[randomIconNum].style.left = `${coordinates[randomPositionNum][0]}px`;
+    
+    randomIcons[randomIconNum].style.top = `${coordinates[randomPositionNum][1]}px`;
+    randomIcons[randomIconNum].style.display = coordinates[randomPositionNum][2];
+ 
+  }
 
 }
 
-let allRandomIcons = document.querySelectorAll('.random-category-anchor');
+// let allRandomIcons = document.querySelectorAll('.random-category-anchor');
 
 
 
 // SCROLL LA CATEGORII
+
 const allCategoryDivs = document.querySelector('.category-scrollable-space');
 const allCategorys = document.querySelectorAll('.category-link');
 const allCategoryAchors = document.querySelectorAll('.category-anchor');

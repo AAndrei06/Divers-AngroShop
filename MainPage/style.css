@@ -222,7 +222,7 @@
 }
 .shake-icon
 {
-	animation: shakeIcon 0.25s forwards;
+	animation: shakeIcon 0.35s forwards;
 }
 @keyframes shakeIcon
 {
@@ -488,3 +488,4 @@
 	width: 1.5rem;
 	height: 1.5rem;
 }
+

@@ -244,6 +244,7 @@ a
 	align-items: center;
 	cursor: pointer;
 	transition: opacity 0.15s;
+	white-space: nowrap;
 }
 .nav-text::before
 {
