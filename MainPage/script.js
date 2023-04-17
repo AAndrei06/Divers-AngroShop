@@ -1173,8 +1173,6 @@ function add_Progress(section, progress)
   window.addEventListener('scroll', () =>
   {
     let scrollPercent = get_scrollPercent(section);
-    console.log(scrollPercent)
-
     progress.style.background = `conic-gradient(var(--fourthGreen) ${scrollPercent * 3.9}deg, var(--secondDark) ${scrollPercent * 3.9}deg)`;
   })
 }
@@ -1230,6 +1228,42 @@ function get_scrollPercent(section)
 
 
 
+// CURRENT PRODUCT ICON
+
+const productIcons = document.querySelectorAll('.product-icon');
+
+window.addEventListener('scroll', () =>
+{
+  for(let i = 0; i < productIcons.length; i++)
+  {
+    apply_afterIcon(productIcons[i]);
+  }
+})
+
+
+
+function apply_afterIcon(icon)
+{
+  let scrollTop = document.documentElement.scrollTop;
+  let scrollTopOffset = window.innerWidth / 11;
+  scrollTop = scrollTop + scrollTopOffset;
+  let iconScrollTop = icon.getBoundingClientRect().top + window.scrollY;
+
+  if(scrollTop > iconScrollTop)
+  {
+    let iconGroups = icon.getElementsByTagName("g");
+
+    let childOutline = iconGroups[0];
+    console.log('childOutline: '+childOutline)
+    let childFill = iconGroups[1];
+    console.log('childFill: '+childFill)
+    
+    childOutline.classList.remove('product-icon-show');
+    childFill.classList.add('product-icon-show');
+    icon.classList.add('shake-icon')
+  }
+
+}
 
 
 // DISCLAIMER OVERLAY

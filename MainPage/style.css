@@ -163,6 +163,8 @@
 /*Carousels*/
 
 /*CAROUSEL HEADER*/
+
+
 .product-content
 {
 	margin-top: 8rem;
@@ -190,10 +192,59 @@
 {
 	width: 3.5rem;
 	height: 3.5rem;
-	color: var(--fourthGreen);
-	fill: var(--fourthGreen);
+	fill: var(--secondDark);
+}
+
+.product-icon-bifa
+{
 	stroke: var(--fourthGreen);
 }
+.product-icon-contur
+{
+	stroke: var(--fourthGreen);
+}
+.product-icon-handle
+{
+	stroke: var(--fourthGreen);
+}
+.product-icon-old
+{
+	opacity: 0;
+}
+.product-icon-show
+{
+	opacity: 1 !important;
+}
+.product-icon-new
+{
+	opacity: 0;
+	fill: var(--fourthGreen);
+}
+.shake-icon
+{
+	animation: shakeIcon 0.25s forwards;
+}
+@keyframes shakeIcon
+{
+	25%
+	{
+		transform: rotate(0deg);
+	}
+	50%
+	{
+		transform: rotate(5deg);
+	}
+	75%
+	{
+		transform: rotate(-5deg);
+	}
+	100%
+	{
+		transform: rotate(0deg);
+	}
+
+}
+
 /*CAROUSEL MAIN*/
 .carousel-flex
 {
@@ -397,6 +448,7 @@
 	align-content: center;
 	justify-content: center;
 	display: none;
+	z-index: 6;
 }
 .progress-div-show
 {
