@@ -491,6 +491,13 @@ a
 	transform: translateY(200%);
 	transition: all 0.15s;
 }
+#static-backup-div
+{
+/*	opacity: 1;
+	pointer-events: all;*/
+	position: static;
+	transform: translateY(0);
+}
 .backup-button
 {
 	position: relative;
@@ -558,6 +565,14 @@ a
 	align-items: center;
 	justify-content: center;
 	margin-top: var(--hugeM);
+	gap: 2.5rem;
+}
+.end-section-start-text-div
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	gap: 1.5rem;
 }
 .end-header
