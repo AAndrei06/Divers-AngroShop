@@ -1,28 +1,8 @@
-
-// const downAnimationObserver = new IntersectionObserver((entries) =>
-// {
-// 	entries.forEach((entry) =>
-// 	{
-// 		if(entry.isIntersecting)
-// 		{
-// 			entry.target.classList.add("down-up-anim");
-// 		}
-
-		
-// 	})
-// })
-
-// const downElements = document.querySelectorAll('.down-up-preset');
-
-// downElements.forEach((el) =>
-// {
-// 	downAnimationObserver.observe(el);
-// })
-
-// // BACKUP BUTTON
+// BACKUP BUTTON
 
 const backupButtons = document.querySelectorAll('.backup-button');
 const backUpButton = document.querySelector('.backup-div');
+const actualBackupButton = document.querySelector('.backup-button');
 buttonMoved = false;
 const endSectionStart = document.querySelector('.end-section-start');
 const endSection = document.querySelector('.end-section');
@@ -79,10 +59,9 @@ function get_buttonCoordinates()
 {
 		let offsetStartEndSect = endSectionStart.offsetTop;
 	  let endStartHeight = endSectionStart.offsetHeight;
-    let styles = window.getComputedStyle(endSectionStart);
-    let endStartMargin = parseFloat(styles.marginTop);
+	  let buttonHeight = actualBackupButton.offsetHeight;
 
-    offsetStartEndSect = offsetStartEndSect + endStartHeight / 4.5 + endStartMargin;
+    offsetStartEndSect = offsetStartEndSect + endStartHeight - buttonHeight;
 
     return offsetStartEndSect;
 }
@@ -129,12 +108,14 @@ const backUpbuttonObserver = new IntersectionObserver((entries) =>
 
 backUpbuttonObserver.observe(endSection);
 
+
+
+
+
 // Language Switch
 
 let languageText = document.querySelector('.language-text');
 let languageDiv = document.querySelector('.language-div');
-
-console.log(languageDiv)
 
 languageDiv.addEventListener('mouseenter', () =>
 {
