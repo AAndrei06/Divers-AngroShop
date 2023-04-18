@@ -127,3 +127,36 @@ languageDiv.addEventListener('mouseleave', () =>
 	
 })
 
+// Tablet Haburger Menu
+
+const hamburgerMenu = document.querySelector('.hamburger-menu-div');
+const tabletNav = document.querySelector('.tablet-nav');
+const tabletOverlay = document.querySelector('.tablet-overlay');
+let hamburgerMenuClicked = false;
+
+window.addEventListener('resize', () =>
+{
+	if(window.innerWidth >= 844)
+	{
+		tabletNav.classList.remove('show-tablet-nav');
+		tabletOverlay.classList.remove('show-tablet-overlay');
+		hamburgerMenuClicked = false;
+	}
+	
+})
+
+hamburgerMenu.addEventListener('click', () =>
+{
+	if(!hamburgerMenuClicked)
+	{
+		tabletNav.classList.add('show-tablet-nav');
+		tabletOverlay.classList.add('show-tablet-overlay');
+		hamburgerMenuClicked = true;
+	}
+	else
+	{
+		tabletNav.classList.remove('show-tablet-nav');
+		tabletOverlay.classList.remove('show-tablet-overlay');
+		hamburgerMenuClicked = false;
+	}
+})
