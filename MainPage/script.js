@@ -1179,7 +1179,7 @@ function add_Progress(section, progress)
 
 function get_sectionParameters(section)
 {
-  let start = section.offsetTop
+  let start = section.offsetTop-400;
   let end = section.offsetTop + section.offsetHeight + 128;
 
   return [start, end];
@@ -1212,8 +1212,9 @@ function add_remove_Progress(progressDiv, start, end)
 function get_scrollPercent(section)
 {
   let {scrollTop, scrollHeight} = document.documentElement
-
-  let scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100;
+  let headHeight = 1600;//Height la sectiunea de sus de tot pana la inceputul sectiunii cu carusele 
+  let bottomHeight = 800;//Height la sectiunea de la Te Asteptam pana jos de tot
+  let scrollPercent = ((scrollTop-headHeight)*100)/(scrollHeight-(headHeight + bottomHeight));
 
   return scrollPercent;
 }
