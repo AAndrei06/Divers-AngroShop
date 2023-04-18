@@ -1,3 +1,15 @@
+.random-icons-div
+{
+	position: absolute;
+	top: 500px;
+	width: 100%;
+}
+.random-icons
+{
+	position: relative;
+	height: auto;
+	width: 100%;
+}
 .random-category-anchor
 {
 	z-index: 2;

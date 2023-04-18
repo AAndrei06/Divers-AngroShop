@@ -13,18 +13,22 @@ const umbrelaIcon = document.querySelector("#umbrela-random-icon");
 
 let randomIcons = [balonIcon, focIcon, flagIcon, casaIcon, mouseIcon, creionIcon, maicaIcon, sapunIcon, tenisIcon, umbrelaIcon];
 
+let randomIconsResize = 0;
+let oldWindow = 0;
+let nowWindow;
+
 // Pozitii | left | top | display |
 
-let position01 = [100, 605, 'initial'];
-let position02 = [242, 450, 'initial'];
-let position03 = [306, 664, 'initial'];
-let position04 = [497, 564, 'initial'];
-let position05 = [652, 673, 'initial'];
-let position06 = [826, 679, 'initial'];
-let position07 = [990, 562, 'initial'];
-let position08 = [1141, 676, 'initial'];
-let position09 = [1252, 445, 'initial'];
-let position10 = [1347, 600, 'initial'];
+let position01 = [6.5, 105, 'initial'];
+let position02 = [15.75, -50, 'initial'];
+let position03 = [19.9, 164, 'initial'];
+let position04 = [32.35, 64, 'initial'];
+let position05 = [42.44, 173, 'initial'];
+let position06 = [53.77, 179, 'initial'];
+let position07 = [64.45, 62, 'initial'];
+let position08 = [74.28, 176, 'initial'];
+let position09 = [81.5, -45, 'initial'];
+let position10 = [87.69, 100, 'initial'];
 
 let coordinates = [position01, position02, position03, position04, position05, position06, position07, position08, position09, position10];
 
@@ -34,8 +38,12 @@ let assignPositionTimeout;
 
 assignPosition();
 
+//1536
 
-window.addEventListener('resize', resize_assignPosition)
+window.addEventListener('resize', () =>
+  {
+    resize_assignPosition();
+  });
 
 
 function resize_assignPosition()
@@ -128,7 +136,7 @@ function assignPosition()
     // console.log('===============================')
     
 
-    randomIcons[randomIconNum].style.left = `${coordinates[randomPositionNum][0]}px`;
+    randomIcons[randomIconNum].style.left = `${coordinates[randomPositionNum][0]}vw`;
     
     randomIcons[randomIconNum].style.top = `${coordinates[randomPositionNum][1]}px`;
     randomIcons[randomIconNum].style.display = coordinates[randomPositionNum][2];

@@ -163,21 +163,7 @@ img
 	pointer-events: none;
 	user-select: none;
 }
-section
-{
-/*	scroll-margin-top: 96px;*/
-}
-@media(prefers-reduced-motion)
-{
-	.hidden
-	{
-		transition: all 0s;
-	}
-	.header
-	{
-		transition: all 0.1s;
-	}
-}
+
 body
 {
 	overflow-x: hidden;
@@ -190,7 +176,6 @@ a
 {
 	text-decoration: none;
 	user-select: none;
-	user-drag: none;
 }
 
 /*NAV BAR*/
