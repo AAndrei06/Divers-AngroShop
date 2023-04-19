@@ -49,33 +49,32 @@ Figma Schimbari:
 
 Lucruri pentru Andrei:
   ☐ Sa schimbe la email in loc de Formspree in Email.js
-  ☐ Sa schimbe toate numele la carusele
+  ✔ Sa schimbe toate numele la carusele @done (23-04-18 21:58)
   ☐ Sa puna toate stirile inapoi
   ☐ Testeze caruselele
+  ☐ Testeze tot siteul
   ☐ Intreaba ownerul de niste statistici
-  ☐ Progress section
+  ✔ Progress section @done (23-04-18 21:57)
 
 
 Lucruri de Facut:
 
   La General:
 
-    ☐ ||| ceva mult mai complicat la backup button anti scroll
+
+    ☐ Logo de refacut fara background
+    ☐ Animatie cu hamburger icon in X
+    ☐ Refa iconita mica(logo)
     ☐ Scoate scrolurile de la firefox si alte site-uri
-    ☐ Fa Alegerea legata de text (general sau specific)
-    ☐ Fa Top-barul pentru tableta responsive
-    ☐ Adauga si bottom-barul pentru telefon
     ☐ Rezolva problema cu staggeruul cand apesi pe un link
     ☐ Limbi(schimb de limbi, font la limba rusa)
 
   La Produse:
-
-    ☐ Fa Random Icons Responsive
+    ☐ Categoriile au un fel de drag pe firefox
+    ☐ Exemplele nu merg daca flexu dispare si reapare
     ☐ Vezi cum sa nu te mute de fiecare data cand dai refresh
     ☐ ||| Fa exemplele functionale
-    ☐ ||| Popup clasna in general la random icons
     ☐ Fa sa-ti arate sectiunea curenta de produse progress || ANDREI
-    ☐ Fa tot responsive
 
   La About Us:
 

@@ -588,66 +588,70 @@ class Carousel
       {
         this.scrolled = this.allSlidersDiv.scrollLeft;
         this.update_Indicator_Dynamic(this.scrolled);
-      }, 100)
+      }, 250)
       
     })
   }
 
   update_Indicator_Dynamic(scrolled)
   {
-    let end;
-    let slideWidth = this.get_slideDimension();
-    let generalGap = this.get_slidesGap();
-    this.remove_currentIndicator();
-    let areas = this.fixedValues.length;
-    let totalSlidesWidth = slideWidth * this.allActualSliders.length - generalGap;
-    
-    
-
-    if(areas == 3)
+    if(window.innerWidth < 900)
     {
-      end = totalSlidesWidth - this.fixedValues[1];
-      if(this.scrolled >= this.fixedValues[0] && this.scrolled < this.fixedValues[1] - generalGap)
-      {
-        this.carouselIndicators[0].classList.add('current-indicator');
-        this.currentIndicator = 0;
-      }
-      if(this.scrolled >= this.fixedValues[1] - generalGap && this.scrolled < end)
-      {
-        this.carouselIndicators[1].classList.add('current-indicator');
-        this.currentIndicator = 1;
-      }
-      if(this.scrolled >= end)
-      {
-        this.carouselIndicators[2].classList.add('current-indicator');
-        this.currentIndicator = 2;
-      }
-    }
-    if(areas == 4)
-    {
+      let end;
+      let slideWidth = this.get_slideDimension();
+      let generalGap = this.get_slidesGap();
+      this.remove_currentIndicator();
+      let areas = this.fixedValues.length;
+      let totalSlidesWidth = slideWidth * this.allActualSliders.length - generalGap;
+      
+      
 
-      if(this.scrolled >= this.fixedValues[0] && this.scrolled < this.fixedValues[1] - generalGap)
+      if(areas == 3)
       {
-        this.carouselIndicators[0].classList.add('current-indicator');
-        this.currentIndicator = 0;
+        end = totalSlidesWidth - this.fixedValues[1];
+        if(this.scrolled >= this.fixedValues[0] && this.scrolled < this.fixedValues[1] - generalGap)
+        {
+          this.carouselIndicators[0].classList.add('current-indicator');
+          this.currentIndicator = 0;
+        }
+        if(this.scrolled >= this.fixedValues[1] - generalGap && this.scrolled < end)
+        {
+          this.carouselIndicators[1].classList.add('current-indicator');
+          this.currentIndicator = 1;
+        }
+        if(this.scrolled >= end)
+        {
+          this.carouselIndicators[2].classList.add('current-indicator');
+          this.currentIndicator = 2;
+        }
       }
-      if(this.scrolled >= this.fixedValues[1] - generalGap && this.scrolled < this.fixedValues[2] - generalGap)
+      if(areas == 4)
       {
-        this.carouselIndicators[1].classList.add('current-indicator');
-        this.currentIndicator = 1;
+
+        if(this.scrolled >= this.fixedValues[0] && this.scrolled < this.fixedValues[1] - generalGap)
+        {
+          this.carouselIndicators[0].classList.add('current-indicator');
+          this.currentIndicator = 0;
+        }
+        if(this.scrolled >= this.fixedValues[1] - generalGap && this.scrolled < this.fixedValues[2] - generalGap)
+        {
+          this.carouselIndicators[1].classList.add('current-indicator');
+          this.currentIndicator = 1;
+        }
+        if(this.scrolled >= this.fixedValues[2] - generalGap && this.scrolled < this.fixedValues[3] - generalGap)
+        {
+          this.carouselIndicators[2].classList.add('current-indicator');
+          this.currentIndicator = 2;
+        }
+        if(this.scrolled >= this.fixedValues[3] - generalGap)
+        {
+          this.carouselIndicators[3].classList.add('current-indicator');
+          this.currentIndicator = 3;
+        }
       }
-      if(this.scrolled >= this.fixedValues[2] - generalGap && this.scrolled < this.fixedValues[3] - generalGap)
-      {
-        this.carouselIndicators[2].classList.add('current-indicator');
-        this.currentIndicator = 2;
-      }
-      if(this.scrolled >= this.fixedValues[3] - generalGap)
-      {
-        this.carouselIndicators[3].classList.add('current-indicator');
-        this.currentIndicator = 3;
-      }
+      this.set_indicatorAnim();
     }
-    this.set_indicatorAnim();
+    
   }
 
   update_Indicator()
@@ -1334,7 +1338,16 @@ window.addEventListener('scroll', () =>
 function apply_afterIcon(icon)
 {
   let scrollTop = document.documentElement.scrollTop;
-  let scrollTopOffset = window.innerWidth / 11;
+  let scrollTopOffset;
+  if(window.innerWidth < 900)
+  {
+    scrollTopOffset = window.innerWidth;
+  }
+  else
+  {
+    scrollTopOffset = window.innerWidth / 11;
+  }
+  
   scrollTop = scrollTop + scrollTopOffset;
   let iconScrollTop = icon.getBoundingClientRect().top + window.scrollY;
 

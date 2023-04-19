@@ -136,7 +136,7 @@ let hamburgerMenuClicked = false;
 
 window.addEventListener('resize', () =>
 {
-	if(window.innerWidth >= 844)
+	if(window.innerWidth > 900 || window.innerWidth < 510)
 	{
 		tabletNav.classList.remove('show-tablet-nav');
 		tabletOverlay.classList.remove('show-tablet-overlay');
@@ -154,6 +154,16 @@ hamburgerMenu.addEventListener('click', () =>
 		hamburgerMenuClicked = true;
 	}
 	else
+	{
+		tabletNav.classList.remove('show-tablet-nav');
+		tabletOverlay.classList.remove('show-tablet-overlay');
+		hamburgerMenuClicked = false;
+	}
+})
+
+tabletOverlay.addEventListener('click', () =>
+{
+	if(hamburgerMenuClicked)
 	{
 		tabletNav.classList.remove('show-tablet-nav');
 		tabletOverlay.classList.remove('show-tablet-overlay');
