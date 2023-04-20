@@ -502,11 +502,23 @@
 	align-items: center;
 	justify-content: center;
 }
+@keyframes scale-up-down
+{
+	0%,100%
+	{
+		transform: scale(1.0);
+	}
+	50%
+	{
+		transform: scale(1.25);
+	}
+}
 .progress-icon
 {
 	fill: var(--fourthGreen);
 	width: 1.5rem;
 	height: 1.5rem;
+	animation: scale-up-down 0.15s forwards;
 }
 
 /*POPUP DISCLAIMER*/
