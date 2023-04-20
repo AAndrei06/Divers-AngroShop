@@ -56,6 +56,8 @@
 	--hugeM: 16rem; 
 /*128px*/
 	--bigM: 8rem;
+/*96px	*/
+	--intermediateM: 6rem;
 	/*80px*/
 	--mediumM: 5rem;
 	/*56px*/
@@ -894,6 +896,47 @@ a
 	height: 12px;
 	transition: transform 0.15s;
 }
+
+/*MINI HEADER / MINI DESCRIPTION*/
+#first-mini
+{
+	margin-top: 30rem;
+}
+.mini-header-text-area
+{
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0px var(--leftM);
+}
+.mini-header-div
+{
+	width: 100%;
+}
+.mini-header
+{
+	font-family: Dangrek;
+	color: var(--white);
+	font-size: 3.5rem;
+	line-height: 4rem;
+	text-align: center;
+}
+.mini-description-div
+{
+	width: 100%;
+}
+.mini-description
+{
+	color: var(--white);
+	font-weight: 500;
+	font-size: 2rem;
+	text-align: center;
+}
+
+
 
 
 
