@@ -1,0 +1,266 @@
+:root
+{
+	--form-gap: 24px;
+	--form-text: 2rem;
+}
+.form
+{
+	margin-top: var(--intermediateM);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+}
+.form-content
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 3.5rem;
+	border-style: solid;
+	border-color: var(--fourthDark);
+	border-width: 2px;
+	border-radius: 24px;
+	background-color: var(--thirdDark);
+	gap: 3.5rem;
+	box-shadow: 0px 341px 137px rgba(0, 0, 0, 0.02), 0px 192px 115px rgba(0, 0, 0, 0.08), 0px 85px 85px rgba(0, 0, 0, 0.13), 0px 21px 47px rgba(0, 0, 0, 0.15), 0px 0px 0px rgba(0, 0, 0, 0.15);
+}
+.form-inputs
+{
+	width: 800px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.form-input-div
+{
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	position: relative;
+}
+.form-input-text
+{
+	pointer-events: none;
+	display: flex;
+	gap: 2rem;
+	position: absolute;
+	top: 50%;
+	left: 24px;
+	transform: translateY(-50%);
+	color: var(--white);
+	font-size: var(--form-text);
+	font-weight: 600;
+}
+.form-input
+{
+	width: 100%;
+	background: var(--thirdDark);
+	height: 80px;
+	padding: 0px 0px 0px var(--form-gap);
+	color: var(--white);
+	font-size: var(--form-text);
+	font-weight: 600;
+	border-style: none none solid none;
+	border-width: 4px;
+	border-color: var(--fourthDark);
+}
+.form-input:focus
+{
+	outline: none;
+/*	border-color: var(--fourthGreen);*/
+}
+.form-input:focus ~ .input-bottom-bar:before
+{
+	transform: scaleX(1.0);
+}
+.input-bottom-bar
+{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 4px;
+}
+.input-bottom-bar:before
+{
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	background-color: var(--fourthGreen);
+	transform: scaleX(0);
+	transition: 0.15s;
+}
+
+
+textarea {
+  resize: vertical;
+}
+.form-input-text-description
+{
+	pointer-events: none;
+	display: flex;
+	gap: 2rem;
+	position: absolute;
+	top: 24px;
+	left: 24px;
+	color: var(--white);
+	font-size: var(--form-text);
+	font-weight: 600;
+}
+.form-input-description
+{
+	font-family: Poppins;
+	width: 100%;
+	background: none;
+	height: 280px;
+	padding: 20px 0px 0px var(--form-gap);
+	color: var(--white);
+	font-size: var(--form-text);
+	font-weight: 600;
+	border-style: none none solid none;
+	border-width: 4px;
+	border-color: var(--fourthDark);
+}
+.form-input-description:focus
+{
+	outline: none;
+}
+.form-input-description:focus ~ .input-bottom-bar:before
+{
+	transform: scaleX(1);
+}
+
+.form-send-button-div
+{
+	width: 100%;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.form-send-button:hover .form-button-icon
+{
+	transform: rotate(-45deg);
+
+}
+
+.form-send-button
+{
+	cursor: pointer;
+	border-style: none;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	width: 190px;
+	height: 64px;
+	border-radius: 16px;
+	background-color: var(--fourthGreen);
+}
+
+.content-dissapear
+{
+	display: none !important;
+}
+@keyframes send-animation
+{
+	from
+	{
+		border-radius: 250px;
+
+	}
+	to
+	{
+		border-radius: 250px;
+		width: 64px;
+		pointer-events: none;
+	}
+}
+.submit-animation
+{
+	animation: send-animation 0.25s both;
+}
+.show-icon-anim-div
+{
+	display: flex !important;
+}
+.form-button-icon-anim-div
+{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+@keyframes draw-checkmark
+{
+	0%
+	{
+		left: 0%;
+		bottom: 0%;
+	}
+	90%	
+	{
+		left: 100%;
+		bottom: 30%;
+		width: 50%;
+		height: 50%;
+
+	}
+	100%
+	{
+		width: 0%;
+		height: 0%;
+	}
+}
+
+.form-button-icon-anim-div::before
+{
+	border-radius: 250px;
+	content: '';
+	width: 100%;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	background-color: var(--fourthGreen);
+	z-index: 1;
+	animation: draw-checkmark 0.50s forwards;
+}
+.form-button-icon-anim
+{
+	width: 1.75rem;
+	height: 1.75rem;
+	fill: var(--thirdDark);
+}
+
+.form-button-content
+{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+}
+.form-button-text
+{
+	font-weight: 600;
+	font-size: var(--form-text);
+	color: var(--thirdDark);
+}
+.form-icon
+{
+	width: var(--form-text);
+	height: var(--form-text);
+	fill: var(--fourthGreen);
+}
+.form-button-icon
+{
+	width: 1.25rem;
+	height: 1.25rem;
+	fill: var(--thirdDark);
+	transition: 0.15s;
+}
