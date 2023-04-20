@@ -1,6 +1,5 @@
 Fiecare Problema la Divers Angro Shop:
   ☐ La produse, nu este deloc varietate intre carusele
-  ☐ Cand selectezi textul e greu sa-l deselectezi
   ☐ Iconita(sus de tot/bara de navigare google) nu are background 
   ☐ Uitete in spate ~~ hihi ;)
   ☐ La butoanele pe care nu le poti apasa as vrea sa se vada cursorul ca pointer
@@ -11,22 +10,10 @@ Idei:
 
 Animatie Idei:
 
-Lucruri Bonus de Facut:
-  ☐ La Stiri va trebui sa adaug 2 flex-uri | pentru a se vedea normal
-  ☐ Variabile pentru tot
-
 Figma Idei:
-  ☐ Animatii la Categorii la exemple cum isi schimba locurile unul cate unul cu un library
-  ☐ Bifele sa fie fara fill, dar cand ma apropii atunci sa se umple
-  ☐ La Produse, la indicatoare, cand vei apasa pe unu, acela se va misca cu animatie
   ☐ La Program de lucru, daca dai hover peste link atunci bara va disparea
   ☐ La About us, numarul de sub carusel sasi schimbe descrierea si numarul cu animatie regulat, si de fiecare daca cand intrii pe pagina
   ☐ Tot la namarul de sub carusel, cand il vezi pentru prima oara, va creste cu cate 5 pana va ajunge unde este necesar
-  ☐ LA FAQ, care este deschisa va fi de fiecare data random
-  ☐ La FAQ sati tina minte care a fost ultima deschisa
-  ☐ La FAQ, descrierea va avea voie sa aiba x1.5 la numarul total de caractere la Header
-  ☐ Mic Popup pentru cand dai hover la telefon
-  ☐ La Contact, daca dai hover pe buton isi baga un 45deg
   ☐ La FAQ sa fie o intrebare care sunt contactele noastre  
   ☐ La About us, la statementri, se vor alege 2 random de fiecare data cand este pe telefon
 
@@ -34,46 +21,33 @@ Figma Todo:
   ☐ Adauga cate un svg din cand in cand la carusele ||
 
 
-Figma Schimbari:
-  
-  La Produse:
-    ☐ Iconita la Categorii arata de parca de va lua pe alta pagina 
-    
-  La About Us:
-
-
 Lucruri pentru Andrei:
   ☐ Sa schimbe la email in loc de Formspree in Email.js
-  ✔ Sa schimbe toate numele la carusele @done (23-04-18 21:58)
   ☐ Sa puna toate stirile inapoi
   ☐ Testeze caruselele
   ☐ Testeze tot siteul
   ☐ Intreaba ownerul de niste statistici
-  ✔ Progress section @done (23-04-18 21:57)
+  ☐ Firefox drag la categorii
 
 
 Lucruri de Facut:
 
   La General:
-
-
     ☐ Logo de refacut fara background
     ☐ Animatie cu hamburger icon in X
     ☐ Refa iconita mica(logo)
-    ☐ Scoate scrolurile de la firefox si alte site-uri
-    ☐ Rezolva problema cu staggeruul cand apesi pe un link
     ☐ Limbi(schimb de limbi, font la limba rusa)
 
   La Produse:
+    ☐ Scrisu oleaca mai mare la produse pe telefon
     ☐ Backup Button sa fie responsive
     ☐ Trebuie un offset la anchore pe tableta
     ☐ Categoriile au un fel de drag pe firefox
     ☐ Exemplele nu merg daca flexu dispare si reapare
-    ☐ Vezi cum sa nu te mute de fiecare data cand dai refresh
     ☐ ||| Fa exemplele functionale
-    ☐ Fa sa-ti arate sectiunea curenta de produse progress || ANDREI
 
   La About Us:
+
     ☐ Carusel infinit
     ☐ Fa Caruselul(sa fie similar cu caruselele)
     ☐ Fa tranzitia la Carusel
@@ -84,12 +58,9 @@ Lucruri de Facut:
    
 
   La Contact Us:
+    ☐ Responsive
 
-    ✔ Fa Formularul @done (23-04-20 19:32)
-    ✔ Animatie wow la butonul cu trimite @done (23-04-20 19:32)
-    ☐ Fa FAQ-ul
-    ☐ Adauga tot designul nou
-    ☐ Random care faq este deschis
+    
 
 
   La Stiri:
