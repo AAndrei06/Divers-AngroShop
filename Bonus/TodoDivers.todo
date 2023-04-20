@@ -2,19 +2,14 @@ Fiecare Problema la Divers Angro Shop:
   ☐ La produse, nu este deloc varietate intre carusele
   ☐ Cand selectezi textul e greu sa-l deselectezi
   ☐ Iconita(sus de tot/bara de navigare google) nu are background 
-  ☐ În elementul meta NU sunt specificate: cuvintele-cheie ale site-ului
   ☐ Uitete in spate ~~ hihi ;)
   ☐ La butoanele pe care nu le poti apasa as vrea sa se vada cursorul ca pointer
 
 Idei:
   ☐ Categorie cu produsele noi sau ceva nou in general | ..
-  ☐ Scroll Barul sa dispara daca nu il folosesti si sa apara doar cand dai scroll | similar si la Progress Bar
-  ☐ Popup mic mai sus de topbar cand intrii in website cu Disclaimer
+  ☐ ||| Scroll Barul sa dispara daca nu il folosesti si sa apara doar cand dai scroll | similar si la Progress Bar
 
 Animatie Idei:
-  ☐ Sa umple butonul din dreapta spre stanga cu un linie de vreo 45deg
-  ☐ Cand dai hover pe butoanele de hover, sa fie o mica animatie foarte eleganta cum sageata se misca putin(foarte putina miscare)
-  ☐ Progress Product sa dispara cand apare sa fie un fel de mic mare normal, daca se schimba intre {<...>}
 
 Lucruri Bonus de Facut:
   ☐ La Stiri va trebui sa adaug 2 flex-uri | pentru a se vedea normal
@@ -79,7 +74,6 @@ Lucruri de Facut:
     ☐ Fa sa-ti arate sectiunea curenta de produse progress || ANDREI
 
   La About Us:
-
     ☐ Carusel infinit
     ☐ Fa Caruselul(sa fie similar cu caruselele)
     ☐ Fa tranzitia la Carusel
@@ -91,11 +85,11 @@ Lucruri de Facut:
 
   La Contact Us:
 
-    ☐ Fa Formularul
-    ☐ Animatie wow la butonul cu trimite
+    ✔ Fa Formularul @done (23-04-20 19:32)
+    ✔ Animatie wow la butonul cu trimite @done (23-04-20 19:32)
     ☐ Fa FAQ-ul
     ☐ Adauga tot designul nou
-    ☐ 
+    ☐ Random care faq este deschis
 
 
   La Stiri:
