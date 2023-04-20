@@ -1137,21 +1137,85 @@ carousel10.responsive_fix();
 carousel10.set_indicatorAnim();
 
 
-// PRODUCT SECTION PROGRESS
+// PROGRESS FUNCTIONS
+class Product_Progress
+{
+  constructor(section, progressDiv, circularProgress, sectionIcon)
+  {
 
-const allSections = document.querySelector('#product-section')
+    this.section = section;
+    this.progressDiv = progressDiv;
+    this.circularProgress = circularProgress;
+    this.sectionIcon = sectionIcon;
 
-// SECTION01
+    this.start;
+    this.end;
+  }
+
+  add_Progress()
+  {
+    window.addEventListener('scroll', () =>
+    {
+      let scrollPercent = this.get_scrollPercent();
+      this.circularProgress.style.background = `conic-gradient(var(--fourthGreen) ${scrollPercent * 3.9}deg, var(--secondDark) ${scrollPercent * 3.9}deg)`;
+    })
+  }
+
+  get_sectionParameters()
+  {
+    let start = this.section.offsetTop-400;
+    let end = this.section.offsetTop + this.section.offsetHeight + 128;
+
+    this.start = start;
+    this.end = end;
+  }
+
+  add_remove_Progress()
+  {
+    window.addEventListener('scroll', () =>
+    {
+      let {scrollTop} = document.documentElement;
+
+      if(scrollTop >= this.start && scrollTop <= this.end)
+      {
+        if(!this.progressDiv.classList.contains('progress-div-show'))
+        {
+          this.progressDiv.classList.add('progress-div-show');
+        }
+      }
+      if(scrollTop >= this.end || scrollTop <= this.start)
+      {
+        if(this.progressDiv.classList.contains('progress-div-show'))
+        {
+          this.progressDiv.classList.remove('progress-div-show');
+        }
+      }
+
+    })
+  }
+
+  get_scrollPercent()
+  {
+    let {scrollTop, scrollHeight} = document.documentElement
+    let headHeight = 1600;//Height la sectiunea de sus de tot pana la inceputul sectiunii cu carusele 
+    let bottomHeight = 800;//Height la sectiunea de la Te Asteptam pana jos de tot
+    let scrollPercent = ((scrollTop-headHeight)*100)/(scrollHeight-(headHeight + bottomHeight));
+
+    return scrollPercent;
+  }
+}
 
 const aniversare = document.querySelector('#aniversare');
-
 let productSectionProgressDiv01 = document.querySelector('#product-section-progress-div01');
 let circularProgress01 = document.querySelector('#product-section-progress01');
 let productSectionIcon01 = document.querySelector('#product-section-icon01');
 
-add_Progress(aniversare, circularProgress01);
-let section01Parameters = get_sectionParameters(aniversare);
-add_remove_Progress(productSectionProgressDiv01, section01Parameters[0], section01Parameters[1]);
+const productProgress01 = new Product_Progress(aniversare, productSectionProgressDiv01, circularProgress01, productSectionIcon01)
+
+
+productProgress01.add_Progress();
+productProgress01.get_sectionParameters();
+productProgress01.add_remove_Progress();
 
 // SECTION02
 
@@ -1161,9 +1225,11 @@ let productSectionProgressDiv02 = document.querySelector('#product-section-progr
 let circularProgress02 = document.querySelector('#product-section-progress02');
 let productSectionIcon02 = document.querySelector('#product-section-icon02');
 
-add_Progress(jucarii, circularProgress02);
-let section02Parameters = get_sectionParameters(jucarii);
-add_remove_Progress(productSectionProgressDiv02, section02Parameters[0], section02Parameters[1]);
+const productProgress02 = new Product_Progress(jucarii, productSectionProgressDiv02, circularProgress02, productSectionIcon02)
+
+productProgress02.add_Progress();
+productProgress02.get_sectionParameters();
+productProgress02.add_remove_Progress();
 
 // SECTION03
 
@@ -1173,9 +1239,11 @@ let productSectionProgressDiv03 = document.querySelector('#product-section-progr
 let circularProgress03 = document.querySelector('#product-section-progress03');
 let productSectionIcon03 = document.querySelector('#product-section-icon03');
 
-add_Progress(rechizite, circularProgress03);
-let section03Parameters = get_sectionParameters(rechizite);
-add_remove_Progress(productSectionProgressDiv03, section03Parameters[0], section03Parameters[1]);
+const productProgress03 = new Product_Progress(rechizite, productSectionProgressDiv03, circularProgress03, productSectionIcon03)
+
+productProgress03.add_Progress();
+productProgress03.get_sectionParameters();
+productProgress03.add_remove_Progress();
 
 
 // SECTION04
@@ -1186,9 +1254,11 @@ let productSectionProgressDiv04 = document.querySelector('#product-section-progr
 let circularProgress04 = document.querySelector('#product-section-progress04');
 let productSectionIcon04 = document.querySelector('#product-section-icon04');
 
-add_Progress(suvenire, circularProgress04);
-let section04Parameters = get_sectionParameters(suvenire);
-add_remove_Progress(productSectionProgressDiv04, section04Parameters[0], section04Parameters[1]);
+const productProgress04 = new Product_Progress(suvenire, productSectionProgressDiv04, circularProgress04, productSectionIcon04)
+
+productProgress04.add_Progress();
+productProgress04.get_sectionParameters();
+productProgress04.add_remove_Progress();
 
 // SECTION05
 
@@ -1198,9 +1268,11 @@ let productSectionProgressDiv05 = document.querySelector('#product-section-progr
 let circularProgress05 = document.querySelector('#product-section-progress05');
 let productSectionIcon05 = document.querySelector('#product-section-icon05');
 
-add_Progress(accesorii, circularProgress05);
-let section05Parameters = get_sectionParameters(accesorii);
-add_remove_Progress(productSectionProgressDiv05, section05Parameters[0], section05Parameters[1]);
+const productProgress05 = new Product_Progress(accesorii, productSectionProgressDiv05, circularProgress05, productSectionIcon05)
+
+productProgress05.add_Progress();
+productProgress05.get_sectionParameters();
+productProgress05.add_remove_Progress();
 
 // SECTION06
 
@@ -1210,9 +1282,11 @@ let productSectionProgressDiv06 = document.querySelector('#product-section-progr
 let circularProgress06 = document.querySelector('#product-section-progress06');
 let productSectionIcon06 = document.querySelector('#product-section-icon06');
 
-add_Progress(imbracaminte, circularProgress06);
-let section06Parameters = get_sectionParameters(imbracaminte);
-add_remove_Progress(productSectionProgressDiv06, section06Parameters[0], section06Parameters[1]);
+const productProgress06 = new Product_Progress(imbracaminte, productSectionProgressDiv06, circularProgress06, productSectionIcon06)
+
+productProgress06.add_Progress();
+productProgress06.get_sectionParameters();
+productProgress06.add_remove_Progress();
 
 // SECTION07
 
@@ -1222,9 +1296,11 @@ let productSectionProgressDiv07 = document.querySelector('#product-section-progr
 let circularProgress07 = document.querySelector('#product-section-progress07');
 let productSectionIcon07 = document.querySelector('#product-section-icon07');
 
-add_Progress(bucatarie, circularProgress07);
-let section07Parameters = get_sectionParameters(bucatarie);
-add_remove_Progress(productSectionProgressDiv07, section07Parameters[0], section07Parameters[1]);
+const productProgress07 = new Product_Progress(bucatarie, productSectionProgressDiv07, circularProgress07, productSectionIcon07)
+
+productProgress07.add_Progress();
+productProgress07.get_sectionParameters();
+productProgress07.add_remove_Progress();
 
 // SECTION08
 
@@ -1234,9 +1310,11 @@ let productSectionProgressDiv08 = document.querySelector('#product-section-progr
 let circularProgress08 = document.querySelector('#product-section-progress08');
 let productSectionIcon08 = document.querySelector('#product-section-icon08');
 
-add_Progress(electronice, circularProgress08);
-let section08Parameters = get_sectionParameters(electronice);
-add_remove_Progress(productSectionProgressDiv08, section08Parameters[0], section08Parameters[1]);
+const productProgress08 = new Product_Progress(electronice, productSectionProgressDiv08, circularProgress08, productSectionIcon08)
+
+productProgress08.add_Progress();
+productProgress08.get_sectionParameters();
+productProgress08.add_remove_Progress();
 
 // SECTION09
 
@@ -1246,9 +1324,11 @@ let productSectionProgressDiv09 = document.querySelector('#product-section-progr
 let circularProgress09 = document.querySelector('#product-section-progress09');
 let productSectionIcon09 = document.querySelector('#product-section-icon09');
 
-add_Progress(gospodarie, circularProgress09);
-let section09Parameters = get_sectionParameters(gospodarie);
-add_remove_Progress(productSectionProgressDiv09, section09Parameters[0], section09Parameters[1]);
+const productProgress09 = new Product_Progress(gospodarie, productSectionProgressDiv09, circularProgress09, productSectionIcon09)
+
+productProgress09.add_Progress();
+productProgress09.get_sectionParameters();
+productProgress09.add_remove_Progress();
 
 
 // SECTION10
@@ -1259,65 +1339,11 @@ let productSectionProgressDiv10 = document.querySelector('#product-section-progr
 let circularProgress10 = document.querySelector('#product-section-progress10');
 let productSectionIcon10 = document.querySelector('#product-section-icon10');
 
-add_Progress(igiena, circularProgress10);
-let section10Parameters = get_sectionParameters(igiena);
-add_remove_Progress(productSectionProgressDiv10, section10Parameters[0], section10Parameters[1]);
+const productProgress10 = new Product_Progress(igiena, productSectionProgressDiv10, circularProgress10, productSectionIcon10)
 
-
-
-// PROGRESS FUNCTIONS
-
-function add_Progress(section, progress)
-{
-  window.addEventListener('scroll', () =>
-  {
-    let scrollPercent = get_scrollPercent(section);
-    progress.style.background = `conic-gradient(var(--fourthGreen) ${scrollPercent * 3.9}deg, var(--secondDark) ${scrollPercent * 3.9}deg)`;
-  })
-}
-
-function get_sectionParameters(section)
-{
-  let start = section.offsetTop-400;
-  let end = section.offsetTop + section.offsetHeight + 128;
-
-  return [start, end];
-}
-
-function add_remove_Progress(progressDiv, start, end)
-{
-  window.addEventListener('scroll', () =>
-  {
-    let {scrollTop} = document.documentElement;
-
-    if(scrollTop >= start && scrollTop <= end)
-    {
-      if(!progressDiv.classList.contains('progress-div-show'))
-      {
-        progressDiv.classList.add('progress-div-show');
-      }
-    }
-    if(scrollTop >= end || scrollTop <= start)
-    {
-      if(progressDiv.classList.contains('progress-div-show'))
-      {
-        progressDiv.classList.remove('progress-div-show');
-      }
-    }
-
-  })
-}
-
-function get_scrollPercent(section)
-{
-  let {scrollTop, scrollHeight} = document.documentElement
-  let headHeight = 1600;//Height la sectiunea de sus de tot pana la inceputul sectiunii cu carusele 
-  let bottomHeight = 800;//Height la sectiunea de la Te Asteptam pana jos de tot
-  let scrollPercent = ((scrollTop-headHeight)*100)/(scrollHeight-(headHeight + bottomHeight));
-
-  return scrollPercent;
-}
-
+productProgress10.add_Progress();
+productProgress10.get_sectionParameters();
+productProgress10.add_remove_Progress();
 
 
 

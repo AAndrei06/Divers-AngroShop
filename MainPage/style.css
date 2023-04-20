@@ -48,6 +48,10 @@
 	margin-top: var(--mediumM);
 	overflow: scroll;
 	cursor: grab;
+	scrollbar-width: none;
+  	-ms-overflow-style: none;
+  	overflow: -moz-scrollbars-none;
+  	-moz-user-select: none;
 }
 
 .category-scrollable-space::-webkit-scrollbar
@@ -56,6 +60,7 @@
 }
 .category-links
 {
+	-moz-user-select: none;
 	position: relative;
 	white-space: nowrap;
 	height: auto;
@@ -281,6 +286,9 @@
 /*CAROUSEL SLIDERS*/
 .carousel-sliders
 {
+	scrollbar-width: none;
+  	-ms-overflow-style: none;
+  	overflow: -moz-scrollbars-none;
 	display: flex;
 	width: 100%;
 	gap: 2rem;
@@ -502,11 +510,23 @@
 	align-items: center;
 	justify-content: center;
 }
+@keyframes scale-up-down
+{
+	0%,100%
+	{
+		transform: scale(1.0);
+	}
+	50%
+	{
+		transform: scale(1.25);
+	}
+}
 .progress-icon
 {
 	fill: var(--fourthGreen);
 	width: 1.5rem;
 	height: 1.5rem;
+	animation: scale-up-down 0.15s forwards;
 }
 
 /*POPUP DISCLAIMER*/
