@@ -182,6 +182,50 @@ textarea {
 {
 	animation: send-animation 0.25s both;
 }
+@keyframes send-animation
+{
+	from
+	{
+		border-radius: 250px;
+
+	}
+	to
+	{
+		border-radius: 250px;
+		width: 72px;
+		pointer-events: none;
+	}
+}
+@keyframes send-error-animation
+{
+	from
+	{
+		border-radius: 250px;
+
+	}
+	to
+	{
+		border-radius: 250px;
+		width: 72px;
+		pointer-events: none;
+		background-color: #D17A64;
+	}
+}
+.error-animation
+{
+	animation: send-error-animation 0.25s both;
+}
+.show-form-button-icon-error
+{
+	display: initial !important;
+}
+.form-button-icon-error
+{
+	width: 2.5rem;
+	height: 2.5rem;
+	fill: var(--thirdDark);
+	display: none;
+}
 .show-icon-anim-div
 {
 	display: flex !important;
