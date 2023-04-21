@@ -10,6 +10,13 @@ let messageField = document.querySelector('#message-input-text');
 
 let errorIcon = document.querySelector('.form-button-icon-error');
 
+// INITIAL DELETE TEXT | Firefox
+
+emailField.value = '';
+nameField.value = '';
+messageField.value = '';
+
+
 function sendEmail()
 {
 

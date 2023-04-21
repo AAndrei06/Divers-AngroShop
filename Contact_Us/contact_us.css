@@ -2,6 +2,7 @@
 {
 	--form-gap: 24px;
 	--form-text: 2rem;
+	--form-input-space: 4rem;
 }
 .form
 {
@@ -38,17 +39,18 @@
 {
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
 	position: relative;
 }
 .form-input-text
 {
 	pointer-events: none;
 	display: flex;
-	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	gap: var(--form-gap);
 	position: absolute;
 	top: 50%;
-	left: 24px;
+	left: var(--form-gap);
 	transform: translateY(-50%);
 	color: var(--white);
 	font-size: var(--form-text);
@@ -57,12 +59,12 @@
 .form-input
 {
 	width: 100%;
-	background: var(--thirdDark);
+	background: none;
 	height: 80px;
-	padding: 0px calc(var(--form-gap) + 4rem) 0px calc(var(--form-gap) + 4rem);
+	padding: 0px calc(var(--form-gap) + var(--form-input-space) + 1rem) 0px calc(var(--form-gap) + var(--form-input-space));
 	color: var(--white);
 	font-size: calc(var(--form-text) - 0.25rem);
-	font-weight: 600;
+	font-weight: 700;
 	border-style: none none solid none;
 	border-width: 4px;
 	border-color: var(--fourthDark);
@@ -70,7 +72,6 @@
 .form-input:focus
 {
 	outline: none;
-/*	border-color: var(--fourthGreen);*/
 }
 .form-input:focus ~ .input-bottom-bar:before
 {
@@ -103,10 +104,10 @@ textarea {
 {
 	pointer-events: none;
 	display: flex;
-	gap: 2rem;
+	gap: var(--form-gap);
 	position: absolute;
 	top: 24px;
-	left: 24px;
+	left: var(--form-gap);
 	color: var(--white);
 	font-size: var(--form-text);
 	font-weight: 600;
@@ -117,10 +118,10 @@ textarea {
 	width: 100%;
 	background: none;
 	height: 280px;
-	padding: 20px calc(var(--form-gap) + 4rem) 0px calc(var(--form-gap) + 4rem);
+	padding: 20px calc(var(--form-gap) + var(--form-input-space)) 0px calc(var(--form-gap) + var(--form-input-space));
 	color: var(--white);
 	font-size: calc(var(--form-text) - 0.25rem);
-	font-weight: 600;
+	font-weight: 700;
 	border-style: none none solid none;
 	border-width: 4px;
 	border-color: var(--fourthDark);
@@ -313,10 +314,7 @@ textarea {
 }
 
 /*FAQ*/
-#FAQs
-{
-	margin-top: var(--bigM);
-}
+
 .faqs
 {
 	margin-top: var(--bigM);
@@ -350,7 +348,6 @@ textarea {
 {
 	font-weight: 600;
 	font-size: 2rem;
-	text-align: center;
 	color: var(--white);
 }
 .current-faq-icon
@@ -369,8 +366,8 @@ textarea {
 .faq-answer
 {
 	max-height: 0;
-	overflow: hidden;
-	padding: 0 var(--leftM) 0 0;
+	overflow: hidden;	
+	padding: 0 calc(var(--leftM) + 56px) 0 0;
 	transition: max-height 0.5s ease-in-out;
 }
 .expand-answer
@@ -386,4 +383,77 @@ textarea {
 	font-weight: 500;
 	font-size: 1.5rem;
 	opacity: 0.9;
+}
+
+@media(max-width: 1000px)
+{
+	.form-content
+	{
+		padding: 3.5rem;
+		gap: 3.5rem;
+	}
+	.form-inputs
+	{
+		width: 650px;
+	}
+}
+@media(max-width: 850px)
+{
+	.form-content
+	{
+		padding: 0 var(--leftM);
+		border-style: none;
+		background: none;
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+	.form-inputs
+	{
+		width: 100%;
+	}
+}
+
+@media(max-width: 600px)
+{
+	:root
+	{
+		--form-text: 1.5rem;
+		--form-gap: 16px;
+		--form-input-space: 2.5rem;
+	}
+	.form-input
+	{
+		height: 64px;
+		padding: 0px calc(var(--form-gap) + var(--form-input-space) + 0.25rem) 0px calc(var(--form-gap) + var(--form-input-space));
+	}
+}
+@media(max-width: 450px)
+{
+	:root
+	{
+		--form-text: 1.25rem;
+		--form-gap: 16px;
+		--form-input-space: 2.5rem;
+	}
+	.form-input-description
+	{
+		height: 200px;
+	}
+	.form-send-button
+	{
+		width: 152px;
+	}
+}
+@media(max-width: 375px)
+{
+	:root
+	{
+		--form-text: 1.25rem;
+		--form-gap: 8px;
+		--form-input-space: 1.75rem;
+	}
+	.form-content
+	{
+		padding: 0;
+		gap: 2rem;
+	}
 }
