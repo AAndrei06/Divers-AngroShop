@@ -5,6 +5,24 @@ let formButtonIcon = document.querySelector('.form-button-icon');
 let formButtonText = document.querySelector('.form-button-text');
 
 
+function sendEmail(){
+
+	var params = {
+
+		from_name:document.getElementById("name-input-text").value,
+		email_id:document.getElementById("email-input-text").value,
+		message:document.getElementById("message-input-text").value,
+		}
+
+	const serviceId = "service_88ujibk";
+	const templateId = "template_42znn8c";
+	emailjs.send(serviceId,templateId,params).then(res => {
+		document.getElementById("name-input-text").value = "";
+		document.getElementById("email-input-text").value = "";
+		document.getElementById("message-input-text").value = "";
+	})
+}
+
 // Animatie
 submitButton.addEventListener('click', (e) =>
 {
@@ -13,6 +31,7 @@ submitButton.addEventListener('click', (e) =>
 	formButtonIcon.classList.add('content-dissapear');
 	formButtonText.classList.add('content-dissapear');
 	FormButtonIconAnimDiv.classList.add('show-icon-anim-div');
+	sendEmail();
 })
 
 
