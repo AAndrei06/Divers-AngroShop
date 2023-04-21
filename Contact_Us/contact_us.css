@@ -338,6 +338,7 @@ textarea {
 }
 .faq-question
 {
+	position: relative;
 	width: 100%;
 	padding: 0 56px 0 0;
 	display: flex;
@@ -347,16 +348,20 @@ textarea {
 .faq-header
 {
 	font-weight: 600;
-	font-size: 2rem;
+	font-size: calc(var(--description) + 0.25rem);
 	color: var(--white);
 }
 .current-faq-icon
 {
-	transform: rotate(-180deg);
+	transform: translateY(-50%) rotate(-180deg) !important;
 	fill: var(--fourthGreen) !important;
 }
 .faq-icon
 {
+	position: absolute;
+	right: var(--leftM);
+	top: 50%;
+	transform: translateY(-50%);
 	width: 1.5rem;
 	height: 1.5rem;
 	fill: var(--thirdDark);
@@ -367,7 +372,7 @@ textarea {
 {
 	max-height: 0;
 	overflow: hidden;	
-	padding: 0 calc(var(--leftM) + 56px) 0 0;
+	padding: 0 var(--leftM) 0 0;
 	transition: max-height 0.5s ease-in-out;
 }
 .expand-answer
@@ -381,7 +386,7 @@ textarea {
 {
 	color: var(--white);
 	font-weight: 500;
-	font-size: 1.5rem;
+	font-size: var(--description);
 	opacity: 0.9;
 }
 
@@ -411,7 +416,14 @@ textarea {
 		width: 100%;
 	}
 }
-
+@media(max-width: 750px)
+{
+	.faq-icon
+	{
+		right: 0;
+	}
+	
+}
 @media(max-width: 600px)
 {
 	:root
@@ -441,6 +453,11 @@ textarea {
 	.form-send-button
 	{
 		width: 152px;
+	}
+	.faq-icon
+	{
+		width: 1rem;
+		height: 1rem;
 	}
 }
 @media(max-width: 375px)
