@@ -31,7 +31,7 @@
   --copyright: 1.5rem;
   --end-icons: 2rem;
 
-  --leftM: 8rem;
+  
 
 	/*Culori*/
 
@@ -67,9 +67,11 @@
 
 	/*Specific Margin*/
 	/*200px*/
+	--welcomeM: 50rem;
 	--startM: 12.5rem;
 	/*100px*/
 	--carouselM: 6.25rem;
+	--leftM: 8rem;
 
 }
 html
@@ -653,7 +655,7 @@ a
 /*Section Break*/
 .big-section-break
 {
-	margin-top: 50rem;
+	margin-top: var(--welcomeM);
 	width: 100%;
 	padding: 0px var(--leftM);
 }
@@ -676,7 +678,8 @@ a
 	flex-direction: column;
 	gap: 2.5rem;
 	margin-top: var(--bigM);
-	margin-left: var(--leftM);
+	width: 100%;
+	padding: 0 var(--leftM);
 }
 .header-div
 {
@@ -688,6 +691,10 @@ a
 	font-size: var(--header);
 	line-height: var(--header-line-height);
 	color: var(--white);
+}
+.oneliner-header
+{
+	white-space: nowrap;
 }
 .description-div
 {
@@ -900,7 +907,7 @@ a
 /*MINI HEADER / MINI DESCRIPTION*/
 #first-mini
 {
-	margin-top: 30rem;
+	margin-top: calc(var(--welcomeM) - 20rem);
 }
 .mini-header-text-area
 {
@@ -920,7 +927,7 @@ a
 {
 	font-family: Dangrek;
 	color: var(--white);
-	font-size: 3.5rem;
+	font-size: var(--semi-header);
 	line-height: 4rem;
 	text-align: center;
 }
@@ -932,7 +939,8 @@ a
 {
 	color: var(--white);
 	font-weight: 500;
-	font-size: 2rem;
+	font-size: var(--description);
+	line-height: var(--description-line-height);
 	text-align: center;
 }
 
@@ -954,7 +962,7 @@ a
 	{
 		--header-line-height: 5.5rem;
 		--welcome-header: 4rem;
-
+		--semi-header: 3.25rem;
 		--header: 4rem;
 		--description: 1.75rem;
 		--description-line-height: 3rem;
@@ -973,12 +981,15 @@ a
 	{
 		--welcome-header: 3.5rem;
 		--welcome-description: 1.75rem;
-
+		--semi-header: 3rem;
 		--header: 3.75rem;
 		--description: 1.75rem;
 		--description-line-height: 3rem;
 	}
-	
+	.mini-header-text-area
+	{
+		gap: 2rem;
+	}
 	.welcome-buttons
 	{
 		gap: 2.5rem;
@@ -992,20 +1003,22 @@ a
 		--welcome-header: 3rem;
 		--welcome-description: 1.5rem;
 		--startM: 8rem;
+		--semi-header: 2.75rem;
 		--semi-description: 1.25rem;
 
 		--header: 3.75rem;
 		--description: 1.5rem;
 		--description-line-height: 2.5rem;
-	}
 
+		--welcomeM: 35rem;
+	}
+	#first-mini
+	{
+		margin-top: calc(var(--welcomeM) - 10rem);
+	}
 	.description-div
 	{
 		width: 590px;
-	}
-	.big-section-break
-	{
-		margin-top: 35rem;
 	}
 	.button,.outline-button
 	{
@@ -1051,6 +1064,7 @@ a
 	{
 		--welcome-header: 2.5rem;
 		--welcome-description: 1.25rem;
+		--semi-header: 2.25rem;
 		--semi-description: 1rem;
 		--welcome-header-line-height: auto;	
 		--end-header: 4.25rem;
@@ -1090,11 +1104,18 @@ a
 	:root
 	{
 		--welcome-header: 2.25rem;
+		--semi-header: 2rem;
 		--welcome-description: 1.125rem;
 		--end-header: 4rem;
 		--header-line-height: 4.5rem;
 		--header: 3.25rem;
 		--description: 1.15rem;
+
+		--welcomeM: 30rem;
+	}
+	.mini-header-text-area
+	{
+		gap: 1rem;
 	}
 	.text-area
 	{
@@ -1107,10 +1128,6 @@ a
 	.description-div
 	{
 		width: 455px;
-	}
-	.big-section-break
-	{
-		margin-top: 30rem;
 	}
 	.button,.outline-button
 	{
@@ -1129,6 +1146,7 @@ a
 	{
 		--welcome-header: 2rem;
 		--welcome-description: 1.0625rem;
+		--semi-header: 1.75rem;
 		--end-header: 3.75rem;
   	--end-description: 1.50rem;
 		--header: 3rem;
@@ -1153,6 +1171,7 @@ a
 	{
 		--welcome-header: 1.75rem;
 		--welcome-description: 0.95rem;
+		--semi-header: 1.5rem;
 		--end-header: 3.5rem;
   	--end-description: 1.25rem;
   	--bigM: 5rem;
@@ -1161,6 +1180,12 @@ a
   	--header-line-height: 4rem;
   	--header: 2.5rem;
   	--description: 1rem;
+
+  	--welcomeM: 25rem;
+	}
+	.mini-header-text-area
+	{
+		gap: 0;
 	}
 	.header-div
 	{
@@ -1169,10 +1194,6 @@ a
 	.description-div
 	{
 		width: 385px;
-	}
-	.big-section-break
-	{
-		margin-top: 25rem;
 	}
 	.section-break
 	{
@@ -1221,6 +1242,7 @@ a
 	{
 		--welcome-header: 1.5rem;
 		--welcome-description: 0.75rem;
+		--semi-header: 1.25rem;
 		--copyright: 1.25rem;
   	--end-icons: 1.75rem;
   	--end-header: 3.25rem;
@@ -1232,6 +1254,10 @@ a
   	--header: 2.25rem;
   	--description: 0.9rem;
 
+	}
+	#first-mini
+	{
+		margin-top: calc(var(--welcomeM) - 15rem);
 	}
 	.description-div
 	{

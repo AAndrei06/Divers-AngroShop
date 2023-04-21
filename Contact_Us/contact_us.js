@@ -4,39 +4,84 @@ let FormButtonIconAnimDiv = document.querySelector('.form-button-icon-anim-div')
 let formButtonIcon = document.querySelector('.form-button-icon');
 let formButtonText = document.querySelector('.form-button-text');
 
+let emailField = document.querySelector('#email-input-text');
+let nameField = document.querySelector('#name-input-text');
+let messageField = document.querySelector('#message-input-text');
 
-function sendEmail(){
+let errorIcon = document.querySelector('.form-button-icon-error');
 
-	var params = {
+// INITIAL DELETE TEXT | Firefox
 
-		from_name:document.getElementById("name-input-text").value,
-		email_id:document.getElementById("email-input-text").value,
-		message:document.getElementById("message-input-text").value,
+emailField.value = '';
+nameField.value = '';
+messageField.value = '';
+
+
+function sendEmail()
+{
+
+	let params = {
+
+		from_name:nameField.value,
+		email_id:emailField.value,
+		message:messageField.value,
 		}
 
 	const serviceId = "service_88ujibk";
 	const templateId = "template_42znn8c";
 	emailjs.send(serviceId,templateId,params).then(res => {
-		document.getElementById("name-input-text").value = "";
-		document.getElementById("email-input-text").value = "";
-		document.getElementById("message-input-text").value = "";
+		nameField.value = "";
+		emailField.value = "";
+		messageField.value = "";
+		formInputs.forEach((input) =>
+		{
+			if(input.value.trim() == '')
+			{
+				input.previousElementSibling.children[1].style.display = 'initial';
+			}
+		})
+		if(formDescription.value.trim() == '')
+		{
+			formDescription.previousElementSibling.children[1].style.display = 'initial';
+		}
 	})
 }
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
 
-// Animatie
-submitButton.addEventListener('click', (e) =>
+function runSuccesAnim()
 {
-	e.preventDefault();
 	submitButton.classList.add('submit-animation');
 	formButtonIcon.classList.add('content-dissapear');
 	formButtonText.classList.add('content-dissapear');
 	FormButtonIconAnimDiv.classList.add('show-icon-anim-div');
-	sendEmail();
-})
+}
+function runErrorAnim()
+{
+	submitButton.classList.add('error-animation');
+	formButtonIcon.classList.add('content-dissapear');
+	formButtonText.classList.add('content-dissapear');
+	errorIcon.classList.add('show-form-button-icon-error');
+}
+// Animatie
 
 
-
-
+form.addEventListener("submit", (e) => {
+	e.preventDefault();
+	console.log(isValidEmail(emailField.value));
+	console.log(emailField.value);
+  if (form.checkValidity() && isValidEmail(emailField.value)) 
+  {
+  	runSuccesAnim();
+  	sendEmail()
+  }
+  else
+  {
+  	runErrorAnim();
+  }
+});
 
 
 // Sa dispara textu din inputuri cand apesi pe un input :)
