@@ -20,6 +20,17 @@ function sendEmail(){
 		document.getElementById("name-input-text").value = "";
 		document.getElementById("email-input-text").value = "";
 		document.getElementById("message-input-text").value = "";
+		formInputs.forEach((input) =>
+		{
+			if(input.value.trim() == '')
+			{
+				input.previousElementSibling.children[1].style.display = 'initial';
+			}
+		})
+		if(formDescription.value.trim() == '')
+		{
+			formDescription.previousElementSibling.children[1].style.display = 'initial';
+		}
 	})
 }
 
