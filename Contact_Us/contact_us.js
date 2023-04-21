@@ -47,13 +47,13 @@ formInputs.forEach(input =>
 {
 	input.addEventListener('focus', () =>
 	{
-		input.previousElementSibling.style.display = 'none';
+		input.previousElementSibling.children[1].style.display = 'none';
 	})
 	input.addEventListener('blur', () =>
 	{
 		if(input.value.trim() == '')
 		{
-			input.previousElementSibling.style.display = 'flex';
+			input.previousElementSibling.children[1].style.display = 'initial';
 		}
 		
 	})
@@ -61,13 +61,13 @@ formInputs.forEach(input =>
 
 formDescription.addEventListener('focus', () =>
 {
-	formDescription.previousElementSibling.style.display = 'none';
+	formDescription.previousElementSibling.children[1].style.display = 'none';
 })
 formDescription.addEventListener('blur', () =>
 {
 	if(formDescription.value.trim() == '')
 	{
-		formDescription.previousElementSibling.style.display = 'flex';
+		formDescription.previousElementSibling.children[1].style.display = 'initial';
 	}
 })
 

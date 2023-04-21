@@ -59,9 +59,9 @@
 	width: 100%;
 	background: var(--thirdDark);
 	height: 80px;
-	padding: 0px var(--form-gap) 0px var(--form-gap);
+	padding: 0px calc(var(--form-gap) + 4rem) 0px calc(var(--form-gap) + 4rem);
 	color: var(--white);
-	font-size: var(--form-text);
+	font-size: calc(var(--form-text) - 0.25rem);
 	font-weight: 600;
 	border-style: none none solid none;
 	border-width: 4px;
@@ -117,9 +117,9 @@ textarea {
 	width: 100%;
 	background: none;
 	height: 280px;
-	padding: 20px var(--form-gap) 0px var(--form-gap);
+	padding: 20px calc(var(--form-gap) + 4rem) 0px calc(var(--form-gap) + 4rem);
 	color: var(--white);
-	font-size: var(--form-text);
+	font-size: calc(var(--form-text) - 0.25rem);
 	font-weight: 600;
 	border-style: none none solid none;
 	border-width: 4px;
@@ -258,6 +258,7 @@ textarea {
 	width: var(--form-text);
 	height: var(--form-text);
 	fill: var(--fourthGreen);
+	transition: all 0.15s;
 }
 .form-button-icon
 {
