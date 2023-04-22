@@ -1,6 +1,7 @@
 let submitButton = document.querySelector('.form-send-button');
 let form = document.querySelector('.form');
 let FormButtonIconAnimDiv = document.querySelector('.form-button-icon-anim-div');
+let FormButtonIconErrorAnimDiv = document.querySelector(".form-button-icon-error-anim-div");
 let formButtonIcon = document.querySelector('.form-button-icon');
 let formButtonText = document.querySelector('.form-button-text');
 
@@ -50,39 +51,6 @@ function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
-
-function runSuccesAnim()
-{
-	submitButton.classList.add('submit-animation');
-	formButtonIcon.classList.add('content-dissapear');
-	formButtonText.classList.add('content-dissapear');
-	FormButtonIconAnimDiv.classList.add('show-icon-anim-div');
-}
-function runErrorAnim()
-{
-	submitButton.classList.add('error-animation');
-	formButtonIcon.classList.add('content-dissapear');
-	formButtonText.classList.add('content-dissapear');
-	errorIcon.classList.add('show-form-button-icon-error');
-}
-// Animatie
-
-
-form.addEventListener("submit", (e) => {
-	e.preventDefault();
-	console.log(isValidEmail(emailField.value));
-	console.log(emailField.value);
-  if (form.checkValidity() && isValidEmail(emailField.value)) 
-  {
-  	runSuccesAnim();
-  	sendEmail()
-  }
-  else
-  {
-  	runErrorAnim();
-  }
-});
-
 
 // Sa dispara textu din inputuri cand apesi pe un input :)
 let formInputs = document.querySelectorAll('.form-input');
@@ -167,3 +135,124 @@ function choose_currentFAQ()
 	faqAnswers[randomNum].classList.add('expand-answer');
 	faqIcons[randomNum].classList.add('current-faq-icon');
 }
+
+
+// TEST
+
+let buttonToCircle = anime(
+{
+	targets: submitButton,
+	width: ['200px' ,'72px'],
+	borderRadius: ['16px' ,'100px'],
+	update: function() {
+    submitButton.style.pointerEvents = 'none';
+  },
+	easing: 'linear',
+	autoplay: false,
+	duration: 150
+}
+);
+
+let submitProgress = document.querySelector('.submit-progress');
+
+let buttonProgresses = anime({
+	update: function() {
+    submitProgress.style.display = 'initial';
+  },
+	targets: submitProgress,
+	autoplay: false,
+  background: [`conic-gradient(var(--fourthGreen) ${0 * 3.2}deg, var(--thirdDark) ${0 * 3.2}deg)`, `conic-gradient(var(--fourthGreen) ${115 * 3.2}deg, var(--thirdDark) ${0 * 3.2}deg)`],
+  easing: 'linear',
+  duration: 2000
+})
+
+let progressHelp = document.querySelector('.progress-helper');
+
+let buttonProgresseHelper = anime({
+	opacity: [0, 1],
+	targets: progressHelp,
+	autoplay: false,
+  background: 'var(--thirdDark)',
+  borderRadius: '100%',
+  width: ['0px', '72px'],
+  height: ['0px','72px'],
+  easing: 'linear',
+  duration: 250
+})
+
+let buttonProgresseHelperDissapear = anime({
+	targets: progressHelp,
+	autoplay: false,
+	width: ['72px', '0px'],
+  height: ['72px', '0px'],
+	easing: 'linear',
+	duration: 150
+})
+
+let redBackground = document.querySelector('.error-background');
+
+let redBackgroundAnim = anime({
+	targets: redBackground,
+	autoplay: false,
+	width: ['0px', '84px'],
+  height: ['0px', '84px'],
+	easing: 'linear',
+	duration: 150
+})
+
+function circle_Button()
+{
+	formButtonIcon.classList.add('content-dissapear');
+	formButtonText.classList.add('content-dissapear');
+	buttonToCircle.play();
+
+}
+function preAnim()
+{
+	circle_Button()
+	buttonProgresseHelper.play();
+	setTimeout(() =>
+	{
+		buttonProgresses.play();
+	}, 350);
+	
+	setTimeout(() =>
+	{
+		buttonProgresseHelperDissapear.play();
+	}, 2350);
+}
+function succesSubmit()
+{
+	setTimeout(() =>
+	{
+		FormButtonIconAnimDiv.classList.add('show-icon-anim-div');
+	}, 2600);
+}
+
+function errorSubmit()
+{
+	setTimeout(() =>
+	{
+		redBackgroundAnim.play();
+	}, 2600)
+	setTimeout(() =>
+	{
+		FormButtonIconErrorAnimDiv.classList.add('show-form-button-icon-error');
+	}, 2750);
+}
+
+form.addEventListener("submit", (e) => {
+	
+	e.preventDefault();
+
+  if (form.checkValidity() && isValidEmail(emailField.value)) 
+  {
+  	preAnim();
+  	succesSubmit();
+  }
+  else
+  {
+  	preAnim();
+  	errorSubmit();
+  }
+});
