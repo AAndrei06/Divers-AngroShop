@@ -1,34 +1,50 @@
-// Progress Bar
+let slideShowContainer = document.querySelector('.slide-show-div');
+let slideSection = document.querySelector('#slide-show-section');
+const styles = window.getComputedStyle(slideSection);
+let MAX_TOP = parseInt(styles.getPropertyValue('height'));
+let MAX_DISTANCE = slideSection.offsetTop + MAX_TOP;
 
-// const progressBar = document.querySelector('.progress-bar');
-// const progressBarwithBonus = document.querySelector('#header-top-bar-bonus-progress');
-// window.addEventListener('scroll', () => {
-  
+let TOTAL_PX = MAX_TOP - slideShowContainer.offsetHeight;
+let TOP = 0;
+let currentScroll = 0;
+let pastScroll = 0;
 
-//   const {scrollTop, scrollHeight} = document.documentElement;
-
-//   const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100;
-
-//   if(scrollPercent >= 99)
-//   {
-//     progressBar.classList.add('progress-bar-anim');
-//   }
-//   else
-//   {
-//     progressBar.classList.remove('progress-bar-anim');
-//   }
-// })
-
-// function updateProgressBar() 
-// {
-// 	const {scrollTop, scrollHeight} = document.documentElement;
-
-// 	const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100 + '%';
-
-// 	progressBar.style.setProperty('--progress', scrollPercent);  
-// }
-
-// document.addEventListener('scroll', updateProgressBar);
-  
+let MAX_WIDTH = 880;
+let MAX_HEIGHT = 547;
 
 
+
+
+
+window.addEventListener('scroll', () =>
+{
+
+	let {scrollTop, scrollHeight} = document.documentElement;
+	scrollTop = scrollTop / 3.5;	
+
+	if(scrollTop < MAX_DISTANCE)
+	{
+		pastScroll = currentScroll;
+		currentScroll = scrollTop;
+
+		let totalScroll = currentScroll - pastScroll;
+		
+		TOP += totalScroll;
+
+		if(TOP >= TOTAL_PX)
+		{
+			slideShowContainer.style.top = `${TOTAL_PX}px`;
+		}
+		if(TOP >= 0 && TOP < TOTAL_PX)
+		{
+			slideShowContainer.style.top = `${TOP}px`;
+		}
+
+		
+		
+	}
+
+
+
+	
+})
