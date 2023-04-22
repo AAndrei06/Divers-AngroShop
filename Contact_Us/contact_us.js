@@ -249,6 +249,11 @@ form.addEventListener("submit", (e) => {
   {
   	preAnim();
   	succesSubmit();
+  	setTimeout(() =>
+  	{
+  		sendEmail();
+  	}, 2250);
+  	
   }
   else
   {
