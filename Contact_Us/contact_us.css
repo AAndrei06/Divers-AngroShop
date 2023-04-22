@@ -150,52 +150,51 @@ textarea {
 
 .form-send-button
 {
+	position: relative;
 	cursor: pointer;
 	border-style: none;
+	border-width: 0;
 	display: flex;
 	align-content: center;
 	justify-content: center;
 	width: 200px;
 	height: 72px;
-	border-radius: 16px;
-	background-color: var(--fourthGreen);
+	background: var(--fourthGreen);
 }
-
+.submit-progress
+{
+	display: none;
+	width: 84px;
+	height: 84px;
+	border-radius: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.progress-helper
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 .content-dissapear
 {
 	display: none !important;
-}
-@keyframes send-animation
-{
-	from
-	{
-		border-radius: 250px;
-
-	}
-	to
-	{
-		border-radius: 250px;
-		width: 72px;
-		pointer-events: none;
-	}
 }
 .submit-animation
 {
 	animation: send-animation 0.25s both;
 }
-@keyframes send-animation
+.error-background
 {
-	from
-	{
-		border-radius: 250px;
-
-	}
-	to
-	{
-		border-radius: 250px;
-		width: 72px;
-		pointer-events: none;
-	}
+	border-radius: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #D17A64;
 }
 @keyframes send-error-animation
 {
@@ -218,14 +217,13 @@ textarea {
 }
 .show-form-button-icon-error
 {
-	display: initial !important;
+	display: flex !important;
 }
 .form-button-icon-error
 {
 	width: 2.5rem;
 	height: 2.5rem;
 	fill: var(--thirdDark);
-	display: none;
 }
 .show-icon-anim-div
 {
@@ -239,6 +237,15 @@ textarea {
 	justify-content: center;
 	position: relative;
 }
+.form-button-icon-error-anim-div
+{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
 @keyframes draw-checkmark
 {
 	0%
@@ -276,6 +283,48 @@ textarea {
 	z-index: 1;
 	animation: draw-checkmark 0.50s forwards;
 }
+@keyframes draw-X
+{
+	0%
+	{
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0%;
+	}
+	90%	
+	{
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 80%;
+		width: 50%;
+		height: 50%;
+
+	}
+	100%
+	{
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 90%;
+		width: 0%;
+		height: 0%;
+	}
+}
+
+.form-button-icon-error-anim-div::before
+{
+	border-radius: 250px;
+	content: '';
+	width: 100%;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	background-color: #D17A64;
+	animation: draw-X 0.50s forwards;
+}
+
+
+
 .form-button-icon-anim
 {
 	width: 2.5rem;
@@ -390,6 +439,21 @@ textarea {
 	opacity: 0.9;
 }
 
+
+/*ANIMATION*/
+.sparkle
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	width: 1rem;
+	height: 2.5rem;
+	background-color: var(--white);
+	border-radius: 100%;
+}
+
 @media(max-width: 1000px)
 {
 	.form-content
@@ -416,6 +480,7 @@ textarea {
 		width: 100%;
 	}
 }
+
 @media(max-width: 750px)
 {
 	.faq-icon
