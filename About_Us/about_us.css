@@ -1,8 +1,8 @@
+/*SLIDESHOW*/
 #slide-show-section
 {
 	position: relative;
 	margin-top: calc(var(--welcomeM) - 20rem);
-/*	background-color: black;*/
 	height: 490px;
 }
 .slide-show-div
@@ -13,13 +13,7 @@
 	transform: translateX(-50%);
 	width: 582px;
 	height: 362px;
-/*	filter: drop-shadow(0px 85px 24px rgba(0, 0, 0, 0.01)) drop-shadow(0px 54px 22px rgba(0, 0, 0, 0.04)) drop-shadow(0px 31px 18px rgba(0, 0, 0, 0.15)) drop-shadow(0px 14px 14px rgba(0, 0, 0, 0.26)) drop-shadow(0px 3px 7px rgba(0, 0, 0, 0.29)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.3));*/
-}
-.slideshow-content
-{
-	width: 100%;
-	height: 100%;
-	position: relative;
+
 }
 .slideshow-overlay-black, .slideshow-overlay-gray
 {
@@ -28,6 +22,8 @@
 	width: 100%;
 	height: 100%;
 	opacity: 0.35;
+	pointer-events: none;
+	z-index: 5;
 }
 .slideshow-overlay-black
 {
@@ -37,13 +33,33 @@
 {
 	background-color: #88888859;
 }
-
-.slideshow-photo-div
+.slideshow-content
 {
-	width: 100%;
-	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	gap: 2rem;
 }
 
+.slideshow-slides
+{
+	scrollbar-width: none;
+  	-ms-overflow-style: none;
+  	overflow: -moz-scrollbars-none;
+	display: flex;
+	overflow: auto;
+	width: 500%;
+	height: 100%;
+	z-index: 3;
+}
+.slideshow-slide
+{
+	border-radius: 24px;
+	width: 20%;
+	height: 100%;
+	transition: 0.5s;
+}
 .slideshow-photo
 {
 	border-radius: 24px;
@@ -51,6 +67,75 @@
 	height: 100%;
 	object-fit: cover;
 }
+.slideshow-indicators
+{
+	position: relative;
+	height: 1rem;
+	display: flex;	
+	margin-left: auto;
+	margin-right: auto;
+}
+.slideshow-indicator
+{
+	cursor: pointer;
+	flex: 1;
+ 	background-color: var(--thirdDark);
+}
+.first-indicator
+{
+	border-radius: 16px 0px 0px 16px;
+}
+.last-indicator
+{
+	border-radius: 0px 16px 16px 0px;
+}
+
+.slideshow-indicator-anim
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 10px;
+	height: 1rem;
+	transition: all 0.15s;
+	border-radius: 16px;
+	background-color: var(--fourthGreen);
+	pointer-events: none;
+}
+
+input[name='r']
+{
+	position: absolute;
+	visibility: hidden;
+}
+
+#r1:checked ~ .s1
+{
+	margin-left: 0;
+}
+#r2:checked ~ .s1
+{
+	margin-left: -20%;
+}
+
+#r3:checked ~ .s1
+{
+	margin-left: -40%;
+}
+
+#r4:checked ~ .s1
+{
+	margin-left: -60%;
+}
+
+#r5:checked ~ .s1
+{
+	margin-left: -80%;
+}
+
+ 
+
+
 
 #statistics-section
 {
@@ -84,5 +169,4 @@
 	text-align: center;
 	color: var(--white);
 	font-weight: 600;
-
 }

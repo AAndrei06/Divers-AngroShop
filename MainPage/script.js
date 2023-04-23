@@ -364,6 +364,16 @@ class Carousel
 
   }
 
+  // SPECIFIC
+
+
+  slideShow_fix()
+  {
+    this.totalShownSlides = 1;
+  }
+
+
+
   // MULTIPLE
   responsive_fix()
   {
@@ -475,10 +485,10 @@ class Carousel
   //INITIAL
   add_grab()
   {
-    let slidesIsDragging = false;
+    // let slidesIsDragging = false;
     let slidesStartX = 0;
     let slidesScrollLeft = 0;
-    let slidesIsScrolling = false; 
+    // let slidesIsScrolling = false; 
 
     let firstMouse = 0;
     let secondMouse = 0;
