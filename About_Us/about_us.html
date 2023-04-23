@@ -6,10 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Divers Angro Shop | Despre Noi</title>
 
-		<script defer src="../lib/ScrollMagic.min.js"></script>
-<!-- 
-		<script defer src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-		<script defer src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+		<script defer src="../lib/anime.min.js"></script>
 
 		<script defer src="about_us.js"></script>
 		<script defer src="../GeneralCode//general_js.js"></script>
@@ -186,17 +183,44 @@
 
 			<section id="slide-show-section">
 				<div class="slide-show-div">
-					<div class="slideshow-content">
-						<div class="slideshow-overlay-black"></div>
-						<div class="slideshow-overlay-gray"></div>
-						<div class="slideshow-photos">
-							<div class="slideshow-photo-div">
-								<img class="slideshow-photo" src="../Carousel-Photos/diversPozaPotentiala01.jpg">
-							</div>
-						</div>
-						
-					</div>
 					
+					<div class="slideshow-content">
+
+							<div class="slideshow-slides">
+								<input class="slideshow-radio" type="radio" name="r" id="r1" checked>
+								<input class="slideshow-radio" type="radio" name="r" id="r2">
+								<input class="slideshow-radio" type="radio" name="r" id="r3">
+								<input class="slideshow-radio" type="radio" name="r" id="r4">
+								<input class="slideshow-radio" type="radio" name="r" id="r5">
+								<div class="slideshow-overlay-black"></div>
+								<div class="slideshow-overlay-gray"></div>
+								<div class="slideshow-slide s1">
+									<img class="slideshow-photo" src="../Carousel-Photos/diversPozaPotentiala01.jpg">
+								</div>
+								<div class="slideshow-slide">
+									<img class="slideshow-photo" src="../Carousel-Photos/diversPozaPotentiala05.jpg">
+								</div>
+								<div class="slideshow-slide">
+									<img class="slideshow-photo" src="../Carousel-Photos/diversPozaPotentiala06.jpg">
+								</div>
+								<div class="slideshow-slide">
+									<img class="slideshow-photo" src="../Carousel-Photos/diversPozaPotentiala07.jpg">
+								</div>
+								<div class="slideshow-slide">
+									<img class="slideshow-photo" src="../Carousel-Photos/diversPozaPotentiala08.jpg">
+								</div>
+							</div>
+
+							<div class="slideshow-indicators">
+								<label for="r1" class="slideshow-indicator first-indicator"></label>
+								<label for="r2" class="slideshow-indicator"></label>
+								<label for="r3" class="slideshow-indicator"></label>
+								<label for="r4" class="slideshow-indicator"></label>
+								<label for="r5" class="slideshow-indicator last-indicator"></label>
+								<div class="slideshow-indicator-anim"></div>
+							</div>
+
+					</div>
 				</div>
 			</section>
 			<section id="statistics-section">
@@ -207,7 +231,10 @@
 					</div>
 				</div>
 			</section>
-			<div class="space"></div>
+			<div class="section-break">
+				<div class="section-break-tool"></div>
+			</div>
+
 			<div class="backup-start"></div>
 		</main>
 		<footer>
