@@ -228,7 +228,110 @@ function add_slideshowGrab()
 
 
 
-// SLIDESHOW INDICATORS ANIMATION
+// STATISTICS
+const statisticsSection = document.querySelector('#statistics-section');
+const allStatistics = document.querySelectorAll('.statistic');
+const allStatisticsNum = document.querySelectorAll('.statistic-num');
+const allStatisticsText = document.querySelectorAll('.statistic-text');
+
+let incrementAnimRun = false;
+
+const timeouts = [5000, 2200, 5000, 2200, 5000, 2200 ,5000 ,2200, 5000];
 
 
+function timeoutLoop(index) {
+  setTimeout(() => {
+  	 if (index >= timeouts.length) 
+    {
+    	console.log("TEST TEST TEST !!!")
+    	allStatistics.forEach(statistic =>
+		{
+			statistic.classList.remove('statisticIntervalDelete0');
+			statistic.classList.remove('statisticInterval1');
+			statistic.classList.remove('statisticIntervalDelete2');
+			statistic.classList.remove('statisticInterval3');
+			statistic.classList.remove('statisticIntervalDelete4');
+			statistic.classList.remove('statisticInterval5');
+			statistic.classList.remove('statisticIntervalDelete6');
+			statistic.classList.remove('statisticInterval7');
+			statistic.classList.remove('statisticIntervalDelete8');
+			statistic.classList.remove('current-statistic')
+		});
+    	index = 0;
+
+    }
+    if(index == 0)
+    {
+    	console.log("0: "+ index)
+    	allStatistics[index].classList.add('current-statistic');
+    	allStatisticsText[0].classList.add(`statisticIntervalDelete${index}`);
+    }
+    if(index % 2 !== 0)
+    {
+    	console.log("INPAR: "+ index)
+    	allStatisticsText[Math.round(index / 2)].classList.add(`statisticInterval${index}`);
+    	allStatistics[Math.round(index / 2)-1].classList.remove('current-statistic');
+		allStatistics[Math.round(index / 2)].classList.add('current-statistic');
+    }
+    if(index % 2 == 0 && index !== 0)
+    {
+    	console.log("PAR: "+ index)
+    	allStatisticsText[Math.round(index / 2)].classList.add(`statisticIntervalDelete${index}`);
+    	allStatistics[Math.round(index / 2)-1].classList.remove('current-statistic');
+		allStatistics[Math.round(index / 2)].classList.add('current-statistic');	
+    }
+
+
+    index++;
+    
+    
+    timeoutLoop(index);
+  }, timeouts[index]);
+}
+
+const statisticObserver = new IntersectionObserver((entries) =>
+{
+	entries.forEach((entry) =>
+	{
+		if(entry.isIntersecting)
+		{
+			if(!incrementAnimRun)
+			{
+				incrementNum();
+
+				timeoutLoop(0);
+
+				
+
+			}
+			
+		}
+		
+	})
+})
+
+statisticObserver.observe(statisticsSection);
+
+function incrementNum()
+{
+
+
+	let startNum = 25000;
+	let maxNumber = 100000;
+	let intervalAdd = setInterval(() => {
+	  
+	  if(startNum >= maxNumber) 
+	  {
+	    clearInterval(intervalAdd);
+	    allStatisticsNum[0].innerHTML = '100,000+';
+	    incrementAnimRun = true;
+	  } 
+	  else 
+	  {
+	    startNum += 531;
+	    allStatisticsNum[0].innerHTML = `${startNum}+`;
+	  }
+	}, 10);
+
+}
 

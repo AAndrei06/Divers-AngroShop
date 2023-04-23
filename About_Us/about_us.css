@@ -151,22 +151,109 @@ input[name='r']
 }
 .statistic
 {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
+	display: none;
+}
+.current-statistic
+{
+	display: inline-block;
 }
 .statistic-num
 {
 	font-family: Dangrek;
 	font-size: 4.5rem;
 	color: var(--fourthGreen);
+	line-height: 1.1;
+	margin-right: 1.5rem;
 }
-.statistic-name
+.statistic-text
 {
+	border-right: 5px solid var(--white);
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
 	font-size: 2.5rem;
 	text-align: center;
 	color: var(--white);
 	font-weight: 600;
+	padding-right: 0.25rem;
+	animation: cursor 0.3s step-end infinite alternate;
+}
+.statisticIntervalReload
+{
+	animation: typing 2.25s steps(33), cursor 0.3s step-end infinite alternate;
+}
+.statisticIntervalDelete0
+{
+	animation: typing-delete 2.25s steps(33), cursor 0.3s step-end infinite alternate;
+}
+.statisticInterval1
+{
+	animation: typing 2.25s steps(35), cursor 0.3s step-end infinite alternate;
+}
+.statisticIntervalDelete2
+{
+	animation: typing-delete 2.25s steps(35), cursor 0.3s step-end infinite alternate;
+}
+.statisticInterval3
+{
+	animation: typing 2.25s steps(36), cursor 0.3s step-end infinite alternate;
+}
+.statisticIntervalDelete4
+{
+	animation: typing-delete 2.25s steps(36), cursor 0.3s step-end infinite alternate;
+}
+.statisticInterval5
+{
+	animation: typing 2.25s steps(30), cursor 0.3s step-end infinite alternate;
+}
+.statisticIntervalDelete6
+{
+	animation: typing-delete 2.25s steps(30), cursor 0.3s step-end infinite alternate;
+}
+.statisticInterval7
+{
+	animation: typing 1.25s steps(22), cursor 0.3s step-end infinite alternate;
+}
+.statisticIntervalDelete8
+{
+	animation: typing-delete 1.25s steps(22), cursor 0.3s step-end infinite alternate;
+}
+
+
+
+
+
+
+
+
+@keyframes cursor
+{
+/*	0%,100%
+	{
+		border-right: 5px solid var(--fourthGreen);
+	}*/
+	50%
+	{
+		border-color: transparent;
+	}
+}
+@keyframes typing-delete
+{
+	from
+	{
+		width: 100%;
+	}
+	to
+	{
+		width: 0%;
+	}
+}
+
+@keyframes typing
+{
+	from
+	{
+		width: 0;
+	}
+
 }
