@@ -105,9 +105,13 @@ function change_slideShow()
 function preInstall_Slideshow()
 {
 	let {scrollTop} = document.documentElement;
+	console.log(scrollTop)
+	console.log(slideShowContainer.offsetTop)
+	console.log(slideSection.offsetTop)
 
-	if(scrollTop >= slideShowContainer.offsetTop + slideSection.offsetTop)
+	if(scrollTop >= slideSection.offsetTop - slideSection.offsetHeight)
 	{
+		console.log('PUS')
 		slideShowContainer.style.top = `${TOTAL_PX}px`;
 		blackOverlay.style.opacity = 0;
 		grayOverlay.style.opacity = 0;
