@@ -243,7 +243,6 @@ function timeoutLoop(index) {
   setTimeout(() => {
   	 if (index >= timeouts.length) 
     {
-    	console.log("TEST TEST TEST !!!")
     	allStatistics.forEach(statistic =>
 		{
 			statistic.classList.remove('statisticIntervalDelete0');
@@ -262,28 +261,23 @@ function timeoutLoop(index) {
     }
     if(index == 0)
     {
-    	console.log("0: "+ index)
     	allStatistics[index].classList.add('current-statistic');
     	allStatisticsText[0].classList.add(`statisticIntervalDelete${index}`);
     }
     if(index % 2 !== 0)
     {
-    	console.log("INPAR: "+ index)
     	allStatisticsText[Math.round(index / 2)].classList.add(`statisticInterval${index}`);
     	allStatistics[Math.round(index / 2)-1].classList.remove('current-statistic');
 		allStatistics[Math.round(index / 2)].classList.add('current-statistic');
     }
     if(index % 2 == 0 && index !== 0)
     {
-    	console.log("PAR: "+ index)
     	allStatisticsText[Math.round(index / 2)].classList.add(`statisticIntervalDelete${index}`);
     	allStatistics[Math.round(index / 2)-1].classList.remove('current-statistic');
 		allStatistics[Math.round(index / 2)].classList.add('current-statistic');	
     }
 
-
     index++;
-    
     
     timeoutLoop(index);
   }, timeouts[index]);
@@ -298,11 +292,7 @@ const statisticObserver = new IntersectionObserver((entries) =>
 			if(!incrementAnimRun)
 			{
 				incrementNum();
-
 				timeoutLoop(0);
-
-				
-
 			}
 			
 		}
@@ -318,13 +308,13 @@ function incrementNum()
 
 	let startNum = 25000;
 	let maxNumber = 100000;
+	incrementAnimRun = true;
 	let intervalAdd = setInterval(() => {
 	  
 	  if(startNum >= maxNumber) 
 	  {
 	    clearInterval(intervalAdd);
 	    allStatisticsNum[0].innerHTML = '100,000+';
-	    incrementAnimRun = true;
 	  } 
 	  else 
 	  {
