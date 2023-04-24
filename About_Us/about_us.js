@@ -105,13 +105,9 @@ function change_slideShow()
 function preInstall_Slideshow()
 {
 	let {scrollTop} = document.documentElement;
-	console.log(scrollTop)
-	console.log(slideShowContainer.offsetTop)
-	console.log(slideSection.offsetTop)
 
 	if(scrollTop >= slideSection.offsetTop - slideSection.offsetHeight)
 	{
-		console.log('PUS')
 		slideShowContainer.style.top = `${TOTAL_PX}px`;
 		blackOverlay.style.opacity = 0;
 		grayOverlay.style.opacity = 0;
@@ -329,3 +325,104 @@ function incrementNum()
 
 }
 
+// STATEMENTS / REVIEWS
+
+
+const stateAreasSection = document.querySelector('#text-areas-section');
+const allStatemets = document.querySelectorAll('.review');
+const reviewsDiv = document.querySelector('.reviews');
+const generalTextArea = document.querySelector('.text-area');
+const TextAreaStyles = getComputedStyle(generalTextArea);
+const TextAreaMarginTop = parseInt(TextAreaStyles.getPropertyValue('margin-top'));
+
+let pastStatementScroll = 0;
+let currentStatementScroll = 0;
+let currentStatementTop = 0;
+
+let statementsStart = stateAreasSection.offsetTop + TextAreaMarginTop;
+
+let statement01TopEnd = allStatemets[1].offsetTop + statementsStart;
+let statement02TopEnd = allStatemets[2].offsetTop + statementsStart;
+let statementsStop = stateAreasSection.offsetHeight - allStatemets[2].offsetHeight + statementsStart - TextAreaMarginTop;
+
+
+
+
+window.addEventListener('scroll', () =>
+{
+
+	let {scrollTop} = document.documentElement;
+
+	if(scrollTop >= statementsStart)
+	{
+		
+		if(scrollTop < statement01TopEnd)
+		{
+			let scrolled = get_scrolled()
+			
+			currentStatementTop += scrolled;
+
+			allStatemets[0].style.top = `${currentStatementTop}px`;
+		}
+
+		if(scrollTop >= statement01TopEnd && scrollTop <= statement02TopEnd)
+		{
+			allStatemets[0].classList.remove('current-review');
+			allStatemets[1].classList.add('current-review');
+		}
+		if(scrollTop <= statement01TopEnd)
+		{
+			allStatemets[1].classList.remove('current-review');
+			allStatemets[0].classList.add('current-review');
+		}
+
+		if(scrollTop > statement01TopEnd && scrollTop < statement02TopEnd)
+		{
+			
+			let scrolled = get_scrolled()
+			currentStatementTop += scrolled;
+			allStatemets[1].style.top = `${currentStatementTop}px`;
+		}
+
+
+		if(scrollTop >= statement02TopEnd && scrollTop < statementsStop)
+		{
+			allStatemets[1].classList.remove('current-review');
+			allStatemets[2].classList.add('current-review');
+		}
+
+		if(scrollTop >= statement01TopEnd && scrollTop <= statement02TopEnd)
+		{
+			allStatemets[2].classList.remove('current-review');
+			allStatemets[1].classList.add('current-review');
+		}
+
+		if(scrollTop > statement02TopEnd && scrollTop < statementsStop)
+		{
+			
+			let scrolled = get_scrolled()
+			currentStatementTop += scrolled;
+			allStatemets[2].style.top = `${currentStatementTop}px`;
+		}
+
+	}
+
+})
+
+
+function get_scrolled()
+{
+	let {scrollTop} = document.documentElement;
+
+	pastStatementScroll = currentStatementScroll;
+	currentStatementScroll = scrollTop;
+
+	let scrolled = currentStatementScroll - pastStatementScroll;
+
+	if(scrolled > 500)
+	{
+		scrolled = scrolled - statementsStart;
+	}
+
+	return scrolled
+}
