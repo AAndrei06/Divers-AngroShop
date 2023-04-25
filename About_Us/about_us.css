@@ -377,7 +377,7 @@ input[name='r']
 	right: 0;	
 	opacity: 0;
 	filter: blur(5px) brightness(1.25);
-	transform: translateX(50%);
+	transform: translateX(25%);
 	transition: transform 0.25s, blur 0.15s, opacity 0.15s;
 }
 
@@ -387,11 +387,11 @@ input[name='r']
 }
 .review:nth-child(2)
 {
-	top: calc(var(--bigM) + 20rem);
+	top: calc(var(--bigM) + 13rem);
 }
 .review:nth-child(3)
 {
-	top: calc(var(--bigM) + 45rem);
+	top: calc(var(--bigM) + 37rem);
 }
 .current-review
 {
