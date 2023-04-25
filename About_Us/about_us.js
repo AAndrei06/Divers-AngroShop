@@ -345,7 +345,19 @@ let statement01TopEnd = allStatemets[1].offsetTop + statementsStart;
 let statement02TopEnd = allStatemets[2].offsetTop + statementsStart;
 let statementsStop = stateAreasSection.offsetHeight - allStatemets[2].offsetHeight + statementsStart - TextAreaMarginTop;
 
+let {scrollTop} = document.documentElement;
 
+console.log('scrollTop: '+scrollTop)
+console.log('statementsStop: '+statementsStop)
+
+if(scrollTop > stateAreasSection.offsetTop + stateAreasSection.offsetHeight)
+{
+	allStatemets[0].classList.remove('current-review');
+	allStatemets[1].classList.remove('current-review');
+	allStatemets[2].classList.add('current-review');
+	allStatemets[2].style.top = `1050px`;
+
+}
 
 
 window.addEventListener('scroll', () =>
@@ -403,6 +415,7 @@ window.addEventListener('scroll', () =>
 			let scrolled = get_scrolled()
 			currentStatementTop += scrolled;
 			allStatemets[2].style.top = `${currentStatementTop}px`;
+			console.log('currentStatementTop: '+currentStatementTop )
 		}
 
 	}
@@ -429,10 +442,14 @@ function get_scrolled()
 
 
 
+
+
+
+
 // TROPHY ANIM
 
 let trophyTimes = 0;
-let {scrollTop} = document.documentElement;
+scrollTop = document.documentElement;
 const trophies = document.querySelectorAll('.trophy-icon');
 const trophySection = document.querySelector('#trophy-section');
 
