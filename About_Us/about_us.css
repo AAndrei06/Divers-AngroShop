@@ -301,11 +301,32 @@ input[name='r']
 {
 	position: absolute;
 	left: 50%;
-	top: -32px;
-	transform: translateX(-50%);
+	top: -48px;
+	transform: translateX(-50%) scale(1.5);
 	width: 4rem;
 	height: 4rem;
 	fill: var(--fourthGreen);
+	opacity: 0;
+	transition: top 0.25s, transform 0.25s;
+}
+.trophy-anim
+{
+	animation: trophyAnim 0.25s forwards;
+}
+@keyframes trophyAnim
+{
+	from
+	{
+		opacity: 0;
+		top: -48px;
+		transform: translateX(-50%) scale(2);
+	}
+	to
+	{
+		top: -32px;
+		opacity: 1;
+		transform: translateX(-50%) scale(1);
+	}
 }
 
 /*PROGRAM*/

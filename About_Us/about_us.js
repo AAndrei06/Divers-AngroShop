@@ -426,3 +426,43 @@ function get_scrolled()
 
 	return scrolled
 }
+
+
+
+// TROPHY ANIM
+
+let trophyTimes = 0;
+let {scrollTop} = document.documentElement;
+const trophies = document.querySelectorAll('.trophy-icon');
+const trophySection = document.querySelector('#trophy-section');
+
+if(scrollTop  > trophySection.offsetTop)
+{
+	trophies.forEach(trophy =>
+	{
+		trophy.classList.add('trophy-anim');
+	})
+}
+
+const trophiesObserver = new IntersectionObserver((entries) =>
+{
+	entries.forEach(entry =>
+	{
+		  trophyTimes += 1;
+			if(trophyTimes > 3)
+			{
+				entry.target.classList.add('trophy-anim');
+			}
+			
+	})
+}, {
+  threshold: 0.5 
+});
+
+trophies.forEach(trophy =>
+{
+	trophiesObserver.observe(trophy);
+})
+
+
+
