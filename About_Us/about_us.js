@@ -241,44 +241,49 @@ const timeouts = [5000, 2200, 5000, 2200, 5000, 2200 ,5000 ,2200, 5000];
 
 function timeoutLoop(index) {
   setTimeout(() => {
-  	 if (index >= timeouts.length) 
-    {
-    	allStatistics.forEach(statistic =>
-		{
-			statistic.classList.remove('statisticIntervalDelete0');
-			statistic.classList.remove('statisticInterval1');
-			statistic.classList.remove('statisticIntervalDelete2');
-			statistic.classList.remove('statisticInterval3');
-			statistic.classList.remove('statisticIntervalDelete4');
-			statistic.classList.remove('statisticInterval5');
-			statistic.classList.remove('statisticIntervalDelete6');
-			statistic.classList.remove('statisticInterval7');
-			statistic.classList.remove('statisticIntervalDelete8');
-			statistic.classList.remove('current-statistic')
-		});
-    	index = 0;
 
+  	if (index >= timeouts.length) 
+    {
+    	allStatisticsText.forEach(statisticText =>
+			{
+				statisticText.classList.remove('statisticIntervalDelete0');
+				statisticText.classList.remove('statisticInterval1');
+				statisticText.classList.remove('statisticIntervalDelete2');
+				statisticText.classList.remove('statisticInterval3');
+				statisticText.classList.remove('statisticIntervalDelete4');
+				statisticText.classList.remove('statisticInterval5');
+				statisticText.classList.remove('statisticIntervalDelete6');
+				statisticText.classList.remove('statisticInterval7');
+				statisticText.classList.remove('statisticIntervalDelete8');
+			});
+			allStatistics.forEach(statistic =>
+    	{
+    		statistic.classList.remove('current-statistic');
+    	})
+    	index = 0;
     }
+
     if(index == 0)
     {
     	allStatistics[index].classList.add('current-statistic');
-    	allStatisticsText[0].classList.add(`statisticIntervalDelete${index}`);
+    	allStatisticsText[index].classList.add(`statisticIntervalDelete${index}`);
     }
     if(index % 2 !== 0)
     {
     	allStatisticsText[Math.round(index / 2)].classList.add(`statisticInterval${index}`);
     	allStatistics[Math.round(index / 2)-1].classList.remove('current-statistic');
-		allStatistics[Math.round(index / 2)].classList.add('current-statistic');
+			allStatistics[Math.round(index / 2)].classList.add('current-statistic');
     }
     if(index % 2 == 0 && index !== 0)
     {
     	allStatisticsText[Math.round(index / 2)].classList.add(`statisticIntervalDelete${index}`);
     	allStatistics[Math.round(index / 2)-1].classList.remove('current-statistic');
-		allStatistics[Math.round(index / 2)].classList.add('current-statistic');	
+			allStatistics[Math.round(index / 2)].classList.add('current-statistic');	
     }
 
     index++;
-    
+
+
     timeoutLoop(index);
   }, timeouts[index]);
 }
@@ -304,8 +309,6 @@ statisticObserver.observe(statisticsSection);
 
 function incrementNum()
 {
-
-
 	let startNum = 25000;
 	let maxNumber = 100000;
 	incrementAnimRun = true;
@@ -345,7 +348,16 @@ let statement01TopEnd = allStatemets[1].offsetTop + statementsStart;
 let statement02TopEnd = allStatemets[2].offsetTop + statementsStart;
 let statementsStop = stateAreasSection.offsetHeight - allStatemets[2].offsetHeight + statementsStart - TextAreaMarginTop;
 
+let {scrollTop} = document.documentElement;
 
+if(scrollTop > stateAreasSection.offsetTop + stateAreasSection.offsetHeight)
+{
+	allStatemets[0].classList.remove('current-review');
+	allStatemets[1].classList.remove('current-review');
+	allStatemets[2].classList.add('current-review');
+	allStatemets[2].style.top = `1050px`;
+
+}
 
 
 window.addEventListener('scroll', () =>
@@ -426,3 +438,43 @@ function get_scrolled()
 
 	return scrolled
 }
+
+
+
+// TROPHY ANIM
+
+let trophyTimes = 0;
+scrollTop = document.documentElement;
+const trophies = document.querySelectorAll('.trophy-icon');
+const trophySection = document.querySelector('#trophy-section');
+
+if(scrollTop  > trophySection.offsetTop)
+{
+	trophies.forEach(trophy =>
+	{
+		trophy.classList.add('trophy-anim');
+	})
+}
+
+const trophiesObserver = new IntersectionObserver((entries) =>
+{
+	entries.forEach(entry =>
+	{
+		  trophyTimes += 1;
+			if(trophyTimes > 3)
+			{
+				entry.target.classList.add('trophy-anim');
+			}
+			
+	})
+}, {
+  threshold: 0.5 
+});
+
+trophies.forEach(trophy =>
+{
+	trophiesObserver.observe(trophy);
+})
+
+
+
