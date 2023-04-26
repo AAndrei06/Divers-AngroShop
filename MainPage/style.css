@@ -51,28 +51,25 @@
 	scrollbar-width: none;
   	-ms-overflow-style: none;
   	overflow: -moz-scrollbars-none;
-  	-moz-user-select: none;
 }
 
 .category-scrollable-space::-webkit-scrollbar
 {
 	display: none;
 }
+
 .category-links
 {
-	-moz-user-select: none;
 	position: relative;
 	white-space: nowrap;
 	height: auto;
 	display: flex;
 	scroll-padding-left: var(--leftM);
-	scroll-snap-type: x mandatory;
 	gap: 24px;
 }
 .category-link
 {
 	position: relative;
-	scroll-snap-align: center;
 	cursor: pointer;
 	width: var(--categoryWidth);
 	height: var(--categoryHeight);
@@ -995,7 +992,6 @@
 
 		--carouselWidth: 150px;
 		--carouselHeight: 250px;
-		--carouselFont: 0.65rem;
 	}
 	.product-content
 	{

@@ -183,6 +183,7 @@ a
 {
 	text-decoration: none;
 	user-select: none;
+	user-drag: none;
 }
 
 /*NAV BAR*/
@@ -1084,6 +1085,10 @@ a
 		--description-line-height: 2.5rem;
 
 		--welcomeM: 35rem;
+	}
+	section
+	{
+		scroll-margin-top: 96px;
 	}
 	#first-mini
 	{
