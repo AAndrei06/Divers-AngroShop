@@ -288,17 +288,39 @@ a
 }
 .hamburger-menu-div
 {
+	position: relative;
 	display: none;
 	cursor: pointer;
 }
 .hamburger-menu
 {
-	width: 2rem;
-	height: 2rem;
-	stroke: var(--fourthGreen);
-	fill: var(--fourthGreen);
-	
+	margin-top: 10px;
+	width: 30px;
+	height: 4px;
+	background-color: var(--fourthGreen);
+	border-radius: 100px;
+	transition: all 0.15s ease-in-out;
 }
+.hamburger-menu:before
+{
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 4px;
+	background-color: var(--fourthGreen);
+	border-radius: 100px;
+	transform: translateY(-10px);
+	transition: all 0.15s ease-in-out;
+}
+.hamburger-menu-div.intoX .hamburger-menu
+{
+	transform: rotate(45deg);
+}
+.hamburger-menu-div.intoX .hamburger-menu:before
+{
+	transform: rotate(270deg);
+}
+
 .tablet-nav
 {
 	opacity: 0;
@@ -1133,7 +1155,7 @@ a
 	}
 	.hamburger-menu-div
 	{
-		display: initial;
+		display: flex;
 	}
 }
 @media(max-width: 775px)

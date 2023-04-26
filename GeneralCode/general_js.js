@@ -129,10 +129,11 @@ languageDiv.addEventListener('mouseleave', () =>
 
 // Tablet Haburger Menu
 
-const hamburgerMenu = document.querySelector('.hamburger-menu-div');
+const hamburgerMenuDiv = document.querySelector('.hamburger-menu-div');
+// const hamburgetMenu = document.querySelector('.hamburger-menu');
 const tabletNav = document.querySelector('.tablet-nav');
 const tabletOverlay = document.querySelector('.tablet-overlay');
-let hamburgerMenuClicked = false;
+let hamburgerMenuDivClicked = false;
 
 window.addEventListener('resize', () =>
 {
@@ -140,33 +141,30 @@ window.addEventListener('resize', () =>
 	{
 		tabletNav.classList.remove('show-tablet-nav');
 		tabletOverlay.classList.remove('show-tablet-overlay');
-		hamburgerMenuClicked = false;
+		hamburgerMenuDivClicked = false;
+		hamburgerMenuDiv.classList.remove('intoX');
 	}
 	
 })
 
-hamburgerMenu.addEventListener('click', () =>
+hamburgerMenuDiv.addEventListener('click', () =>
 {
-	if(!hamburgerMenuClicked)
+	if(!hamburgerMenuDivClicked)
 	{
 		tabletNav.classList.add('show-tablet-nav');
 		tabletOverlay.classList.add('show-tablet-overlay');
-		hamburgerMenuClicked = true;
-	}
-	else
-	{
-		tabletNav.classList.remove('show-tablet-nav');
-		tabletOverlay.classList.remove('show-tablet-overlay');
-		hamburgerMenuClicked = false;
+		hamburgerMenuDivClicked = true;
+		hamburgerMenuDiv.classList.add('intoX');
 	}
 })
 
 tabletOverlay.addEventListener('click', () =>
 {
-	if(hamburgerMenuClicked)
+	if(hamburgerMenuDivClicked)
 	{
 		tabletNav.classList.remove('show-tablet-nav');
 		tabletOverlay.classList.remove('show-tablet-overlay');
-		hamburgerMenuClicked = false;
+		hamburgerMenuDivClicked = false;
+		hamburgerMenuDiv.classList.remove('intoX');
 	}
 })
