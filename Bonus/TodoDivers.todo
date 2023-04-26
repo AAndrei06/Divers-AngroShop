@@ -1,8 +1,6 @@
 Fiecare Problema la Divers Angro Shop:
   ☐ La produse, nu este deloc varietate intre carusele
-  ☐ Iconita(sus de tot/bara de navigare google) nu are background 
   ☐ Uitete in spate ~~ hihi ;)
-  ☐ La butoanele pe care nu le poti apasa as vrea sa se vada cursorul ca pointer
 
 Idei:
   ☐ Categorie cu produsele noi sau ceva nou in general | ..
@@ -11,9 +9,6 @@ Idei:
 Animatie Idei:
 
 Figma Idei:
-  ☐ La Program de lucru, daca dai hover peste link atunci bara va disparea
-  ☐ La About us, numarul de sub carusel sasi schimbe descrierea si numarul cu animatie regulat, si de fiecare daca cand intrii pe pagina
-  ☐ Tot la namarul de sub carusel, cand il vezi pentru prima oara, va creste cu cate 5 pana va ajunge unde este necesar
   ☐ La FAQ sa fie o intrebare care sunt contactele noastre  
   ☐ La About us, la statementri, se vor alege 2 random de fiecare data cand este pe telefon
 
@@ -24,30 +19,21 @@ Figma Todo:
 Lucruri pentru Andrei:
   ☐ Sa puna toate stirile inapoi
   ☐ Testeze tot siteul
-  ☐ Intreaba ownerul de niste statistici
-  ☐ Firefox drag la categorii 
-
 
 Lucruri de Facut:
 
   La General:
-    ☐ Logo de refacut fara background
     ☐ Animatie cu hamburger icon in X
-    ☐ Refa iconita mica(logo)
     ☐ Limbi(schimb de limbi, font la limba rusa)
 
   La Produse:
-    ☐ Scrisu oleaca mai mare la produse pe telefon
     ☐ Backup Button sa fie responsive
-    ☐ Trebuie un offset la anchore pe tableta
-    ☐ Categoriile au un fel de drag pe firefox
     ☐ Exemplele nu merg daca flexu dispare si reapare
     ☐ ||| Fa exemplele functionale
 
   La About Us:
 
     ☐ Carousel dinamic grab pe telefon
-    ☐ Compreseaza pozele
     ☐ FA tot responsive
 
   La Contact Us:
@@ -57,9 +43,6 @@ Lucruri de Facut:
 
 
   La Stiri:
-
-    ☐ Schimba in loc de grid sa fie 2 flexuri
+    ☐ Adauga structura normal
     ☐ Editeaza pozele
     ☐ Adauga tot designul nou
-INfo:
-  Afla totul despre Divers Angro Shop, un magazin din orasul Leova, care se mandreste cu o varietate mare de produse, pentru a raspunde nevoilor si preferintelor tuturor clientilor!
