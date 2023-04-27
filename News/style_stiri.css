@@ -1,0 +1,167 @@
+#stiri-section
+{
+	display: none;
+}
+#stiri-2rows-section
+{
+	display: initial;
+}
+.news
+{
+  margin: 30rem var(--leftM) 0 var(--leftM);
+  display: grid;
+  grid-template-columns: auto;
+  grid-column-gap: var(--leftM);
+  grid-row-gap: var(--leftM);
+}
+.new
+{
+	position: relative;
+	width: auto;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	background: var(--thirdDark);
+	border: 2px solid var(--fourthDark);
+	box-shadow: 0px 46px 18px rgba(0, 0, 0, 0.01), 0px 26px 16px rgba(0, 0, 0, 0.05), 0px 12px 12px rgba(0, 0, 0, 0.09), 0px 3px 6px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 24px;
+	padding: 24px;
+	cursor: pointer;
+}
+.new-header-div
+{
+	width: 100%;
+	padding-right: 32px;
+}
+.new-header
+{
+	color: var(--white);
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.new-date-div
+{
+	margin-top: 4px;
+	width: 100%;
+}
+.new-date
+{
+	width: 100%;
+	font-size: 1rem;
+	opacity: 0.8;
+	font-weight: 500;
+	color: var(--white);
+}
+.new-description-div
+{
+	margin-top: 24px;
+	width: 100%;
+}
+.new-description
+{
+	font-weight: 500;
+	font-size: 1rem;
+	color: var(--white);
+}
+.new-photo-div
+{
+	position: relative;
+	margin-top: 24px;
+	width: 100%;
+	height: auto;
+	max-height: 500px;
+	border-radius: 24px;
+}
+.new-photo
+{
+	width: 100%;
+	height: 100%;
+	border-radius: 24px;
+	max-height: 500px;
+	object-fit: cover;
+}
+.new-point
+{
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	width: 8px;
+	height: 8px;
+	background-color: var(--fourthGreen);
+	border-radius: 100px;	
+}
+.new-arrow-div
+{
+	position: absolute;
+	top: 24px;
+	right: 24px;
+}
+.new-arrow
+{
+	fill: var(--white);
+	width: 24px;
+	height: 24px;
+	opacity: 0.5;
+	transition: 0.15s ease-in-out;
+}
+.new:hover .new-arrow
+{
+	opacity: 0.75;
+}
+.news-rows
+{
+	display: flex;
+	padding: 30rem var(--leftM) 0 var(--leftM);
+	gap: var(--leftM);
+}
+.news-row
+{
+	display: flex;
+	flex-direction: column;
+	gap: var(--leftM);
+}
+
+@media(max-width: 900px)
+{
+	#stiri-section
+	{
+		display: initial;
+	}
+	#stiri-2rows-section
+	{
+		display: none;
+	}
+}
+@media(max-width: 775px)
+{
+	.news
+	{
+		margin: 25rem var(--leftM) 0 var(--leftM);
+	}
+	
+}
+@media(max-width: 650px)
+{
+	.news
+	{
+		margin: 20rem var(--leftM) 0 var(--leftM);
+	}
+}
+@media(max-width: 510px)
+{
+	.new-header
+	{
+		font-size: 1.25rem;
+	}
+	.news
+	{
+	  margin: 15rem 0 0 0;
+	}
+}
+@media(max-width: 420px)
+{
+	.news
+	{
+	  margin: 12rem 0 0 0;
+	}
+}
