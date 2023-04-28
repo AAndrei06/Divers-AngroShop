@@ -165,3 +165,10 @@
 	  margin: 12rem 0 0 0;
 	}
 }
+@media(max-width: 350px)
+{
+	.new-description
+	{
+			font-size: 0.85rem;
+	}
+}
