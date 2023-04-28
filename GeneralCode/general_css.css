@@ -725,7 +725,7 @@ a
 	flex-direction: column;
 	margin-top: var(--bigM);
 	width: 100%;
-	padding: 0 calc(var(--leftM) * 3);
+	padding: 0 var(--leftM);
 }
 
 .header-div
@@ -1171,7 +1171,7 @@ a
   	--end-description: 1.85rem;
 
   	--header: 3.5rem;
-  	--header-line-height: 5rem;
+  	--header-line-height: 4.5rem;
 		--description: 1.35rem;
 		--description-line-height: auto;
 	}
@@ -1207,7 +1207,7 @@ a
 		--semi-header: 2rem;
 		--welcome-description: 1.125rem;
 		--end-header: 4rem;
-		--header-line-height: 4.5rem;
+		--header-line-height: 4.25rem;
 		--header: 3.25rem;
 		--description: 1.15rem;
 
@@ -1219,15 +1219,11 @@ a
 	}
 	.text-area
 	{
-		width: calc(100%-var(--leftM));
+		width: 100%;
 	}
 	.header-div
 	{
 		width: 100%;
-	}
-	.description-div
-	{
-		width: 455px;
 	}
 	.button,.outline-button
 	{
@@ -1250,6 +1246,7 @@ a
 		--end-header: 3.75rem;
   	--end-description: 1.50rem;
 		--header: 3rem;
+		--header-line-height: 4rem;
 		--hugeM: 8rem; 
 		
 	}
@@ -1277,7 +1274,7 @@ a
   	--bigM: 5rem;
   	--mediumM: 2.5rem;
 
-  	--header-line-height: 4rem;
+  	--header-line-height: 3.5rem;
   	--header: 2.5rem;
   	--description: 1rem;
 
@@ -1349,7 +1346,7 @@ a
   	--end-description: 1rem;
   	--end-header-line-height: auto;
 
-  	--header-line-height: 3.5rem;
+  	--header-line-height: 3.25rem;
 
   	--header: 2.25rem;
   	--description: 0.9rem;
@@ -1401,6 +1398,7 @@ a
   	--leftM: 2.5rem;
 
   	--header: 2rem;
+  	--header-line-height: 3rem;
   	--description: 0.73rem;
 	}
 	.text-area
@@ -1426,7 +1424,7 @@ a
 {
 	:root
 	{
-		--header-line-height: 3.25rem;
+		--header-line-height: 2.85rem;
   	--header: 1.85rem;
 	}
 	

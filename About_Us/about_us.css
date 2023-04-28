@@ -48,10 +48,11 @@
   	-ms-overflow-style: none;
   	overflow: -moz-scrollbars-none;
 	display: flex;
-	overflow: auto;
+	overflow: hidden;
 	width: 500%;
 	height: 100%;
 	z-index: 3;
+	position: relative;
 }
 .slideshow-slide
 {
@@ -107,6 +108,8 @@ input[name='r']
 {
 	position: absolute;
 	visibility: hidden;
+	width: 0;
+	height: 0;
 }
 
 #r1:checked ~ .s1
@@ -254,7 +257,7 @@ input[name='r']
 {
 	margin-top: var(--bigM);
 	width: 100%;
-	height: 65vh;
+	height: 35vw;
 	filter: invert(100%) hue-rotate(90deg);
 	position: relative;
 }
@@ -270,7 +273,6 @@ input[name='r']
 	grid-template-columns: 1fr 1fr 1fr; 
  	grid-template-rows: 1fr 1fr 1fr; 
   	grid-row-gap: 2rem; 
-
 }
 
 .trophy
@@ -283,9 +285,18 @@ input[name='r']
 	background-color: var(--thirdDark);
 	box-shadow: 0px 78px 22px rgba(23, 29, 22, 0.01), 0px 50px 20px rgba(23, 29, 22, 0.05), 0px 28px 17px rgba(23, 29, 22, 0.18), 0px 13px 13px rgba(23, 29, 22, 0.31), 0px 3px 7px rgba(23, 29, 22, 0.35), 0px 0px 0px rgba(23, 29, 22, 0.36);
 }
-.trophy-description
+.trophy-description-div
 {
 	width: 35vw;
+	height: auto;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.trophy-description
+{
+	width: 100%;
+	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 1.5rem;
@@ -357,6 +368,7 @@ input[name='r']
 }
 .text-area-combined-with-statements-div
 {
+	position: relative;
 	display: grid;
 	grid-template-columns: auto 1fr;
 	padding: 0 var(--leftM);
@@ -423,7 +435,7 @@ input[name='r']
 {
 	width: 400px;
 	font-weight: 500;
-	font-size: 20px;
+	font-size: 1.25rem;
 	color: var(--white);
 }
 .review-owner
@@ -477,4 +489,74 @@ input[name='r']
 	{
 		display: initial;
 	}
+}
+@media(max-width: 900px)
+{
+	.trophy-description-div
+	{
+		width: 100%;
+	}
+	.trophys
+	{
+	  	grid-row-gap: 8rem; 
+		grid-template-columns: auto;
+		grid-template-columns: 1fr; 
+		grid-auto-rows: minmax(0, auto);
+	}
+	.trophy-empty-div
+	{
+		display: none;
+	}
+}
+@media(max-width: 775px)
+{
+	.trophy-description
+	{
+		font-size: 1.35rem;
+	}
+}
+@media(max-width: 650px)
+{
+	.actual-review
+	{
+		width: 100%;
+		font-size: 1.15rem;
+	}
+	.trophy-description
+	{
+		font-size: 1.25rem;
+	}
+	
+}
+@media(max-width: 510px)
+{
+	.actual-review
+	{
+		font-size: 1rem;
+	}
+	.trophy-description
+	{
+		font-size: 1.15rem;
+	}
+}
+@media(max-width: 450px)
+{
+	.actual-review
+	{
+		font-size: 0.9rem;
+	}
+	.trophy-description
+	{
+		font-size: 1rem;
+	}
+	.trophy-icon
+	{
+		width: 3rem;
+		height: 3rem;
+	}
+	.trophy
+	{
+		padding: 2rem 1rem;
+	}
+	
 }
