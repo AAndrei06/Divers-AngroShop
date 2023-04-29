@@ -163,6 +163,7 @@ function change_slideShow()
 		if(TOP >= TOTAL_PX)
 		{
 			slideShowContainer.style.top = `${TOTAL_PX}px`;
+			currentOpacity = 0;
 		}
 
 		if(TOP >= 0 && TOP < TOTAL_PX)
@@ -516,6 +517,11 @@ window.addEventListener('scroll', () =>
 				allStatemets[2].style.top = `${currentStatementTop}px`;
 			}
 
+		}
+		else
+		{
+			allStatemets[0].style.top = `0px`;
+			allStatemets[0].classList.add('current-review');
 		}
 	}
 
