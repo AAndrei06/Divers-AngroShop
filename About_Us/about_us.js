@@ -297,21 +297,27 @@ function add_slideshowGrab()
         mouseUpped = false;
         firstMouse = 0;
         secondMouse = 0;
+        
+        try
+        {
+        	if(direction < 0)
+	        {
+	        	let currentRadio = get_checkedRadio()
+	        	currentRadio.previousElementSibling.checked = true;
+	        }
+	        if(direction > 0)
+	        {
+	        	let currentRadio = get_checkedRadio()
+	        	currentRadio.nextElementSibling.checked = true;
+	        }
+        }
+        catch
+        {
 
-        if(direction < 0)
-        {
-        	let currentRadio = get_checkedRadio()
-        	currentRadio.previousElementSibling.checked = true;
         }
-        if(direction > 0)
-        {
-        	let currentRadio = get_checkedRadio()
-        	currentRadio.nextElementSibling.checked = true;
-        }
+        
         indicatorMoveAnim();
       }
-      
-
     });
 }
 
