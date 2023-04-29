@@ -874,7 +874,7 @@ a
 }
 .end-description
 {
-	width: 615px;
+	width: 32ch;
 	font-weight: 600;
 	font-size: var(--end-description);
 	line-height: var(--end-description-line-height);
@@ -1027,6 +1027,7 @@ a
 	font-size: 1.5rem;
 	text-decoration: underline;
 	cursor: pointer;
+	white-space: nowrap;
 }
 .link:hover
 {
@@ -1129,7 +1130,10 @@ a
 	{
 		font-size: var(--semi-description);
 	}
-	
+	.mini-description-div-start
+	{
+		padding-right: calc(var(--leftM) * 2.5);
+	}
 	.backup-div
 	{
 		display: none;
@@ -1236,6 +1240,22 @@ a
 	}
 	
 }
+@media(max-width: 600px)
+{
+	.mini-description-div-start
+	{
+		padding-right: calc(var(--leftM) * 1.5);
+	}
+	.link
+	{
+		font-size: 1.25rem;
+	}
+	.link-icon
+	{
+		width: 1rem;
+		height: 1rem;
+	}
+}
 @media(max-width: 575px)
 {
 	:root
@@ -1249,10 +1269,6 @@ a
 		--header-line-height: 4rem;
 		--hugeM: 8rem; 
 		
-	}
-	.end-description
-	{
-		width: 415px;
 	}
 	.button,.outline-button
 	{
@@ -1279,6 +1295,19 @@ a
   	--description: 1rem;
 
   	--welcomeM: 25rem;
+	}
+	.mini-description-div-start
+	{
+		padding-right: 0;
+	}
+	.link
+	{
+		font-size: 1rem;
+	}
+	.link-icon
+	{
+		width: 0.75rem;
+		height: 0.75rem;
 	}
 	.mini-header-text-area
 	{
@@ -1349,8 +1378,10 @@ a
   	--header-line-height: 3.25rem;
 
   	--header: 2.25rem;
-  	--description: 0.9rem;
-
+	}
+	.link
+	{
+		font-size: 0.85rem;
 	}
 	#first-mini
 	{
@@ -1363,11 +1394,6 @@ a
 	.end-section-start-text-div
 	{
 		gap: 1rem;
-	}
-
-	.end-description
-	{
-		width: 315px;
 	}
 	.button,.outline-button, 
 	{
@@ -1399,7 +1425,6 @@ a
 
   	--header: 2rem;
   	--header-line-height: 3rem;
-  	--description: 0.73rem;
 	}
 	.text-area
 	{
@@ -1416,6 +1441,10 @@ a
 	.phone-nav-links
 	{
 		padding: 0px 32px;
+	}
+	.padding-description-div
+	{
+		padding-right: 0;
 	}
 
 }
