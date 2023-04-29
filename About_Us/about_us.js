@@ -9,7 +9,6 @@ const generalIndicator = document.querySelector('.slideshow-indicator');
 const allIndicators = document.querySelectorAll('.slideshow-indicator');
 const slideshowRadios = document.querySelectorAll('.slideshow-radio');
 
-	
 const slideSectionstyles = window.getComputedStyle(slideSection);
 let MAX_TOP = parseInt(slideSectionstyles.getPropertyValue('height'));
 let MAX_DISTANCE = slideSection.offsetTop + MAX_TOP;
@@ -20,22 +19,29 @@ let currentScroll = 0;
 let pastScroll = 0;
 
 let MAX_WIDTH = 880;
-let currentWidth = slideShowContainer.offsetWidth;
+let currentWidth = 582;
 let NEEDED_WIDTH = MAX_WIDTH - currentWidth;
 let widthPerFrame = NEEDED_WIDTH / TOTAL_PX;
 
 let MAX_HEIGHT = 547;
-let currentHeight = slideShowContainer.offsetHeight;
+let currentHeight = 362;
 let NEEDED_HEIGHT = MAX_HEIGHT - currentHeight;
 let heightPerFrame = NEEDED_HEIGHT / TOTAL_PX;
 
 const MAX_OPACITY = 0;
 let currentOpacity = 0.35;
 let opacityperFrame = currentOpacity / TOTAL_PX;
+let scrollDivider = 3.5;
 
+getMaxMin();
+getSlideShowValues();
 
-
-
+window.addEventListener('resize', () =>
+{
+	getMaxMin();
+	getSlideShowValues();
+	preInstall_Slideshow()
+})
 
 preInstall_Slideshow();
 change_slideShow();
@@ -45,18 +51,102 @@ window.addEventListener('scroll', () =>
 {
 	change_slideShow();
 })
+
+
+
 add_EventListenerIndicator();
 add_slideshowGrab();
 
 
+function getSlideShowValues() 
+{
+	slideShowContainer.style.top = `0px`;
+	MAX_TOP = parseInt(slideSectionstyles.getPropertyValue('height'));
+	MAX_DISTANCE = slideSection.offsetTop + MAX_TOP;
 
+	TOTAL_PX = MAX_TOP - slideShowContainer.offsetHeight;
+	TOP = 0;
 
+	currentScroll = 0;
+	pastScroll = 0;
 
+	currentWidth = slideShowContainer.offsetWidth;
+	NEEDED_WIDTH = MAX_WIDTH - currentWidth;
+	widthPerFrame = NEEDED_WIDTH / TOTAL_PX;
+
+	currentHeight = slideShowContainer.offsetHeight;
+	NEEDED_HEIGHT = MAX_HEIGHT - currentHeight;
+	heightPerFrame = NEEDED_HEIGHT / TOTAL_PX;
+
+	currentOpacity = 0.35;
+	opacityperFrame = currentOpacity / TOTAL_PX;
+
+	if(window.innerWidth > 1000)
+	{
+		scrollDivider = 3.5;
+	}
+	if(window.innerWidth < 1000 && window.innerWidth > 510)
+	{
+		scrollDivider = 1.5;
+	}
+	if(window.innerWidth < 510)
+	{
+		scrollDivider = 1;
+	}
+}
+
+function getMaxMin()
+{
+	if(window.innerWidth > 1000)
+	{
+		MAX_WIDTH = 880;
+		MAX_HEIGHT = 547;
+		currentWidth = 582;
+		currentHeight = 362;
+	}
+	if(window.innerWidth < 1000 && window.innerWidth > 750)
+	{
+		MAX_WIDTH = 676;
+		MAX_HEIGHT = 420;
+		currentWidth = 447;
+		currentHeight = 278;
+	}
+	if(window.innerWidth < 750 && window.innerWidth > 700)
+	{
+		MAX_WIDTH = 520;
+		MAX_HEIGHT = 323;
+		currentWidth = 343;
+		currentHeight = 213;
+	}
+	if(window.innerWidth < 700 && window.innerWidth > 600)
+	{
+		MAX_WIDTH = 423;
+		MAX_HEIGHT = 269;
+		currentWidth = 285;
+		currentHeight = 177;
+	}
+	if(window.innerWidth < 600 && window.innerWidth > 500)
+	{
+		MAX_WIDTH = 360;
+		MAX_HEIGHT = 224;
+		currentWidth = 237;
+		currentHeight = 147;
+	}
+	if(window.innerWidth < 500)
+	{
+		MAX_WIDTH = 300;
+		MAX_HEIGHT = 186;
+		currentWidth = 197;
+		currentHeight = 122;
+	}
+	slideShowContainer.style.width = `${currentWidth}px`;
+	slideShowContainer.style.height = `${currentHeight}px`;
+}
 
 function change_slideShow()
 {
 	let {scrollTop, scrollHeight} = document.documentElement;
-	scrollTop = scrollTop / 3.5;	
+	scrollTop = scrollTop / scrollDivider;	
 
 	if(scrollTop < MAX_DISTANCE)
 	{
@@ -207,21 +297,27 @@ function add_slideshowGrab()
         mouseUpped = false;
         firstMouse = 0;
         secondMouse = 0;
+        
+        try
+        {
+        	if(direction < 0)
+	        {
+	        	let currentRadio = get_checkedRadio()
+	        	currentRadio.previousElementSibling.checked = true;
+	        }
+	        if(direction > 0)
+	        {
+	        	let currentRadio = get_checkedRadio()
+	        	currentRadio.nextElementSibling.checked = true;
+	        }
+        }
+        catch
+        {
 
-        if(direction < 0)
-        {
-        	let currentRadio = get_checkedRadio()
-        	currentRadio.previousElementSibling.checked = true;
         }
-        if(direction > 0)
-        {
-        	let currentRadio = get_checkedRadio()
-        	currentRadio.nextElementSibling.checked = true;
-        }
+        
         indicatorMoveAnim();
       }
-      
-
     });
 }
 
@@ -332,7 +428,8 @@ function incrementNum()
 
 
 const stateAreasSection = document.querySelector('#text-areas-section');
-const allStatemets = document.querySelectorAll('.review');
+const allStatemets = document.querySelectorAll('.review:not(.static-review)');
+const generalReview = document.querySelector('.review:not(.static-review)');
 const reviewsDiv = document.querySelector('.reviews');
 const generalTextArea = document.querySelector('.text-area');
 const TextAreaStyles = getComputedStyle(generalTextArea);
@@ -348,9 +445,9 @@ let statement01TopEnd = allStatemets[1].offsetTop + statementsStart;
 let statement02TopEnd = allStatemets[2].offsetTop + statementsStart;
 let statementsStop = stateAreasSection.offsetHeight - allStatemets[2].offsetHeight + statementsStart - TextAreaMarginTop;
 
-let {scrollTop} = document.documentElement;
+let {scrollTop, scrollHeight} = document.documentElement;
 
-if(scrollTop > stateAreasSection.offsetTop + stateAreasSection.offsetHeight)
+if(scrollTop > stateAreasSection.offsetTop + stateAreasSection.offsetHeight - TextAreaMarginTop - generalReview.offsetHeight)
 {
 	allStatemets[0].classList.remove('current-review');
 	allStatemets[1].classList.remove('current-review');
@@ -363,61 +460,66 @@ if(scrollTop > stateAreasSection.offsetTop + stateAreasSection.offsetHeight)
 window.addEventListener('scroll', () =>
 {
 
-	let {scrollTop} = document.documentElement;
-
-	if(scrollTop >= statementsStart)
+	if(window.innerWidth > 1480)
 	{
-		
-		if(scrollTop < statement01TopEnd)
-		{
-			let scrolled = get_scrolled()
-			
-			currentStatementTop += scrolled;
+		let {scrollTop} = document.documentElement;
 
-			allStatemets[0].style.top = `${currentStatementTop}px`;
-		}
-
-		if(scrollTop >= statement01TopEnd && scrollTop <= statement02TopEnd)
-		{
-			allStatemets[0].classList.remove('current-review');
-			allStatemets[1].classList.add('current-review');
-		}
-		if(scrollTop <= statement01TopEnd)
-		{
-			allStatemets[1].classList.remove('current-review');
-			allStatemets[0].classList.add('current-review');
-		}
-
-		if(scrollTop > statement01TopEnd && scrollTop < statement02TopEnd)
+		if(scrollTop >= statementsStart)
 		{
 			
-			let scrolled = get_scrolled()
-			currentStatementTop += scrolled;
-			allStatemets[1].style.top = `${currentStatementTop}px`;
+			if(scrollTop < statement01TopEnd)
+			{
+				let scrolled = get_scrolled()
+				
+				currentStatementTop += scrolled;
+
+				allStatemets[0].style.top = `${currentStatementTop}px`;
+			}
+
+			if(scrollTop >= statement01TopEnd && scrollTop <= statement02TopEnd)
+			{
+				allStatemets[0].classList.remove('current-review');
+				allStatemets[1].classList.add('current-review');
+			}
+			if(scrollTop <= statement01TopEnd)
+			{
+				allStatemets[1].classList.remove('current-review');
+				allStatemets[0].classList.add('current-review');
+			}
+
+			if(scrollTop > statement01TopEnd && scrollTop < statement02TopEnd)
+			{
+				
+				let scrolled = get_scrolled()
+				currentStatementTop += scrolled;
+				allStatemets[1].style.top = `${currentStatementTop}px`;
+			}
+
+
+			if(scrollTop >= statement02TopEnd && scrollTop < statementsStop)
+			{
+				allStatemets[1].classList.remove('current-review');
+				allStatemets[2].classList.add('current-review');
+			}
+
+			if(scrollTop >= statement01TopEnd && scrollTop <= statement02TopEnd)
+			{
+				allStatemets[2].classList.remove('current-review');
+				allStatemets[1].classList.add('current-review');
+			}
+
+			if(scrollTop > statement02TopEnd && scrollTop < statementsStop)
+			{
+				
+				let scrolled = get_scrolled()
+				currentStatementTop += scrolled;
+				allStatemets[2].style.top = `${currentStatementTop}px`;
+			}
+
 		}
-
-
-		if(scrollTop >= statement02TopEnd && scrollTop < statementsStop)
-		{
-			allStatemets[1].classList.remove('current-review');
-			allStatemets[2].classList.add('current-review');
-		}
-
-		if(scrollTop >= statement01TopEnd && scrollTop <= statement02TopEnd)
-		{
-			allStatemets[2].classList.remove('current-review');
-			allStatemets[1].classList.add('current-review');
-		}
-
-		if(scrollTop > statement02TopEnd && scrollTop < statementsStop)
-		{
-			
-			let scrolled = get_scrolled()
-			currentStatementTop += scrolled;
-			allStatemets[2].style.top = `${currentStatementTop}px`;
-		}
-
 	}
+
+	
 
 })
 
@@ -444,11 +546,11 @@ function get_scrolled()
 // TROPHY ANIM
 
 let trophyTimes = 0;
-scrollTop = document.documentElement;
+let scrollTopTrophies = document.documentElement.scrollTop;
 const trophies = document.querySelectorAll('.trophy-icon');
 const trophySection = document.querySelector('#trophy-section');
 
-if(scrollTop  > trophySection.offsetTop)
+if(scrollTopTrophies  > trophySection.offsetTop)
 {
 	trophies.forEach(trophy =>
 	{

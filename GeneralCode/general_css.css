@@ -725,7 +725,7 @@ a
 	flex-direction: column;
 	margin-top: var(--bigM);
 	width: 100%;
-	padding: 0 calc(var(--leftM) * 3);
+	padding: 0 var(--leftM);
 }
 
 .header-div
@@ -874,7 +874,7 @@ a
 }
 .end-description
 {
-	width: 615px;
+	width: 32ch;
 	font-weight: 600;
 	font-size: var(--end-description);
 	line-height: var(--end-description-line-height);
@@ -1027,6 +1027,7 @@ a
 	font-size: 1.5rem;
 	text-decoration: underline;
 	cursor: pointer;
+	white-space: nowrap;
 }
 .link:hover
 {
@@ -1129,7 +1130,10 @@ a
 	{
 		font-size: var(--semi-description);
 	}
-	
+	.mini-description-div-start
+	{
+		padding-right: calc(var(--leftM) * 2.5);
+	}
 	.backup-div
 	{
 		display: none;
@@ -1171,7 +1175,7 @@ a
   	--end-description: 1.85rem;
 
   	--header: 3.5rem;
-  	--header-line-height: 5rem;
+  	--header-line-height: 4.5rem;
 		--description: 1.35rem;
 		--description-line-height: auto;
 	}
@@ -1207,7 +1211,7 @@ a
 		--semi-header: 2rem;
 		--welcome-description: 1.125rem;
 		--end-header: 4rem;
-		--header-line-height: 4.5rem;
+		--header-line-height: 4.25rem;
 		--header: 3.25rem;
 		--description: 1.15rem;
 
@@ -1219,15 +1223,11 @@ a
 	}
 	.text-area
 	{
-		width: calc(100%-var(--leftM));
+		width: 100%;
 	}
 	.header-div
 	{
 		width: 100%;
-	}
-	.description-div
-	{
-		width: 455px;
 	}
 	.button,.outline-button
 	{
@@ -1240,6 +1240,22 @@ a
 	}
 	
 }
+@media(max-width: 600px)
+{
+	.mini-description-div-start
+	{
+		padding-right: calc(var(--leftM) * 1.5);
+	}
+	.link
+	{
+		font-size: 1.25rem;
+	}
+	.link-icon
+	{
+		width: 1rem;
+		height: 1rem;
+	}
+}
 @media(max-width: 575px)
 {
 	:root
@@ -1250,12 +1266,9 @@ a
 		--end-header: 3.75rem;
   	--end-description: 1.50rem;
 		--header: 3rem;
+		--header-line-height: 4rem;
 		--hugeM: 8rem; 
 		
-	}
-	.end-description
-	{
-		width: 415px;
 	}
 	.button,.outline-button
 	{
@@ -1277,11 +1290,24 @@ a
   	--bigM: 5rem;
   	--mediumM: 2.5rem;
 
-  	--header-line-height: 4rem;
+  	--header-line-height: 3.5rem;
   	--header: 2.5rem;
   	--description: 1rem;
 
   	--welcomeM: 25rem;
+	}
+	.mini-description-div-start
+	{
+		padding-right: 0;
+	}
+	.link
+	{
+		font-size: 1rem;
+	}
+	.link-icon
+	{
+		width: 0.75rem;
+		height: 0.75rem;
 	}
 	.mini-header-text-area
 	{
@@ -1349,11 +1375,13 @@ a
   	--end-description: 1rem;
   	--end-header-line-height: auto;
 
-  	--header-line-height: 3.5rem;
+  	--header-line-height: 3.25rem;
 
   	--header: 2.25rem;
-  	--description: 0.9rem;
-
+	}
+	.link
+	{
+		font-size: 0.85rem;
 	}
 	#first-mini
 	{
@@ -1366,11 +1394,6 @@ a
 	.end-section-start-text-div
 	{
 		gap: 1rem;
-	}
-
-	.end-description
-	{
-		width: 315px;
 	}
 	.button,.outline-button, 
 	{
@@ -1401,7 +1424,7 @@ a
   	--leftM: 2.5rem;
 
   	--header: 2rem;
-  	--description: 0.73rem;
+  	--header-line-height: 3rem;
 	}
 	.text-area
 	{
@@ -1419,6 +1442,10 @@ a
 	{
 		padding: 0px 32px;
 	}
+	.padding-description-div
+	{
+		padding-right: 0;
+	}
 
 }
 
@@ -1426,7 +1453,7 @@ a
 {
 	:root
 	{
-		--header-line-height: 3.25rem;
+		--header-line-height: 2.85rem;
   	--header: 1.85rem;
 	}
 	
