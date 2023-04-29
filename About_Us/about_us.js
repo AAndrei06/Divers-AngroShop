@@ -9,7 +9,6 @@ const generalIndicator = document.querySelector('.slideshow-indicator');
 const allIndicators = document.querySelectorAll('.slideshow-indicator');
 const slideshowRadios = document.querySelectorAll('.slideshow-radio');
 
-	
 const slideSectionstyles = window.getComputedStyle(slideSection);
 let MAX_TOP = parseInt(slideSectionstyles.getPropertyValue('height'));
 let MAX_DISTANCE = slideSection.offsetTop + MAX_TOP;
@@ -20,22 +19,29 @@ let currentScroll = 0;
 let pastScroll = 0;
 
 let MAX_WIDTH = 880;
-let currentWidth = slideShowContainer.offsetWidth;
+let currentWidth = 582;
 let NEEDED_WIDTH = MAX_WIDTH - currentWidth;
 let widthPerFrame = NEEDED_WIDTH / TOTAL_PX;
 
 let MAX_HEIGHT = 547;
-let currentHeight = slideShowContainer.offsetHeight;
+let currentHeight = 362;
 let NEEDED_HEIGHT = MAX_HEIGHT - currentHeight;
 let heightPerFrame = NEEDED_HEIGHT / TOTAL_PX;
 
 const MAX_OPACITY = 0;
 let currentOpacity = 0.35;
 let opacityperFrame = currentOpacity / TOTAL_PX;
+let scrollDivider = 3.5;
 
+getMaxMin();
+getSlideShowValues();
 
-
-
+window.addEventListener('resize', () =>
+{
+	getMaxMin();
+	getSlideShowValues();
+	preInstall_Slideshow()
+})
 
 preInstall_Slideshow();
 change_slideShow();
@@ -45,18 +51,102 @@ window.addEventListener('scroll', () =>
 {
 	change_slideShow();
 })
+
+
+
 add_EventListenerIndicator();
 add_slideshowGrab();
 
 
+function getSlideShowValues() 
+{
+	slideShowContainer.style.top = `0px`;
+	MAX_TOP = parseInt(slideSectionstyles.getPropertyValue('height'));
+	MAX_DISTANCE = slideSection.offsetTop + MAX_TOP;
 
+	TOTAL_PX = MAX_TOP - slideShowContainer.offsetHeight;
+	TOP = 0;
 
+	currentScroll = 0;
+	pastScroll = 0;
 
+	currentWidth = slideShowContainer.offsetWidth;
+	NEEDED_WIDTH = MAX_WIDTH - currentWidth;
+	widthPerFrame = NEEDED_WIDTH / TOTAL_PX;
+
+	currentHeight = slideShowContainer.offsetHeight;
+	NEEDED_HEIGHT = MAX_HEIGHT - currentHeight;
+	heightPerFrame = NEEDED_HEIGHT / TOTAL_PX;
+
+	currentOpacity = 0.35;
+	opacityperFrame = currentOpacity / TOTAL_PX;
+
+	if(window.innerWidth > 1000)
+	{
+		scrollDivider = 3.5;
+	}
+	if(window.innerWidth < 1000 && window.innerWidth > 510)
+	{
+		scrollDivider = 1.5;
+	}
+	if(window.innerWidth < 510)
+	{
+		scrollDivider = 1;
+	}
+}
+
+function getMaxMin()
+{
+	if(window.innerWidth > 1000)
+	{
+		MAX_WIDTH = 880;
+		MAX_HEIGHT = 547;
+		currentWidth = 582;
+		currentHeight = 362;
+	}
+	if(window.innerWidth < 1000 && window.innerWidth > 750)
+	{
+		MAX_WIDTH = 676;
+		MAX_HEIGHT = 420;
+		currentWidth = 447;
+		currentHeight = 278;
+	}
+	if(window.innerWidth < 750 && window.innerWidth > 700)
+	{
+		MAX_WIDTH = 520;
+		MAX_HEIGHT = 323;
+		currentWidth = 343;
+		currentHeight = 213;
+	}
+	if(window.innerWidth < 700 && window.innerWidth > 600)
+	{
+		MAX_WIDTH = 423;
+		MAX_HEIGHT = 269;
+		currentWidth = 285;
+		currentHeight = 177;
+	}
+	if(window.innerWidth < 600 && window.innerWidth > 500)
+	{
+		MAX_WIDTH = 360;
+		MAX_HEIGHT = 224;
+		currentWidth = 237;
+		currentHeight = 147;
+	}
+	if(window.innerWidth < 500)
+	{
+		MAX_WIDTH = 300;
+		MAX_HEIGHT = 186;
+		currentWidth = 197;
+		currentHeight = 122;
+	}
+	slideShowContainer.style.width = `${currentWidth}px`;
+	slideShowContainer.style.height = `${currentHeight}px`;
+}
 
 function change_slideShow()
 {
 	let {scrollTop, scrollHeight} = document.documentElement;
-	scrollTop = scrollTop / 3.5;	
+	scrollTop = scrollTop / scrollDivider;	
 
 	if(scrollTop < MAX_DISTANCE)
 	{
