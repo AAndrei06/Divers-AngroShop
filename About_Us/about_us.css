@@ -397,18 +397,22 @@ input[name='r']
 	transition: all 0s;
 	opacity: 1;
 }
-.review:nth-child(1)
+#first-review
 {
 	top: 0;
 }
-.review:nth-child(2)
+#second-review
 {
 	top: calc(var(--bigM) + 13rem);
 }
-.review:nth-child(3)
+#third-review
 {
 	top: calc(var(--bigM) + 37rem);
 }
+
+
+
+
 .current-review
 {
 	opacity: 1;
