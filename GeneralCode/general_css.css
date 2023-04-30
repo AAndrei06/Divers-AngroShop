@@ -725,7 +725,6 @@ a
 }
 .header-div
 {
-	
 }
 .header
 {
@@ -746,10 +745,6 @@ a
 .paddding-center-description-div
 {
 	padding: 0 calc(var(--leftM) / 2);
-}
-.description-div
-{
-	
 }
 .description
 {
@@ -992,6 +987,10 @@ a
 {
 	text-align: start !important;
 }
+.mini-description-div-centered
+{
+	width: initial !important;
+}
 .mini-description-div
 {
 	width: 100%;
@@ -1005,7 +1004,10 @@ a
 	line-height: var(--description-line-height);
 	text-align: center;
 }
-
+.more-ch
+{
+	width: 50ch;
+}
 
 /*LINK*/
 
@@ -1198,10 +1200,6 @@ a
 	{
 		gap: 1rem;
 	}
-	.text-area
-	{
-		width: 100%;
-	}
 	.button,.outline-button
 	{
 		height: 2.75rem;
@@ -1210,6 +1208,22 @@ a
 	.welcome-div
 	{
 		gap: 2rem;
+	}
+	.header-div
+	{
+		width: 100%;
+	}
+	.header
+	{
+		width: 100%;
+	}
+	.description-div
+	{
+		width: 100%;
+	}
+	.description
+	{
+		width: 100%;
 	}
 	
 }
@@ -1264,6 +1278,10 @@ a
   	--description: 1rem;
 
   	--welcomeM: 25rem;
+	}
+	.text-area
+	{
+		padding: 0;
 	}
 	.link
 	{
@@ -1404,6 +1422,10 @@ a
 	{
 		--header-line-height: 2.85rem;
   	--header: 1.85rem;
+	}
+	.description
+	{
+		width: 100%;
 	}
 	
 }

@@ -587,4 +587,18 @@ trophies.forEach(trophy =>
 })
 
 
+// STATEMENT SHORT
 
+const ownerRole = document.querySelector("#owner-role");
+
+if(window.innerWidth < 350)
+{
+	ownerRole.innerHTML = "PROPRIETARUL"
+}
+window.addEventListener('resize', () =>
+{
+	if(window.innerWidth < 350)
+	{
+		ownerRole.innerHTML = "PROPRIETARUL";
+	}
+})
