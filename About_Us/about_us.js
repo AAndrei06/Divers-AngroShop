@@ -520,6 +520,8 @@ window.addEventListener('scroll', () =>
 		}
 		else
 		{
+			// allStatemets[1].classList.remove('current-review');
+			// allStatemets[2].classList.remove('current-review');
 			allStatemets[0].style.top = `0px`;
 			allStatemets[0].classList.add('current-review');
 		}

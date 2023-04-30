@@ -144,7 +144,7 @@ html
 	padding: 0;
 	box-sizing: border-box;
 	margin: 0;
-	font-family: Poppins;
+	font-family: Poppins, Roboto;
 	user-select: none;
 }
 ::-webkit-scrollbar{
@@ -585,10 +585,6 @@ a
 	color: var(--fourthGreen);
 	font-family: Dangrek;
 }
-/*.welcome-description-div
-{
-	max-width: 100%;
-}*/
 .welcome-description
 {
 	color: white;
@@ -727,13 +723,13 @@ a
 	width: 100%;
 	padding: 0 var(--leftM);
 }
-
 .header-div
 {
-	width: 755px;
+	
 }
 .header
 {
+	width: 17ch;
 	font-family: Dangrek;
 	font-size: var(--header);
 	line-height: var(--header-line-height);
@@ -753,10 +749,11 @@ a
 }
 .description-div
 {
-	width: 755px;
+	
 }
 .description
 {
+	width: 30ch;
 	font-size: var(--description);
 	font-weight: 500;
 	line-height: var(--description-line-height);
@@ -994,7 +991,6 @@ a
 .mini-description-div-start
 {
 	text-align: start !important;
-	padding-right: calc(var(--leftM) * 5);
 }
 .mini-description-div
 {
@@ -1002,6 +998,7 @@ a
 }
 .mini-description
 {
+	width: 36ch;
 	color: var(--white);
 	font-weight: 500;
 	font-size: var(--description);
@@ -1066,10 +1063,6 @@ a
 		--leftM: 3.5rem;
 
 	}
-	.description-div
-	{
-		width: 670px;
-	}
 
 }
 @media(max-width: 1000px)
@@ -1117,10 +1110,6 @@ a
 	{
 		margin-top: calc(var(--welcomeM) - 10rem);
 	}
-	.description-div
-	{
-		width: 590px;
-	}
 	.button,.outline-button
 	{
 		height: 3.25rem;
@@ -1129,10 +1118,6 @@ a
 	.button-text, .outline-button-text
 	{
 		font-size: var(--semi-description);
-	}
-	.mini-description-div-start
-	{
-		padding-right: calc(var(--leftM) * 2.5);
 	}
 	.backup-div
 	{
@@ -1179,14 +1164,6 @@ a
 		--description: 1.35rem;
 		--description-line-height: auto;
 	}
-	.description-div
-	{
-		width: 515px;
-	}
-	.header-div
-	{
-		width: 555px;
-	}
 	.button,.outline-button
 	{
 		height: 3rem;
@@ -1225,10 +1202,6 @@ a
 	{
 		width: 100%;
 	}
-	.header-div
-	{
-		width: 100%;
-	}
 	.button,.outline-button
 	{
 		height: 2.75rem;
@@ -1242,10 +1215,6 @@ a
 }
 @media(max-width: 600px)
 {
-	.mini-description-div-start
-	{
-		padding-right: calc(var(--leftM) * 1.5);
-	}
 	.link
 	{
 		font-size: 1.25rem;
@@ -1296,10 +1265,6 @@ a
 
   	--welcomeM: 25rem;
 	}
-	.mini-description-div-start
-	{
-		padding-right: 0;
-	}
 	.link
 	{
 		font-size: 1rem;
@@ -1312,14 +1277,6 @@ a
 	.mini-header-text-area
 	{
 		gap: 0;
-	}
-	.header-div
-	{
-		width: 100%;
-	}
-	.description-div
-	{
-		width: 385px;
 	}
 	.section-break
 	{
@@ -1379,6 +1336,10 @@ a
 
   	--header: 2.25rem;
 	}
+	.mini-description
+	{
+		width: 100%;
+	}
 	.link
 	{
 		font-size: 0.85rem;
@@ -1386,10 +1347,6 @@ a
 	#first-mini
 	{
 		margin-top: calc(var(--welcomeM) - 15rem);
-	}
-	.description-div
-	{
-		width: 355px;
 	}
 	.end-section-start-text-div
 	{
@@ -1429,14 +1386,6 @@ a
 	.text-area
 	{
 		gap: 2rem;
-	}
-	.header-div
-	{
-		width: 100%;
-	}
-	.description-div
-	{
-		width: 100%;
 	}
 	.phone-nav-links
 	{
