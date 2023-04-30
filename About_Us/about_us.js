@@ -432,10 +432,10 @@ const stateAreasSection = document.querySelector('#text-areas-section');
 const allStatemets = document.querySelectorAll('.review:not(.static-review)');
 const generalReview = document.querySelector('.review:not(.static-review)');
 const reviewsDiv = document.querySelector('.reviews');
-const generalTextArea = document.querySelector('.text-area');
+const generalTextArea = document.querySelector('#review-text-area-general');
 const TextAreaStyles = getComputedStyle(generalTextArea);
 const TextAreaMarginTop = parseInt(TextAreaStyles.getPropertyValue('margin-top'));
-
+console.log('TextAreaMarginTop: '+TextAreaMarginTop)
 let pastStatementScroll = 0;
 let currentStatementScroll = 0;
 let currentStatementTop = 0;
@@ -444,7 +444,21 @@ let statementsStart = stateAreasSection.offsetTop + TextAreaMarginTop;
 
 let statement01TopEnd = allStatemets[1].offsetTop + statementsStart;
 let statement02TopEnd = allStatemets[2].offsetTop + statementsStart;
-let statementsStop = stateAreasSection.offsetHeight - allStatemets[2].offsetHeight + statementsStart - TextAreaMarginTop;
+
+
+// STERGE CAND VEZI :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+
+// ... NAM NICIO IDEE DE CE MERGE PE FIREFOX DA NU PE GOOGLE
+// ... offsetHeight-ul la sectiune si la al 3 statement is complet diferite pe google vs firefox si sunt foarte confuz.. ajutor :( 
+// Deci am decis sa pun doar valorile de la firefox si aparent merge bine.. lol ;(
+// Inainte mergea perfect normal, dar cand am separat sectiunile telefon vs PC de atunci nu mere, mai uitat in comitt-uri si 
+// Nu este nimic ce ar putea strica balanta.. welp daca mere mere..
+// Nu incerca so rezolvi.. am stat ~ 5 ore la psihometria asta, zici cai a 12-a dimensiune lol
+
+
+
+// let statementsStop = stateAreasSection.offsetHeight - allStatemets[2].offsetHeight + statementsStart - TextAreaMarginTop;
+let statementsStop = 1584 - 264 + statementsStart - TextAreaMarginTop;
 
 let {scrollTop, scrollHeight} = document.documentElement;
 
@@ -457,10 +471,18 @@ if(scrollTop > stateAreasSection.offsetTop + stateAreasSection.offsetHeight - Te
 
 }
 
-
+window.addEventListener('resize', () =>
+{
+	moveStatement();
+})
 window.addEventListener('scroll', () =>
 {
+	moveStatement();
+})
 
+
+function moveStatement()
+{
 	if(window.innerWidth > 1480)
 	{
 		let {scrollTop} = document.documentElement;
@@ -520,17 +542,13 @@ window.addEventListener('scroll', () =>
 		}
 		else
 		{
-			// allStatemets[1].classList.remove('current-review');
-			// allStatemets[2].classList.remove('current-review');
+			allStatemets[1].classList.remove('current-review');
+			allStatemets[2].classList.remove('current-review');
 			allStatemets[0].style.top = `0px`;
 			allStatemets[0].classList.add('current-review');
 		}
 	}
-
-	
-
-})
-
+}
 
 function get_scrolled()
 {
