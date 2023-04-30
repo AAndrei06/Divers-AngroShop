@@ -163,6 +163,7 @@ function change_slideShow()
 		if(TOP >= TOTAL_PX)
 		{
 			slideShowContainer.style.top = `${TOTAL_PX}px`;
+			currentOpacity = 0;
 		}
 
 		if(TOP >= 0 && TOP < TOTAL_PX)
@@ -517,6 +518,13 @@ window.addEventListener('scroll', () =>
 			}
 
 		}
+		else
+		{
+			// allStatemets[1].classList.remove('current-review');
+			// allStatemets[2].classList.remove('current-review');
+			allStatemets[0].style.top = `0px`;
+			allStatemets[0].classList.add('current-review');
+		}
 	}
 
 	
@@ -579,4 +587,18 @@ trophies.forEach(trophy =>
 })
 
 
+// STATEMENT SHORT
 
+const ownerRole = document.querySelector("#owner-role");
+
+if(window.innerWidth < 350)
+{
+	ownerRole.innerHTML = "PROPRIETARUL"
+}
+window.addEventListener('resize', () =>
+{
+	if(window.innerWidth < 350)
+	{
+		ownerRole.innerHTML = "PROPRIETARUL";
+	}
+})
