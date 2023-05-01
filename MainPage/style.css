@@ -529,100 +529,57 @@
 
 /*POPUP DISCLAIMER*/
 
+.hide-disclaimer-div
+{
+	display: none;
+}
 .disclaimer-div
 {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	background-color: var(--thirdDark);
-	width: 40rem;
-	height: 30rem;
-	padding: 3.5rem 3rem;
-	border-radius: 64px;
+	width: 100%;
+	height: auto;
 	z-index: 11;
-	box-shadow: 0px 136px 54px rgba(23, 29, 22, 0.01), 0px 76px 46px rgba(23, 29, 22, 0.05), 0px 34px 34px rgba(23, 29, 22, 0.09), 0px 8px 19px rgba(23, 29, 22, 0.1), 0px 0px 0px rgba(23, 29, 22, 0.1);
-	animation: disclaimer-appear-anim 0.15s forwards;
+	position: relative;
 }
 .disclaimer-content
 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1.5rem;
 }
 .disclaimer
 {
+	font-size: 0.9375rem;
+	padding: 0.80rem 0.5rem;
 	color: var(--white);
-	font-size: 1.375rem;
-	font-weight: 600;
-	text-align: center;
-}
-.disclaimer-icon
-{
-	width: 6rem;
-	height: 6rem;
-	fill: var(--fourthGreen);
-}
-@keyframes disclaimer-appear-anim
-{
-	from
-	{
-		filter: blur(1px);
-		transform: translate(-50%, -65%);
-	}
-	to
-	{
-		filter: blur(0);
-		transform: translate(-50%, -50%);
-	}
-}
-@keyframes disclaimer-dissapear-anim
-{
-	from
-	{
-		display: initial;
-	}
-	to
-	{
-		filter: blur(1px);
-		transform: translate(-50%, -65%);
-		display: none;
-	}
-}
-.disclaimer-dissapear
-{
-	display: none;
-	animation: disclaimer-dissapear-anim 0.15s forwards;
 }
 .disclaimer-button
 {
-	cursor: pointer;
-	font-weight: 600;
-	color: var(--thirdDark);
-	text-align: center;
 	display: flex;
 	align-content: center;
-	font-size: 1.25rem;
 	justify-content: center;
-	padding: 0.5rem 3rem;
-	background-color: var(--fourthGreen);
-	border-radius: 8px;
-	border: none;
-}
-.overlay
-{
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+	width: auto;
 	height: 100%;
-	background-color: rgba(30, 39, 29, 0.7);
-	z-index: 10;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0  2rem;
 }
+.disclaimer-icon
+{
+	width: 0.75rem;
+	height: 0.75rem;
+	fill: var(--white);
+	opacity: 0.75;
+	transition: all 0.25s ease-in-out;
+}
+.disclaimer-button:hover .disclaimer-icon
+{
+	opacity: 1;
+}
+
 @media(max-width: 1150px)
 {
 	:root
@@ -904,11 +861,6 @@
 	{
 		scroll-snap-align: start;
 	}
-
-
-
-
-
 	.product-header-div 
 	{
 		gap: 1rem;

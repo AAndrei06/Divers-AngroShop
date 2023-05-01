@@ -447,7 +447,7 @@ a
 	height: 1.75rem;
 	fill: var(--fourthGreen);
 }
-.tablet-nav-language-switch
+/*.tablet-nav-language-switch
 {
 	cursor: pointer;
 	display: flex;
@@ -473,7 +473,7 @@ a
 	height: 1rem;
 	fill: var(--fourthGreen);
 	transition: transform 0.15s;
-}
+}*/
 .tablet-overlay
 {
 	display: none;
@@ -928,33 +928,6 @@ a
 	height: var(--end-icons);
 	fill: var(--white);
 }
-.language-div
-{
-	position: relative;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.25rem;
-}
-.language-div:hover .language-icon
-{
-	transform: rotate(-90deg);
-}
-.language-text
-{
-	cursor: pointer;
-	font-weight: 600;
-	font-size: 1.25rem;
-	color: var(--white);
-}
-.language-icon
-{
-	fill: var(--white);
-	width: 12px;
-	height: 12px;
-	transition: transform 0.15s;
-}
 
 /*MINI HEADER / MINI DESCRIPTION*/
 #first-mini
@@ -1137,12 +1110,17 @@ a
 		display: initial;
 		pointer-events: initial;
 	}
-	.nav-bar
+	header
 	{
+		width: 100%;
 		top: 0;
 		left: 0;
 		position: fixed;
 		z-index: 7;
+		
+	}
+	.nav-bar
+	{
 		box-shadow: 0px 41px 16px rgba(23, 29, 22, 0.01), 0px 23px 14px rgba(23, 29, 22, 0.05), 0px 10px 10px rgba(23, 29, 22, 0.09), 0px 3px 6px rgba(23, 29, 22, 0.1), 0px 0px 0px rgba(23, 29, 22, 0.1);
 	}
 	.nav-links
@@ -1384,10 +1362,6 @@ a
 		width: 0.75rem;
 		height: 0.75rem;
 		right: 1.5rem;
-	}
-	.language-text
-	{
-		font-size: 1rem;
 	}
 
 }
