@@ -294,7 +294,7 @@
 	justify-content: flex-start;
 	overflow-x: auto;
 	z-index: 3;
-	scroll-behavior: smooth;
+/*	transition: all 0.25s;*/
 }
 .carousel-slide
 {
@@ -636,15 +636,11 @@
 	.category-scrollable-space
 	{
 		margin-left: var(--leftM);
-		scroll-snap-type: x mandatory;
+		scroll-snap-type: x proximity;
 	}
 	.category-link
 	{
 		scroll-snap-align: start;
-	}
-	.category-examples
-	{
-		display: none;
 	}
 	.category-text-flex
 	{
@@ -900,6 +896,18 @@
 		--categoryWidth: 9.5rem;
 		--categoryHeight: 8.5rem;
 	}
+/*	.carousel-sliders
+	{
+		scroll-snap-type: x mandatory;
+	}
+	.carousel-slide
+	{
+		scroll-snap-align: start;
+	}*/
+
+
+
+
 
 	.product-header-div 
 	{
