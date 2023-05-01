@@ -1428,27 +1428,24 @@ const overlay = document.querySelector('.overlay');
 const disclaimerDiv = document.querySelector('.disclaimer-div');
 const disclaimerButton = document.querySelector('.disclaimer-button');
 
-let userEntries = localStorage.getItem('userEntries');
-let pressedYet = localStorage.getItem('pressedYet');
+let userEntries = localStorage.getItem('userEntries')
+let pressedYet = localStorage.getItem('pressedYet')
 
-if(!pressedYet)
-{
-  localStorage.setItem('pressedYet', 'false');
-}
 
-if (!userEntries) {
-  localStorage.setItem('userEntries', '0');
-}
+userEntries = (userEntries || !isNaN(userEntries)) ? userEntries : 0;
+pressedYet = (pressedYet || !isNaN(pressedYet)) ? pressedYet : 'false';
 
 if(pressedYet == 'false')
 {
   userEntries = 0;
 }
 
-if(userEntries > 15)
+if(userEntries >= 15 && pressedYet == 'true')
 {
   userEntries = 0;
   pressedYet = 'false';
+  localStorage.setItem('pressedYet', pressedYet);
+
 }
 
 userEntries = parseInt(userEntries);
@@ -1471,15 +1468,9 @@ disclaimerButton.addEventListener('click', () =>
   }, 100);
 
   pressedYet = 'true';
+  localStorage.setItem('pressedYet', pressedYet);
 
-})
+});
 
 userEntries += 1;
-
 localStorage.setItem('userEntries', userEntries);
-localStorage.setItem('pressedYet', pressedYet);
-
-setTimeout(() =>
-{
-  localStorage.setItem('pressedYet', pressedYet);
-}, 5000);
