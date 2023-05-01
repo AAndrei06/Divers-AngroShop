@@ -253,9 +253,26 @@ for(let i = 0; i < allExamples.length; i++)
   shuffle_examples(i);
 }
 
-unShowAllExamples()
-assign_showExample()
-get_examplesGap()
+unShowAllExamples();
+assign_showExample();
+
+
+window.addEventListener('resize', () =>
+{
+  if(window.innerWidth > 1150)
+  {
+
+    unShowAllExamples();
+    assign_showExample();
+
+  }
+  else
+  {
+    unShowAllExamples();
+  }
+ 
+  
+})
 
 function get_exampleDivWidth()
 {
@@ -363,16 +380,6 @@ class Carousel
     this.totalActiveIndicators = 0;
 
   }
-
-  // SPECIFIC
-
-
-  slideShow_fix()
-  {
-    this.totalShownSlides = 1;
-  }
-
-
 
   // MULTIPLE
   responsive_fix()
@@ -659,6 +666,7 @@ class Carousel
           this.currentIndicator = 3;
         }
       }
+      this.apply_inactive_Arrow();
       this.set_indicatorAnim();
     }
     

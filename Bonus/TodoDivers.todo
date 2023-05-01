@@ -1,9 +1,16 @@
 Fiecare Problema la Divers Angro Shop:
-  ☐ La produse, nu este deloc varietate intre carusele
+  ☐ La produse, nu este deloc varietate intre carusele si este cam gol
+  ☐ La produse, pozele zici cas facute de copii de 5 ani
+  ☐ La produse, prea putine exemple in sine
+  ☐ La Stiri, cam plictisitor, putina varietatea, nu prea merita sa fie o pagina principala
+  ☐ La fiecare welcome section textu e prea mic
+  ☐ Multe features dispar pe telefon(astai cam greu de rezolvat)
+  ☐ La About us e putin content(dar nici nu aveam ce sa punem - magazin mic local :( )
   ☐ Uitete in spate ~~ hihi ;)
 
 Idei:
   ☐ Categorie cu produsele noi sau ceva nou in general
+  ☐ Fa exemplele functionale 
 
 Animatie Idei:
 
@@ -20,16 +27,17 @@ Lucruri de Facut:
 
   La General:
     ☐ Limbi(schimb de limbi, font la limba rusa)
-    ☐ Backup Button sa fie responsive
+    ☐ Disclaimer mistery
 
   La Produse:
-    ☐ Exemplele nu merg daca flexu dispare si reapare
-    ☐ ||| Fa exemplele functionale
-
+    ☐ Scroll Proximity la carusele
+    
   La About Us:
 
     ☐ ||| Random sa aleaga review
-    ☐ Review responsive 
+    ☐ Contacte-azane responsive la program
+    ☐ border la static statement-uri
+    ☐ Text responsive la text area mai tarziu
 
   La Contact Us:
     ☐ ||| Pe Desktop iconitele de la formular cand apesi pe un input iconita sa vina in jos
