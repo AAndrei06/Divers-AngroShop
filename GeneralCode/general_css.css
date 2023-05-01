@@ -164,6 +164,10 @@ a, button {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
+a, button, label, div {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
 img
 {
 	pointer-events: none;
@@ -1108,6 +1112,10 @@ a
 	{
 		scroll-margin-top: 96px;
 	}
+	a:active, button:active, label:active
+	{
+		opacity: 0.8;
+	}
 	#first-mini
 	{
 		margin-top: calc(var(--welcomeM) - 10rem);
@@ -1279,10 +1287,7 @@ a
 
   	--welcomeM: 25rem;
 	}
-	.text-area
-	{
-		padding: 0;
-	}
+	
 	.link
 	{
 		font-size: 1rem;
@@ -1294,7 +1299,7 @@ a
 	}
 	.mini-header-text-area
 	{
-		gap: 0;
+		gap: 0.75rem;
 	}
 	.section-break
 	{
@@ -1343,7 +1348,7 @@ a
 	{
 		--welcome-header: 1.5rem;
 		--welcome-description: 0.75rem;
-		--semi-header: 1.25rem;
+/*		--semi-header: 1.45rem;*/
 		--copyright: 1.25rem;
   	--end-icons: 1.75rem;
   	--end-header: 3.25rem;
@@ -1400,6 +1405,11 @@ a
 
   	--header: 2rem;
   	--header-line-height: 3rem;
+	}
+	
+	.mini-header
+	{
+		line-height: 2.5rem;
 	}
 	.text-area
 	{
