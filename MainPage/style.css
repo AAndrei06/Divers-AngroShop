@@ -294,7 +294,7 @@
 	justify-content: flex-start;
 	overflow-x: auto;
 	z-index: 3;
-/*	transition: all 0.25s;*/
+	scroll-behavior: smooth;
 }
 .carousel-slide
 {
@@ -896,14 +896,14 @@
 		--categoryWidth: 9.5rem;
 		--categoryHeight: 8.5rem;
 	}
-/*	.carousel-sliders
+	.carousel-sliders
 	{
 		scroll-snap-type: x mandatory;
 	}
 	.carousel-slide
 	{
 		scroll-snap-align: start;
-	}*/
+	}
 
 
 

@@ -619,4 +619,29 @@ window.addEventListener('resize', () =>
 	{
 		ownerRole.innerHTML = "PROPRIETARUL";
 	}
+	else
+	{
+		ownerRole.innerHTML = "PROPRIETARUL MAGAZINULUI";
+	}
+})
+
+// LINK SHORT
+
+const linkText = document.querySelector('.link');
+
+if(window.innerWidth < 400)
+{
+	linkText.innerHTML = "Contacteazăne-ne";
+}
+
+window.addEventListener('resize', () =>
+{
+	if(window.innerWidth < 400)
+	{
+		linkText.innerHTML = "Contacteazăne-ne";
+	}
+	else
+	{
+		linkText.innerHTML = "Contacteazăne-ne pentru alte detalii";
+	}
 })
