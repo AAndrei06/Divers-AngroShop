@@ -382,8 +382,8 @@ textarea {
 	border-style: none none solid none;
 	border-width: 1px;
 	border-color: var(--fourthDark);
-	cursor: pointer;
 	padding: 24px 0 24px 0;
+	cursor: pointer;
 }
 .faq-question
 {

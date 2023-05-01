@@ -1036,15 +1036,12 @@ a
 {
 	text-decoration: none;
 }
-.link:hover .link-icon
-{
-	transform: translateX(-50%);
-}
 .link-icon
 {
 	width: 1.5rem;
 	height: 1.5rem;
 	fill: var(--fourthGreen);
+	transition: all 0.25s;
 }
 
 
@@ -1217,6 +1214,20 @@ a
 	{
 		gap: 2rem;
 	}
+	
+	
+}
+@media(max-width: 600px)
+{
+	.link
+	{
+		font-size: 1.25rem;
+	}
+	.link-icon
+	{
+		width: 1rem;
+		height: 1rem;
+	}
 	.header-div
 	{
 		width: 100%;
@@ -1232,19 +1243,6 @@ a
 	.description
 	{
 		width: 100%;
-	}
-	
-}
-@media(max-width: 600px)
-{
-	.link
-	{
-		font-size: 1.25rem;
-	}
-	.link-icon
-	{
-		width: 1rem;
-		height: 1rem;
 	}
 }
 @media(max-width: 575px)
@@ -1348,7 +1346,6 @@ a
 	{
 		--welcome-header: 1.5rem;
 		--welcome-description: 0.75rem;
-/*		--semi-header: 1.45rem;*/
 		--copyright: 1.25rem;
   	--end-icons: 1.75rem;
   	--end-header: 3.25rem;

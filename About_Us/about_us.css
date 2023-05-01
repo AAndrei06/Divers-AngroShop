@@ -408,10 +408,6 @@ input[name='r']
 {
 	top: calc(var(--bigM) + 37rem);
 }
-
-
-
-
 .current-review
 {
 	opacity: 1;
@@ -486,6 +482,13 @@ input[name='r']
 {
 	display: none;
 }
+
+#program-a:hover .link-icon
+{
+	transform: translateX(15%);
+}
+
+
 @media(max-width: 1480px)
 {
 	.reviews
@@ -569,6 +572,13 @@ input[name='r']
 }
 @media(max-width: 650px)
 {
+	.trophy-description
+	{
+		font-size: 1.25rem;
+	}
+}
+@media(max-width: 600px)
+{
 	.static-review
 	{
 		width: 100%;
@@ -583,13 +593,6 @@ input[name='r']
 		width: 100%;
 		font-size: 1.15rem;
 	}
-	.trophy-description
-	{
-		font-size: 1.25rem;
-	}
-}
-@media(max-width: 600px)
-{
 	.program-wrapper
 	{
 		padding: 56px 0;
@@ -675,13 +678,6 @@ input[name='r']
 	}
 
 	
-}
-@media(max-width: 400px)
-{
-	#link-icon
-	{
-		display: none;
-	}
 }
 @media(max-width: 350px)
 {
