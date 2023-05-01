@@ -108,29 +108,9 @@ const backUpbuttonObserver = new IntersectionObserver((entries) =>
 
 backUpbuttonObserver.observe(endSection);
 
-
-
-
-
-// Language Switch
-
-let languageText = document.querySelector('.language-text');
-let languageDiv = document.querySelector('.language-div');
-
-languageDiv.addEventListener('mouseenter', () =>
-{
-	languageText.innerHTML = 'Русский';
-})
-languageDiv.addEventListener('mouseleave', () =>
-{
-	languageText.innerHTML = 'Română';
-	
-})
-
 // Tablet Haburger Menu
 
 const hamburgerMenuDiv = document.querySelector('.hamburger-menu-div');
-// const hamburgetMenu = document.querySelector('.hamburger-menu');
 const tabletNav = document.querySelector('.tablet-nav');
 const tabletOverlay = document.querySelector('.tablet-overlay');
 let hamburgerMenuDivClicked = false;

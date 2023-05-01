@@ -253,8 +253,17 @@ for(let i = 0; i < allExamples.length; i++)
   shuffle_examples(i);
 }
 
-unShowAllExamples();
-assign_showExample();
+if(window.innerWidth > 1150)
+{
+
+  unShowAllExamples();
+  assign_showExample();
+
+}
+else
+{
+  unShowAllExamples();
+}
 
 
 window.addEventListener('resize', () =>
@@ -1424,53 +1433,44 @@ function apply_afterIcon(icon)
 
 // DISCLAIMER OVERLAY
 
-const overlay = document.querySelector('.overlay');
-const disclaimerDiv = document.querySelector('.disclaimer-div');
-const disclaimerButton = document.querySelector('.disclaimer-button');
+// const disclaimerDiv = document.querySelector('.disclaimer-div');
+// const disclaimerButton = document.querySelector('.disclaimer-button');
 
-let userEntries = localStorage.getItem('userEntries')
-let pressedYet = localStorage.getItem('pressedYet')
+// let userEntries = localStorage.getItem('userEntries');
+// let pressedYet = localStorage.getItem('pressedYet');
 
 
-userEntries = (userEntries || !isNaN(userEntries)) ? userEntries : 0;
-pressedYet = (pressedYet || !isNaN(pressedYet)) ? pressedYet : 'false';
+// userEntries = (userEntries || !isNaN(userEntries)) ? userEntries : 0;
+// pressedYet = (pressedYet || !isNaN(pressedYet)) ? pressedYet : 'false';
 
-if(pressedYet == 'false')
-{
-  userEntries = 0;
-}
+// if(pressedYet == 'false')
+// {
+//   userEntries = 0;
+// }
 
-if(userEntries >= 15 && pressedYet == 'true')
-{
-  userEntries = 0;
-  pressedYet = 'false';
-  localStorage.setItem('pressedYet', pressedYet);
+// if(userEntries >= 15 && pressedYet == 'true')
+// {
+//   userEntries = 0;
+//   pressedYet = 'false';
+//   localStorage.setItem('pressedYet', pressedYet);
 
-}
+// }
 
-userEntries = parseInt(userEntries);
+// userEntries = parseInt(userEntries);
 
-if(userEntries == 0)
-{
-  overlay.style.display = 'initial';
-  disclaimerDiv.classList.remove("disclaimer-dissapear");
-}
+// if(userEntries == 0)
+// {
+//   disclaimerDiv.classList.remove('hide-disclaimer-div');
+// }
 
-disclaimerButton.addEventListener('click', () =>
-{
-  disclaimerDiv.style.display = 'initial';
-  disclaimerDiv.classList.add('disclaimer-dissapear');
-  
-  setTimeout(() =>
-  {
-    disclaimerDiv.style.display = 'none';
-    overlay.classList.remove('overlay');
-  }, 100);
+// disclaimerButton.addEventListener('click', () =>
+// {
+//   disclaimerDiv.classList.add('hide-disclaimer-div');
 
-  pressedYet = 'true';
-  localStorage.setItem('pressedYet', pressedYet);
+//   pressedYet = 'true';
+//   localStorage.setItem('pressedYet', pressedYet);
 
-});
+// });
 
-userEntries += 1;
-localStorage.setItem('userEntries', userEntries);
+// userEntries += 1;
+// localStorage.setItem('userEntries', userEntries);
