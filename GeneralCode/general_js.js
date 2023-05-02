@@ -148,3 +148,26 @@ tabletOverlay.addEventListener('click', () =>
 		hamburgerMenuDiv.classList.remove('intoX');
 	}
 })
+
+// DISCLAIMER
+
+const copyrightDiv = document.querySelector('.copyright-div');
+const disclaimer = document.querySelector('.disclaimer-div');
+const disclaimerButton = document.querySelector('.disclaimer-button');
+const overlay = document.querySelector('.overlay');
+
+copyrightDiv.addEventListener('click', () =>
+{
+	disclaimer.style.display = 'initial';
+	overlay.style.display = 'initial';
+})
+disclaimerButton.addEventListener('click', () =>
+{
+	disclaimer.style.display = 'none';
+	overlay.style.display = 'none';
+})
+overlay.addEventListener('click', () =>
+{
+	disclaimer.style.display = 'none';
+	overlay.style.display = 'none';
+})

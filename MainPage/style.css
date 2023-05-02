@@ -527,59 +527,6 @@
 	animation: scale-up-down 0.15s forwards;
 }
 
-/*POPUP DISCLAIMER*/
-
-.hide-disclaimer-div
-{
-	display: none;
-}
-.disclaimer-div
-{
-	background-color: var(--thirdDark);
-	width: 100%;
-	height: auto;
-	z-index: 11;
-	position: relative;
-}
-.disclaimer-content
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-}
-.disclaimer
-{
-	font-size: 0.9375rem;
-	padding: 0.80rem 0.5rem;
-	color: var(--white);
-}
-.disclaimer-button
-{
-	display: flex;
-	align-content: center;
-	justify-content: center;
-	width: auto;
-	height: 100%;
-	cursor: pointer;
-	background: none;
-	border: none;
-	padding: 0  2rem;
-}
-.disclaimer-icon
-{
-	width: 0.75rem;
-	height: 0.75rem;
-	fill: var(--white);
-	opacity: 0.75;
-	transition: all 0.25s ease-in-out;
-}
-.disclaimer-button:hover .disclaimer-icon
-{
-	opacity: 1;
-}
-
 @media(max-width: 1150px)
 {
 	:root
