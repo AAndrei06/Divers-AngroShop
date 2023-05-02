@@ -40,7 +40,8 @@ window.addEventListener('resize', () =>
 {
 	getMaxMin();
 	getSlideShowValues();
-	preInstall_Slideshow()
+	preInstall_Slideshow();
+	change_slideShow();
 })
 
 preInstall_Slideshow();
@@ -645,3 +646,10 @@ window.addEventListener('resize', () =>
 		linkText.innerHTML = "Contacteazăne-ne pentru alte detalii";
 	}
 })
+
+// RANDOM REVIEW
+
+const staticReviews = document.querySelectorAll('.static-review');
+let randReview = Math.floor(Math.random() * 2 + 1);
+
+staticReviews[randReview].classList.add('random-review');

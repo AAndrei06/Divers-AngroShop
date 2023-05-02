@@ -43,6 +43,7 @@
 }
 .form-input-text
 {
+	height: var(--form-text);
 	pointer-events: none;
 	display: flex;
 	align-items: center;
@@ -101,9 +102,12 @@ textarea {
   resize: vertical;
 }
 .form-input-text-description
-{
+{	
 	pointer-events: none;
+	height: var(--form-text);
 	display: flex;
+	align-items: center;
+	justify-content: center;
 	gap: var(--form-gap);
 	position: absolute;
 	top: 24px;
@@ -147,7 +151,6 @@ textarea {
 	transform: rotate(-45deg);
 
 }
-
 .form-send-button
 {
 	position: relative;
@@ -349,10 +352,15 @@ textarea {
 }
 .form-icon
 {
+	margin-bottom: 7px;
 	width: var(--form-text);
 	height: var(--form-text);
 	fill: var(--fourthGreen);
-	transition: all 0.15s;
+	transition: all 0.15s ease-in-out;
+}
+.icon-down
+{
+	margin-bottom: 3px;
 }
 .form-button-icon
 {
@@ -486,6 +494,10 @@ textarea {
 	.faq-icon
 	{
 		right: 0;
+	}
+	#contact-mini
+	{
+		width: 100%;
 	}
 	
 }

@@ -386,16 +386,6 @@ input[name='r']
 	transform: translateX(25%);
 	transition: transform 0.25s, blur 0.15s, opacity 0.15s;
 }
-.static-review
-{
-	margin-top: var(--bigM);
-	position: static;
-	display: none;
-	transform: translateX(0);
-	filter: blur(0) brightness(1.0);
-	transition: all 0s;
-	opacity: 1;
-}
 #first-review
 {
 	top: 0;
@@ -408,6 +398,22 @@ input[name='r']
 {
 	top: calc(var(--bigM) + 37rem);
 }
+
+.static-review
+{
+	margin-top: var(--bigM);
+	position: static;
+	display: none;
+	transform: translateX(0);
+	filter: blur(0) brightness(1.0);
+	transition: all 0s;
+	opacity: 1;
+}
+.random-review
+{
+	display: none !important;
+}
+
 .current-review
 {
 	opacity: 1;
@@ -448,7 +454,6 @@ input[name='r']
 }
 .review-photo
 {
-	overflow: hidden;
 	aspect-ratio: 1;
 	width: clamp(75px,5vw,100px);
 	height: auto;
@@ -643,10 +648,6 @@ input[name='r']
 }
 @media(max-width: 450px)
 {
-	/*.review-photo-div
-	{
-		width: 125px;
-	}*/
 	.actual-review
 	{
 		font-size: 0.9rem;
@@ -676,6 +677,7 @@ input[name='r']
 	{
 		font-size: 0.5rem;
 	}
+	
 
 	
 }
