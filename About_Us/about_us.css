@@ -454,7 +454,6 @@ input[name='r']
 }
 .review-photo
 {
-	overflow: hidden;
 	aspect-ratio: 1;
 	width: clamp(75px,5vw,100px);
 	height: auto;
@@ -649,10 +648,6 @@ input[name='r']
 }
 @media(max-width: 450px)
 {
-	/*.review-photo-div
-	{
-		width: 125px;
-	}*/
 	.actual-review
 	{
 		font-size: 0.9rem;

@@ -1266,7 +1266,7 @@ a
 {
 	.disclaimer-div
 	{
-		padding: 3rem 3rem;
+		padding: 1.5rem 1.5rem;
 	}
 
 	.disclaimer
@@ -1305,12 +1305,6 @@ a
 	.welcome-div
 	{
 		gap: 2rem;
-	}
-
-
-	.disclaimer-div
-	{
-		padding: 1.5rem 1.5rem;
 	}
 
 	.disclaimer

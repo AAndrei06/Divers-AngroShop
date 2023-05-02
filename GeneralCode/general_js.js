@@ -249,23 +249,25 @@ function removeDisclaimer()
 
 function get_disclaimerValues()
 {
-	if(window.innerWidth > 750)
+	if(window.innerWidth >= 750)
 	{
 		disclaimerWidth = '40rem';
 		disclaimerHeight = '30rem';
 		disclaimerBorder = '64px';
 	}
-	if(window.innerWidth < 750 && window.innerWidth > 650)
+	if(window.innerWidth < 750 && window.innerWidth >= 650)
 	{
 		disclaimerWidth = '30rem';
 		disclaimerHeight = '25rem';
+		disclaimerBorder = '64px';
 	}
-	if(window.innerWidth < 650 && window.innerWidth > 550)
+	if(window.innerWidth < 650 && window.innerWidth >= 550)
 	{
 		disclaimerWidth = '100%';
 		disclaimerHeight = '30rem';
+		disclaimerBorder = '64px';
 	}
-	if(window.innerWidth < 550 && window.innerWidth > 450)
+	if(window.innerWidth < 550 && window.innerWidth >= 450)
 	{
 		disclaimerWidth = '100%';
 		disclaimerHeight = '30rem';
