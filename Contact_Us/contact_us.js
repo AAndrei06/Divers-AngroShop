@@ -55,18 +55,20 @@ function isValidEmail(email) {
 // Sa dispara textu din inputuri cand apesi pe un input :)
 let formInputs = document.querySelectorAll('.form-input');
 let formDescription = document.querySelector('.form-input-description');
-
+// 
 formInputs.forEach(input =>
 {
 	input.addEventListener('focus', () =>
 	{
 		input.previousElementSibling.children[1].style.display = 'none';
+		input.previousElementSibling.children[0].classList.add('icon-down');
 	})
 	input.addEventListener('blur', () =>
 	{
 		if(input.value.trim() == '')
 		{
 			input.previousElementSibling.children[1].style.display = 'initial';
+			input.previousElementSibling.children[0].classList.remove('icon-down');
 		}
 		
 	})
@@ -75,12 +77,15 @@ formInputs.forEach(input =>
 formDescription.addEventListener('focus', () =>
 {
 	formDescription.previousElementSibling.children[1].style.display = 'none';
+	formDescription.previousElementSibling.children[0].classList.add('icon-down');
 })
 formDescription.addEventListener('blur', () =>
 {
 	if(formDescription.value.trim() == '')
 	{
 		formDescription.previousElementSibling.children[1].style.display = 'initial';
+		formDescription.previousElementSibling.children[0].classList.remove('icon-down');
+
 	}
 })
 
