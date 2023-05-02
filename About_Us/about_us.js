@@ -40,7 +40,8 @@ window.addEventListener('resize', () =>
 {
 	getMaxMin();
 	getSlideShowValues();
-	preInstall_Slideshow()
+	preInstall_Slideshow();
+	change_slideShow();
 })
 
 preInstall_Slideshow();
