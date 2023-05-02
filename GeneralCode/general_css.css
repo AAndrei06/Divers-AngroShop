@@ -1214,7 +1214,6 @@ a
 		left: 0;
 		position: fixed;
 		z-index: 7;
-		
 	}
 	.nav-bar
 	{
@@ -1406,7 +1405,10 @@ a
 
   	--welcomeM: 25rem;
 	}
-	
+	header
+	{
+		position: static;
+	}
 	.link
 	{
 		font-size: 1rem;
@@ -1487,7 +1489,7 @@ a
 	}
 	#first-mini
 	{
-		margin-top: calc(var(--welcomeM) - 15rem);
+		margin-top: calc(var(--welcomeM) - 13rem);
 	}
 	.end-section-start-text-div
 	{

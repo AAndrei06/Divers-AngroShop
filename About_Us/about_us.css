@@ -616,10 +616,6 @@ input[name='r']
 }
 @media(max-width: 510px)
 {
-	#slide-show-section
-	{
-		margin-top: calc(var(--welcomeM) - 7rem);
-	}
 	.no-padding
 	{
 		padding: 0;
@@ -681,6 +677,7 @@ input[name='r']
 	{
 		font-size: 0.5rem;
 	}
+	
 
 	
 }
