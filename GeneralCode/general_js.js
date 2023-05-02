@@ -154,20 +154,128 @@ tabletOverlay.addEventListener('click', () =>
 const copyrightDiv = document.querySelector('.copyright-div');
 const disclaimer = document.querySelector('.disclaimer-div');
 const disclaimerButton = document.querySelector('.disclaimer-button');
+const disclaimerContent = document.querySelector('.disclaimer-content');
+const disclaimerText = document.querySelector('.disclaimer');
+const disclaimerIcon = document.querySelector('.disclaimer-icon');
 const overlay = document.querySelector('.overlay');
+let disclaimerWidth;
+let disclaimerHeight;
+let disclaimerBorder;
+
+get_disclaimerValues()
+
+window.addEventListener('resize', get_disclaimerValues);
+
+let disclaimerDissapear = anime({
+	targets: disclaimer,
+	autoplay: false,
+	borderRadius: [disclaimerBorder, '1000px'],
+  width: [disclaimerWidth, '0rem'],
+  height: [disclaimerHeight, '0rem'],
+  easing: 'linear',
+  duration: 150
+})
+
+let disclaimerFill = anime({
+	targets: disclaimer,
+	autoplay: false,
+	borderRadius: ['1000px', disclaimerBorder],
+  width: ['0rem', disclaimerWidth],
+  height: ['0rem',disclaimerHeight],
+  easing: 'linear',
+  duration: 150
+})
+
+let overlayDissapear = anime({
+	targets: overlay,
+	autoplay: false,
+	opacity: [1, 0],
+  easing: 'linear',
+  duration: 150
+})
+
+let overlayAppear = anime({
+	targets: overlay,
+	autoplay: false,
+	opacity: [0, 1],
+  easing: 'linear',
+  duration: 150
+})
+
+
 
 copyrightDiv.addEventListener('click', () =>
 {
 	disclaimer.style.display = 'initial';
 	overlay.style.display = 'initial';
+
+	disclaimerFill.play();
+	overlayAppear.play();
+	setTimeout(() =>
+	{
+		disclaimerContent.style.display = 'flex';
+		disclaimerText.style.display = 'initial';
+		disclaimerIcon.style.display = 'initial';
+		disclaimerButton.style.display = 'flex';
+	}, 150)
+
 })
+
 disclaimerButton.addEventListener('click', () =>
 {
-	disclaimer.style.display = 'none';
-	overlay.style.display = 'none';
+	removeDisclaimer()
 })
+
 overlay.addEventListener('click', () =>
 {
-	disclaimer.style.display = 'none';
-	overlay.style.display = 'none';
+	removeDisclaimer()
 })
+
+
+function removeDisclaimer()
+{
+	disclaimerContent.style.display = 'none';
+	disclaimerText.style.display = 'none';
+	disclaimerIcon.style.display = 'none';
+	disclaimerButton.style.display = 'none';
+	disclaimerDissapear.play();
+	overlayDissapear.play();
+	setTimeout(() =>
+	{
+		disclaimer.style.display = 'none';
+		overlay.style.display = 'none';
+	}, 150)
+}
+
+function get_disclaimerValues()
+{
+	if(window.innerWidth > 750)
+	{
+		disclaimerWidth = '40rem';
+		disclaimerHeight = '30rem';
+		disclaimerBorder = '64px';
+	}
+	if(window.innerWidth < 750 && window.innerWidth > 650)
+	{
+		disclaimerWidth = '30rem';
+		disclaimerHeight = '25rem';
+	}
+	if(window.innerWidth < 650 && window.innerWidth > 550)
+	{
+		disclaimerWidth = '100%';
+		disclaimerHeight = '30rem';
+	}
+	if(window.innerWidth < 550 && window.innerWidth > 450)
+	{
+		disclaimerWidth = '100%';
+		disclaimerHeight = '30rem';
+		disclaimerBorder = '48px';
+	}
+	if(window.innerWidth < 450)
+	{
+		disclaimerWidth = '100%';
+		disclaimerHeight = '30rem';
+		disclaimerBorder = '32px';
+	}
+
+}
