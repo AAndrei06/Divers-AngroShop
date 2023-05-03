@@ -108,12 +108,6 @@ function assignPosition()
       }
     }
 
-    
-    // console.log('===============================');
-    // console.log('randomIconNum: '+randomIconNum);
-    // console.log('randIconNumArray: '+randIconNumArray);
-    
-
     let randomPositionNum = Math.floor(Math.random() * numOfPositions);
 
     while(!numPositionFound)
@@ -131,11 +125,6 @@ function assignPosition()
       }
     }
 
-    // console.log('randomPositionNum: '+randomPositionNum)
-    // console.log('randCoordNumArray: '+randCoordNumArray);
-    // console.log('===============================')
-    
-
     randomIcons[randomIconNum].style.left = `${coordinates[randomPositionNum][0]}vw`;
     
     randomIcons[randomIconNum].style.top = `${coordinates[randomPositionNum][1]}px`;
@@ -144,10 +133,6 @@ function assignPosition()
   }
 
 }
-
-// let allRandomIcons = document.querySelectorAll('.random-category-anchor');
-
-
 
 // SCROLL LA CATEGORII
 
@@ -199,7 +184,6 @@ allCategoryDivs.addEventListener('mouseleave', () => {
   categoryIsDragging = false;
 });
 
-// Use passive event listener for smoother scrolling
 allCategoryDivs.addEventListener('scroll', (event) => {
   
   clearTimeout(anchorTimeout);
@@ -501,10 +485,8 @@ class Carousel
   //INITIAL
   add_grab()
   {
-    // let slidesIsDragging = false;
     let slidesStartX = 0;
     let slidesScrollLeft = 0;
-    // let slidesIsScrolling = false; 
 
     let firstMouse = 0;
     let secondMouse = 0;
@@ -1224,8 +1206,8 @@ class Product_Progress
   get_scrollPercent()
   {
     let {scrollTop, scrollHeight} = document.documentElement
-    let headHeight = 1600;//Height la sectiunea de sus de tot pana la inceputul sectiunii cu carusele 
-    let bottomHeight = 800;//Height la sectiunea de la Te Asteptam pana jos de tot
+    let headHeight = 1600;
+    let bottomHeight = 800;
     let scrollPercent = ((scrollTop-headHeight)*100)/(scrollHeight-(headHeight + bottomHeight));
 
     return scrollPercent;
@@ -1429,8 +1411,3 @@ function apply_afterIcon(icon)
   }
 
 }
-
-
-// DISCLAIMER OVERLAY
-
-

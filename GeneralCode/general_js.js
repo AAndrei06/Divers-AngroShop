@@ -44,7 +44,7 @@ function dezactivate_backupButton(button)
 	}, 1000);
 }
 
-// // Cand vede ultima sectiune sa dispara
+// Cand vede ultima sectiune sa dispara
 
 function getScrollPercent()
 {

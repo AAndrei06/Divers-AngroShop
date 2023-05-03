@@ -55,7 +55,7 @@ function isValidEmail(email) {
 // Sa dispara textu din inputuri cand apesi pe un input :)
 let formInputs = document.querySelectorAll('.form-input');
 let formDescription = document.querySelector('.form-input-description');
-// 
+
 formInputs.forEach(input =>
 {
 	input.addEventListener('focus', () =>

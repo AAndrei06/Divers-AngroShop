@@ -436,7 +436,7 @@ const reviewsDiv = document.querySelector('.reviews');
 const generalTextArea = document.querySelector('#review-text-area-general');
 const TextAreaStyles = getComputedStyle(generalTextArea);
 const TextAreaMarginTop = parseInt(TextAreaStyles.getPropertyValue('margin-top'));
-console.log('TextAreaMarginTop: '+TextAreaMarginTop)
+
 let pastStatementScroll = 0;
 let currentStatementScroll = 0;
 let currentStatementTop = 0;
