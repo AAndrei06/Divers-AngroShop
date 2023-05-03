@@ -15,11 +15,11 @@ Contact: un formular pentru clienți să ia legătura cu magazinul pentru între
 
 Am folosit următoarele tehnologii pentru a dezvolta site-ul web:
 
-HTML pentru structura și conținutul paginilor web. <br />
-CSS pentru prezentare și aspectul paginilor web. <br />
-JavaScript pentru interactivitate și conținut dinamic. <br />
-Anime.js pentru animatii complexe. <br />
-Git și GitHub pentru controlul versiunilor și colaborare. <br />
+- HTML - pentru structura și conținutul paginilor web. <br />
+- CSS - pentru prezentare și aspectul paginilor web. <br />
+- JavaScript - pentru interactivitate și conținut dinamic. <br />
+- Anime.js - pentru animatii complexe. <br />
+- Git și GitHub - pentru controlul versiunilor și colaborare. <br />
 
 ## Scopuri
 
