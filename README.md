@@ -36,8 +36,8 @@ Ne-am concentrat ca website-ul sa aibă:
 
 ## Contribuitori
 
-Arseni Andrei: https://github.com/andrei0690
-Gisca Artur: https://github.com/Arsitur
+Arseni Andrei: https://github.com/andrei0690 <br />
+Gisca Artur: https://github.com/Arsitur <br />
 
 ### Mulțumiri
 
