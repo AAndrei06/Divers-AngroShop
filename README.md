@@ -6,20 +6,20 @@ Acest proiect a fost dezvoltat de Gisca Artur și Arseni Andrei, 2 elevi pasiona
 
 Site-ul web va oferi Divers Angro Shop o prezență online, unde clienții pot afla mai multe despre magazin, produsele și serviciile sale, precum și cum să găsească și să ia legătura cu staff-ul. Site-ul va include următoarele pagini:
 
-Produse: o prezentare a produselor Divers Angro Shop-ului, inclusiv descrieri, prețuri și imagini.
-Despre noi: o multitudine de informatii legate de Divers Angro Shop.
-Contact: un formular pentru clienți să ia legătura cu magazinul pentru întrebări sau feedback.
-Știri: o mulțime de știri culese de pe pagina oficiala de facebook.
+Produse: o prezentare a produselor Divers Angro Shop-ului, inclusiv descrieri, prețuri și imagini. <br />
+Despre noi: o multitudine de informatii legate de Divers Angro Shop. <br />
+Contact: un formular pentru clienți să ia legătura cu magazinul pentru întrebări sau feedback. <br />
+Știri: o mulțime de știri culese de pe pagina oficiala de facebook. <br />
 
 ## Tehnologii utilizate
 
 Am folosit următoarele tehnologii pentru a dezvolta site-ul web:
 
-HTML pentru structura și conținutul paginilor web.
-CSS pentru prezentare și aspectul paginilor web.
-JavaScript pentru interactivitate și conținut dinamic.
-Anime.js pentru animatii complexe.
-Git și GitHub pentru controlul versiunilor și colaborare.
+HTML pentru structura și conținutul paginilor web. <br />
+CSS pentru prezentare și aspectul paginilor web. <br />
+JavaScript pentru interactivitate și conținut dinamic. <br />
+Anime.js pentru animatii complexe. <br />
+Git și GitHub pentru controlul versiunilor și colaborare. <br />
 
 ## Scopuri
 
