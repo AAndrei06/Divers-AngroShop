@@ -1,47 +1,44 @@
-# Divers Angro Shop
-Proiectul site-ului Divers Angro Shop
+# Website pentru Divers Angro Shop
 
-Acest proiect este dezvoltat de Gisca Artur și Arseni Andrei în cadrul Tekwill Junior Ambassadors, categoria de proiectare si dezvoltare web. Scopul nostru este de a crea un site web pentru Divers Angro Shop, un magazin fizic local care vinde o gamă largă de produse.
+Acest proiect a fost dezvoltat de Gisca Artur și Arseni Andrei, 2 elevi pasionați de front-end, în cadrul Tekwill Junior Ambassadors, categoria de proiectare si dezvoltare web. Scopul nostru a fost de a crea un website interactiv, plin de diferite functii pentru Divers Angro Shop, un magazin fizic din or. Leova care vinde o gamă largă de produse.
 
-# Prezentare generală a proiectului
-Site-ul nostru web va oferi Divers Angro Shop o prezență online, unde clienții pot afla mai multe despre magazin, produsele și serviciile sale, precum și cum să găsească și să ia legătura cu magazinul. Site-ul va include următoarele secțiuni:
+## Prezentare generală a proiectului
 
-Pagina Produse/Servicii: o prezentare a ofertelor Divers Angro Shop-ului, inclusiv descrieri, prețuri și imagini
-Despre noi: o multitudine de informatii legate de Divers Angro Shop
-Contact: un formular pentru clienți să ia legătura cu magazinul pentru întrebări sau feedback
-Știri: o mulțime de știri culese de pe pagina oficiala de facebook
-Tehnologii utilizate
-Folosim următoarele tehnologii pentru a dezvolta site-ul web:
+Site-ul web va oferi Divers Angro Shop o prezență online, unde clienții pot afla mai multe despre magazin, produsele și serviciile sale, precum și cum să găsească și să ia legătura cu staff-ul. Site-ul va include următoarele pagini:
 
-HTML5 pentru structura și conținutul paginilor web
-CSS3 pentru prezentare și aspectul paginilor web
-JavaScript pentru interactivitate și conținut dinamic
-Git și GitHub pentru controlul versiunilor și colaborare
+Produse: o prezentare a produselor Divers Angro Shop-ului, inclusiv descrieri, prețuri și imagini.
+Despre noi: o multitudine de informatii legate de Divers Angro Shop.
+Contact: un formular pentru clienți să ia legătura cu magazinul pentru întrebări sau feedback.
+Știri: o mulțime de știri culese de pe pagina oficiala de facebook.
 
-Starea proiectului.
+## Tehnologii utilizate
 
-La data de 23.02.2023, am finalizat următoarele sarcini:
+Am folosit următoarele tehnologii pentru a dezvolta site-ul web:
 
-Aproape Tot
+HTML pentru structura și conținutul paginilor web.
+CSS pentru prezentare și aspectul paginilor web.
+JavaScript pentru interactivitate și conținut dinamic.
+Anime.js pentru animatii complexe.
+Git și GitHub pentru controlul versiunilor și colaborare.
 
-# Următoarele noastre sarcini sunt:
+## Scopuri
 
-Să testăm site-ul web pe diferite dispozitive și browsere
-Să optimizăm site-ul web pentru motoarele de căutare și accesibilitate
+In cadrul proiectului am avut o varietate de scopuri:
 
+Ne-am concentrat ca website-ul sa aibă:
 
-# Cum să începeți
-Pentru a rula site-ul web local pe mașina dumneavoastră, urmați acești pași:
+- Idei originale
+- Design minimalist
+- Identitate unică
+- Interactivitate
+- Doar content/functii necesare
+- Animatii simple
 
-Clonați depozitul GitHub pe mașina locală.
-Deschideți directorul proiectului în editorul dvs. de cod preferat.
-Deschideți fișierul index.html în browserul dvs. pentru a vizualiza pagina principală.
+## Contribuitori
 
-# Contribuitori
 Arseni Andrei: https://github.com/andrei0690
 Gisca Artur: https://github.com/Arsitur
 
-# Mulțumiri
-Dorim să le mulțumim instructorului nostru de dezvoltare web și colegilor noștri pentru sprijinul și feedback-ul acordat pe parcursul acestui proiect. De asemenea, dorim să mulțumim Divers Angro Shop pentru că ne-a oferit oportunitatea de a crea acest site web și de a promova afacerea lor.
+### Mulțumiri
 
-***Copyright Divers 2023-2024 All Rights Reserved
+Dorim să le mulțumim instructorului nostru de dezvoltare web și colegilor noștri pentru sprijinul și feedback-ul acordat pe parcursul acestui proiect. De asemenea, dorim să mulțumim magazinului Divers Angro Shop pentru că ne-a oferit oportunitatea de a crea acest website.
