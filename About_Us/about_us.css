@@ -454,7 +454,7 @@ input[name='r']
 }
 .review-photo
 {
-	aspect-ratio: 1;
+/*	aspect-ratio: 1;*/
 	width: clamp(75px,5vw,100px);
 	height: auto;
 	flex-shrink: 0;
